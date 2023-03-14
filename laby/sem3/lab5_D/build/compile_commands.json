@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/home/stud2021/1kolanko/laby/sem3/lab5_D/build",
+  "command": "/usr/bin/g++ -DMAPCALC -I../include -g -std=gnu++14 -o CMakeFiles/main.dir/main.cpp.o -c /home/stud2021/1kolanko/laby/sem3/lab5_D/main.cpp",
+  "file": "/home/stud2021/1kolanko/laby/sem3/lab5_D/main.cpp"
+},
+{
+  "directory": "/home/stud2021/1kolanko/laby/sem3/lab5_D/build",
+  "command": "/usr/bin/g++ -DMAPCALC -I../include -g -std=gnu++14 -o CMakeFiles/main.dir/src/Element.cpp.o -c /home/stud2021/1kolanko/laby/sem3/lab5_D/src/Element.cpp",
+  "file": "/home/stud2021/1kolanko/laby/sem3/lab5_D/src/Element.cpp"
+},
+{
+  "directory": "/home/stud2021/1kolanko/laby/sem3/lab5_D/build",
+  "command": "/usr/bin/g++ -DMAPCALC -I../include -g -std=gnu++14 -o CMakeFiles/main.dir/src/MyList.cpp.o -c /home/stud2021/1kolanko/laby/sem3/lab5_D/src/MyList.cpp",
+  "file": "/home/stud2021/1kolanko/laby/sem3/lab5_D/src/MyList.cpp"
+}
+]

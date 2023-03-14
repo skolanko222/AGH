@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/Filters.h
+
+/home/stud2021/1kolanko/laby/sem3/lab3/main.cpp
+iostream
+-
+Filters.h
+/home/stud2021/1kolanko/laby/sem3/lab3/Filters.h
+
+/home/stud2021/1kolanko/laby/sem3/lab3/src/Filters.cpp
+iostream
+-
+

@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/home/stud2021/1kolanko/laby/sem3/lab4/build",
+  "command": "/usr/bin/g++ -I../include -g -std=gnu++14 -o CMakeFiles/main.dir/main.cpp.o -c /home/stud2021/1kolanko/laby/sem3/lab4/main.cpp",
+  "file": "/home/stud2021/1kolanko/laby/sem3/lab4/main.cpp"
+},
+{
+  "directory": "/home/stud2021/1kolanko/laby/sem3/lab4/build",
+  "command": "/usr/bin/g++ -I../include -g -std=gnu++14 -o CMakeFiles/main.dir/src/MapPoint.cpp.o -c /home/stud2021/1kolanko/laby/sem3/lab4/src/MapPoint.cpp",
+  "file": "/home/stud2021/1kolanko/laby/sem3/lab4/src/MapPoint.cpp"
+},
+{
+  "directory": "/home/stud2021/1kolanko/laby/sem3/lab4/build",
+  "command": "/usr/bin/g++ -I../include -g -std=gnu++14 -o CMakeFiles/Map.dir/src/MapPoint.cpp.o -c /home/stud2021/1kolanko/laby/sem3/lab4/src/MapPoint.cpp",
+  "file": "/home/stud2021/1kolanko/laby/sem3/lab4/src/MapPoint.cpp"
+}
+]

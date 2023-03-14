@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/home/stud2021/1kolanko/laby/sem3/build",
+  "command": "/usr/bin/clang++-11 -I/home/stud2021/1kolanko/laby/sem3/lab9/include -g -std=gnu++14 -o CMakeFiles/main.dir/main.cpp.o -c /home/stud2021/1kolanko/laby/sem3/lab9/main.cpp",
+  "file": "/home/stud2021/1kolanko/laby/sem3/lab9/main.cpp"
+},
+{
+  "directory": "/home/stud2021/1kolanko/laby/sem3/build",
+  "command": "/usr/bin/clang++-11 -I/home/stud2021/1kolanko/laby/sem3/lab9/include -g -std=gnu++14 -o CMakeFiles/main.dir/src/assoc.cpp.o -c /home/stud2021/1kolanko/laby/sem3/lab9/src/assoc.cpp",
+  "file": "/home/stud2021/1kolanko/laby/sem3/lab9/src/assoc.cpp"
+}
+]

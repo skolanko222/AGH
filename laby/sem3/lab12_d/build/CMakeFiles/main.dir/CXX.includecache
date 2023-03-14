@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/Point2DSmartPtr.h
+iostream
+-
+PointAverage.h
+../include/PointAverage.h
+
+../include/PointAverage.h
+iostream
+-
+functional
+-
+vector
+-
+Point2DSmartPtr.h
+../include/Point2DSmartPtr.h
+
+/home/lab/lab11_d/main.cpp
+iostream
+-
+Point2DSmartPtr.h
+/home/lab/lab11_d/Point2DSmartPtr.h
+PointAverage.h
+/home/lab/lab11_d/PointAverage.h
+
+/home/lab/lab11_d/src/Point2DSmartPtr.cpp
+Point2DSmartPtr.h
+/home/lab/lab11_d/src/Point2DSmartPtr.h
+

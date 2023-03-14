@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/MapDistance.h
+
+../include/MapPoint.h
+iostream
+-
+string
+-
+
+/home/stud2021/1kolanko/laby/sem3/lab6_olej/main.cpp
+iostream
+-
+MapPoint.h
+/home/stud2021/1kolanko/laby/sem3/lab6_olej/MapPoint.h
+MapDistance.h
+/home/stud2021/1kolanko/laby/sem3/lab6_olej/MapDistance.h
+MapDistance.h
+/home/stud2021/1kolanko/laby/sem3/lab6_olej/MapDistance.h
+
+/home/stud2021/1kolanko/laby/sem3/lab6_olej/src/MapPoint.cpp
+iostream
+-
+string
+-
+MapPoint.h
+/home/stud2021/1kolanko/laby/sem3/lab6_olej/src/MapPoint.h
+

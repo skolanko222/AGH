@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/DynamicArray.h
+iostream
+-
+
+/home/stud2021/1kolanko/laby/sem3/lab5/main.cpp
+iostream
+-
+DynamicArray.h
+/home/stud2021/1kolanko/laby/sem3/lab5/DynamicArray.h
+
+/home/stud2021/1kolanko/laby/sem3/lab5/src/DynamicArray.cpp
+DynamicArray.h
+/home/stud2021/1kolanko/laby/sem3/lab5/src/DynamicArray.h
+iostream
+-
+

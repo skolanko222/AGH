@@ -1,0 +1,3 @@
+/home/stud2021/1kolanko/laby/sem4/lab1/build/CMakeFiles/rebuild_cache.dir
+/home/stud2021/1kolanko/laby/sem4/lab1/build/CMakeFiles/edit_cache.dir
+/home/stud2021/1kolanko/laby/sem4/lab1/build/CMakeFiles/Point.dir

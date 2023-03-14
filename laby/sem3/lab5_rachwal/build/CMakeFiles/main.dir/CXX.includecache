@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/MapPoint.h
+iostream
+-
+
+/home/stud2021/1kolanko/laby/sem3/lab5_rachwal/main.cpp
+MapPoint.h
+/home/stud2021/1kolanko/laby/sem3/lab5_rachwal/MapPoint.h
+
+/home/stud2021/1kolanko/laby/sem3/lab5_rachwal/src/MapPoint.cpp
+MapPoint.h
+/home/stud2021/1kolanko/laby/sem3/lab5_rachwal/src/MapPoint.h
+cmath
+/home/stud2021/1kolanko/laby/sem3/lab5_rachwal/src/cmath
+

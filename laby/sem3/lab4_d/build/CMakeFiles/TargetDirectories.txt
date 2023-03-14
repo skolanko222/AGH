@@ -1,0 +1,6 @@
+/home/lab/lab4_d/build/CMakeFiles/rebuild_cache.dir
+/home/lab/lab4_d/build/CMakeFiles/edit_cache.dir
+/home/lab/lab4_d/build/CMakeFiles/check.dir
+/home/lab/lab4_d/build/CMakeFiles/run.dir
+/home/lab/lab4_d/build/CMakeFiles/main.dir
+/home/lab/lab4_d/build/CMakeFiles/Map.dir

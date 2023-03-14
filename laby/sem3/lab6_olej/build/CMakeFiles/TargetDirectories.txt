@@ -1,0 +1,6 @@
+/home/stud2021/1kolanko/laby/sem3/lab6_olej/build/CMakeFiles/rebuild_cache.dir
+/home/stud2021/1kolanko/laby/sem3/lab6_olej/build/CMakeFiles/edit_cache.dir
+/home/stud2021/1kolanko/laby/sem3/lab6_olej/build/CMakeFiles/check.dir
+/home/stud2021/1kolanko/laby/sem3/lab6_olej/build/CMakeFiles/run.dir
+/home/stud2021/1kolanko/laby/sem3/lab6_olej/build/CMakeFiles/main.dir
+/home/stud2021/1kolanko/laby/sem3/lab6_olej/build/CMakeFiles/Map.dir

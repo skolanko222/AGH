@@ -1,0 +1,35 @@
+Start testing: Oct 18 14:53 CEST
+----------------------------------------------------------
+Unable to find executable: _NAME
+1/2 Testing: Test
+1/2 Test: Test
+Command: ""
+Directory: /home/stud2021/1kolanko/laby/sem3/lab1
+"Test" start time: 
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"Test" end time: Oct 18 14:53 CEST
+"Test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/2 Testing: Mem
+2/2 Test: Mem
+Command: "/usr/bin/valgrind" "--leak-check=full" "./_NAME"
+Directory: /home/stud2021/1kolanko/laby/sem3/lab1
+"Mem" start time: Oct 18 14:53 CEST
+Output:
+----------------------------------------------------------
+valgrind: ./_NAME: No such file or directory
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Failed.
+"Mem" end time: Oct 18 14:53 CEST
+"Mem" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 18 14:53 CEST

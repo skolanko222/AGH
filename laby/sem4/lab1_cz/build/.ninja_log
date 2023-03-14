@@ -1,0 +1,6 @@
+# ninja log v5
+7	521	1677829853536266181	CMakeFiles/main.dir/src/PointSmartPtr.cpp.o	54c16c56d94b0da0
+7	384	1677829535707708521	CMakeFiles/main.dir/src/Named.cpp.o	50d9e2a386a2954a
+6	544	1677829853576267761	CMakeFiles/main.dir/Main.cpp.o	6303cc1b3eb2b73c
+8	502	1677829535839713736	CMakeFiles/main.dir/src/Point.cpp.o	e23e88e660e10c3e
+544	702	1677829853748274558	main	d3666bfa39083718

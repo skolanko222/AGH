@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/PVec.h
+Wrapper.h
+../include/Wrapper.h
+vector
+-
+iostream
+-
+
+../include/Wrapper.h
+cstring
+-
+iostream
+-
+
+/home/stud2021/1kolanko/laby/sem3/lab13_d/main.cpp
+iostream
+-
+Wrapper.h
+/home/stud2021/1kolanko/laby/sem3/lab13_d/Wrapper.h
+PVec.h
+/home/stud2021/1kolanko/laby/sem3/lab13_d/PVec.h
+

@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/home/stud2021/1kolanko/laby/sem3/lab7/build",
+  "command": "/usr/bin/clang++-11 -I../include -g -std=gnu++14 -o CMakeFiles/main.dir/main.cpp.o -c /home/stud2021/1kolanko/laby/sem3/lab7/main.cpp",
+  "file": "/home/stud2021/1kolanko/laby/sem3/lab7/main.cpp"
+},
+{
+  "directory": "/home/stud2021/1kolanko/laby/sem3/lab7/build",
+  "command": "/usr/bin/clang++-11 -I../include -g -std=gnu++14 -o CMakeFiles/main.dir/src/Wektor.cpp.o -c /home/stud2021/1kolanko/laby/sem3/lab7/src/Wektor.cpp",
+  "file": "/home/stud2021/1kolanko/laby/sem3/lab7/src/Wektor.cpp"
+},
+{
+  "directory": "/home/stud2021/1kolanko/laby/sem3/lab7/build",
+  "command": "/usr/bin/clang++-11 -I../include -g -std=gnu++14 -o CMakeFiles/main.dir/src/Wymierne.cpp.o -c /home/stud2021/1kolanko/laby/sem3/lab7/src/Wymierne.cpp",
+  "file": "/home/stud2021/1kolanko/laby/sem3/lab7/src/Wymierne.cpp"
+}
+]

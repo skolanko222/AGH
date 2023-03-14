@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/SimplyStruct.h
+
+/home/stud2021/1kolanko/laby/sem3/lab2/src/SimplyStruct.cpp
+iostream
+-
+SimplyStruct.h
+/home/stud2021/1kolanko/laby/sem3/lab2/src/SimplyStruct.h
+

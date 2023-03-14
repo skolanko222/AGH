@@ -1,0 +1,128 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+void wypisz_i (int *poczatek, int *koniec);
+int cmp(const void *a, const void *b)
+{
+
+    return *((int *)a) - *((int *)b); 
+
+}
+int cmp2(const void *a, const void *b)
+{
+    int suma1 = suma( *((int ** )a), 10 );
+    int suma2 = suma( *((int ** )b), 10 );
+    return suma1 - suma2; 
+
+}
+int suma (int *tab, int len);
+
+
+int main(void)
+{
+    //3
+    srand(time(NULL));
+    int **tab_3 = malloc( 15*sizeof(int*));//15x10
+
+    for(int i = 0; i < 15; i++)  
+        tab_3[i] = malloc(10 * sizeof(int));
+
+    for(int i = 0; i < 15; i++)
+        for(int j = 0; j < 10; j++)
+             tab_3[i][j]  =  rand() % 21;
+    //33
+    int **tab_33 = malloc( 15 * sizeof(int*));
+
+    tab_33[0] = malloc(10 * 15 * sizeof(int));
+
+    for(int i = 1; i < 15; i++)  
+        tab_33[i] = tab_33[i-1] + (10 * sizeof(int));
+
+    for(int i = 0; i < 15; i++)
+        for(int j = 0; j < 10; j++)
+             tab_33[i][j]  =  rand() % 21;
+    //333
+    int (*tab_333)[10] = malloc(10 * 15 * sizeof(int));
+
+    for(int i = 0; i < 15  ; i++)
+        for(int j = 0; j < 10; j++)
+            tab_333[i][j]  =  rand() % 21;
+    //3
+    printf("tab3");
+    for(int i = 0; i < 15; i++)
+        {
+        wypisz_i(tab_3[i],tab_3[i] +10);
+
+        }
+    for(int i = 0; i < 15; i++)
+    {
+
+        qsort(tab_3[i], 10, sizeof(int), cmp);
+
+    }
+    printf("\n");
+    qsort(tab_3, 15, sizeof(tab_3[0]),cmp2);
+    for(int i = 0; i < 15; i++)
+        {
+        wypisz_i(tab_3[i],tab_3[i] +10);
+
+        }
+    printf("\n");
+    //33
+    for(int i = 0; i < 15; i++)
+    {
+
+        //wypisz_i(tab_33[i],tab_33[i] + 10);
+
+    }
+    printf("\n");
+    for(int i = 0; i < 15; i++)
+    {
+
+        //qsort(tab_33[i], 10, sizeof(int), cmp);
+
+    }
+    for(int i = 0; i < 15; i++)
+    {
+
+        //wypisz_i(tab_33[i],tab_33[i] + 10);
+
+    }
+    printf("\n");
+    //333
+    for(int i = 0; i < 15; i++)
+    {
+        //wypisz_i(tab_333 + i,tab_333 + i + 1);
+        
+    }
+    for(int i = 0; i < 15; i++)
+    {
+
+        //qsort(tab_333 + i, 10, sizeof(int), cmp);
+
+    }
+    printf("\n");
+    for(int i = 0; i < 15; i++)
+    {
+        //wypisz_i(tab_333 + i,tab_333 + i + 1);
+        
+    }
+
+    
+
+}
+
+void wypisz_i (int *poczatek, int *koniec) 
+{ 
+  while (poczatek < koniec) 
+    printf ("%4d ", *poczatek++);   
+  printf ("\n");    
+
+  return;
+}
+int suma (int *tab, int len) { 
+  int ss = 0;
+  for (int i = 0; i < len; i++)  
+    ss+= tab[i]; 
+ return ss;
+}

@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -rdynamic CMakeFiles/lab09.dir/Main.cpp.o CMakeFiles/lab09.dir/src/MapPoint.cpp.o -o lab09 

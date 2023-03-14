@@ -1,0 +1,1 @@
+/usr/bin/c++  -g  -rdynamic CMakeFiles/Point.dir/Main.cpp.o CMakeFiles/Point.dir/src/Named.cpp.o CMakeFiles/Point.dir/src/Point.cpp.o CMakeFiles/Point.dir/src/PointSmartPtr.cpp.o  -o Point 

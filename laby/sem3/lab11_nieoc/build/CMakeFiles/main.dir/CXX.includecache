@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/functionVector.h
+iostream
+-
+string
+-
+cmath
+-
+vector
+-
+functional
+-
+
+../include/functions.h
+iostream
+-
+string
+-
+cmath
+-
+
+/home/stud2021/1kolanko/laby/sem3/lab11_nieoc/main.cpp
+functions.h
+/home/stud2021/1kolanko/laby/sem3/lab11_nieoc/functions.h
+functionVector.h
+/home/stud2021/1kolanko/laby/sem3/lab11_nieoc/functionVector.h
+iostream
+-
+cmath
+-
+
+/home/stud2021/1kolanko/laby/sem3/lab11_nieoc/src/function.cpp
+
+/home/stud2021/1kolanko/laby/sem3/lab11_nieoc/src/functionVector.cpp
+

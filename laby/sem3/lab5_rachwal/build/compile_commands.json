@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/home/stud2021/1kolanko/laby/sem3/lab5_rachwal/build",
+  "command": "/usr/bin/g++ -DMAPCALC -I../include -g -std=gnu++14 -o CMakeFiles/main.dir/main.cpp.o -c /home/stud2021/1kolanko/laby/sem3/lab5_rachwal/main.cpp",
+  "file": "/home/stud2021/1kolanko/laby/sem3/lab5_rachwal/main.cpp"
+},
+{
+  "directory": "/home/stud2021/1kolanko/laby/sem3/lab5_rachwal/build",
+  "command": "/usr/bin/g++ -DMAPCALC -I../include -g -std=gnu++14 -o CMakeFiles/main.dir/src/MapPoint.cpp.o -c /home/stud2021/1kolanko/laby/sem3/lab5_rachwal/src/MapPoint.cpp",
+  "file": "/home/stud2021/1kolanko/laby/sem3/lab5_rachwal/src/MapPoint.cpp"
+}
+]

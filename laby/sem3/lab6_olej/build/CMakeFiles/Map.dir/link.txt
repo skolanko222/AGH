@@ -1,0 +1,2 @@
+/usr/bin/ar qc libMap.a CMakeFiles/Map.dir/src/MapDistance.cpp.o CMakeFiles/Map.dir/src/MapPoint.cpp.o
+/usr/bin/ranlib libMap.a

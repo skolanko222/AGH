@@ -1,0 +1,9 @@
+/home/stud2021/1kolanko/laby/sem3/lab5/build/CMakeFiles/edit_cache.dir
+/home/stud2021/1kolanko/laby/sem3/lab5/build/CMakeFiles/rebuild_cache.dir
+/home/stud2021/1kolanko/laby/sem3/lab5/build/CMakeFiles/package.dir
+/home/stud2021/1kolanko/laby/sem3/lab5/build/CMakeFiles/check.dir
+/home/stud2021/1kolanko/laby/sem3/lab5/build/CMakeFiles/package_source.dir
+/home/stud2021/1kolanko/laby/sem3/lab5/build/CMakeFiles/test2.dir
+/home/stud2021/1kolanko/laby/sem3/lab5/build/CMakeFiles/test1.dir
+/home/stud2021/1kolanko/laby/sem3/lab5/build/CMakeFiles/run.dir
+/home/stud2021/1kolanko/laby/sem3/lab5/build/CMakeFiles/main.dir

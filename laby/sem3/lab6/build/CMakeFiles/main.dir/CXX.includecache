@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/Element.h
+iostream
+-
+string
+-
+utility
+-
+
+../include/MyList.h
+iostream
+-
+Element.h
+../include/Element.h
+
+/home/stud2021/1kolanko/laby/sem3/lab6/main.cpp
+MyList.h
+/home/stud2021/1kolanko/laby/sem3/lab6/MyList.h
+Element.h
+/home/stud2021/1kolanko/laby/sem3/lab6/Element.h
+MyList.h
+/home/stud2021/1kolanko/laby/sem3/lab6/MyList.h
+Element.h
+/home/stud2021/1kolanko/laby/sem3/lab6/Element.h
+iostream
+-
+
+/home/stud2021/1kolanko/laby/sem3/lab6/src/Element.cpp
+iostream
+-
+Element.h
+/home/stud2021/1kolanko/laby/sem3/lab6/src/Element.h
+
+/home/stud2021/1kolanko/laby/sem3/lab6/src/MyList.cpp
+iostream
+-
+MyList.h
+/home/stud2021/1kolanko/laby/sem3/lab6/src/MyList.h
+

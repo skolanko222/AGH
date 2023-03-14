@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/Filters.h
+
+/home/stud2021/1kolanko/laby/sem3/lab3_d/main.cpp
+iostream
+-
+Filters.h
+/home/stud2021/1kolanko/laby/sem3/lab3_d/Filters.h
+
+/home/stud2021/1kolanko/laby/sem3/lab3_d/src/Filters.cpp
+Filters.h
+/home/stud2021/1kolanko/laby/sem3/lab3_d/src/Filters.h
+iostream
+-
+

@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/Double.h
+iostream
+-
+
+../include/Wymierne.h
+iostream
+-
+
+/home/stud2021/1kolanko/laby/sem3/lab8_d/main.cpp
+iostream
+-
+cmath
+-
+Wymierne.h
+/home/stud2021/1kolanko/laby/sem3/lab8_d/Wymierne.h
+Double.h
+/home/stud2021/1kolanko/laby/sem3/lab8_d/Double.h
+
+/home/stud2021/1kolanko/laby/sem3/lab8_d/src/Wymierne.cpp
+iostream
+-
+Wymierne.h
+/home/stud2021/1kolanko/laby/sem3/lab8_d/src/Wymierne.h
+

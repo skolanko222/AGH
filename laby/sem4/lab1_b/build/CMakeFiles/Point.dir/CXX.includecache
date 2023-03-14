@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/Named.h
+string
+-
+
+../include/Point.h
+string
+-
+Named.h
+../include/Named.h
+
+../include/PointSmartPtr.h
+string
+-
+Point.h
+../include/Point.h
+Named.h
+../include/Named.h
+
+/home/bkonopka/pliki/is semestr 4/c++ laby/grupa czwartek/lab1/Main.cpp
+iostream
+-
+PointSmartPtr.h
+/home/bkonopka/pliki/is semestr 4/c++ laby/grupa czwartek/lab1/PointSmartPtr.h
+
+/home/bkonopka/pliki/is semestr 4/c++ laby/grupa czwartek/lab1/src/PointSmartPtr.cpp
+iostream
+-
+PointSmartPtr.h
+/home/bkonopka/pliki/is semestr 4/c++ laby/grupa czwartek/lab1/src/PointSmartPtr.h
+

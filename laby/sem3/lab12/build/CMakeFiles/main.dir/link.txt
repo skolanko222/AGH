@@ -1,0 +1,1 @@
+/usr/bin/g++  -g  -rdynamic CMakeFiles/main.dir/main.cpp.o CMakeFiles/main.dir/src/Point2D.cpp.o CMakeFiles/main.dir/src/Point2DSmartPtr.cpp.o CMakeFiles/main.dir/src/PointAverage.cpp.o  -o main 

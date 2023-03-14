@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -rdynamic CMakeFiles/lab__14.dir/main.cpp.o -o lab__14 

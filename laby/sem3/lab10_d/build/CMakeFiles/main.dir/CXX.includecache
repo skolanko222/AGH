@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/mystring.h
+iostream
+-
+
+/home/lab/lab10_d/main.cpp
+mystring.h
+/home/lab/lab10_d/mystring.h
+iostream
+-
+strequal.h
+/home/lab/lab10_d/strequal.h
+

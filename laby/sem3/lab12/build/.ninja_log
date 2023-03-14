@@ -1,0 +1,6 @@
+# ninja log v5
+5	75	1673600271164486944	CMakeFiles/main.dir/src/PointAverage.cpp.o	f783312729f7554b
+7	855	1673600549074793400	CMakeFiles/main.dir/src/Point2D.cpp.o	9f7459ea338376ef
+7	792	1673600549006790878	CMakeFiles/main.dir/src/Point2DSmartPtr.cpp.o	a1b95080c1e4e2c2
+6	779	1673600548990790285	CMakeFiles/main.dir/main.cpp.o	1a4087c4294a19c2
+855	1062	1673600549282801113	main	90ca10084f72fd3f

@@ -1,0 +1,27 @@
+[
+{
+  "directory": "/home/lab/lab4_d/build",
+  "command": "/usr/bin/g++   -I/home/lab/lab4_d/include  -g   -std=gnu++14 -o CMakeFiles/main.dir/main.cpp.o -c /home/lab/lab4_d/main.cpp",
+  "file": "/home/lab/lab4_d/main.cpp"
+},
+{
+  "directory": "/home/lab/lab4_d/build",
+  "command": "/usr/bin/g++   -I/home/lab/lab4_d/include  -g   -std=gnu++14 -o CMakeFiles/main.dir/src/MapDist.cpp.o -c /home/lab/lab4_d/src/MapDist.cpp",
+  "file": "/home/lab/lab4_d/src/MapDist.cpp"
+},
+{
+  "directory": "/home/lab/lab4_d/build",
+  "command": "/usr/bin/g++   -I/home/lab/lab4_d/include  -g   -std=gnu++14 -o CMakeFiles/main.dir/src/MapPoint.cpp.o -c /home/lab/lab4_d/src/MapPoint.cpp",
+  "file": "/home/lab/lab4_d/src/MapPoint.cpp"
+},
+{
+  "directory": "/home/lab/lab4_d/build",
+  "command": "/usr/bin/g++   -I/home/lab/lab4_d/include  -g   -std=gnu++14 -o CMakeFiles/Map.dir/src/MapDist.cpp.o -c /home/lab/lab4_d/src/MapDist.cpp",
+  "file": "/home/lab/lab4_d/src/MapDist.cpp"
+},
+{
+  "directory": "/home/lab/lab4_d/build",
+  "command": "/usr/bin/g++   -I/home/lab/lab4_d/include  -g   -std=gnu++14 -o CMakeFiles/Map.dir/src/MapPoint.cpp.o -c /home/lab/lab4_d/src/MapPoint.cpp",
+  "file": "/home/lab/lab4_d/src/MapPoint.cpp"
+}
+]

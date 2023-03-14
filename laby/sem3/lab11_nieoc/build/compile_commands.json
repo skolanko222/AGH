@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/home/stud2021/1kolanko/laby/sem3/lab11_nieoc/build",
+  "command": "/usr/bin/clang++-11 -I../include -g -std=gnu++14 -o CMakeFiles/main.dir/main.cpp.o -c /home/stud2021/1kolanko/laby/sem3/lab11_nieoc/main.cpp",
+  "file": "/home/stud2021/1kolanko/laby/sem3/lab11_nieoc/main.cpp"
+},
+{
+  "directory": "/home/stud2021/1kolanko/laby/sem3/lab11_nieoc/build",
+  "command": "/usr/bin/clang++-11 -I../include -g -std=gnu++14 -o CMakeFiles/main.dir/src/function.cpp.o -c /home/stud2021/1kolanko/laby/sem3/lab11_nieoc/src/function.cpp",
+  "file": "/home/stud2021/1kolanko/laby/sem3/lab11_nieoc/src/function.cpp"
+},
+{
+  "directory": "/home/stud2021/1kolanko/laby/sem3/lab11_nieoc/build",
+  "command": "/usr/bin/clang++-11 -I../include -g -std=gnu++14 -o CMakeFiles/main.dir/src/functionVector.cpp.o -c /home/stud2021/1kolanko/laby/sem3/lab11_nieoc/src/functionVector.cpp",
+  "file": "/home/stud2021/1kolanko/laby/sem3/lab11_nieoc/src/functionVector.cpp"
+}
+]

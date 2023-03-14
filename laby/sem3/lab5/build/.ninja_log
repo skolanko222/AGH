@@ -1,0 +1,5 @@
+# ninja log v5
+4	527	1668547467880542672	CMakeFiles/main.dir/src/Element.cpp.o	1eea32bbc5543dcc
+3	595	1668547722337894480	CMakeFiles/main.dir/src/MyList.cpp.o	9059c3a2ad21cc34
+3	675	1668547710121445576	CMakeFiles/main.dir/main.cpp.o	134d87ce2701931
+597	774	1668547722613904623	main	242b7a4c37725799

@@ -1,0 +1,22 @@
+[
+{
+  "directory": "/home/stud2021/1kolanko/laby/sem3/lab12/build",
+  "command": "/usr/bin/clang++-11 -I../include -g -std=gnu++14 -o CMakeFiles/main.dir/main.cpp.o -c /home/stud2021/1kolanko/laby/sem3/lab12/main.cpp",
+  "file": "/home/stud2021/1kolanko/laby/sem3/lab12/main.cpp"
+},
+{
+  "directory": "/home/stud2021/1kolanko/laby/sem3/lab12/build",
+  "command": "/usr/bin/clang++-11 -I../include -g -std=gnu++14 -o CMakeFiles/main.dir/src/Point2D.cpp.o -c /home/stud2021/1kolanko/laby/sem3/lab12/src/Point2D.cpp",
+  "file": "/home/stud2021/1kolanko/laby/sem3/lab12/src/Point2D.cpp"
+},
+{
+  "directory": "/home/stud2021/1kolanko/laby/sem3/lab12/build",
+  "command": "/usr/bin/clang++-11 -I../include -g -std=gnu++14 -o CMakeFiles/main.dir/src/Point2DSmartPtr.cpp.o -c /home/stud2021/1kolanko/laby/sem3/lab12/src/Point2DSmartPtr.cpp",
+  "file": "/home/stud2021/1kolanko/laby/sem3/lab12/src/Point2DSmartPtr.cpp"
+},
+{
+  "directory": "/home/stud2021/1kolanko/laby/sem3/lab12/build",
+  "command": "/usr/bin/clang++-11 -I../include -g -std=gnu++14 -o CMakeFiles/main.dir/src/PointAverage.cpp.o -c /home/stud2021/1kolanko/laby/sem3/lab12/src/PointAverage.cpp",
+  "file": "/home/stud2021/1kolanko/laby/sem3/lab12/src/PointAverage.cpp"
+}
+]

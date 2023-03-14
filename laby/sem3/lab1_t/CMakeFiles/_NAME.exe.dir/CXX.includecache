@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/stud2021/1kolanko/laby/sem3/lab1_t/main.cpp
+iostream
+-
+string
+-
+pesel.h
+/home/stud2021/1kolanko/laby/sem3/lab1_t/pesel.h
+
+/home/stud2021/1kolanko/laby/sem3/lab1_t/pesel.h
+iostream
+-
+cstring
+-
+

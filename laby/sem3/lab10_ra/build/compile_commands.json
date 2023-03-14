@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/home/stud2021/1kolanko/laby/sem3/lab10_ra/build",
+  "command": "/usr/bin/clang++-11 -DMAPCALC -I../include -g -std=gnu++14 -o CMakeFiles/main.dir/main.cpp.o -c /home/stud2021/1kolanko/laby/sem3/lab10_ra/main.cpp",
+  "file": "/home/stud2021/1kolanko/laby/sem3/lab10_ra/main.cpp"
+},
+{
+  "directory": "/home/stud2021/1kolanko/laby/sem3/lab10_ra/build",
+  "command": "/usr/bin/clang++-11 -DMAPCALC -I../include -g -std=gnu++14 -o CMakeFiles/main.dir/src/Line.cpp.o -c /home/stud2021/1kolanko/laby/sem3/lab10_ra/src/Line.cpp",
+  "file": "/home/stud2021/1kolanko/laby/sem3/lab10_ra/src/Line.cpp"
+}
+]

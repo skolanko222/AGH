@@ -1,0 +1,11 @@
+git config --global user.name "nazwa"
+git config --global user.email "email"
+git config -l
+
+git clone .....
+
+git checkout -b <branch_name> #tworzy brancha
+git checkout <branch_name> #przelacza sie na brancha
+
+git commit -m "commit_message"
+git push -u origin <branch_name>

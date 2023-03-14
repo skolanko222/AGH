@@ -1,0 +1,4 @@
+# ninja log v5
+2	764	1671484586998273976	CMakeFiles/main.dir/main.cpp.o	9ec460d0366e1474
+3	789	1671484587022274864	CMakeFiles/main.dir/src/assoc.cpp.o	dd489087b41d836c
+789	977	1671484587218282119	main	eff0077f0ac8ecc5

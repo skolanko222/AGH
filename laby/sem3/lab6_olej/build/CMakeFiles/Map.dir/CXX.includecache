@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/MapPoint.h
+iostream
+-
+string
+-
+
+/home/stud2021/1kolanko/laby/sem3/lab6_olej/src/MapPoint.cpp
+iostream
+-
+string
+-
+MapPoint.h
+/home/stud2021/1kolanko/laby/sem3/lab6_olej/src/MapPoint.h
+

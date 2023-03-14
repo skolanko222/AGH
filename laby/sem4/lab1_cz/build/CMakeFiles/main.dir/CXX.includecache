@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/Named.h
+string
+-
+
+../include/Point.h
+string
+-
+iostream
+-
+Named.h
+../include/Named.h
+
+../include/PointSmartPtr.h
+Named.h
+../include/Named.h
+Point.h
+../include/Point.h
+string
+-
+
+/home/stud2021/1kolanko/laby/sem4/lab1_cz/Main.cpp
+iostream
+-
+PointSmartPtr.h
+/home/stud2021/1kolanko/laby/sem4/lab1_cz/PointSmartPtr.h
+
+/home/stud2021/1kolanko/laby/sem4/lab1_cz/src/PointSmartPtr.cpp
+PointSmartPtr.h
+/home/stud2021/1kolanko/laby/sem4/lab1_cz/src/PointSmartPtr.h
+

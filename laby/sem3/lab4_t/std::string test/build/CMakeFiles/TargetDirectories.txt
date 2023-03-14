@@ -1,0 +1,7 @@
+/home/stud2021/1kolanko/laby/sem3/lab4_t/std::string test/build/CMakeFiles/rebuild_cache.dir
+/home/stud2021/1kolanko/laby/sem3/lab4_t/std::string test/build/CMakeFiles/edit_cache.dir
+/home/stud2021/1kolanko/laby/sem3/lab4_t/std::string test/build/CMakeFiles/check.dir
+/home/stud2021/1kolanko/laby/sem3/lab4_t/std::string test/build/CMakeFiles/test2.dir
+/home/stud2021/1kolanko/laby/sem3/lab4_t/std::string test/build/CMakeFiles/test1.dir
+/home/stud2021/1kolanko/laby/sem3/lab4_t/std::string test/build/CMakeFiles/run.dir
+/home/stud2021/1kolanko/laby/sem3/lab4_t/std::string test/build/CMakeFiles/main.dir
