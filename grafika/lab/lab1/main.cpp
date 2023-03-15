@@ -11,7 +11,7 @@ enum class Field { VOID, FLOOR, WALL, BOX, PARK, PLAYER, NONE};
 class Sokoban : public sf::Drawable
 {
 public:
-
+	Sokoban(sf::RenderWindow & w, std::string _font = "font.ttf"): window(w) {font.loadFromFile(_font); }
 	void LoadMapFromFile(std::string fileName);
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 	void SetDrawParameters(sf::Vector2u draw_area_size);
@@ -22,10 +22,14 @@ public:
 	bool Is_Victory() const;
 	void refresh()
 	{
+		window.clear(sf::Color(80, 80, 80));
 		for(short i = 0; i < map_last.size(); i++)
 			for(short j = 0; j < map_last[0].size(); j++)
 				map_last[i][j] = Field::NONE;
+		
 	}
+	double time = 0.;
+	double time_last = -1.;
 
 private:
 	std::vector<std::vector<Field>> map;
@@ -34,7 +38,11 @@ private:
 	sf::Vector2f tile_size; //rozmiar kwadratu
 	sf::Vector2i player_position;
 	std::vector<sf::Vector2i> park_positions;
+	sf::Font font;
+	Field timer_tile;
+	sf::RenderWindow & window;
 	void move_player(int dx, int dy);
+
 
 };
 
@@ -46,14 +54,12 @@ void Sokoban::LoadMapFromFile(std::string fileName)
 	std::ifstream in(fileName.c_str());
 	while (std::getline(in, str)) { vos.push_back(str); }
 	in.close();
-
 	map.clear();
 	map.resize(vos.size(), std::vector<Field>(vos[0].size()));
     map_last.resize(vos.size(), std::vector<Field>(vos[0].size()));
 	for (auto [row, row_end, y] = std::tuple{ vos.cbegin(), vos.cend(), 0 }; row != row_end; ++row, ++y)
 		for (auto [element, end, x] = std::tuple{ row->begin(), row->end(), 0 }; element != end; ++element, ++x)
         {
-            map_last[y][x] = Field::NONE;
 			switch (*element)
 			{
 			case 'X': map[y][x] = Field::WALL; break;
@@ -63,7 +69,9 @@ void Sokoban::LoadMapFromFile(std::string fileName)
 			case 'P': map[y][x] = Field::PARK; park_positions.push_back(sf::Vector2i(x,y));  break;
 			case 'S': map[y][x] = Field::PLAYER; player_position = sf::Vector2i(x,y);  break;
             }
+			map_last[y][x] = map[y][x];
         }
+	timer_tile = map[0][0];
 }
 
 void Sokoban::draw(sf::RenderTarget& target, sf::RenderStates states) const
@@ -73,10 +81,24 @@ void Sokoban::draw(sf::RenderTarget& target, sf::RenderStates states) const
 	//Przydatna może być pętla :
 	sf::Texture textura;
 	sf::Sprite sprite;
+	sf::Text timer;
+	if((time - time_last) > 1)
+	{	
+		(const_cast<Sokoban *>(this))->map_last[0][0] = Field::NONE;
+		std::cout << time_last - time << '\n';
+		timer.setFont(font);
+		timer.setFillColor(sf::Color::Red);
+		timer.setCharacterSize(tile_size.x/2.);
+		timer.setString(std::to_string(int(time)));
+		target.draw(timer);
+		window.clear(sf::Color(80, 80, 80));
+		(const_cast<Sokoban *>(this))->time_last+=1;
+
+	}
 	for (int y = 0; y < map.size(); ++y)
-		for (int x = 0; x < map[y].size(); ++x)
+		for (int x = 1; x < map[y].size()+1; ++x)
 		{
-            if(map_last[y][x] != map[y][x])
+            if(map_last[y][x] != map[y][x] )
             {
                 switch (map[y][x])
                 {
@@ -93,7 +115,7 @@ void Sokoban::draw(sf::RenderTarget& target, sf::RenderStates states) const
                 target.draw(sprite);
             }
 		}
-
+	target.draw(timer);
 }
 
 void Sokoban::SetDrawParameters(sf::Vector2u draw_area_size)
@@ -171,13 +193,11 @@ bool Sokoban::Is_Victory() const
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(800, 600), "GFK Lab 01", sf::Style::Titlebar | sf::Style::Close | sf::Style::Resize);
-    Sokoban sokoban;
+    Sokoban sokoban(window);
 
     sokoban.LoadMapFromFile("plansza.txt");
     sokoban.SetDrawParameters(window.getSize());
     sf::Clock clock;
-
-	double time = 0;
 	
     window.clear(sf::Color(80, 80, 80));
 	window.draw(sokoban);
@@ -195,7 +215,6 @@ int main()
                 float height = static_cast<float>(event.size.height);
                 window.setView(sf::View(sf::FloatRect(0, 0, width, height)));
                 sokoban.SetDrawParameters(window.getSize());
-				window.clear(sf::Color(80, 80, 80));
 				sokoban.refresh();
 
             }
@@ -207,10 +226,16 @@ int main()
                 if (event.key.code == sf::Keyboard::Up)    sokoban.Move_Player_Up();
                 if (event.key.code == sf::Keyboard::Down)  sokoban.Move_Player_Down();
 				if (event.key.code == sf::Keyboard::R)  sokoban.LoadMapFromFile("plansza.txt");
-                window.draw(sokoban);
+
                 
             }
         }
+		// if((sokoban.time - sokoban.time_last) > 1)
+		// {
+		//  	sokoban.time_last += 1.;
+		//  	std::cout << sokoban.time - sokoban.time_last << '\n';
+		// }
+	
     window.draw(sokoban);
 	window.display();
     if(sokoban.Is_Victory() == true)
@@ -222,8 +247,8 @@ int main()
 	
     float fps = 1.0f/currentTime.asSeconds();
 	std::cout << "fps: " << fps << "\n";
-	std::cout << "timer: " << time << "\n\n";
-	time += currentTime.asSeconds();
+	std::cout << "timer: " << sokoban.time << "\n\n";
+	sokoban.time += currentTime.asSeconds();
     }
 
  return 0;
