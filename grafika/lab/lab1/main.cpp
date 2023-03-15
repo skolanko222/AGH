@@ -6,6 +6,8 @@
 #include <cmath>
 #include <iostream>
 
+#define OFFSET 2
+
 enum class Field { VOID, FLOOR, WALL, BOX, PARK, PLAYER, NONE};
 
 class Sokoban : public sf::Drawable
@@ -20,6 +22,7 @@ public:
 	void Move_Player_Up();
 	void Move_Player_Down();
 	bool Is_Victory() const;
+	void forceDraw() {draw_flag = true;}
 	void refresh()
 	{
 		window.clear(sf::Color(80, 80, 80));
@@ -30,7 +33,6 @@ public:
 	}
 	double time = 0.;
 	double time_last = -1.;
-	bool draw_flag;
 
 private:
 	std::vector<std::vector<Field>> map;
@@ -40,8 +42,8 @@ private:
 	sf::Vector2i player_position;
 	std::vector<sf::Vector2i> park_positions;
 	sf::Font font;
-	Field timer_tile;
 	sf::RenderWindow & window;
+	bool draw_flag;
 	void move_player(int dx, int dy);
 
 
@@ -58,7 +60,7 @@ void Sokoban::LoadMapFromFile(std::string fileName)
 	map.clear();
 	map.resize(vos.size(), std::vector<Field>(vos[0].size()));
     map_last.resize(vos.size(), std::vector<Field>(vos[0].size()));
-	for (auto [row, row_end, y] = std::tuple{ vos.cbegin(), vos.cend(), 0 }; row != row_end; ++row, ++y)
+	for (auto [row, row_end, y] = std::tuple{ vos.cbegin(), vos.cend(), 0 }; row != row_end; ++row, ++y){
 		for (auto [element, end, x] = std::tuple{ row->begin(), row->end(), 0 }; element != end; ++element, ++x)
         {
 			switch (*element)
@@ -72,7 +74,7 @@ void Sokoban::LoadMapFromFile(std::string fileName)
             }
 			map_last[y][x] = map[y][x];
         }
-	timer_tile = map[0][0];
+	}
 }
 
 void Sokoban::draw(sf::RenderTarget& target, sf::RenderStates states) const
@@ -80,25 +82,22 @@ void Sokoban::draw(sf::RenderTarget& target, sf::RenderStates states) const
 	sf::Texture textura;
 	sf::Sprite sprite;
 	sf::Text timer;
-	bool flag = false; //flaga do rysowania całego ekranu, gdy czyścimy okno
-	if(draw_flag||(time - time_last) > 1)
+	if(draw_flag || (time - time_last) > 1)
 	{	
-		std::cout << time_last - time << '\n';
+		std::cout << time - time_last << '\n';
 		timer.setFont(font);
 		timer.setFillColor(sf::Color::Red);
 		timer.setCharacterSize(tile_size.x/2.);
 		timer.setString(std::to_string(int(time)));
 		window.clear(sf::Color(80, 80, 80));
-		(const_cast<Sokoban *>(this))->time_last+=1;
-		flag = true;
-		(const_cast<Sokoban *>(this))->draw_flag = false;
-
+		if(!draw_flag)(const_cast<Sokoban *>(this))->time_last+=1;
+		(const_cast<Sokoban *>(this))->forceDraw();
 	}
 
 	for (int y = 0; y < map.size(); ++y)
-		for (int x = 0; x < map[y].size(); ++x)
+		for (int x = 0; x < map[y].size() - 1 ; ++x)
 		{
-            if(flag || map_last[y][x] != map[y][x])
+            if(draw_flag || map_last[y][x] != map[y][x])
             {
                 switch (map[y][x])
                 {
@@ -109,13 +108,16 @@ void Sokoban::draw(sf::RenderTarget& target, sf::RenderStates states) const
 					case Field::PARK: textura.loadFromFile("park.png"); break;
 					case Field::PLAYER: textura.loadFromFile("player.png"); break;
                 }
+				float size_x = tile_size.x - tile_size.x/map[y].size();
+				float size_y = tile_size.y - tile_size.y/map.size();
                 sprite.setTexture(textura);
-                sprite.setPosition((x+1)*tile_size.x, (y+1)*tile_size.y);
-                sprite.setScale(sf::Vector2f(tile_size.x/textura.getSize().x,tile_size.y/textura.getSize().y));
+                sprite.setPosition((x+1)*size_x, (y+1)*size_y );
+                sprite.setScale(sf::Vector2f(size_x/textura.getSize().x,size_y/textura.getSize().y));
 				target.draw(sprite);
             }
 		}
 	target.draw(timer);
+	(const_cast<Sokoban *>(this))->draw_flag = false;
 }
 
 void Sokoban::SetDrawParameters(sf::Vector2u draw_area_size)
@@ -129,6 +131,7 @@ void Sokoban::SetDrawParameters(sf::Vector2u draw_area_size)
 		((float)draw_area_size.y - this->tile_size.y * map.size()) / 2.0f
 	);
 }
+
 
 void Sokoban::Move_Player_Left()
 {
@@ -215,23 +218,20 @@ int main()
                 float height = static_cast<float>(event.size.height);
                 window.setView(sf::View(sf::FloatRect(0, 0, width, height)));
                 sokoban.SetDrawParameters(window.getSize());
-				sokoban.refresh();
-				sokoban.draw_flag = true;
+
+				sokoban.forceDraw();
 
             }
             if (event.type == sf::Event::Closed) window.close();
             if (event.type == sf::Event::KeyPressed)
             {
-                if (event.key.code == sf::Keyboard::Left)  sokoban.Move_Player_Left();
-                if (event.key.code == sf::Keyboard::Right) sokoban.Move_Player_Right();
-                if (event.key.code == sf::Keyboard::Up)    sokoban.Move_Player_Up();
-                if (event.key.code == sf::Keyboard::Down)  sokoban.Move_Player_Down();
-				if (event.key.code == sf::Keyboard::R)  sokoban.LoadMapFromFile("plansza.txt");
-
-                
+                if (event.key.code == sf::Keyboard::Left)  {sokoban.Move_Player_Left();}
+                else if (event.key.code == sf::Keyboard::Right) {sokoban.Move_Player_Right();}
+                else if (event.key.code == sf::Keyboard::Up)    {sokoban.Move_Player_Up();}
+                else if (event.key.code == sf::Keyboard::Down)  {sokoban.Move_Player_Down();}
+				else if (event.key.code == sf::Keyboard::R)  {sokoban.LoadMapFromFile("plansza.txt");sokoban.forceDraw();}            
             }
         }
-	
     window.draw(sokoban);
 	window.display();
     if(sokoban.Is_Victory() == true)
@@ -242,8 +242,8 @@ int main()
     }
 	
     float fps = 1.0f/currentTime.asSeconds();
-	std::cout << "fps: " << fps << "\n";
-	std::cout << "timer: " << sokoban.time << "\n\n";
+	//std::cout << "fps: " << fps << "\n";
+	//std::cout << "timer: " << sokoban.time << "\n\n";
 	sokoban.time += currentTime.asSeconds();
     }
 
