@@ -23,14 +23,9 @@ public:
 	void Move_Player_Down();
 	bool Is_Victory() const;
 	void forceDraw() {draw_flag = true;}
-	void refresh()
-	{
-		window.clear(sf::Color(80, 80, 80));
-		for(short i = 0; i < map_last.size(); i++)
-			for(short j = 0; j < map_last[0].size(); j++)
-				map_last[i][j] = Field::NONE;
-		
-	}
+	void drawVictory();
+
+	void refresh();
 	double time = 0.;
 	double time_last = -1.;
 
@@ -87,7 +82,7 @@ void Sokoban::draw(sf::RenderTarget& target, sf::RenderStates states) const
 		std::cout << time - time_last << '\n';
 		timer.setFont(font);
 		timer.setFillColor(sf::Color::Red);
-		timer.setCharacterSize(tile_size.x/2.);
+		timer.setCharacterSize(tile_size.x);
 		timer.setString(std::to_string(int(time)));
 		window.clear(sf::Color(80, 80, 80));
 		if(!draw_flag)(const_cast<Sokoban *>(this))->time_last+=1;
@@ -111,7 +106,7 @@ void Sokoban::draw(sf::RenderTarget& target, sf::RenderStates states) const
 				float size_x = tile_size.x - tile_size.x/map[y].size();
 				float size_y = tile_size.y - tile_size.y/map.size();
                 sprite.setTexture(textura);
-                sprite.setPosition((x+1)*size_x, (y+1)*size_y );
+                sprite.setPosition((x+1)*size_x + shift.x, (y+1)*size_y + shift.y);
                 sprite.setScale(sf::Vector2f(size_x/textura.getSize().x,size_y/textura.getSize().y));
 				target.draw(sprite);
             }
@@ -131,7 +126,29 @@ void Sokoban::SetDrawParameters(sf::Vector2u draw_area_size)
 		((float)draw_area_size.y - this->tile_size.y * map.size()) / 2.0f
 	);
 }
+void Sokoban::drawVictory()
+{
+	sf::Text victory;
+	victory.setFont(font);
+	victory.setFillColor(sf::Color::Red);
+	victory.setCharacterSize(tile_size.x);
+	victory.setPosition(sf::Vector2f(2*tile_size.x,0.));
+	std::string str("Brawo! Twoj czas to: ");
+	str.operator+=(std::to_string(int(time)));
+	str.operator+=(" sekundy!");
+	victory.setString(str);
+	window.draw(victory);
 
+}
+
+void Sokoban::refresh()
+	{
+		window.clear(sf::Color(80, 80, 80));
+		for(short i = 0; i < map_last.size(); i++)
+			for(short j = 0; j < map_last[0].size(); j++)
+				map_last[i][j] = Field::NONE;
+		
+	}
 
 void Sokoban::Move_Player_Left()
 {
@@ -225,7 +242,7 @@ int main()
             if (event.type == sf::Event::Closed) window.close();
             if (event.type == sf::Event::KeyPressed)
             {
-                if (event.key.code == sf::Keyboard::Left)  {sokoban.Move_Player_Left();}
+                if (event.key.code == sf::Keyboard::Left)  {sokoban.Move_Player_Left();} //sokoban.forceDraw();
                 else if (event.key.code == sf::Keyboard::Right) {sokoban.Move_Player_Right();}
                 else if (event.key.code == sf::Keyboard::Up)    {sokoban.Move_Player_Up();}
                 else if (event.key.code == sf::Keyboard::Down)  {sokoban.Move_Player_Down();}
@@ -235,15 +252,18 @@ int main()
     window.draw(sokoban);
 	window.display();
     if(sokoban.Is_Victory() == true)
-    {
+    {	
+		
+		sokoban.drawVictory();
+		window.display();
 		sf::sleep(sf::seconds(2));
 
         window.close();
     }
 	
     float fps = 1.0f/currentTime.asSeconds();
-	//std::cout << "fps: " << fps << "\n";
-	//std::cout << "timer: " << sokoban.time << "\n\n";
+	std::cout << "fps: " << fps << "\n";
+	std::cout << "timer: " << sokoban.time << "\n\n";
 	sokoban.time += currentTime.asSeconds();
     }
 
