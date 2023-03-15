@@ -30,6 +30,7 @@ public:
 	}
 	double time = 0.;
 	double time_last = -1.;
+	bool draw_flag;
 
 private:
 	std::vector<std::vector<Field>> map;
@@ -76,29 +77,28 @@ void Sokoban::LoadMapFromFile(std::string fileName)
 
 void Sokoban::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-	// Tu niewątpliwie powinno coś być : -) Tu należy narysować wszystko. O tak jakoś :
-	
-	//Przydatna może być pętla :
 	sf::Texture textura;
 	sf::Sprite sprite;
 	sf::Text timer;
-	if((time - time_last) > 1)
+	bool flag = false; //flaga do rysowania całego ekranu, gdy czyścimy okno
+	if(draw_flag||(time - time_last) > 1)
 	{	
-		(const_cast<Sokoban *>(this))->map_last[0][0] = Field::NONE;
 		std::cout << time_last - time << '\n';
 		timer.setFont(font);
 		timer.setFillColor(sf::Color::Red);
 		timer.setCharacterSize(tile_size.x/2.);
 		timer.setString(std::to_string(int(time)));
-		target.draw(timer);
 		window.clear(sf::Color(80, 80, 80));
 		(const_cast<Sokoban *>(this))->time_last+=1;
+		flag = true;
+		(const_cast<Sokoban *>(this))->draw_flag = false;
 
 	}
+
 	for (int y = 0; y < map.size(); ++y)
-		for (int x = 1; x < map[y].size()+1; ++x)
+		for (int x = 0; x < map[y].size(); ++x)
 		{
-            if(map_last[y][x] != map[y][x] )
+            if(flag || map_last[y][x] != map[y][x])
             {
                 switch (map[y][x])
                 {
@@ -110,9 +110,9 @@ void Sokoban::draw(sf::RenderTarget& target, sf::RenderStates states) const
 					case Field::PLAYER: textura.loadFromFile("player.png"); break;
                 }
                 sprite.setTexture(textura);
-                sprite.setPosition(x*tile_size.x, y*tile_size.y);
+                sprite.setPosition((x+1)*tile_size.x, (y+1)*tile_size.y);
                 sprite.setScale(sf::Vector2f(tile_size.x/textura.getSize().x,tile_size.y/textura.getSize().y));
-                target.draw(sprite);
+				target.draw(sprite);
             }
 		}
 	target.draw(timer);
@@ -216,6 +216,7 @@ int main()
                 window.setView(sf::View(sf::FloatRect(0, 0, width, height)));
                 sokoban.SetDrawParameters(window.getSize());
 				sokoban.refresh();
+				sokoban.draw_flag = true;
 
             }
             if (event.type == sf::Event::Closed) window.close();
@@ -230,11 +231,6 @@ int main()
                 
             }
         }
-		// if((sokoban.time - sokoban.time_last) > 1)
-		// {
-		//  	sokoban.time_last += 1.;
-		//  	std::cout << sokoban.time - sokoban.time_last << '\n';
-		// }
 	
     window.draw(sokoban);
 	window.display();
