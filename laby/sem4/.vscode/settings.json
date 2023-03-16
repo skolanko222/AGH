@@ -26,6 +26,14 @@
 		"system_error": "cpp",
 		"type_traits": "cpp",
 		"typeinfo": "cpp",
-		"utility": "cpp"
+		"utility": "cpp",
+		"vector": "cpp",
+		"array": "cpp",
+		"unordered_map": "cpp",
+		"functional": "cpp",
+		"optional": "cpp",
+		"tuple": "cpp",
+		"deque": "cpp",
+		"ranges": "cpp"
 	}
 }

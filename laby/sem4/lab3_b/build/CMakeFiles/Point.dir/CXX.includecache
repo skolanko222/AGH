@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/StringFun.h
+iostream
+-
+string
+-
+vector
+-
+algorithm
+-
+functional
+-
+
+/home/stud2021/1kolanko/AGH/laby/sem4/lab3_b/Main.cpp
+iostream
+-
+StringFun.h
+/home/stud2021/1kolanko/AGH/laby/sem4/lab3_b/StringFun.h
+
+/home/stud2021/1kolanko/AGH/laby/sem4/lab3_b/src/StringFun.cpp
+iostream
+-
+vector
+-
+algorithm
+-
+StringFun.h
+/home/stud2021/1kolanko/AGH/laby/sem4/lab3_b/src/StringFun.h
+

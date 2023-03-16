@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -rdynamic CMakeFiles/Point.dir/Main.cpp.o CMakeFiles/Point.dir/src/StringFun.cpp.o -o Point 

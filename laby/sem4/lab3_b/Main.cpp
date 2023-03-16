@@ -14,6 +14,24 @@
 // Dodatkowe wskazówki wykonania zadania znajdują się w definicji funkcji main,
 // PrintNames jest globalną metodą do drukowania na ekran imion przechowywanych w kontenerze
 
+// Prosze zadbac o dobre zarzadzanie pamiecia.
+// Pliku Main.cpp, nie wolno modyfikowac.
+
+// Ostateczny program powinien byc przyjazny dla programisty (miec
+// czytelny i dobrze napisany kod), oraz powinna być spełniona zasada
+// D.R.Y. - Don't Repeat Yourself.
+
+// Przy wykonaniu zadania nie wolno korzystac z internetu, notatek,
+// ani zadnych innych materialow.
+
+// Kody źródłowe muszą znajdować się w katalogu do którego nikt oprócz
+// właściciela nie ma praw dostępu.
+// Rozwiazanie (czyli dodane pliki i Main.cpp należy wgrać do UPEL 
+// jako archiwum tar.gz
+// UWAGA:
+// * archiwum powinno zawierać katalog z zadaniem, np. lab02/
+// * archiwum nie powinno zawierać katalogu build/
+
 
 #include <iostream>
 #include "StringFun.h"
@@ -46,7 +64,7 @@ int main() {
     PrintNames(names);
   }
   
-  return 0;  //*/
+  return 0;  
 }
 /* wynik:
 [MyString] Overloading new operator with size: 32
