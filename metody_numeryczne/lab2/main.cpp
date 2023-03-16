@@ -6,7 +6,7 @@
 #include "helper.h"
 
 #define SIZE 5
-
+//g++ main.cpp -lgsl -lgslcblas -lm && ./a.out
 gsl_vector *gauss(const gsl_matrix * _A,const gsl_vector * _B);
 
 int main()
@@ -27,7 +27,7 @@ int main()
 	plik2.open("out.txt");
 	std::string _ = "Wektor wynikow";
 
-	for(double q = 0; q <=3 ;q+=0.01)
+	for(double q = 0; q <=3.001 ;q+=0.01)
 	{
 		gsl_matrix_set(A,0,0,2*q);
 		gsl_vector *X = gauss(A,B);
@@ -47,8 +47,8 @@ int main()
 		odchylenie = sqrt(odchylenie)/5.0;
 		std::string text = _ + " dla Q: " + std::to_string(q);
 		
-		save_vector(plik2,X,text.c_str());
-		plik2 << "odchylenie: " << odchylenie <<"\n\n";			
+		//save_vector(plik2,X,text.c_str());
+		plik2<< q <<", ";			
 		
 		gsl_matrix_free(X_m);
 		gsl_vector_free(X);
