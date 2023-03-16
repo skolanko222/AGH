@@ -1,1 +1,1 @@
-/usr/bin/c++ -g -rdynamic CMakeFiles/lab2.dir/Main.cpp.o -o lab2 
+/usr/bin/c++  -g  -rdynamic CMakeFiles/lab2.dir/Main.cpp.o  -o lab2 
