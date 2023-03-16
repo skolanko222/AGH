@@ -13,12 +13,16 @@ int main()
 {
 	FILE * plik = fopen("a.txt","r");
 	gsl_matrix *A = gsl_matrix_calloc(SIZE,SIZE);
+	gsl_matrix *A_copy = gsl_matrix_calloc(SIZE,SIZE);
 	gsl_matrix_fscanf(plik,A);
+	gsl_matrix_memcpy(A_copy,A);
 	fclose(plik);
 
 	plik = fopen("b.txt", "r");
 	gsl_vector *B = gsl_vector_calloc(SIZE);
+	gsl_vector *B_copy = gsl_vector_calloc(SIZE);
 	gsl_vector_fscanf(plik,B);
+	gsl_vector_memcpy(B_copy,B);
 	std::fstream plik2;
 	plik2.open("out.txt");
 	std::string _ = "Wektor wynikow";
@@ -30,23 +34,30 @@ int main()
 		gsl_matrix *X_m = gsl_matrix_calloc(SIZE,1); //zamiana wektora na macierz 
 		for(size_t i = 0; i < SIZE; i++)
 			gsl_matrix_set(X_m,i,0,gsl_vector_get(X,i));
-		gsl_matrix *C = multiply(A,X_m);
-		double temp = 0.;
-		double odchylenie = 0.;
-		for(size_t i; i < SIZE; i++)
+		
+		gsl_matrix *C = multiply(A, X_m);
+		
+		double odchylenie = 0.0;
+		double temp;
+		for(int i = 0; i < SIZE; i++)
 		{
-			temp += pow(gsl_matrix_get(C,i,0) - gsl_vector_get(B,i),2);
+			temp = gsl_matrix_get(C,i,0) - gsl_vector_get(B,i);
+			odchylenie += temp*temp;
 		}
-		odchylenie = sqrt(temp)/SIZE;
-
-		std::string text = _ + " Q: " + std::to_string(q) + " odchylenie: " +std::to_string(odchylenie);
+		odchylenie = sqrt(odchylenie)/5.0;
+		std::string text = _ + " dla Q: " + std::to_string(q);
+		
 		save_vector(plik2,X,text.c_str());
-			
+		plik2 << "odchylenie: " << odchylenie <<"\n\n";			
 		
 		gsl_matrix_free(X_m);
 		gsl_vector_free(X);
+		gsl_matrix_free(C);
 	}
+	gsl_matrix_free(A);
+	gsl_vector_free(B);
 	
+
 	return 0;
 }
 

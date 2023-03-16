@@ -1,0 +1,3 @@
+/home/stud2021/1kolanko/AGH/laby/sem4/lab3_cz/build/CMakeFiles/rebuild_cache.dir
+/home/stud2021/1kolanko/AGH/laby/sem4/lab3_cz/build/CMakeFiles/edit_cache.dir
+/home/stud2021/1kolanko/AGH/laby/sem4/lab3_cz/build/CMakeFiles/lab2.dir

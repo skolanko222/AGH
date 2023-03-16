@@ -48,7 +48,7 @@ void save_vector(std::fstream &file, gsl_vector *A, const char * str)
     }
         file << "\n";
 }
-gsl_matrix * multiply(const gsl_matrix *A,const gsl_matrix *B)
+gsl_matrix * multiply(const gsl_matrix *A, const gsl_matrix *B)
 { 
     gsl_matrix *C = gsl_matrix_calloc(A->size1, B->size2);
     for (int i = 0; i < A->size1; i++)
