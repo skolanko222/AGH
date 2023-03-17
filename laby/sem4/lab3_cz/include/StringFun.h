@@ -6,14 +6,15 @@
 #include <algorithm>
 
 #include "StringFun.h"
+
 class MyString
 {
 	private:
 		std::string _str;
 
 	public:
-		MyString(const char * n) : _str(n) {/*std::cout << "Konstruktor MyString: " << n << "\n";*/}
-		MyString(MyString * str) : _str(str->_str) {}
+		MyString(const char * n) : _str(n) {/*std::cout << __PRETTY_FUNCTION__ << n << "\n";*/}
+		MyString(MyString * str) : _str(str->_str) {/*std::cout << __PRETTY_FUNCTION__ << "\n";*/}
 		void * operator new(size_t size) 
 		{
 			std::cout << "[MyString] Overloading new operator with size: " << sizeof(MyString) << '\n'; 
@@ -79,6 +80,7 @@ class MyStringContainer
 
 		std::vector<MyString> GetSorted(std::string option) 
 		{
+			std::cout << __PRETTY_FUNCTION__ << "\n";
 			std::vector<MyString> temp(_ptr_vector.begin(),_ptr_vector.end());
 			if(option == "ASC")
 			{
@@ -86,7 +88,7 @@ class MyStringContainer
 				
 			}
 			else
-				std::sort(temp.begin(),temp.end(),_fun[1]);
+			std::sort(temp.begin(),temp.end(),_fun[1]);
 			return temp;
 		}
 		std::vector<std::function<bool(const MyString, const MyString)>> SortFunc() {return _fun;}
