@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -rdynamic CMakeFiles/lab3.dir/Main.cpp.o CMakeFiles/lab3.dir/src/StringFun.cpp.o -o lab3 
