@@ -89,7 +89,7 @@ class MyStringContainer
 		//method creating a MyString object and adding its pointer to a vector of MyString *
 		void AddMStr(const char * string) {_str_vector.push_back(new MyString(string));}
 		//method sorting _str_vector in given order
-		std::vector<MyString> GetSorted(std::string option) 
+		std::vector<MyString> GetSorted(std::string option) const 
 		{
 			//std::cout << __PRETTY_FUNCTION__ << "\n";
 			std::vector<MyString> temp(_str_vector.begin(),_str_vector.end());
