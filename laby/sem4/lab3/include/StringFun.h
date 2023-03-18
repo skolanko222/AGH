@@ -16,8 +16,8 @@ class MyString
 		//overloaded new operator
 		void * operator new(size_t size)
 		{
-		std::cout << "[MyString] Overloading new operator with size: " << size << '\n'; 
-		return malloc(size);
+			std::cout << "[MyString] Overloading new operator with size: " << size << '\n'; 
+			return malloc(size);
 		}
 		//overloaded delete operator
 		void operator delete(void* temp)
@@ -91,15 +91,14 @@ class MyStringContainer
 		//method sorting _str_vector in given order
 		std::vector<MyString> GetSorted(std::string option) const 
 		{
-			//std::cout << __PRETTY_FUNCTION__ << "\n";
 			std::vector<MyString> temp(_str_vector.begin(),_str_vector.end());
 			if(option == "ASC")
 			{
 				std::sort(temp.begin(),temp.end(),_fun[0]);
-				
 			}
 			else
-			std::sort(temp.begin(),temp.end(),_fun[1]);
+				std::sort(temp.begin(),temp.end(),_fun[1]);
+				
 			return temp;
 		}
 		//static method returning vector of functors
