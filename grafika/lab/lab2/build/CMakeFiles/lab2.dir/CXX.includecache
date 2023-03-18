@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/ShareTechMono-Regular.h
+array
+-
+cstdint
+-
+
+/root/AGH/grafika/lab/lab2/main.cpp
+SFML/Graphics.hpp
+/root/AGH/grafika/lab/lab2/SFML/Graphics.hpp
+ShareTechMono-Regular.h
+/root/AGH/grafika/lab/lab2/ShareTechMono-Regular.h
+numeric
+-
+iostream
+-
+memory
+-
+cmath
+-
+
