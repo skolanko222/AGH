@@ -11,7 +11,7 @@
 void save_matrix(const char * file_name, gsl_matrix *A, const char * str);
 void save_vector(std::fstream &file, gsl_vector *A, const char * str);
 double max_arr(const double * arr, const size_t size);
-gsl_matrix * multiply(gsl_matrix *A,gsl_matrix *B);
+gsl_matrix * multiply(const gsl_matrix *A,const gsl_matrix *B);
 gsl_matrix * read_matrix(const char * file_name, const size_t size_x, const size_t size_y)
 {
     FILE *t = fopen("a.txt", "r");
@@ -23,7 +23,7 @@ gsl_matrix * read_matrix(const char * file_name, const size_t size_x, const size
 
 void save_matrix(const char * file_name, gsl_matrix *A, const char * str)
 {
-    std::ofstream file(file_name);
+    std::ofstream file(file_name, std::ios_base::app);
     file << str << std::endl;
     for(int i = 0; i < A->size1; i++)
     {
@@ -62,6 +62,12 @@ void save_vector(std::fstream &file, gsl_vector *A, const char * str)
 }
 gsl_matrix * multiply(gsl_matrix *A,gsl_matrix *B)
 { 
+    if(A->size2 != B->size1)
+    {
+        std::cout << "Zle wymiary: A=" << A->size1 << 'x'<< A->size2 << " B="<< B->size1 << 'x'<< B->size2  <<std::endl;
+        return nullptr; 
+
+    }
     gsl_matrix *C = gsl_matrix_calloc(A->size1, B->size2);
     for (int i = 0; i < A->size1; i++)
     {
