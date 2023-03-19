@@ -221,12 +221,6 @@ lab2_BINARY_DIR:STATIC=/root/AGH/grafika/lab/lab2/build
 //Value Computed by CMake
 lab2_SOURCE_DIR:STATIC=/root/AGH/grafika/lab/lab2
 
-//Value Computed by CMake
-lab_BINARY_DIR:STATIC=/root/AGH/grafika/lab/lab2/build
-
-//Value Computed by CMake
-lab_SOURCE_DIR:STATIC=/root/AGH/grafika/lab/lab2
-
 
 ########################
 # INTERNAL cache entries
