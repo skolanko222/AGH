@@ -1,5 +1,5 @@
 LIBS=-lsfml-graphics -lsfml-window -lsfml-system
-name =01-Okno
+name =03-Myszka
 all: $(name)
 
 $(name).o: $(name).cpp
