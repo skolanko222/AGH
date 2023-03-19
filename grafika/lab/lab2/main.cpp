@@ -79,7 +79,7 @@ int main()
 	  }
     else if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
     {
-        double a = right_slider.leftButtonPressed(mouse_pos);
+        double a = right_slider.leftButtonPressed(mouse_pos); // parametr do kolorów
         std::cout << a << std::endl;
     }
 
