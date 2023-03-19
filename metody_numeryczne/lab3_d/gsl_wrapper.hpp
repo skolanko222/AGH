@@ -85,15 +85,15 @@ namespace my_gsl
 
 	};
 
-	matrix & operator*(const matrix & right_m)
-	{
-		for(size_t i = 0; i < right_m._x; i++)
-			for(size_t j = 0; j < right_m._x; j++)
-				gsl_matrix_set(_m,i,j, (*this) * gsl_matrix_get(right_m._m,i,j));
+	// matrix & operator*(const matrix & right_m)
+	// {
+	// 	for(size_t i = 0; i < right_m._x; i++)
+	// 		for(size_t j = 0; j < right_m._x; j++)
+	// 			gsl_matrix_set(_m,i,j, (*this) * gsl_matrix_get(right_m._m,i,j));
 				
-		return *this;
+	// 	return *this;
 
-	}	
+	// }	
 
 
 }
