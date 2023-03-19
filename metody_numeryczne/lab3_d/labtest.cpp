@@ -17,6 +17,8 @@ int main(void)
 	my_gsl::matrix macierz_3; 
 	//macierz = macierz;
 	macierz_3 = macierz;
+	macierz_3 + macierz;
+	macierz_3.print();
 
 	return 0; 
 }
