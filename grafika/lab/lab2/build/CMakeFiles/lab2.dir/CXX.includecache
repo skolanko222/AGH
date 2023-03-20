@@ -19,6 +19,8 @@ SFML/Graphics.hpp
 -
 math.h
 -
+memory
+-
 
 ../include/things.h
 SFML/Graphics.hpp

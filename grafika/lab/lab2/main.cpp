@@ -19,7 +19,6 @@
 
 //Tak – dobrze państwo widzą – TO jest zmienna globalna! Czytanie i przetwarzanie fontów w SFML jest bardzo kosztowne. Dlatego zrobimy to raz. 
 //Co nie zmienia faktu, że można by to zrobić bez zmiennej globalnej i to całkiem ładnie. Jak? To już dla Państwa :-)
-std::shared_ptr<sf::Font> font;
 
 int main()
 {
@@ -34,9 +33,10 @@ int main()
  sf::Int64 mean_frames_time = 0;
  std::vector<sf::Int64> frame_times;
  sf::Text text;
-
  font = std::make_shared<sf::Font>();
  font->loadFromMemory(&(ShareTechMono_Regular_ttf[0]), ShareTechMono_Regular_ttf.size());
+ text.setFont(*font);
+
  text.setFont(*font);
  text.setCharacterSize(21);
  text.setFillColor(sf::Color::Black);
@@ -53,8 +53,12 @@ int main()
 
  while (window.isOpen())
  {
+  h_RGB.sliderParam = right_slider.currLinesPosition;
+  h_CMY.sliderParam = right_slider.currLinesPosition;
+  h_HSL.sliderParam = right_slider.currLinesPosition;
+  h_HSB.sliderParam = right_slider.currLinesPosition;
   sf::Event event;
-  window.clear(sf::Color::White);
+  text.setString(std::to_string(mean_frames_time)+ "us");
 
   frame_clock.restart(); // Start pomiaru czasu.
 
@@ -62,7 +66,7 @@ int main()
   {
     sf::Vector2i mouse_pos = sf::Mouse::getPosition(window);
    if (event.type == sf::Event::Closed) window.close();
-	else if(event.type == sf::Event::Resized)
+	 else if(event.type == sf::Event::Resized)
 	  {
         float width = static_cast<float>(event.size.width);
         float height = static_cast<float>(event.size.height);
@@ -75,25 +79,30 @@ int main()
         h_HSB.Set_Borders(sf::Vector2f(min(width - OFFSET,height) /2., min(width - OFFSET,height)/2.), sf::Vector2f(width/2.+ min(width - OFFSET,height)/2., min(width - OFFSET,height)));
         
         right_slider.setParams(width,height);
+        window.clear(sf::Color::White);
+        window.draw(h_RGB);
+        window.draw(h_CMY);
+        window.draw(h_HSL);
+        window.draw(h_HSB);
+        window.draw(right_slider);
+        window.draw(text);
  
 	  }
     else if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
     {
         double a = right_slider.leftButtonPressed(mouse_pos); // parametr do kolorów
         std::cout << a << std::endl;
+        window.clear(sf::Color::White);
+        window.draw(h_RGB);
+        window.draw(h_CMY);
+        window.draw(h_HSL);
+        window.draw(h_HSB);
+        window.draw(right_slider);
+        window.draw(text);
     }
 
       // Tu trzeba obsłużyć zdarzenia: zmianę rozmiaru okna oraz klikanie w „suwaczek”. 
   }
-
-  window.draw(h_RGB);
-  window.draw(h_CMY);
-  window.draw(h_HSL);
-  window.draw(h_HSB);
-  // Pewnie tu gdzieś wypadało by dorysować jeszcze suwaczek... 
-  window.draw(right_slider);
-  text.setString(std::to_string(mean_frames_time)+ "us");
-  window.draw(text);
 
   // Pomiar czasu uśrednimy w okresie około 1/2 sekundy.
   frame_times.push_back(frame_clock.getElapsedTime().asMicroseconds());
@@ -102,6 +111,13 @@ int main()
       mean_frames_time = (sf::Int64)((float)std::reduce(frame_times.begin(), frame_times.end()) / (float)frame_times.size());
       frame_times.clear();
       around_half_secound_clock.restart();
+      window.clear(sf::Color::White);
+        window.draw(h_RGB);
+        window.draw(h_CMY);
+        window.draw(h_HSL);
+        window.draw(h_HSB);
+        window.draw(right_slider);
+        window.draw(text);
   }
 
   frame_clock.restart(); // Stop pomiaru czasu.
