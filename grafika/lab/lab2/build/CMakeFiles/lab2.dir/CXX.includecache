@@ -40,15 +40,15 @@ memory
 cmath
 -
 
-/home/skolanko222/AGH/grafika/lab/lab2/main.cpp
+/root/AGH/grafika/lab/lab2/main.cpp
 SFML/Graphics.hpp
-/home/skolanko222/AGH/grafika/lab/lab2/SFML/Graphics.hpp
+/root/AGH/grafika/lab/lab2/SFML/Graphics.hpp
 ShareTechMono-Regular.h
-/home/skolanko222/AGH/grafika/lab/lab2/ShareTechMono-Regular.h
+/root/AGH/grafika/lab/lab2/ShareTechMono-Regular.h
 slider.h
-/home/skolanko222/AGH/grafika/lab/lab2/slider.h
+/root/AGH/grafika/lab/lab2/slider.h
 things.h
-/home/skolanko222/AGH/grafika/lab/lab2/things.h
+/root/AGH/grafika/lab/lab2/things.h
 numeric
 -
 iostream
