@@ -29,10 +29,8 @@ math.h
 -
 tuple
 -
-format
--
 
-/root/AGH/grafika/lab/lab_2/main.cpp
+/root/AGH/grafika/lab/lab_2paczka/main.cpp
 SFML/Window.hpp
 -
 SFML/Graphics.hpp
@@ -40,9 +38,9 @@ SFML/Graphics.hpp
 iostream
 -
 wheel.h
-/root/AGH/grafika/lab/lab_2/wheel.h
+/root/AGH/grafika/lab/lab_2paczka/wheel.h
 slider.h
-/root/AGH/grafika/lab/lab_2/slider.h
+/root/AGH/grafika/lab/lab_2paczka/slider.h
 app.h
-/root/AGH/grafika/lab/lab_2/app.h
+/root/AGH/grafika/lab/lab_2paczka/app.h
 

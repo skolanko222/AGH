@@ -64,7 +64,6 @@ int main()
 
   while (window.pollEvent(event))
   {
-    sf::Vector2i mouse_pos = sf::Mouse::getPosition(window);
    if (event.type == sf::Event::Closed) window.close();
 	 else if(event.type == sf::Event::Resized)
 	  {
@@ -90,6 +89,7 @@ int main()
 	  }
     else if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
     {
+        sf::Vector2i mouse_pos = sf::Mouse::getPosition(window);
         double a = right_slider.leftButtonPressed(mouse_pos); // parametr do kolorów
         std::cout << a << std::endl;
         window.clear(sf::Color::White);

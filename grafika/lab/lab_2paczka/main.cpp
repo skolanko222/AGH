@@ -1,7 +1,6 @@
 ﻿#include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include <format>
 
 #include "wheel.h"
 #include "slider.h"
@@ -62,7 +61,7 @@ int main()
 		frame_counter++;
 
 		app.outtextxy(window, 635, 320, "Frames per second:");
-		app.outtextxy(window, 675, 340, std::format("{0}", FPS));
+		//app.outtextxy(window, 675, 340,  FPS);
 
 		window.draw(w);
 		window.draw(s);

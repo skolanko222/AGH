@@ -4,7 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include <math.h>
 #include <tuple>
-#include <format>
+
 
 namespace wheel
 {
@@ -261,10 +261,10 @@ namespace wheel
 			outtextxy(target, HSLCircle->getPosition().x + 10, HSLCircle->getPosition().y + 10, "HSL");
 			outtextxy(target, HSVCircle->getPosition().x + 10, HSVCircle->getPosition().y + 10, "HSV");
 
-			outtextxy(target, RGBCircle->getPosition().x + 2 * R - 25, RGBCircle->getPosition().y + 2 * R - 25, std::format("RGB = {:.0f}", defaultB));
-			outtextxy(target, CMYCircle->getPosition().x + 2 * R - 25, CMYCircle->getPosition().y + 2 * R - 25, std::format("CMY = {:.2f}%", defaultY));
-			outtextxy(target, HSLCircle->getPosition().x + 2 * R - 25, HSLCircle->getPosition().y + 2 * R - 25, std::format("HSL = {:.2f}", defaultL));
-			outtextxy(target, HSVCircle->getPosition().x + 2 * R - 25, HSVCircle->getPosition().y + 2 * R - 25, std::format("HSV = {:.2f}", defaultV));
+			// outtextxy(target, RGBCircle->getPosition().x + 2 * R - 25, RGBCircle->getPosition().y + 2 * R - 25, std::format("RGB = {:.0f}", defaultB));
+			// outtextxy(target, CMYCircle->getPosition().x + 2 * R - 25, CMYCircle->getPosition().y + 2 * R - 25, std::format("CMY = {:.2f}%", defaultY));
+			// outtextxy(target, HSLCircle->getPosition().x + 2 * R - 25, HSLCircle->getPosition().y + 2 * R - 25, std::format("HSL = {:.2f}", defaultL));
+			// outtextxy(target, HSVCircle->getPosition().x + 2 * R - 25, HSVCircle->getPosition().y + 2 * R - 25, std::format("HSV = {:.2f}", defaultV));
 		}
 
 		void handleBYLVValueChanged(double percent)

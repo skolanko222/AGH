@@ -60,6 +60,8 @@ void hexagon::Set_Borders(sf::Vector2f _left_top, sf::Vector2f _right_bottom)
 void hexagon::Draw_Border(sf::RenderTarget& target, sf::RenderStates states, sf::String name) const
 {
     //Rysowanie obramowania sześciokąta.
+    sf::Text text;
+    text.setFont(*font);
 	sf::VertexArray lines(sf::LinesStrip, 7);
 	for(int i = 0; i < 7; i++) 
 	{
@@ -67,11 +69,17 @@ void hexagon::Draw_Border(sf::RenderTarget& target, sf::RenderStates states, sf:
 		lines[i].position = p[i % 6];
 	}
 	target.draw(lines, states);
-	sf::RectangleShape rec;
- rec.setPosition(center);
- //rec.setSize(sf::Vector2f());
-
-
+    text.setString(name[0]);
+    text.setCharacterSize(20);
+    text.setFillColor(sf::Color::Black);
+    text.setPosition(p[0].x - 5 , p[0].y - 25);
+    target.draw(text, states);
+    text.setString(name[1]);
+    text.setPosition(p[2].x - 15, p[2].y - 10);
+    target.draw(text, states);
+    text.setString(name[2]);
+    text.setPosition(p[4].x + 5, p[4].y - 10);
+    target.draw(text, states);
 }
 
 
@@ -90,19 +98,6 @@ void hexagon_RGB::draw(sf::RenderTarget& target, sf::RenderStates states) const
         vertices[3 * i + 1].position = p[(i + 1) % 6];
         vertices[3 * i + 2].position = center;
     }
-    sf::Text text;
-    text.setFont(*font);
-    text.setString("R");
-    text.setCharacterSize(20);
-    text.setFillColor(sf::Color::Black);
-    text.setPosition(p[0].x - 30, p[0].y - 15);
-    target.draw(text, states);
-    text.setString("G");
-    text.setPosition(p[2].x - 15, p[2].y - 10);
-    target.draw(text, states);
-    text.setString("B");
-    text.setPosition(p[4].x + 10, p[4].y - 10);
-    target.draw(text, states);
     vertices[0].color = sf::Color(255*sliderParam, 0, 0);
     vertices[1].color = sf::Color(255*sliderParam, 255*sliderParam, 0);
     vertices[2].color = sf::Color(255*sliderParam, 255*sliderParam, 255*sliderParam);
@@ -141,19 +136,6 @@ void hexagon_CMY::draw(sf::RenderTarget& target, sf::RenderStates states) const
         vertices[3 * i + 1].position = p[(i + 1) % 6];
         vertices[3 * i + 2].position = center;
     }
-    sf::Text text;
-    text.setFont(*font);
-    text.setString("C");
-    text.setCharacterSize(20);
-    text.setFillColor(sf::Color::Black);
-    text.setPosition(p[0].x - 30, p[0].y - 15);
-    target.draw(text, states);
-    text.setString("M");
-    text.setPosition(p[2].x - 15, p[2].y - 10);
-    target.draw(text, states);
-    text.setString("Y");
-    text.setPosition(p[4].x + 10, p[4].y - 10);
-    target.draw(text, states);
     vertices[0].color = sf::Color(0,255,255,255*sliderParam);
     vertices[1].color = sf::Color(0,0,255,255*sliderParam);
     vertices[2].color = sf::Color(0,0,0,255*sliderParam);
@@ -175,17 +157,94 @@ void hexagon_CMY::draw(sf::RenderTarget& target, sf::RenderStates states) const
     target.draw(vertices, states);
     Draw_Border(target, states, "CMY");
 }
-
 class hexagon_HSL : public hexagon
 {
 public:
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+private:
+    static float Hue_2_RGB(float v1, float v2, float vH) {
+        if (vH < 0) {
+            vH += 1;
+        }
+        if (vH > 1) {
+            vH -= 1;
+        }
+        if (6 * vH < 1) {
+            return v1 + (v2 - v1) * 6 * vH;
+        }
+        if (2 * vH < 1) {
+            return v2;
+        }
+        if (3 * vH < 2) {
+            return v1 + (v2 - v1) * (2.0 / 3.0 - vH) * 6;
+        }
+        return v1;
+    }
+    static sf::Color HSL_RGB(float h, float s, float l) {
+    if (s == 0) {
+        return sf::Color(l * 255, l * 255, l * 255);
+    } 
+    else {
+        float var1,var2;
+        if (l < 0.5) {
+            var2 = l * (1 + s);
+        }
+        else {
+            var2 = (l + s) - (s * l);
+        }
+        var1 = 2 * l - var2;
+        return sf::Color(255 * Hue_2_RGB(var1, var2, h + (1.0 / 3.0)), 255 * Hue_2_RGB(var1, var2, h), 255 * Hue_2_RGB(var1, var2, h - (1.0 / 3.0)));
+    }
+}
 };
-
 void hexagon_HSL::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-    //Tu trzeba narysować sześciokąt HSL.
+    float dif = (p[2].y - p[1].y)/6.;
+    //std::cout << dif << std::endl;
+    sf::VertexArray top(sf::Quads, 4);
+    top[0].position = p[0];
+    top[1].position = p[1];
+    top[2].position = center;
+    top[3].position = p[5];
+    std::vector<sf::VertexArray> vertices;
+    std::vector<sf::VertexArray> vertices2;
+    for (int i = 0; i < 6; i++)
+    {
+        sf::VertexArray temp(sf::Quads, 4);
+        temp[0].position = sf::Vector2f(p[1].x,p[1].y + dif*i);
+        temp[1].position = sf::Vector2f(center.x,center.y + dif*i);
+        temp[2].position = sf::Vector2f(center.x,center.y + dif*(i+1));
+        temp[3].position = sf::Vector2f(p[1].x,p[1].y + dif*(i+1));
+
+        vertices.push_back(temp);
+    }
+    vertices[0][0].color = sf::Color(255,0,0,255*sliderParam);
+    vertices[0][1].color = sf::Color(255,0,0,255*sliderParam);
+    vertices[0][2].color = sf::Color(255,0,255,255*sliderParam);
+    vertices[0][3].color = sf::Color(255,0,255,255*sliderParam);
+    vertices[1][0].color = sf::Color(255,0,255,255*sliderParam);
+    vertices[1][1].color = sf::Color(255,0,255,255*sliderParam);
+    vertices[1][2].color = sf::Color(0,0,255,255*sliderParam);
+    vertices[1][3].color = sf::Color(0,0,255,255*sliderParam);
+    vertices[2][0].color = sf::Color(0,0,255,255*sliderParam);
+    vertices[2][1].color = sf::Color(0,0,255,255*sliderParam);
+    vertices[2][2].color = sf::Color(0,255,255,255*sliderParam);
+    vertices[2][3].color = sf::Color(0,255,255,255*sliderParam);
+    vertices[3][0].color = sf::Color(0,255,255,255*sliderParam);
+    vertices[3][1].color = sf::Color(0,255,255,255*sliderParam);
+    vertices[3][2].color = sf::Color(0,255,0,255*sliderParam);
+    vertices[3][3].color = sf::Color(0,255,0,255*sliderParam);
+    vertices[4][0].color = sf::Color(0,255,0,255*sliderParam);
+    vertices[4][1].color = sf::Color(0,255,0,255*sliderParam);
+    vertices[4][2].color = sf::Color(255,255,0,255*sliderParam);
+    vertices[4][3].color = sf::Color(255,255,0,255*sliderParam);
+    vertices[5][0].color = sf::Color(255,255,0,255*sliderParam);
+    vertices[5][1].color = sf::Color(255,255,0,255*sliderParam);
+    vertices[5][2].color = sf::Color(255,0,0,255*sliderParam);
+    vertices[5][3].color = sf::Color(255,0,0,255*sliderParam);
     
+    for(auto a : vertices)
+        target.draw(a, states);
     Draw_Border(target, states, "HSL");
 }
 
@@ -248,3 +307,6 @@ sf::Color hexagon_CMY::HSB_RGB(float h,float s,float v) {
         return sf::Color(var_r * 255, var_g * 255, var_b * 255);
     }
 }
+
+
+
