@@ -47,9 +47,8 @@ int main()
 		odchylenie = sqrt(odchylenie)/5.0;
 		std::string text = _ + " dla Q: " + std::to_string(q);
 		
-		//save_vector(plik2,X,text.c_str());
-		plik2<< q <<", ";			
-		
+		save_vector(plik2,X,text.c_str());
+
 		gsl_matrix_free(X_m);
 		gsl_vector_free(X);
 		gsl_matrix_free(C);
