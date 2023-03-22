@@ -1,4 +1,5 @@
 #include "SFML/Graphics.hpp"
+#include "hsl_rgb.h"
 #include <numeric>
 #include <iostream>
 #include <memory>
@@ -124,7 +125,6 @@ class hexagon_CMY : public hexagon
 {
 public:
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
-    static sf::Color HSB_RGB(float h,float s,float v);
 };
 
 void hexagon_CMY::draw(sf::RenderTarget& target, sf::RenderStates states) const
@@ -160,42 +160,7 @@ void hexagon_CMY::draw(sf::RenderTarget& target, sf::RenderStates states) const
 class hexagon_HSL : public hexagon
 {
 public:
-    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
-private:
-    static float Hue_2_RGB(float v1, float v2, float vH) {
-        if (vH < 0) {
-            vH += 1;
-        }
-        if (vH > 1) {
-            vH -= 1;
-        }
-        if (6 * vH < 1) {
-            return v1 + (v2 - v1) * 6 * vH;
-        }
-        if (2 * vH < 1) {
-            return v2;
-        }
-        if (3 * vH < 2) {
-            return v1 + (v2 - v1) * (2.0 / 3.0 - vH) * 6;
-        }
-        return v1;
-    }
-    static sf::Color HSL_RGB(float h, float s, float l) {
-    if (s == 0) {
-        return sf::Color(l * 255, l * 255, l * 255);
-    } 
-    else {
-        float var1,var2;
-        if (l < 0.5) {
-            var2 = l * (1 + s);
-        }
-        else {
-            var2 = (l + s) - (s * l);
-        }
-        var1 = 2 * l - var2;
-        return sf::Color(255 * Hue_2_RGB(var1, var2, h + (1.0 / 3.0)), 255 * Hue_2_RGB(var1, var2, h), 255 * Hue_2_RGB(var1, var2, h - (1.0 / 3.0)));
-    }
-}
+    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;   
 };
 void hexagon_HSL::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
@@ -206,6 +171,11 @@ void hexagon_HSL::draw(sf::RenderTarget& target, sf::RenderStates states) const
     top[1].position = p[1];
     top[2].position = center;
     top[3].position = p[5];
+    top[0].color = HSLToRGB(HSL(360,1,0)).color;
+    top[1].color = HSLToRGB(HSL(360,1,0)).color;
+    top[2].color = HSLToRGB(HSL(360,1,sliderParam)).color;
+    top[3].color = HSLToRGB(HSL(360,1,sliderParam)).color;
+
     std::vector<sf::VertexArray> vertices;
     std::vector<sf::VertexArray> vertices2;
     for (int i = 0; i < 6; i++)
@@ -242,9 +212,48 @@ void hexagon_HSL::draw(sf::RenderTarget& target, sf::RenderStates states) const
     vertices[5][1].color = sf::Color(255,255,0,255*sliderParam);
     vertices[5][2].color = sf::Color(255,0,0,255*sliderParam);
     vertices[5][3].color = sf::Color(255,0,0,255*sliderParam);
-    
-    for(auto a : vertices)
-        target.draw(a, states);
+    //std::cout << vertices[0][0].color.r << " " << vertices[0][0].color.g << " " << vertices[0][0].color.b << std::endl;
+    for (int i = 0; i < 6; i++)
+    {
+        sf::VertexArray temp(sf::Quads, 4);
+        temp[1].position = sf::Vector2f(p[5].x,p[5].y + dif*i);
+        temp[0].position = sf::Vector2f(center.x,center.y + dif*i);
+        temp[3].position = sf::Vector2f(center.x,center.y + dif*(i+1));
+        temp[2].position = sf::Vector2f(p[5].x,p[5].y + dif*(i+1));
+
+        vertices2.push_back(temp);
+    }
+    vertices2[0][0].color = sf::Color(255,0,0,255*sliderParam);
+    vertices2[0][1].color = sf::Color(255,0,0,255*sliderParam);
+    vertices2[0][2].color = sf::Color(255,0,255,255*sliderParam);
+    vertices2[0][3].color = sf::Color(255,0,255,255*sliderParam);
+    vertices2[1][0].color = sf::Color(255,0,255,255*sliderParam);
+    vertices2[1][1].color = sf::Color(255,0,255,255*sliderParam);
+    vertices2[1][2].color = sf::Color(0,0,255,255*sliderParam);
+    vertices2[1][3].color = sf::Color(0,0,255,255*sliderParam);
+    vertices2[2][0].color = sf::Color(0,0,255,255*sliderParam);
+    vertices2[2][1].color = sf::Color(0,0,255,255*sliderParam);
+    vertices2[2][2].color = sf::Color(0,255,255,255*sliderParam);
+    vertices2[2][3].color = sf::Color(0,255,255,255*sliderParam);
+    vertices2[3][0].color = sf::Color(0,255,255,255*sliderParam);
+    vertices2[3][1].color = sf::Color(0,255,255,255*sliderParam);
+    vertices2[3][2].color = sf::Color(0,255,0,255*sliderParam);
+    vertices2[3][3].color = sf::Color(0,255,0,255*sliderParam);
+    vertices2[4][0].color = sf::Color(0,255,0,255*sliderParam);
+    vertices2[4][1].color = sf::Color(0,255,0,255*sliderParam);
+    vertices2[4][2].color = sf::Color(255,255,0,255*sliderParam);
+    vertices2[4][3].color = sf::Color(255,255,0,255*sliderParam);
+    vertices2[5][0].color = sf::Color(255,255,0,255*sliderParam);
+    vertices2[5][1].color = sf::Color(255,255,0,255*sliderParam);
+    vertices2[5][2].color = sf::Color(255,0,0,255*sliderParam);
+    vertices2[5][3].color = sf::Color(255,0,0,255*sliderParam); 
+
+    for(int i = 0; i < 6; i++)
+    {
+        target.draw(vertices[i], states);
+        target.draw(vertices2[i], states);
+    }
+    target.draw(top, states);
     Draw_Border(target, states, "HSL");
 }
 
@@ -256,57 +265,95 @@ public:
 
 void hexagon_HSB::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-    //Tu trzeba narysować sześciokąt HSB.
+    float dif = (p[2].y - p[1].y)/6.;
+    //std::cout << dif << std::endl;
+    sf::VertexArray top(sf::Quads, 4);
+    top[0].position = p[0];
+    top[1].position = p[1];
+    top[2].position = center;
+    top[3].position = p[5];
+    top[0].color = sf::Color(255,0,0,255*sliderParam);
+    top[1].color = sf::Color(255,0,0,255*sliderParam);
+    top[2].color = sf::Color(255,0,0,255*sliderParam);
+    top[3].color = sf::Color(255,0,0,255*sliderParam);
 
-    Draw_Border(target, states, "HSB");
-}
-sf::Color hexagon_CMY::HSB_RGB(float h,float s,float v) {
-    if (s == 0) {
-        return sf::Color(v * 255, v * 255, v * 255);
+    std::vector<sf::VertexArray> vertices;
+    std::vector<sf::VertexArray> vertices2;
+    for (int i = 0; i < 6; i++)
+    {
+        sf::VertexArray temp(sf::Quads, 4);
+        temp[0].position = sf::Vector2f(p[1].x,p[1].y + dif*i);
+        temp[1].position = sf::Vector2f(center.x,center.y + dif*i);
+        temp[2].position = sf::Vector2f(center.x,center.y + dif*(i+1));
+        temp[3].position = sf::Vector2f(p[1].x,p[1].y + dif*(i+1));
+
+        vertices.push_back(temp);
     }
-    else {
-        float varh = h * 6;
-        if (varh == 6) {
-            varh = 0;
-        }
-        int var_i = static_cast<int>(varh);
-        float var1 = v * (1 - s);
-        float var2 = v * (1 - s * (varh - var_i));
-        float var3 = v * (1 - s * (1 - (varh - var_i)));
-        float var_r, var_g, var_b;
-        if (var_i == 0) {
-            var_r = v;
-            var_g = var3;
-            var_b = var1;
-        }
-        else if (var_i == 1) {
-            var_r = var2;
-            var_g = v;
-            var_b = var1;
-        }
-        else if (var_i == 2) {
-            var_r = var1;
-            var_g = v;
-            var_b = var3;
-        }
-        else if (var_i == 3) {
-            var_r = var1;
-            var_g = var2;
-            var_b = v;
-        }
-        else if (var_i == 4) {
-            var_r = var3;
-            var_g = var1;
-            var_b = v;
-        }
-        else {
-            var_r = v;
-            var_g = var1;
-            var_b = var2;
-        }
-        return sf::Color(var_r * 255, var_g * 255, var_b * 255);
+    vertices[0][0].color = sf::Color(255,0,0,255*sliderParam);
+    vertices[0][1].color = sf::Color(255,0,0,255*sliderParam);
+    vertices[0][2].color = sf::Color(255,0,255,255*sliderParam);
+    vertices[0][3].color = sf::Color(255,0,255,255*sliderParam);
+    vertices[1][0].color = sf::Color(255,0,255,255*sliderParam);
+    vertices[1][1].color = sf::Color(255,0,255,255*sliderParam);
+    vertices[1][2].color = sf::Color(0,0,255,255*sliderParam);
+    vertices[1][3].color = sf::Color(0,0,255,255*sliderParam);
+    vertices[2][0].color = sf::Color(0,0,255,255*sliderParam);
+    vertices[2][1].color = sf::Color(0,0,255,255*sliderParam);
+    vertices[2][2].color = sf::Color(0,255,255,255*sliderParam);
+    vertices[2][3].color = sf::Color(0,255,255,255*sliderParam);
+    vertices[3][0].color = sf::Color(0,255,255,255*sliderParam);
+    vertices[3][1].color = sf::Color(0,255,255,255*sliderParam);
+    vertices[3][2].color = sf::Color(0,255,0,255*sliderParam);
+    vertices[3][3].color = sf::Color(0,255,0,255*sliderParam);
+    vertices[4][0].color = sf::Color(0,255,0,255*sliderParam);
+    vertices[4][1].color = sf::Color(0,255,0,255*sliderParam);
+    vertices[4][2].color = sf::Color(255,255,0,255*sliderParam);
+    vertices[4][3].color = sf::Color(255,255,0,255*sliderParam);
+    vertices[5][0].color = sf::Color(255,255,0,255*sliderParam);
+    vertices[5][1].color = sf::Color(255,255,0,255*sliderParam);
+    vertices[5][2].color = sf::Color(255,0,0,255*sliderParam);
+    vertices[5][3].color = sf::Color(255,0,0,255*sliderParam);
+    //std::cout << vertices[0][0].color.r << " " << vertices[0][0].color.g << " " << vertices[0][0].color.b << std::endl;
+    for (int i = 0; i < 6; i++)
+    {
+        sf::VertexArray temp(sf::Quads, 4);
+        temp[1].position = sf::Vector2f(p[5].x,p[5].y + dif*i);
+        temp[0].position = sf::Vector2f(center.x,center.y + dif*i);
+        temp[3].position = sf::Vector2f(center.x,center.y + dif*(i+1));
+        temp[2].position = sf::Vector2f(p[5].x,p[5].y + dif*(i+1));
+
+        vertices2.push_back(temp);
     }
+    vertices2[0][0].color = sf::Color(255,0,0,255*sliderParam);
+    vertices2[0][1].color = sf::Color(255,0,0,255*sliderParam);
+    vertices2[0][2].color = sf::Color(255,0,255,255*sliderParam);
+    vertices2[0][3].color = sf::Color(255,0,255,255*sliderParam);
+    vertices2[1][0].color = sf::Color(255,0,255,255*sliderParam);
+    vertices2[1][1].color = sf::Color(255,0,255,255*sliderParam);
+    vertices2[1][2].color = sf::Color(0,0,255,255*sliderParam);
+    vertices2[1][3].color = sf::Color(0,0,255,255*sliderParam);
+    vertices2[2][0].color = sf::Color(0,0,255,255*sliderParam);
+    vertices2[2][1].color = sf::Color(0,0,255,255*sliderParam);
+    vertices2[2][2].color = sf::Color(0,255,255,255*sliderParam);
+    vertices2[2][3].color = sf::Color(0,255,255,255*sliderParam);
+    vertices2[3][0].color = sf::Color(0,255,255,255*sliderParam);
+    vertices2[3][1].color = sf::Color(0,255,255,255*sliderParam);
+    vertices2[3][2].color = sf::Color(0,255,0,255*sliderParam);
+    vertices2[3][3].color = sf::Color(0,255,0,255*sliderParam);
+    vertices2[4][0].color = sf::Color(0,255,0,255*sliderParam);
+    vertices2[4][1].color = sf::Color(0,255,0,255*sliderParam);
+    vertices2[4][2].color = sf::Color(255,255,0,255*sliderParam);
+    vertices2[4][3].color = sf::Color(255,255,0,255*sliderParam);
+    vertices2[5][0].color = sf::Color(255,255,0,255*sliderParam);
+    vertices2[5][1].color = sf::Color(255,255,0,255*sliderParam);
+    vertices2[5][2].color = sf::Color(255,0,0,255*sliderParam);
+    vertices2[5][3].color = sf::Color(255,0,0,255*sliderParam); 
+
+    for(int i = 0; i < 6; i++)
+    {
+        target.draw(vertices[i], states);
+        target.draw(vertices2[i], states);
+    }
+    target.draw(top, states);
+    Draw_Border(target, states, "HSL");
 }
-
-
-

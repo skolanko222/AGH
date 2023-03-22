@@ -123,32 +123,32 @@ lab2/fast:
 	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/build
 .PHONY : lab2/fast
 
-main.o: main.cpp.o
+olek.o: olek.cpp.o
 
-.PHONY : main.o
+.PHONY : olek.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/main.cpp.o
-.PHONY : main.cpp.o
+olek.cpp.o:
+	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/olek.cpp.o
+.PHONY : olek.cpp.o
 
-main.i: main.cpp.i
+olek.i: olek.cpp.i
 
-.PHONY : main.i
+.PHONY : olek.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/main.cpp.i
-.PHONY : main.cpp.i
+olek.cpp.i:
+	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/olek.cpp.i
+.PHONY : olek.cpp.i
 
-main.s: main.cpp.s
+olek.s: olek.cpp.s
 
-.PHONY : main.s
+.PHONY : olek.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/main.cpp.s
-.PHONY : main.cpp.s
+olek.cpp.s:
+	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/olek.cpp.s
+.PHONY : olek.cpp.s
 
 # Help Target
 help:
@@ -159,9 +159,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... lab2"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... olek.o"
+	@echo "... olek.i"
+	@echo "... olek.s"
 .PHONY : help
 
 

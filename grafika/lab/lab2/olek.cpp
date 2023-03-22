@@ -5,13 +5,12 @@
 #include "ShareTechMono-Regular.h"
 #include <numeric>
 #include <iostream>
-#include <cmath>
 #include <memory>
-
-float brightness=1.0f;
+#include <cmath>
 //Tak – dobrze państwo widzą – TO jest zmienna globalna! Czytanie i przetwarzanie fontów w SFML jest bardzo kosztowne. Dlatego zrobimy to raz. 
 //Co nie zmienia faktu, że można by to zrobić bez zmiennej globalnej i to całkiem ładnie. Jak? To już dla Państwa :-)
 std::shared_ptr<sf::Font> font;
+float brightness=1.0f;
 
 class hexagon : public sf::Drawable
 {
@@ -52,7 +51,6 @@ void hexagon::Set_Borders(sf::Vector2f _left_top, sf::Vector2f _right_bottom)
     right_bottom = _right_bottom;
     float a = ((right_bottom.y - left_top.y) / 2.0f + 0.5f) - 20.0f;
     center = left_top + sf::Vector2f((right_bottom.x - left_top.x) / 2.0f + 0.5f, (right_bottom.y - left_top.y) / 2.0f + 0.5f + 10);
-
     p[0] = center - sf::Vector2f( 0.0f, a);
     p[1] = center - sf::Vector2f(0.5f * sqrt(3.0f) * a, 0.5f * a);
     p[2] = center - sf::Vector2f(0.5f * sqrt(3.0f) * a, -0.5f * a);
@@ -99,13 +97,6 @@ public:
 
 void hexagon_RGB::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-    sf::VertexArray vertices(sf::Triangles, 6 * 3);
-    for (int i = 0; i < 6; i++)
-    {
-        vertices[3 * i].position = p[i];
-        vertices[3 * i + 1].position = p[(i + 1) % 6];
-        vertices[3 * i + 2].position = center;
-    }
     sf::Text text;
     text.setFont(*font);
     text.setString("R");
@@ -119,6 +110,13 @@ void hexagon_RGB::draw(sf::RenderTarget& target, sf::RenderStates states) const
     text.setString("B");
     text.setPosition(p[4].x + 10, p[4].y - 10);
     target.draw(text, states);
+    sf::VertexArray vertices(sf::Triangles, 6 * 3);
+    for (int i = 0; i < 6; i++)
+    {
+        vertices[3 * i].position = p[i];
+        vertices[3 * i + 1].position = p[(i + 1) % 6];
+        vertices[3 * i + 2].position = center;
+    }
     vertices[0].color = sf::Color(255*brightness, 0, 0);
     vertices[1].color = sf::Color(255*brightness, 255*brightness, 0);
     vertices[2].color = sf::Color(255*brightness, 255*brightness, 255*brightness);
@@ -148,13 +146,6 @@ public:
 
 void hexagon_CMY::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-    sf::VertexArray vertices(sf::Triangles, 6 * 3);
-    for (int i = 0; i < 6; i++)
-    {
-        vertices[3 * i].position = p[i];
-        vertices[3 * i + 1].position = p[(i + 1) % 6];
-        vertices[3 * i + 2].position = center;
-    }
     sf::Text text;
     text.setFont(*font);
     text.setString("C");
@@ -168,6 +159,13 @@ void hexagon_CMY::draw(sf::RenderTarget& target, sf::RenderStates states) const
     text.setString("Y");
     text.setPosition(p[4].x + 10, p[4].y - 10);
     target.draw(text, states);
+    sf::VertexArray vertices(sf::Triangles, 6 * 3);
+    for (int i = 0; i < 6; i++)
+    {
+        vertices[3 * i].position = p[i];
+        vertices[3 * i + 1].position = p[(i + 1) % 6];
+        vertices[3 * i + 2].position = center;
+    }
     vertices[0].color = sf::Color(0,255,255,255*brightness);
     vertices[1].color = sf::Color(0,0,255,255*brightness);
     vertices[2].color = sf::Color(0,0,0,255*brightness);
@@ -276,15 +274,14 @@ sf::Color HSB_RGB(float h,float s,float v) {
         return sf::Color(var_r * 255, var_g * 255, var_b * 255);
     }
 }
+sf::Vector2f BetweenPoint(sf::Vector2f v1, sf::Vector2f v2, int index_of_part, int n_parts) {
+	sf::Vector2f tmp;
+	tmp.x = v1.x+(v2.x - v1.x) /  n_parts*index_of_part;
+	tmp.y = v1.y + (v2.y - v1.y) /  n_parts * index_of_part;
+	return tmp;
+}
 void hexagon_HSL::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-    sf::VertexArray vertices(sf::Triangles, 6 * 3);
-    for (int i = 0; i < 6; i++)
-    {
-        vertices[3 * i].position = p[i];
-        vertices[3 * i + 1].position = p[(i + 1) % 6];
-        vertices[3 * i + 2].position = center;
-    }
     sf::Text text;
     text.setFont(*font);
     text.setString("H");
@@ -298,25 +295,159 @@ void hexagon_HSL::draw(sf::RenderTarget& target, sf::RenderStates states) const
     text.setString("L");
     text.setPosition(p[4].x + 10, p[4].y - 10);
     target.draw(text, states);
-    vertices[0].color = HSL_RGB(1.0, 0, 0 * brightness);
-    vertices[1].color = HSL_RGB(1.0, 1, 0 * brightness);
-    vertices[2].color = HSL_RGB(1.0, 1, brightness);
-    vertices[3].color = HSL_RGB(1.0, 1, 0 * brightness);
-    vertices[4].color = HSL_RGB(0.0, 1, 0 * brightness);
-    vertices[5].color = HSL_RGB(1.0, 1, brightness);
-    vertices[6].color = HSL_RGB(0.0, 1, 0 * brightness);
-    vertices[7].color = HSL_RGB(0.0, 1, brightness);
-    vertices[8].color = HSL_RGB(1.0, 1, brightness);
-    vertices[9].color = HSL_RGB(0.0, 1, brightness);
-    vertices[10].color = HSL_RGB(0.0, 0, brightness);
-    vertices[11].color = HSL_RGB(1.0, 1, brightness);
-    vertices[12].color = HSL_RGB(0, 0, brightness);
-    vertices[13].color = HSL_RGB(1.0, 0, brightness);
-    vertices[14].color = HSL_RGB(1.0, 1, brightness);
-    vertices[15].color = HSL_RGB(1.0, 0, brightness);
-    vertices[16].color = HSL_RGB(1.0, 0, 0 * brightness);
-    vertices[17].color = HSL_RGB(1.0, 1, brightness);
-    target.draw(vertices, states);
+	sf::Vertex vertices[] =
+		{
+			sf::Vertex(p[0], HSL_RGB(1, 0, 0*brightness)),
+			sf::Vertex(p[1], HSL_RGB(1, 1, 0*brightness)),
+			sf::Vertex(BetweenPoint(p[1],center,1,2), HSL_RGB(1, 1, 0.5*brightness)),
+			sf::Vertex(BetweenPoint(p[0],p[5],1,2), HSL_RGB(1, 0, 0.5*brightness)),
+		
+			sf::Vertex(BetweenPoint(p[1],center,1,2), HSL_RGB(1, 1, 0.5*brightness)),
+			sf::Vertex(center, HSL_RGB(1, 1, 1*brightness)),
+			sf::Vertex(p[5], HSL_RGB(1, 0, 1*brightness)),
+			sf::Vertex(BetweenPoint(p[0],p[5],1,2), HSL_RGB(1, 0, 0.5*brightness)),
+			
+			sf::Vertex(p[1], HSL_RGB(1, 1, 0*brightness)),
+			sf::Vertex(BetweenPoint(p[1], p[2],1, 7), HSL_RGB(0.86, 1, 0*brightness)),
+			sf::Vertex(BetweenPoint(BetweenPoint(p[1],center,1,2), BetweenPoint(p[2],p[3],1,2),1, 7), HSL_RGB(0.86, 1, 0.5*brightness)),
+			sf::Vertex(BetweenPoint(p[1],center,1,2), HSL_RGB(1, 1, 0.5*brightness)),
+        
+			sf::Vertex(BetweenPoint(p[1],center,1,2), HSL_RGB(1, 1, 0.5*brightness)),
+			sf::Vertex(BetweenPoint(BetweenPoint(p[1],center,1,2), BetweenPoint(p[2],p[3],1,2),1, 7), HSL_RGB(0.86, 1, 0.5*brightness)),
+			sf::Vertex(BetweenPoint(center, p[3],1,7), HSL_RGB(0.86, 1, 1*brightness)),
+			sf::Vertex(center, HSL_RGB(1, 1, 1*brightness)),
+        
+			sf::Vertex(BetweenPoint(p[1], p[2],1, 7), HSL_RGB(0.86, 1, 0*brightness)),
+			sf::Vertex(BetweenPoint(p[1], p[2],2, 7), HSL_RGB(0.72, 1, 0*brightness)),
+			sf::Vertex(BetweenPoint(BetweenPoint(p[1],center,1,2), BetweenPoint(p[2],p[3],1,2),2, 7), HSL_RGB(0.72, 1, 0.5*brightness)),
+			sf::Vertex(BetweenPoint(BetweenPoint(p[1],center,1,2), BetweenPoint(p[2],p[3],1,2),1, 7), HSL_RGB(0.86, 1, 0.5*brightness)),
+        
+			sf::Vertex(BetweenPoint(BetweenPoint(p[1],center,1,2), BetweenPoint(p[2],p[3],1,2),1, 7), HSL_RGB(0.86, 1, 0.5*brightness)),
+			sf::Vertex(BetweenPoint(BetweenPoint(p[1],center,1,2), BetweenPoint(p[2],p[3],1,2),2, 7), HSL_RGB(0.72, 1, 0.5*brightness)),
+			sf::Vertex(BetweenPoint(center, p[3],2,7), HSL_RGB(0.72, 1, 1*brightness)),
+			sf::Vertex(BetweenPoint(center, p[3],1,7), HSL_RGB(0.86, 1, 1*brightness)),
+        
+			sf::Vertex(BetweenPoint(p[1], p[2],2, 7), HSL_RGB(0.72, 1, 0*brightness)),
+			sf::Vertex(BetweenPoint(p[1], p[2],3, 7), HSL_RGB(0.58, 1, 0*brightness)),
+			sf::Vertex(BetweenPoint(BetweenPoint(p[1],center,1,2), BetweenPoint(p[2],p[3],1,2),3, 7), HSL_RGB(0.58, 1, 0.5*brightness)),
+			sf::Vertex(BetweenPoint(BetweenPoint(p[1],center,1,2), BetweenPoint(p[2],p[3],1,2),2, 7), HSL_RGB(0.72, 1, 0.5*brightness)),
+
+			sf::Vertex(BetweenPoint(BetweenPoint(p[1],center,1,2), BetweenPoint(p[2],p[3],1,2),2, 7), HSL_RGB(0.72, 1, 0.5*brightness)),
+			sf::Vertex(BetweenPoint(BetweenPoint(p[1],center,1,2), BetweenPoint(p[2],p[3],1,2),3, 7), HSL_RGB(0.58, 1, 0.5*brightness)),
+			sf::Vertex(BetweenPoint(center, p[3],3,7), HSL_RGB(0.58, 1, 1*brightness)),
+			sf::Vertex(BetweenPoint(center, p[3],2,7), HSL_RGB(0.72, 1, 1*brightness)),
+			
+			sf::Vertex(BetweenPoint(p[1], p[2],3, 7), HSL_RGB(0.58, 1, 0*brightness)),
+			sf::Vertex(BetweenPoint(p[1], p[2],4, 7), HSL_RGB(0.44, 1, 0*brightness)),
+			sf::Vertex(BetweenPoint(BetweenPoint(p[1],center,1,2), BetweenPoint(p[2],p[3],1,2),4, 7), HSL_RGB(0.44, 1, 0.5*brightness)),
+			sf::Vertex(BetweenPoint(BetweenPoint(p[1],center,1,2), BetweenPoint(p[2],p[3],1,2),3, 7), HSL_RGB(0.58, 1, 0.5*brightness)),
+
+			sf::Vertex(BetweenPoint(BetweenPoint(p[1],center,1,2), BetweenPoint(p[2],p[3],1,2),3, 7), HSL_RGB(0.58, 1, 0.5*brightness)),
+			sf::Vertex(BetweenPoint(BetweenPoint(p[1],center,1,2), BetweenPoint(p[2],p[3],1,2),4, 7), HSL_RGB(0.44, 1, 0.5*brightness)),
+			sf::Vertex(BetweenPoint(center, p[3],4,7), HSL_RGB(0.44, 1, 1*brightness)),
+			sf::Vertex(BetweenPoint(center, p[3],3,7), HSL_RGB(0.58, 1, 1*brightness)),
+
+			sf::Vertex(BetweenPoint(p[1], p[2],4, 7), HSL_RGB(0.44, 1, 0*brightness)),
+			sf::Vertex(BetweenPoint(p[1], p[2],5, 7), HSL_RGB(0.3, 1, 0*brightness)),
+			sf::Vertex(BetweenPoint(BetweenPoint(p[1],center,1,2), BetweenPoint(p[2],p[3],1,2),5, 7), HSL_RGB(0.3, 1, 0.5*brightness)),
+			sf::Vertex(BetweenPoint(BetweenPoint(p[1],center,1,2), BetweenPoint(p[2],p[3],1,2),4, 7), HSL_RGB(0.44, 1, 0.5*brightness)),
+
+			sf::Vertex(BetweenPoint(BetweenPoint(p[1],center,1,2), BetweenPoint(p[2],p[3],1,2),4, 7), HSL_RGB(0.44, 1, 0.5*brightness)),
+			sf::Vertex(BetweenPoint(BetweenPoint(p[1],center,1,2), BetweenPoint(p[2],p[3],1,2),5, 7), HSL_RGB(0.3, 1, 0.5*brightness)),
+			sf::Vertex(BetweenPoint(center, p[3],5,7), HSL_RGB(0.3, 1, 1*brightness)),
+			sf::Vertex(BetweenPoint(center, p[3],4,7), HSL_RGB(0.44, 1, 1*brightness)),
+
+            sf::Vertex(BetweenPoint(p[1], p[2], 5, 7), HSL_RGB(0.3, 1, 0*brightness)),
+			sf::Vertex(BetweenPoint(p[1], p[2], 6, 7), HSL_RGB(0.16, 1, 0*brightness)),
+			sf::Vertex(BetweenPoint(BetweenPoint(p[1],center,1,2), BetweenPoint(p[2], p[3], 1, 2), 6, 7), HSL_RGB(0.16, 1, 0.5*brightness)),
+			sf::Vertex(BetweenPoint(BetweenPoint(p[1],center,1,2), BetweenPoint(p[2], p[3], 1, 2), 5, 7), HSL_RGB(0.3, 1, 0.5*brightness)),
+			
+            sf::Vertex(BetweenPoint(BetweenPoint(p[1], center, 1, 2), BetweenPoint(p[2], p[3], 1, 2), 5, 7), HSL_RGB(0.3, 1, 0.5*brightness)),
+			sf::Vertex(BetweenPoint(BetweenPoint(p[1], center, 1, 2), BetweenPoint(p[2], p[3], 1, 2), 6, 7), HSL_RGB(0.16, 1, 0.5*brightness)),
+			sf::Vertex(BetweenPoint(center, p[3], 6, 7), HSL_RGB(0.16, 1, 1*brightness)),
+			sf::Vertex(BetweenPoint(center, p[3], 5, 7), HSL_RGB(0.3, 1, 1*brightness)),
+
+            sf::Vertex(BetweenPoint(p[1], p[2], 6, 7), HSL_RGB(0.16, 1, 0*brightness)),
+            sf::Vertex(BetweenPoint(p[1], p[2], 7, 7), HSL_RGB(0.02, 1, 0*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[1], center, 1, 2), BetweenPoint(p[2], p[3], 1, 2), 7, 7), HSL_RGB(0.02, 1, 0.5*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[1], center, 1, 2), BetweenPoint(p[2], p[3], 1, 2), 6, 7), HSL_RGB(0.16, 1, 0.5*brightness)),
+
+            sf::Vertex(BetweenPoint(BetweenPoint(p[1], center, 1, 2), BetweenPoint(p[2], p[3], 1, 2), 6, 7), HSL_RGB(0.16, 1, 0.5*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[1], center, 1, 2), BetweenPoint(p[2], p[3], 1, 2), 7, 7), HSL_RGB(0.02, 1, 0.5*brightness)),
+            sf::Vertex(BetweenPoint(center, p[3], 7, 7), HSL_RGB(0.02, 1, 1*brightness)),
+            sf::Vertex(BetweenPoint(center, p[3], 6, 7), HSL_RGB(0.16, 1, 1*brightness)),
+
+            sf::Vertex(p[3], HSL_RGB(0.02, 1, 1*brightness)),
+            sf::Vertex(BetweenPoint(p[3],p[4],1,2), HSL_RGB(0.02, 0.5, 1*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),1,7), HSL_RGB(0.16, 0.5, 1*brightness)),
+            sf::Vertex(BetweenPoint(center, p[3], 6, 7), HSL_RGB(0.16, 1, 1*brightness)),
+
+            sf::Vertex(BetweenPoint(p[3],p[4],1,2), HSL_RGB(0.02, 0.5, 1*brightness)),
+            sf::Vertex(p[4], HSL_RGB(0.02, 0, 1*brightness)),
+            sf::Vertex(BetweenPoint(p[4],p[5],1,7), HSL_RGB(0.16, 0, 1*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),1,7), HSL_RGB(0.16, 0.5, 1*brightness)),
+
+            sf::Vertex(BetweenPoint(p[3],center,1,7), HSL_RGB(0.16, 1, 1*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),1,7), HSL_RGB(0.16, 0.5, 1*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),2,7), HSL_RGB(0.3, 0.5, 1*brightness)),
+            sf::Vertex(BetweenPoint(p[3],center,2,7), HSL_RGB(0.3, 1, 1*brightness)),
+
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),1,7), HSL_RGB(0.16, 0.5, 1*brightness)),
+            sf::Vertex(BetweenPoint(p[4],p[5],1,7), HSL_RGB(0.16, 0, 1*brightness)),
+            sf::Vertex(BetweenPoint(p[4],p[5],2,7), HSL_RGB(0.3, 0, 1*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),2,7), HSL_RGB(0.3, 0.5, 1*brightness)),
+
+            sf::Vertex(BetweenPoint(p[3],center,2,7), HSL_RGB(0.3, 1, 1*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),2,7), HSL_RGB(0.3, 0.5, 1*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),3,7), HSL_RGB(0.44, 0.5, 1*brightness)),
+            sf::Vertex(BetweenPoint(p[3],center,3,7), HSL_RGB(0.44, 1, 1*brightness)),
+
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),2,7), HSL_RGB(0.3, 0.5, 1*brightness)),
+            sf::Vertex(BetweenPoint(p[4],p[5],2,7), HSL_RGB(0.3, 0, 1*brightness)),
+            sf::Vertex(BetweenPoint(p[4],p[5],3,7), HSL_RGB(0.44, 0, 1*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),3,7), HSL_RGB(0.44, 0.5, 1*brightness)),
+
+            sf::Vertex(BetweenPoint(p[3],center,3,7), HSL_RGB(0.44, 1, 1*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),3,7), HSL_RGB(0.44, 0.5, 1*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),4,7), HSL_RGB(0.58, 0.5, 1*brightness)),
+            sf::Vertex(BetweenPoint(p[3],center,4,7), HSL_RGB(0.58, 1, 1*brightness)),
+
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),3,7), HSL_RGB(0.44, 0.5, 1*brightness)),
+            sf::Vertex(BetweenPoint(p[4],p[5],3,7), HSL_RGB(0.44, 0, 1*brightness)),
+            sf::Vertex(BetweenPoint(p[4],p[5],4,7), HSL_RGB(0.58, 0, 1*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),4,7), HSL_RGB(0.58, 0.5, 1*brightness)),
+
+            sf::Vertex(BetweenPoint(p[3],center,4,7), HSL_RGB(0.58, 1, 1*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),4,7), HSL_RGB(0.58, 0.5, 1*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),5,7), HSL_RGB(0.72, 0.5, 1*brightness)),
+            sf::Vertex(BetweenPoint(p[3],center,5,7), HSL_RGB(0.72, 1, 1*brightness)),
+
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),4,7), HSL_RGB(0.58, 0.5, 1*brightness)),
+            sf::Vertex(BetweenPoint(p[4],p[5],4,7), HSL_RGB(0.58, 0, 1*brightness)),
+            sf::Vertex(BetweenPoint(p[4],p[5],5,7), HSL_RGB(0.72, 0, 1*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),5,7), HSL_RGB(0.72, 0.5, 1*brightness)),
+
+            sf::Vertex(BetweenPoint(p[3],center,5,7), HSL_RGB(0.72, 1, 1*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),5,7), HSL_RGB(0.72, 0.5, 1*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),6,7), HSL_RGB(0.86, 0.5, 1*brightness)),
+            sf::Vertex(BetweenPoint(p[3],center,6,7), HSL_RGB(0.86, 1, 1*brightness)),
+
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),5,7), HSL_RGB(0.72, 0.5, 1*brightness)),
+            sf::Vertex(BetweenPoint(p[4],p[5],5,7), HSL_RGB(0.72, 0, 1*brightness)),
+            sf::Vertex(BetweenPoint(p[4],p[5],6,7), HSL_RGB(0.86, 0, 1*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),6,7), HSL_RGB(0.86, 0.5, 1*brightness)),
+
+            sf::Vertex(BetweenPoint(p[3],center,6,7), HSL_RGB(0.86, 1, 1*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),6,7), HSL_RGB(0.86, 0.5, 1*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),7,7), HSL_RGB(1, 0.5, 1*brightness)),
+            sf::Vertex(BetweenPoint(p[3],center,7,7), HSL_RGB(1, 1, 1*brightness)),
+
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),6,7), HSL_RGB(0.86, 0.5, 1*brightness)),
+            sf::Vertex(BetweenPoint(p[4],p[5],6,7), HSL_RGB(0.86, 0, 1*brightness)),
+            sf::Vertex(BetweenPoint(p[4],p[5],7,7), HSL_RGB(1, 0, 1*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),7,7), HSL_RGB(1, 0.5, 1*brightness)),
+		};
+	target.draw(vertices,120, sf::Quads);
     Draw_Border(target, states, "HSL");
 }
 
@@ -328,13 +459,6 @@ public:
 
 void hexagon_HSB::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-    sf::VertexArray vertices(sf::Triangles, 6 * 3);
-    for (int i = 0; i < 6; i++)
-    {
-        vertices[3 * i].position = p[i];
-        vertices[3 * i + 1].position = p[(i + 1) % 6];
-        vertices[3 * i + 2].position = center;
-    }
     sf::Text text;
     text.setFont(*font);
     text.setString("H");
@@ -348,25 +472,159 @@ void hexagon_HSB::draw(sf::RenderTarget& target, sf::RenderStates states) const
     text.setString("B");
     text.setPosition(p[4].x + 10, p[4].y - 10);
     target.draw(text, states);
-    vertices[0].color = HSB_RGB(1, 0, 0 * brightness);
-    vertices[1].color = HSB_RGB(1, 1, 0 * brightness);
-    vertices[2].color = HSB_RGB(1, 1, brightness);
-    vertices[3].color = HSB_RGB(1, 1, 0 * brightness);
-    vertices[4].color = HSB_RGB(0, 1, 0 * brightness);
-    vertices[5].color = HSB_RGB(1, 1, brightness);
-    vertices[6].color = HSB_RGB(0, 1, 0 * brightness);
-    vertices[7].color = HSB_RGB(0, 1, brightness);
-    vertices[8].color = HSB_RGB(1, 1, brightness);
-    vertices[9].color = HSB_RGB(0, 1, brightness);
-    vertices[10].color = HSB_RGB(0, 0, brightness);
-    vertices[11].color = HSB_RGB(1, 1, brightness);
-    vertices[12].color = HSB_RGB(0, 0, brightness);
-    vertices[13].color = HSB_RGB(1, 0, brightness);
-    vertices[14].color = HSB_RGB(1, 1, brightness);
-    vertices[15].color = HSB_RGB(1, 0, brightness);
-    vertices[16].color = HSB_RGB(1, 0, 0 * brightness);
-    vertices[17].color = HSB_RGB(1, 1, brightness);
-    target.draw(vertices, states);
+    sf::Vertex vertices[] =
+		{
+			sf::Vertex(p[0], HSB_RGB(1, 0, 0*brightness)),
+			sf::Vertex(p[1], HSB_RGB(1, 1, 0*brightness)),
+			sf::Vertex(BetweenPoint(p[1],center,1,2), HSB_RGB(1, 1, 0.5*brightness)),
+			sf::Vertex(BetweenPoint(p[0],p[5],1,2), HSB_RGB(1, 0, 0.5*brightness)),
+		
+			sf::Vertex(BetweenPoint(p[1],center,1,2), HSB_RGB(1, 1, 0.5*brightness)),
+			sf::Vertex(center, HSB_RGB(1, 1, 1*brightness)),
+			sf::Vertex(p[5], HSB_RGB(1, 0, 1*brightness)),
+			sf::Vertex(BetweenPoint(p[0],p[5],1,2), HSB_RGB(1, 0, 0.5*brightness)),
+			
+			sf::Vertex(p[1], HSB_RGB(1, 1, 0*brightness)),
+			sf::Vertex(BetweenPoint(p[1], p[2],1, 7), HSB_RGB(0.86, 1, 0*brightness)),
+			sf::Vertex(BetweenPoint(BetweenPoint(p[1],center,1,2), BetweenPoint(p[2],p[3],1,2),1, 7), HSB_RGB(0.86, 1, 0.5*brightness)),
+			sf::Vertex(BetweenPoint(p[1],center,1,2), HSB_RGB(1, 1, 0.5*brightness)),
+        
+			sf::Vertex(BetweenPoint(p[1],center,1,2), HSB_RGB(1, 1, 0.5*brightness)),
+			sf::Vertex(BetweenPoint(BetweenPoint(p[1],center,1,2), BetweenPoint(p[2],p[3],1,2),1, 7), HSB_RGB(0.86, 1, 0.5*brightness)),
+			sf::Vertex(BetweenPoint(center, p[3],1,7), HSB_RGB(0.86, 1, 1*brightness)),
+			sf::Vertex(center, HSB_RGB(1, 1, 1*brightness)),
+        
+			sf::Vertex(BetweenPoint(p[1], p[2],1, 7), HSB_RGB(0.86, 1, 0*brightness)),
+			sf::Vertex(BetweenPoint(p[1], p[2],2, 7), HSB_RGB(0.72, 1, 0*brightness)),
+			sf::Vertex(BetweenPoint(BetweenPoint(p[1],center,1,2), BetweenPoint(p[2],p[3],1,2),2, 7), HSB_RGB(0.72, 1, 0.5*brightness)),
+			sf::Vertex(BetweenPoint(BetweenPoint(p[1],center,1,2), BetweenPoint(p[2],p[3],1,2),1, 7), HSB_RGB(0.86, 1, 0.5*brightness)),
+        
+			sf::Vertex(BetweenPoint(BetweenPoint(p[1],center,1,2), BetweenPoint(p[2],p[3],1,2),1, 7), HSB_RGB(0.86, 1, 0.5*brightness)),
+			sf::Vertex(BetweenPoint(BetweenPoint(p[1],center,1,2), BetweenPoint(p[2],p[3],1,2),2, 7), HSB_RGB(0.72, 1, 0.5*brightness)),
+			sf::Vertex(BetweenPoint(center, p[3],2,7), HSB_RGB(0.72, 1, 1*brightness)),
+			sf::Vertex(BetweenPoint(center, p[3],1,7), HSB_RGB(0.86, 1, 1*brightness)),
+        
+			sf::Vertex(BetweenPoint(p[1], p[2],2, 7), HSB_RGB(0.72, 1, 0*brightness)),
+			sf::Vertex(BetweenPoint(p[1], p[2],3, 7), HSB_RGB(0.58, 1, 0*brightness)),
+			sf::Vertex(BetweenPoint(BetweenPoint(p[1],center,1,2), BetweenPoint(p[2],p[3],1,2),3, 7), HSB_RGB(0.58, 1, 0.5*brightness)),
+			sf::Vertex(BetweenPoint(BetweenPoint(p[1],center,1,2), BetweenPoint(p[2],p[3],1,2),2, 7), HSB_RGB(0.72, 1, 0.5*brightness)),
+
+			sf::Vertex(BetweenPoint(BetweenPoint(p[1],center,1,2), BetweenPoint(p[2],p[3],1,2),2, 7), HSB_RGB(0.72, 1, 0.5*brightness)),
+			sf::Vertex(BetweenPoint(BetweenPoint(p[1],center,1,2), BetweenPoint(p[2],p[3],1,2),3, 7), HSB_RGB(0.58, 1, 0.5*brightness)),
+			sf::Vertex(BetweenPoint(center, p[3],3,7), HSB_RGB(0.58, 1, 1*brightness)),
+			sf::Vertex(BetweenPoint(center, p[3],2,7), HSB_RGB(0.72, 1, 1*brightness)),
+			
+			sf::Vertex(BetweenPoint(p[1], p[2],3, 7), HSB_RGB(0.58, 1, 0*brightness)),
+			sf::Vertex(BetweenPoint(p[1], p[2],4, 7), HSB_RGB(0.44, 1, 0*brightness)),
+			sf::Vertex(BetweenPoint(BetweenPoint(p[1],center,1,2), BetweenPoint(p[2],p[3],1,2),4, 7), HSB_RGB(0.44, 1, 0.5*brightness)),
+			sf::Vertex(BetweenPoint(BetweenPoint(p[1],center,1,2), BetweenPoint(p[2],p[3],1,2),3, 7), HSB_RGB(0.58, 1, 0.5*brightness)),
+
+			sf::Vertex(BetweenPoint(BetweenPoint(p[1],center,1,2), BetweenPoint(p[2],p[3],1,2),3, 7), HSB_RGB(0.58, 1, 0.5*brightness)),
+			sf::Vertex(BetweenPoint(BetweenPoint(p[1],center,1,2), BetweenPoint(p[2],p[3],1,2),4, 7), HSB_RGB(0.44, 1, 0.5*brightness)),
+			sf::Vertex(BetweenPoint(center, p[3],4,7), HSB_RGB(0.44, 1, 1*brightness)),
+			sf::Vertex(BetweenPoint(center, p[3],3,7), HSB_RGB(0.58, 1, 1*brightness)),
+
+			sf::Vertex(BetweenPoint(p[1], p[2],4, 7), HSB_RGB(0.44, 1, 0*brightness)),
+			sf::Vertex(BetweenPoint(p[1], p[2],5, 7), HSB_RGB(0.3, 1, 0*brightness)),
+			sf::Vertex(BetweenPoint(BetweenPoint(p[1],center,1,2), BetweenPoint(p[2],p[3],1,2),5, 7), HSB_RGB(0.3, 1, 0.5*brightness)),
+			sf::Vertex(BetweenPoint(BetweenPoint(p[1],center,1,2), BetweenPoint(p[2],p[3],1,2),4, 7), HSB_RGB(0.44, 1, 0.5*brightness)),
+
+			sf::Vertex(BetweenPoint(BetweenPoint(p[1],center,1,2), BetweenPoint(p[2],p[3],1,2),4, 7), HSB_RGB(0.44, 1, 0.5*brightness)),
+			sf::Vertex(BetweenPoint(BetweenPoint(p[1],center,1,2), BetweenPoint(p[2],p[3],1,2),5, 7), HSB_RGB(0.3, 1, 0.5*brightness)),
+			sf::Vertex(BetweenPoint(center, p[3],5,7), HSB_RGB(0.3, 1, 1*brightness)),
+			sf::Vertex(BetweenPoint(center, p[3],4,7), HSB_RGB(0.44, 1, 1*brightness)),
+
+            sf::Vertex(BetweenPoint(p[1], p[2], 5, 7), HSB_RGB(0.3, 1, 0*brightness)),
+			sf::Vertex(BetweenPoint(p[1], p[2], 6, 7), HSB_RGB(0.16, 1, 0*brightness)),
+			sf::Vertex(BetweenPoint(BetweenPoint(p[1],center,1,2), BetweenPoint(p[2], p[3], 1, 2), 6, 7), HSB_RGB(0.16, 1, 0.5*brightness)),
+			sf::Vertex(BetweenPoint(BetweenPoint(p[1],center,1,2), BetweenPoint(p[2], p[3], 1, 2), 5, 7), HSB_RGB(0.3, 1, 0.5*brightness)),
+			
+            sf::Vertex(BetweenPoint(BetweenPoint(p[1], center, 1, 2), BetweenPoint(p[2], p[3], 1, 2), 5, 7), HSB_RGB(0.3, 1, 0.5*brightness)),
+			sf::Vertex(BetweenPoint(BetweenPoint(p[1], center, 1, 2), BetweenPoint(p[2], p[3], 1, 2), 6, 7), HSB_RGB(0.16, 1, 0.5*brightness)),
+			sf::Vertex(BetweenPoint(center, p[3], 6, 7), HSB_RGB(0.16, 1, 1*brightness)),
+			sf::Vertex(BetweenPoint(center, p[3], 5, 7), HSB_RGB(0.3, 1, 1*brightness)),
+
+            sf::Vertex(BetweenPoint(p[1], p[2], 6, 7), HSB_RGB(0.16, 1, 0*brightness)),
+            sf::Vertex(BetweenPoint(p[1], p[2], 7, 7), HSB_RGB(0.02, 1, 0*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[1], center, 1, 2), BetweenPoint(p[2], p[3], 1, 2), 7, 7), HSB_RGB(0.02, 1, 0.5*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[1], center, 1, 2), BetweenPoint(p[2], p[3], 1, 2), 6, 7), HSB_RGB(0.16, 1, 0.5*brightness)),
+
+            sf::Vertex(BetweenPoint(BetweenPoint(p[1], center, 1, 2), BetweenPoint(p[2], p[3], 1, 2), 6, 7), HSB_RGB(0.16, 1, 0.5*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[1], center, 1, 2), BetweenPoint(p[2], p[3], 1, 2), 7, 7), HSB_RGB(0.02, 1, 0.5*brightness)),
+            sf::Vertex(BetweenPoint(center, p[3], 7, 7), HSB_RGB(0.02, 1, 1*brightness)),
+            sf::Vertex(BetweenPoint(center, p[3], 6, 7), HSB_RGB(0.16, 1, 1*brightness)),
+
+            sf::Vertex(p[3], HSB_RGB(0.02, 1, 1*brightness)),
+            sf::Vertex(BetweenPoint(p[3],p[4],1,2), HSB_RGB(0.02, 0.5, 1*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),1,7), HSB_RGB(0.16, 0.5, 1*brightness)),
+            sf::Vertex(BetweenPoint(center, p[3], 6, 7), HSB_RGB(0.16, 1, 1*brightness)),
+
+            sf::Vertex(BetweenPoint(p[3],p[4],1,2), HSB_RGB(0.02, 0.5, 1*brightness)),
+            sf::Vertex(p[4], HSB_RGB(0.02, 0, 1*brightness)),
+            sf::Vertex(BetweenPoint(p[4],p[5],1,7), HSB_RGB(0.16, 0, 1*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),1,7), HSB_RGB(0.16, 0.5, 1*brightness)),
+
+            sf::Vertex(BetweenPoint(p[3],center,1,7), HSB_RGB(0.16, 1, 1*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),1,7), HSB_RGB(0.16, 0.5, 1*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),2,7), HSB_RGB(0.3, 0.5, 1*brightness)),
+            sf::Vertex(BetweenPoint(p[3],center,2,7), HSB_RGB(0.3, 1, 1*brightness)),
+
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),1,7), HSB_RGB(0.16, 0.5, 1*brightness)),
+            sf::Vertex(BetweenPoint(p[4],p[5],1,7), HSB_RGB(0.16, 0, 1*brightness)),
+            sf::Vertex(BetweenPoint(p[4],p[5],2,7), HSB_RGB(0.3, 0, 1*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),2,7), HSB_RGB(0.3, 0.5, 1*brightness)),
+
+            sf::Vertex(BetweenPoint(p[3],center,2,7), HSB_RGB(0.3, 1, 1*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),2,7), HSB_RGB(0.3, 0.5, 1*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),3,7), HSB_RGB(0.44, 0.5, 1*brightness)),
+            sf::Vertex(BetweenPoint(p[3],center,3,7), HSB_RGB(0.44, 1, 1*brightness)),
+
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),2,7), HSB_RGB(0.3, 0.5, 1*brightness)),
+            sf::Vertex(BetweenPoint(p[4],p[5],2,7), HSB_RGB(0.3, 0, 1*brightness)),
+            sf::Vertex(BetweenPoint(p[4],p[5],3,7), HSB_RGB(0.44, 0, 1*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),3,7), HSB_RGB(0.44, 0.5, 1*brightness)),
+
+            sf::Vertex(BetweenPoint(p[3],center,3,7), HSB_RGB(0.44, 1, 1*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),3,7), HSB_RGB(0.44, 0.5, 1*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),4,7), HSB_RGB(0.58, 0.5, 1*brightness)),
+            sf::Vertex(BetweenPoint(p[3],center,4,7), HSB_RGB(0.58, 1, 1*brightness)),
+
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),3,7), HSB_RGB(0.44, 0.5, 1*brightness)),
+            sf::Vertex(BetweenPoint(p[4],p[5],3,7), HSB_RGB(0.44, 0, 1*brightness)),
+            sf::Vertex(BetweenPoint(p[4],p[5],4,7), HSB_RGB(0.58, 0, 1*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),4,7), HSB_RGB(0.58, 0.5, 1*brightness)),
+
+            sf::Vertex(BetweenPoint(p[3],center,4,7), HSB_RGB(0.58, 1, 1*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),4,7), HSB_RGB(0.58, 0.5, 1*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),5,7), HSB_RGB(0.72, 0.5, 1*brightness)),
+            sf::Vertex(BetweenPoint(p[3],center,5,7), HSB_RGB(0.72, 1, 1*brightness)),
+
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),4,7), HSB_RGB(0.58, 0.5, 1*brightness)),
+            sf::Vertex(BetweenPoint(p[4],p[5],4,7), HSB_RGB(0.58, 0, 1*brightness)),
+            sf::Vertex(BetweenPoint(p[4],p[5],5,7), HSB_RGB(0.72, 0, 1*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),5,7), HSB_RGB(0.72, 0.5, 1*brightness)),
+
+            sf::Vertex(BetweenPoint(p[3],center,5,7), HSB_RGB(0.72, 1, 1*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),5,7), HSB_RGB(0.72, 0.5, 1*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),6,7), HSB_RGB(0.86, 0.5, 1*brightness)),
+            sf::Vertex(BetweenPoint(p[3],center,6,7), HSB_RGB(0.86, 1, 1*brightness)),
+
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),5,7), HSB_RGB(0.72, 0.5, 1*brightness)),
+            sf::Vertex(BetweenPoint(p[4],p[5],5,7), HSB_RGB(0.72, 0, 1*brightness)),
+            sf::Vertex(BetweenPoint(p[4],p[5],6,7), HSB_RGB(0.86, 0, 1*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),6,7), HSB_RGB(0.86, 0.5, 1*brightness)),
+
+            sf::Vertex(BetweenPoint(p[3],center,6,7), HSB_RGB(0.86, 1, 1*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),6,7), HSB_RGB(0.86, 0.5, 1*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),7,7), HSB_RGB(1, 0.5, 1*brightness)),
+            sf::Vertex(BetweenPoint(p[3],center,7,7), HSB_RGB(1, 1, 1*brightness)),
+
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),6,7), HSB_RGB(0.86, 0.5, 1*brightness)),
+            sf::Vertex(BetweenPoint(p[4],p[5],6,7), HSB_RGB(0.86, 0, 1*brightness)),
+            sf::Vertex(BetweenPoint(p[4],p[5],7,7), HSB_RGB(1, 0, 1*brightness)),
+            sf::Vertex(BetweenPoint(BetweenPoint(p[3],p[4],1,2),BetweenPoint(center,p[5],1,2),7,7), HSB_RGB(1, 0.5, 1*brightness)),
+		};
+	target.draw(vertices,120, sf::Quads);
     Draw_Border(target, states, "HSB");
 }
 
@@ -467,6 +725,7 @@ int main()
   frame_clock.restart(); // Stop pomiaru czasu.
  }
  //Hmmm ... :-/
+ 
  font.reset();
  
  return 0;

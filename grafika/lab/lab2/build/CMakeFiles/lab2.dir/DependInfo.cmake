@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/root/AGH/grafika/lab/lab2/main.cpp" "/root/AGH/grafika/lab/lab2/build/CMakeFiles/lab2.dir/main.cpp.o"
+  "/root/AGH/grafika/lab/lab2/olek.cpp" "/root/AGH/grafika/lab/lab2/build/CMakeFiles/lab2.dir/olek.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

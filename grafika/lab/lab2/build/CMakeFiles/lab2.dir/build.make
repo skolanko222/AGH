@@ -57,27 +57,27 @@ include CMakeFiles/lab2.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/lab2.dir/flags.make
 
-CMakeFiles/lab2.dir/main.cpp.o: CMakeFiles/lab2.dir/flags.make
-CMakeFiles/lab2.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/AGH/grafika/lab/lab2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/lab2.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab2.dir/main.cpp.o -c /root/AGH/grafika/lab/lab2/main.cpp
+CMakeFiles/lab2.dir/olek.cpp.o: CMakeFiles/lab2.dir/flags.make
+CMakeFiles/lab2.dir/olek.cpp.o: ../olek.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/AGH/grafika/lab/lab2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/lab2.dir/olek.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab2.dir/olek.cpp.o -c /root/AGH/grafika/lab/lab2/olek.cpp
 
-CMakeFiles/lab2.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab2.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/AGH/grafika/lab/lab2/main.cpp > CMakeFiles/lab2.dir/main.cpp.i
+CMakeFiles/lab2.dir/olek.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab2.dir/olek.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/AGH/grafika/lab/lab2/olek.cpp > CMakeFiles/lab2.dir/olek.cpp.i
 
-CMakeFiles/lab2.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab2.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/AGH/grafika/lab/lab2/main.cpp -o CMakeFiles/lab2.dir/main.cpp.s
+CMakeFiles/lab2.dir/olek.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab2.dir/olek.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/AGH/grafika/lab/lab2/olek.cpp -o CMakeFiles/lab2.dir/olek.cpp.s
 
 # Object files for target lab2
 lab2_OBJECTS = \
-"CMakeFiles/lab2.dir/main.cpp.o"
+"CMakeFiles/lab2.dir/olek.cpp.o"
 
 # External object files for target lab2
 lab2_EXTERNAL_OBJECTS =
 
-lab2: CMakeFiles/lab2.dir/main.cpp.o
+lab2: CMakeFiles/lab2.dir/olek.cpp.o
 lab2: CMakeFiles/lab2.dir/build.make
 lab2: /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1
 lab2: /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.5.1
