@@ -19,8 +19,8 @@ private:
 	bool isSliding;
 
 	sf::RectangleShape* sliderBounds;
+	
 	sf::Vertex* sliderGradient;
-
 	sf::VertexArray* line;
 	void setLine()
 	{

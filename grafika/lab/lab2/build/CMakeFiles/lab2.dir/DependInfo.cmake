@@ -4,13 +4,13 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/root/AGH/grafika/lab/lab2/olek.cpp" "/root/AGH/grafika/lab/lab2/build/CMakeFiles/lab2.dir/olek.cpp.o"
+  "/home/skolanko222/AGH/grafika/lab/lab2/main.cpp" "/home/skolanko222/AGH/grafika/lab/lab2/build/CMakeFiles/lab2.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_CXX
-  "PROJECTPATH=\"/root/AGH/grafika/lab/lab2\""
+  "PROJECTPATH=\"/home/skolanko222/AGH/grafika/lab/lab2\""
   )
 
 # The include file search paths:

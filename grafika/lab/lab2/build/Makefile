@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/AGH/grafika/lab/lab2
+CMAKE_SOURCE_DIR = /home/skolanko222/AGH/grafika/lab/lab2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/AGH/grafika/lab/lab2/build
+CMAKE_BINARY_DIR = /home/skolanko222/AGH/grafika/lab/lab2/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -69,8 +69,8 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/bin/cmake-gui -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/AGH/grafika/lab/lab2/build/CMakeFiles /root/AGH/grafika/lab/lab2/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/skolanko222/AGH/grafika/lab/lab2/build/CMakeFiles /home/skolanko222/AGH/grafika/lab/lab2/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/AGH/grafika/lab/lab2/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/skolanko222/AGH/grafika/lab/lab2/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -123,32 +123,32 @@ lab2/fast:
 	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/build
 .PHONY : lab2/fast
 
-olek.o: olek.cpp.o
+main.o: main.cpp.o
 
-.PHONY : olek.o
+.PHONY : main.o
 
 # target to build an object file
-olek.cpp.o:
-	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/olek.cpp.o
-.PHONY : olek.cpp.o
+main.cpp.o:
+	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/main.cpp.o
+.PHONY : main.cpp.o
 
-olek.i: olek.cpp.i
+main.i: main.cpp.i
 
-.PHONY : olek.i
+.PHONY : main.i
 
 # target to preprocess a source file
-olek.cpp.i:
-	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/olek.cpp.i
-.PHONY : olek.cpp.i
+main.cpp.i:
+	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/main.cpp.i
+.PHONY : main.cpp.i
 
-olek.s: olek.cpp.s
+main.s: main.cpp.s
 
-.PHONY : olek.s
+.PHONY : main.s
 
 # target to generate assembly for a file
-olek.cpp.s:
-	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/olek.cpp.s
-.PHONY : olek.cpp.s
+main.cpp.s:
+	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 # Help Target
 help:
@@ -159,9 +159,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... lab2"
-	@echo "... olek.o"
-	@echo "... olek.i"
-	@echo "... olek.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 .PHONY : help
 
 
