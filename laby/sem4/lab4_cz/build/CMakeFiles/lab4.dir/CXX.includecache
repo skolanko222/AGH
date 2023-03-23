@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/Kolo.h
+Ksztalt.h
+../include/Ksztalt.h
+iostream
+-
+
+../include/Ksztalt.h
+iostream
+-
+
+../include/Kwadrat.h
+Ksztalt.h
+../include/Ksztalt.h
+iostream
+-
+
+../include/Trojkat.h
+Ksztalt.h
+../include/Ksztalt.h
+iostream
+-
+cmath
+-
+
+/root/AGH/laby/sem4/lab4_cz/main.cpp
+iostream
+-
+Kwadrat.h
+/root/AGH/laby/sem4/lab4_cz/Kwadrat.h
+Kolo.h
+/root/AGH/laby/sem4/lab4_cz/Kolo.h
+Trojkat.h
+/root/AGH/laby/sem4/lab4_cz/Trojkat.h
+

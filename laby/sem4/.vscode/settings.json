@@ -34,6 +34,18 @@
 		"optional": "cpp",
 		"tuple": "cpp",
 		"deque": "cpp",
-		"ranges": "cpp"
+		"ranges": "cpp",
+		"atomic": "cpp",
+		"bit": "cpp",
+		"cstdarg": "cpp",
+		"cstddef": "cpp",
+		"algorithm": "cpp",
+		"iterator": "cpp",
+		"memory": "cpp",
+		"memory_resource": "cpp",
+		"numeric": "cpp",
+		"random": "cpp",
+		"fstream": "cpp",
+		"sstream": "cpp"
 	}
 }
