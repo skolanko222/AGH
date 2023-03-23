@@ -22,13 +22,20 @@ public:
 	float L;
 
 	HSL(int h, float s, float l) : H(h), S(s), L(l) {}
-	bool Equals(HSL hsl)
-	{
-		return (H == hsl.H) && (S == hsl.S) && (L == hsl.L);
-	}
+
 };
 
-static float HueToRGB(float v1, float v2, float vH) {
+class HSB
+{
+public:
+	int H;
+	float S;
+	float V;
+
+	HSB(int h, float s, float b) : H(h), S(s),V(b) {}
+};
+
+float HueToRGB(float v1, float v2, float vH) {
 	if (vH < 0)
 		vH += 1;
 
@@ -47,7 +54,7 @@ static float HueToRGB(float v1, float v2, float vH) {
 	return v1;
 }
 
-static RGB HSLToRGB(HSL hsl) {
+RGB HSLToRGB(HSL hsl) {
 	unsigned r = 0;
 	unsigned g = 0;
 	unsigned b = 0;
@@ -70,4 +77,36 @@ static RGB HSLToRGB(HSL hsl) {
 	}
 
 	return RGB(r, g, b);
+}
+
+RGB HSBtoRGB(HSB hsb){
+    float s = hsb.S/100;
+    float v = hsb.V/100;
+    float C = s*v;
+    float X = C*(1-abs(std::fmod(hsb.H/60.0, 2)-1));
+    float m = v-C;
+	float r,g,b;
+    if(hsb.H >= 0 && hsb.H < 60){
+        r = C,g = X,b = 0;
+    }
+    else if(hsb.H >= 60 && hsb.H < 120){
+        r = X,g = C,b = 0;
+    }
+    else if(hsb.H >= 120 && hsb.H < 180){
+        r = 0,g = C,b = X;
+    }
+    else if(hsb.H >= 180 && hsb.H < 240){
+        r = 0,g = X,b = C;
+    }
+    else if(hsb.H >= 240 && hsb.H < 300){
+        r = X,g = 0,b = C;
+    }
+    else{
+        r = C,g = 0,b = X;
+    }
+    unsigned R = (r+m)*255;
+    unsigned G = (g+m)*255;
+    unsigned B = (b+m)*255;
+	return RGB(R, G, B);
+
 }

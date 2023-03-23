@@ -27,3 +27,4 @@ file(GLOB SOURCES "${PROJECT_SOURCE_DIR}/src/*.cpp")
 add_executable(${PROJECT_NAME} main.cpp ${SOURCES})
 #target_link_options(${PROJECT_NAME} PUBLIC -lsfml-system -lsfml-graphics -lsfml-window)
 target_link_libraries(${PROJECT_NAME} PRIVATE sfml-graphics)
+

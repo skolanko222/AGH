@@ -192,10 +192,12 @@ void hexagon_HSL::draw(sf::RenderTarget& target, sf::RenderStates states) const
     vertices[0][1].color = HSLToRGB(HSL(360,1,sliderParam)).color;
     vertices[0][2].color = HSLToRGB(HSL(300,1,sliderParam)).color;
     vertices[0][3].color = HSLToRGB(HSL(360,1,0)).color;
-    vertices[1][0].color = HSLToRGB(HSL(300,1,0)).color;
+
+    vertices[1][0].color = HSLToRGB(HSL(360,1,0)).color;
     vertices[1][1].color = HSLToRGB(HSL(300,1,sliderParam)).color;
     vertices[1][2].color = HSLToRGB(HSL(250,1,sliderParam)).color;
     vertices[1][3].color = HSLToRGB(HSL(360,1,0)).color;
+    
     vertices[2][0].color = HSLToRGB(HSL(360,1,0)).color;
     vertices[2][1].color = HSLToRGB(HSL(250,1,sliderParam)).color;
     vertices[2][2].color = HSLToRGB(HSL(180,1,sliderParam)).color;
@@ -272,10 +274,10 @@ void hexagon_HSB::draw(sf::RenderTarget& target, sf::RenderStates states) const
     top[1].position = p[1];
     top[2].position = center;
     top[3].position = p[5];
-    top[0].color = sf::Color(255,0,0,255*sliderParam);
-    top[1].color = sf::Color(255,0,0,255*sliderParam);
-    top[2].color = sf::Color(255,0,0,255*sliderParam);
-    top[3].color = sf::Color(255,0,0,255*sliderParam);
+    top[0].color = HSBtoRGB(HSB(0,100,0)).color;
+    top[1].color = HSBtoRGB(HSB(0,100,0)).color;
+    top[2].color = HSBtoRGB(HSB(360,100,sliderParam*100)).color;
+    top[3].color = HSBtoRGB(HSB(360,100,sliderParam*100)).color;
 
     std::vector<sf::VertexArray> vertices;
     std::vector<sf::VertexArray> vertices2;
@@ -289,30 +291,30 @@ void hexagon_HSB::draw(sf::RenderTarget& target, sf::RenderStates states) const
 
         vertices.push_back(temp);
     }
-    vertices[0][0].color = sf::Color(255*sliderParam,0,0,255*sliderParam);
-    vertices[0][1].color = sf::Color(255*sliderParam,0,0,255*sliderParam);
-    vertices[0][2].color = sf::Color(255*sliderParam,0,255*sliderParam,255*sliderParam);
-    vertices[0][3].color = sf::Color(255*sliderParam,0,255*sliderParam,255*sliderParam);
-    vertices[1][0].color = sf::Color(255*sliderParam,0,255*sliderParam,255*sliderParam);
-    vertices[1][1].color = sf::Color(255*sliderParam,0,255*sliderParam,255*sliderParam);
-    vertices[1][2].color = sf::Color(0,0,255*sliderParam,255*sliderParam);
-    vertices[1][3].color = sf::Color(0,0,255*sliderParam,255*sliderParam);
-    vertices[2][0].color = sf::Color(0,0,255*sliderParam,255*sliderParam);
-    vertices[2][1].color = sf::Color(0,0,255*sliderParam,255*sliderParam);
-    vertices[2][2].color = sf::Color(0,255*sliderParam,255*sliderParam,255*sliderParam);
-    vertices[2][3].color = sf::Color(0,255*sliderParam,255*sliderParam,255*sliderParam);
-    vertices[3][0].color = sf::Color(0,255*sliderParam,255*sliderParam,255*sliderParam);
-    vertices[3][1].color = sf::Color(0,255*sliderParam,255*sliderParam,255*sliderParam);
-    vertices[3][2].color = sf::Color(0,255*sliderParam,0,255*sliderParam);
-    vertices[3][3].color = sf::Color(0,255*sliderParam,0,255*sliderParam);
-    vertices[4][0].color = sf::Color(0,255*sliderParam,0,255*sliderParam);
-    vertices[4][1].color = sf::Color(0,255*sliderParam,0,255*sliderParam);
-    vertices[4][2].color = sf::Color(255*sliderParam,255*sliderParam,0,255*sliderParam);
-    vertices[4][3].color = sf::Color(255*sliderParam,255*sliderParam,0,255*sliderParam);
-    vertices[5][0].color = sf::Color(255*sliderParam,255*sliderParam,0,255*sliderParam);
-    vertices[5][1].color = sf::Color(255*sliderParam,255*sliderParam,0,255*sliderParam);
-    vertices[5][2].color = sf::Color(255*sliderParam,0,0,255*sliderParam);
-    vertices[5][3].color = sf::Color(255*sliderParam,0,0,255*sliderParam);
+    vertices[0][0].color = HSBtoRGB(HSB(360,100,0)).color;
+    vertices[0][1].color = HSBtoRGB(HSB(360,100,sliderParam*100)).color;
+    vertices[0][2].color = HSBtoRGB(HSB(300,100,sliderParam*100)).color;
+    vertices[0][3].color = HSBtoRGB(HSB(360,100,0)).color;
+    vertices[1][0].color = HSBtoRGB(HSB(300,100,0)).color;
+    vertices[1][1].color = HSBtoRGB(HSB(300,100,sliderParam*100)).color;
+    vertices[1][2].color = HSBtoRGB(HSB(250,100,sliderParam*100)).color;
+    vertices[1][3].color = HSBtoRGB(HSB(360,100,0)).color;
+    vertices[2][0].color = HSBtoRGB(HSB(360,100,0)).color;
+    vertices[2][1].color = HSBtoRGB(HSB(250,100,sliderParam*100)).color;
+    vertices[2][2].color = HSBtoRGB(HSB(180,100,sliderParam*100)).color;
+    vertices[2][3].color = HSBtoRGB(HSB(360,100,0)).color;
+    vertices[3][0].color = HSBtoRGB(HSB(360,100,0)).color;
+    vertices[3][1].color = HSBtoRGB(HSB(180,100,sliderParam*100)).color;
+    vertices[3][2].color = HSBtoRGB(HSB(120,100,sliderParam*100)).color;
+    vertices[3][3].color = HSBtoRGB(HSB(360,100,0)).color;
+    vertices[4][0].color = HSBtoRGB(HSB(360,100,0)).color;
+    vertices[4][1].color = HSBtoRGB(HSB(120,100,sliderParam*100)).color;
+    vertices[4][2].color = HSBtoRGB(HSB(60,100,sliderParam*100)).color;
+    vertices[4][3].color = HSBtoRGB(HSB(360,100,0)).color;
+    vertices[5][0].color = HSBtoRGB(HSB(360,100,0)).color;
+    vertices[5][1].color = HSBtoRGB(HSB(60,100,sliderParam*100)).color;
+    vertices[5][2].color = HSBtoRGB(HSB(0,100,sliderParam*100)).color;
+    vertices[5][3].color = HSBtoRGB(HSB(360,100,0)).color;
     //std::cout << vertices[0][0].color.r << " " << vertices[0][0].color.g << " " << vertices[0][0].color.b << std::endl;
     for (int i = 0; i < 6; i++)
     {
@@ -324,30 +326,30 @@ void hexagon_HSB::draw(sf::RenderTarget& target, sf::RenderStates states) const
 
         vertices2.push_back(temp);
     }
-    vertices2[0][0].color = sf::Color(255,0,0,255*sliderParam);
-    vertices2[0][1].color = sf::Color(255,0,0,255*sliderParam);
-    vertices2[0][2].color = sf::Color(255,0,255,255*sliderParam);
-    vertices2[0][3].color = sf::Color(255,0,255,255*sliderParam);
-    vertices2[1][0].color = sf::Color(255,0,255,255*sliderParam);
-    vertices2[1][1].color = sf::Color(255,0,255,255*sliderParam);
-    vertices2[1][2].color = sf::Color(0,0,255,255*sliderParam);
-    vertices2[1][3].color = sf::Color(0,0,255,255*sliderParam);
-    vertices2[2][0].color = sf::Color(0,0,255,255*sliderParam);
-    vertices2[2][1].color = sf::Color(0,0,255,255*sliderParam);
-    vertices2[2][2].color = sf::Color(0,255,255,255*sliderParam);
-    vertices2[2][3].color = sf::Color(0,255,255,255*sliderParam);
-    vertices2[3][0].color = sf::Color(0,255,255,255*sliderParam);
-    vertices2[3][1].color = sf::Color(0,255,255,255*sliderParam);
-    vertices2[3][2].color = sf::Color(0,255,0,255*sliderParam);
-    vertices2[3][3].color = sf::Color(0,255,0,255*sliderParam);
-    vertices2[4][0].color = sf::Color(0,255,0,255*sliderParam);
-    vertices2[4][1].color = sf::Color(0,255,0,255*sliderParam);
-    vertices2[4][2].color = sf::Color(255,255,0,255*sliderParam);
-    vertices2[4][3].color = sf::Color(255,255,0,255*sliderParam);
-    vertices2[5][0].color = sf::Color(255,255,0,255*sliderParam);
-    vertices2[5][1].color = sf::Color(255,255,0,255*sliderParam);
-    vertices2[5][2].color = sf::Color(255,0,0,255*sliderParam);
-    vertices2[5][3].color = sf::Color(255,0,0,255*sliderParam); 
+    vertices2[0][1].color = HSBtoRGB(HSB(360,100,0)).color;
+    vertices2[0][0].color = HSBtoRGB(HSB(360,100,sliderParam*100)).color;
+    vertices2[0][3].color = HSBtoRGB(HSB(300,100,sliderParam*100)).color;
+    vertices2[0][2].color = HSBtoRGB(HSB(360,100,0)).color;
+    vertices2[1][1].color = HSBtoRGB(HSB(300,100,0)).color;
+    vertices2[1][0].color = HSBtoRGB(HSB(300,100,sliderParam*100)).color;
+    vertices2[1][3].color = HSBtoRGB(HSB(250,100,sliderParam*100)).color;
+    vertices2[1][2].color = HSBtoRGB(HSB(360,100,0)).color;
+    vertices2[2][1].color = HSBtoRGB(HSB(360,100,0)).color;
+    vertices2[2][0].color = HSBtoRGB(HSB(250,100,sliderParam*100)).color;
+    vertices2[2][3].color = HSBtoRGB(HSB(180,100,sliderParam*100)).color;
+    vertices2[2][2].color = HSBtoRGB(HSB(360,100,0)).color;
+    vertices2[3][1].color = HSBtoRGB(HSB(360,100,0)).color;
+    vertices2[3][0].color = HSBtoRGB(HSB(180,100,sliderParam*100)).color;
+    vertices2[3][3].color = HSBtoRGB(HSB(120,100,sliderParam*100)).color;
+    vertices2[3][2].color = HSBtoRGB(HSB(360,100,0)).color;
+    vertices2[4][1].color = HSBtoRGB(HSB(360,100,0)).color;
+    vertices2[4][0].color = HSBtoRGB(HSB(120,100,sliderParam*100)).color;
+    vertices2[4][3].color = HSBtoRGB(HSB(60,100,sliderParam*100)).color;
+    vertices2[4][2].color = HSBtoRGB(HSB(360,100,0)).color;
+    vertices2[5][1].color = HSBtoRGB(HSB(360,100,0)).color;
+    vertices2[5][0].color = HSBtoRGB(HSB(60,100,sliderParam*100)).color;
+    vertices2[5][3].color = HSBtoRGB(HSB(0,100,sliderParam*100)).color;
+    vertices2[5][2].color = HSBtoRGB(HSB(360,100,0)).color;
 
     for(int i = 0; i < 6; i++)
     {
