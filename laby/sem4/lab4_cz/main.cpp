@@ -25,7 +25,7 @@
 // * archiwum nie powinno zawierać katalogu build/
 
 
-#include <iostream>
+#include <iostream> 
 #include "Kwadrat.h"
 #include "Kolo.h"
 #include "Trojkat.h"

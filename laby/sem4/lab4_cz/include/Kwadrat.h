@@ -8,7 +8,7 @@ class Kwadrat : public Ksztalt
 	private:
 		int size;
 	public:
-		virtual void wypisz(std::ostream &stream) const override
+		void wypisz(std::ostream &stream) const 
 		{
 			stream << "Kwadrat o boku: " << size << std::endl;
 		}
