@@ -1,8 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/lab3.dir/Main.cpp.o"
-  "CMakeFiles/lab3.dir/Main.cpp.o.d"
-  "CMakeFiles/lab3.dir/src/StringFun.cpp.o"
-  "CMakeFiles/lab3.dir/src/StringFun.cpp.o.d"
   "lab3"
   "lab3.pdb"
 )
