@@ -11,6 +11,7 @@
 
 Frame1::Frame1( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
 {
+	
 	this->SetSizeHints( wxSize( 500,400 ), wxDefaultSize );
 
 	wxBoxSizer* Sizer1;

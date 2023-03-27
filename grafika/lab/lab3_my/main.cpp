@@ -11,6 +11,7 @@ wxIMPLEMENT_APP(MyApp);
 
 bool MyApp::OnInit()
 {
+	
 	gui* fr = new gui();
 	fr->Show(true);
 	return true;

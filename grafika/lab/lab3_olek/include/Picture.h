@@ -19,7 +19,7 @@
 
 class Picture : public Frame1
 {
-    wxColor kolor=wxColor(0,0,0);
+    wxColor kolor = wxColor(0,0,0);
     wxBitmap bitmap;
     wxBitmap bananbitmap;
     wxPoint gwiazda[5] = {

@@ -67,4 +67,3 @@ class MainFrameBase : public wxFrame
 		~MainFrameBase();
 
 };
-

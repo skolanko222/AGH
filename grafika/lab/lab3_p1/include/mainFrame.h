@@ -12,7 +12,7 @@ class MainFrame : public MainFrameBase
 private:
 	wxBitmap bitmap;
 	wxBitmap bitmapBanana;
-	wxColor currentColor;
+	wxColor currentColor= wxColor(122,0,0);
 
 	wxPoint star[5] = {
 			wxPoint(-60, -80),

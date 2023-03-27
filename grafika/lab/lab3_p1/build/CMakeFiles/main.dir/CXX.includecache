@@ -68,10 +68,6 @@ wx/wxprec.h
 mainFrame.h
 /root/AGH/grafika/lab/lab3_p1/mainFrame.h
 
-/root/AGH/grafika/lab/lab3_p1/src/gui.cpp
-gui.h
-/root/AGH/grafika/lab/lab3_p1/src/gui.h
-
 /usr/local/include/wx-3.0/wx/accel.h
 wx/defs.h
 /usr/local/include/wx-3.0/wx/wx/defs.h

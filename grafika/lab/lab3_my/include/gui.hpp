@@ -23,7 +23,9 @@ class gui : public MyFrame
 		wxBitmap BananBitmap;
  		wxImage  BananImage;
 
-		wxColor StarColor;
+		
+
+		wxColor StarColor = wxColor(122,0,0);
 	
 		wxPoint star[5] = {
 			wxPoint(-60, -80),
@@ -35,13 +37,14 @@ class gui : public MyFrame
 
 		void Draw()
 		{
-			std::unique_ptr<wxClientDC> clientDC(new wxClientDC(m_panel13));
-			DrawBitmap = wxBitmap(m_panel13->GetSize());
+			
+			std::unique_ptr<wxClientDC> clientDC(new wxClientDC(this));
+			DrawBitmap = wxBitmap(this->GetSize());
 			std::unique_ptr<wxBufferedDC> buffer(new wxBufferedDC(clientDC.get(), DrawBitmap));
 
 			//ustawiamy uklad wspolrzednych na srodku
-			buffer->SetDeviceOrigin(m_panel13->GetSize().x / 2, m_panel13->GetSize().y / 2);
-			buffer->SetBackground(*wxBLACK_BRUSH);
+			buffer->SetDeviceOrigin(this->GetSize().x / 2, this->GetSize().y / 2);
+			buffer->SetBackground(*wxLIGHT_GREY);
 			buffer->Clear();
 
 
@@ -111,16 +114,15 @@ class gui : public MyFrame
 			//delete buffer;
 		}
 
-		virtual void MainFrameBase_OnPaint(wxPaintEvent& event) override { Draw(); }
-		virtual void MainFrameBase_OnUpdateUI(wxUpdateUIEvent& event) override { Draw(); }
+		virtual void MainFrameBase_OnPaint(wxPaintEvent& event) override { Draw();}
+		virtual void MainFrameBase_OnUpdateUI(wxUpdateUIEvent& event) override { Draw();}
 	
 	public:
 		gui() : MyFrame(NULL)
 		{
 			BananImage.AddHandler(new wxJPEGHandler);
-			BananImage.LoadFile("banan.jpeg", wxBITMAP_TYPE_JPEG);
+			BananImage.LoadFile("banana.jpg", wxBITMAP_TYPE_JPEG);
 			BananBitmap =  wxBitmap(BananImage);
-			Draw();
 		}
 
 

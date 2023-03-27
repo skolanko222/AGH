@@ -10,6 +10,7 @@
 
 MyFrame::MyFrame( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
 {
+	
 	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
 
 	wxBoxSizer* bSizer7;
@@ -22,7 +23,7 @@ MyFrame::MyFrame( wxWindow* parent, wxWindowID id, const wxString& title, const 
 	bSizer6 = new wxBoxSizer( wxVERTICAL );
 
 	m_panel13 = new wxPanel( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
-	m_panel13->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNHIGHLIGHT ) );
+	//m_panel13->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_BTNHIGHLIGHT ) );
 
 	bSizer6->Add( m_panel13, 1, wxEXPAND, 5 );
 
@@ -75,12 +76,11 @@ MyFrame::MyFrame( wxWindow* parent, wxWindowID id, const wxString& title, const 
 
 	this->Centre( wxBOTH );
 
-	//Bind(wxEVT_PAINT, &MyFrame::MainFrameBase_OnPaint, this); 
 	
-
 	// Connect Events
 	this->Connect( wxEVT_PAINT, wxPaintEventHandler( MyFrame::MainFrameBase_OnPaint ) );
 	this->Connect( wxEVT_UPDATE_UI, wxUpdateUIEventHandler( MyFrame::MainFrameBase_OnUpdateUI ) );
+	button_save->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( MyFrame::button_save_CLICK ), NULL, this );
 	checkbox_banana->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( MyFrame::checkbox_banana_CLICK ), NULL, this );
 	slider_banana->Connect( wxEVT_SCROLL_TOP, wxScrollEventHandler( MyFrame::slider_banana_SCROLL ), NULL, this );
 	slider_banana->Connect( wxEVT_SCROLL_BOTTOM, wxScrollEventHandler( MyFrame::slider_banana_SCROLL ), NULL, this );
@@ -99,6 +99,8 @@ MyFrame::MyFrame( wxWindow* parent, wxWindowID id, const wxString& title, const 
 MyFrame::~MyFrame()
 {
 	// Disconnect Events
+	this->Disconnect( wxEVT_PAINT, wxPaintEventHandler( MyFrame::MainFrameBase_OnPaint ) );
+	this->Disconnect( wxEVT_UPDATE_UI, wxUpdateUIEventHandler( MyFrame::MainFrameBase_OnUpdateUI ) );
 	button_save->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( MyFrame::button_save_CLICK ), NULL, this );
 	checkbox_banana->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( MyFrame::checkbox_banana_CLICK ), NULL, this );
 	slider_banana->Disconnect( wxEVT_SCROLL_TOP, wxScrollEventHandler( MyFrame::slider_banana_SCROLL ), NULL, this );
