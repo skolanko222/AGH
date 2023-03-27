@@ -1,3 +1,0 @@
-/root/AGH/grafika/lab/lab_2/build/CMakeFiles/rebuild_cache.dir
-/root/AGH/grafika/lab/lab_2/build/CMakeFiles/edit_cache.dir
-/root/AGH/grafika/lab/lab_2/build/CMakeFiles/lab2.dir

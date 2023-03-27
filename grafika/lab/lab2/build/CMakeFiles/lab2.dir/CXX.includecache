@@ -12,17 +12,11 @@ array
 cstdint
 -
 
-../include/slider.h
-SFML/Window.hpp
--
-SFML/Graphics.hpp
--
-math.h
--
-
-../include/things.h
+../include/hexagons.h
 SFML/Graphics.hpp
 ../include/SFML/Graphics.hpp
+hsl_rgb.h
+../include/hsl_rgb.h
 numeric
 -
 iostream
@@ -32,6 +26,20 @@ memory
 cmath
 -
 
+../include/hsl_rgb.h
+SFML/Graphics.hpp
+../include/SFML/Graphics.hpp
+
+../include/slider.h
+SFML/Window.hpp
+-
+SFML/Graphics.hpp
+-
+math.h
+-
+memory
+-
+
 /root/AGH/grafika/lab/lab2/main.cpp
 SFML/Graphics.hpp
 /root/AGH/grafika/lab/lab2/SFML/Graphics.hpp
@@ -39,8 +47,8 @@ ShareTechMono-Regular.h
 /root/AGH/grafika/lab/lab2/ShareTechMono-Regular.h
 slider.h
 /root/AGH/grafika/lab/lab2/slider.h
-things.h
-/root/AGH/grafika/lab/lab2/things.h
+hexagons.h
+/root/AGH/grafika/lab/lab2/hexagons.h
 numeric
 -
 iostream

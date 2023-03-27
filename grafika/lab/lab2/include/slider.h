@@ -3,7 +3,8 @@
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include <math.h>
-
+#include <memory>
+std::shared_ptr<sf::Font> font;
 class Slider : public sf::Drawable
 {
 private:
@@ -13,23 +14,22 @@ private:
 	const double sliderHeight = 275;
 	const double sliderWidth = 25;
 
-	const double sliderLineLen = 10;
+	const double sliderLineLen = 5;
 
 	bool isSliding;
 
 	sf::RectangleShape* sliderBounds;
+	
 	sf::Vertex* sliderGradient;
-
-	double currLinesPosition = 0.5;
-
 	sf::VertexArray* line;
 	void setLine()
 	{
 		(*line)[0].position = sf::Vector2f(sliderX - 2 * sliderLineLen, sliderY + sliderHeight * currLinesPosition);
-		(*line)[1].position = sf::Vector2f(sliderX + sliderWidth + 1 * sliderLineLen + sliderLineLen, sliderY + sliderHeight * currLinesPosition);
+		(*line)[1].position = sf::Vector2f(sliderX + sliderWidth + 2 * sliderLineLen, sliderY + sliderHeight * currLinesPosition);
 	}
 
 public:
+	double currLinesPosition = 0.5;
 	Slider(float width = DEFAULT_WIDTH, float height = DEFAULT_HEIGHT)
 	{
 		sliderX = width - OFFSET/2.;
@@ -74,15 +74,14 @@ public:
 
 	float leftButtonPressed(sf::Vector2i pos)
 	{
-		if (pos.x <= sliderX || pos.x >= sliderX + sliderWidth) return currLinesPosition;
-		if (pos.y <= sliderY || pos.y >= sliderY + sliderHeight) return currLinesPosition;
+		if (pos.x <= sliderX || pos.x >= sliderX + sliderWidth) 
+			return currLinesPosition;
+		if (pos.y <= sliderY || pos.y >= sliderY + sliderHeight) 
+			return currLinesPosition;
 
 		isSliding = true;
 
 		currLinesPosition = (pos.y - sliderY) / sliderHeight;
-
-		if (currLinesPosition > 1) currLinesPosition = 0.999;
-		if (currLinesPosition <= 0) currLinesPosition = 0.001;
 
 		setLine();
 

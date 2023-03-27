@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/app.h
+SFML/Window.hpp
+-
+SFML/Graphics.hpp
+-
+
+../include/slider.h
+SFML/Window.hpp
+-
+SFML/Graphics.hpp
+-
+math.h
+-
+
+../include/wheel.h
+SFML/Window.hpp
+-
+SFML/Graphics.hpp
+-
+math.h
+-
+tuple
+-
+
+/root/AGH/grafika/lab/lab_2paczka/main.cpp
+SFML/Window.hpp
+-
+SFML/Graphics.hpp
+-
+iostream
+-
+wheel.h
+/root/AGH/grafika/lab/lab_2paczka/wheel.h
+slider.h
+/root/AGH/grafika/lab/lab_2paczka/slider.h
+app.h
+/root/AGH/grafika/lab/lab_2paczka/app.h
+

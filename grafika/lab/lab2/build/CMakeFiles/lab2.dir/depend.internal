@@ -3,6 +3,7 @@
 
 CMakeFiles/lab2.dir/main.cpp.o
  ../include/ShareTechMono-Regular.h
+ ../include/hexagons.h
+ ../include/hsl_rgb.h
  ../include/slider.h
- ../include/things.h
  /root/AGH/grafika/lab/lab2/main.cpp

@@ -1,0 +1,11 @@
+ASSERT INFO:
+../src/gtk/colour.cpp(185): assert "IsOk()" failed in Red(): invalid colour
+
+BACKTRACE:
+[1] wxColour::Red() const
+[2] wxCairoBrushData::wxCairoBrushData(wxGraphicsRenderer*, wxBrush const&)
+[3] wxCairoRenderer::CreateBrush(wxBrush const&)
+[4] wxGraphicsContext::CreateBrush(wxBrush const&) const
+[5] wxGraphicsContext::SetBrush(wxBrush const&)
+[6] wxEntry(int&, wchar_t**)
+[7] __libc_start_main
