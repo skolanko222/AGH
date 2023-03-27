@@ -6,25 +6,9 @@
 
 #IncludeRegexTransform: 
 
-../include/ModalnyDlg.h
-
-../include/MyFrame.h
-ModalnyDlg.h
-../include/ModalnyDlg.h
-NieModalnyDlg.h
-../include/NieModalnyDlg.h
-
-../include/NieModalnyDlg.h
-MyFrame.h
-../include/MyFrame.h
-
 /root/AGH/grafika/w/w2/5/main.cpp
 wx/wxprec.h
 -
-MyFrame.h
-/root/AGH/grafika/w/w2/5/MyFrame.h
-NieModalnyDlg.h
-/root/AGH/grafika/w/w2/5/NieModalnyDlg.h
 
 /usr/local/include/wx-3.0/wx/accel.h
 wx/defs.h

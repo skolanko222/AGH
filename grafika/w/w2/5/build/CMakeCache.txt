@@ -14,12 +14,6 @@
 # EXTERNAL cache entries
 ########################
 
-//Value Computed by CMake
-3_BINARY_DIR:STATIC=/root/AGH/grafika/w/w2/5/build
-
-//Value Computed by CMake
-3_SOURCE_DIR:STATIC=/root/AGH/grafika/w/w2/5
-
 //Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=/usr/bin/addr2line
 
