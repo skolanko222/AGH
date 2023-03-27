@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <cmath>
+#include <vector>
 #include "/usr/include/gsl/gsl_math.h"
 #include "/usr/include/gsl/gsl_linalg.h"
 
@@ -23,7 +24,6 @@ namespace my_gsl
 			{
 				std::cout << __PRETTY_FUNCTION__ << std::endl;
 			}
-
 			matrix(const char * file_name,const size_t x,const size_t y) : matrix(x,y)
 			{
 				std::cout << __PRETTY_FUNCTION__ << std::endl;
@@ -32,7 +32,6 @@ namespace my_gsl
 					std::cout << "Problem z odczytem pliku: " << file_name << std::endl;
 				fclose(file_ptr);
 			}
-
 			matrix & operator=(const matrix & copy_m) 
 			{
 				std::cout << __PRETTY_FUNCTION__ << std::endl;
@@ -53,6 +52,26 @@ namespace my_gsl
 
 			}
 
+			matrix & operator+(const matrix & right_m)
+			{
+				if( _x == right_m._x && _y == right_m._y)
+				{
+					std:: cout << "Wymiary musza byc takie same!\n";
+				}
+				for(size_t i = 0; i < _x; i++)
+					for(size_t j = 0; j < _x; j++)
+						gsl_matrix_set(_m,i,j,gsl_matrix_get(_m,i,j) + gsl_matrix_get(right_m._m,i,j));
+				return *this;
+			}
+			void print()
+			{
+				for(size_t i = 0; i < _x; i++)
+				{
+					for(size_t j = 0; j < _x; j++)
+						std::cout << gsl_matrix_get(_m,i,j) << ' ';
+					std::cout << std::endl;
+				}
+			}
 			~matrix()
 			{
 				std::cout << __PRETTY_FUNCTION__ << std::endl;
@@ -66,8 +85,15 @@ namespace my_gsl
 
 	};
 
+	// matrix & operator*(const matrix & right_m)
+	// {
+	// 	for(size_t i = 0; i < right_m._x; i++)
+	// 		for(size_t j = 0; j < right_m._x; j++)
+	// 			gsl_matrix_set(_m,i,j, (*this) * gsl_matrix_get(right_m._m,i,j));
+				
+	// 	return *this;
 
-
+	// }	
 
 
 }
