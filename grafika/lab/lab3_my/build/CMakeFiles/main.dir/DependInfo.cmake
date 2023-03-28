@@ -4,14 +4,14 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/root/AGH/grafika/lab/lab3_my/main.cpp" "/root/AGH/grafika/lab/lab3_my/build/CMakeFiles/main.dir/main.cpp.o"
-  "/root/AGH/grafika/lab/lab3_my/src/MyFrame.cpp" "/root/AGH/grafika/lab/lab3_my/build/CMakeFiles/main.dir/src/MyFrame.cpp.o"
+  "/home/skolanko222/AGH/grafika/lab/lab3_my/main.cpp" "/home/skolanko222/AGH/grafika/lab/lab3_my/build/CMakeFiles/main.dir/main.cpp.o"
+  "/home/skolanko222/AGH/grafika/lab/lab3_my/src/MyFrame.cpp" "/home/skolanko222/AGH/grafika/lab/lab3_my/build/CMakeFiles/main.dir/src/MyFrame.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_CXX
-  "PROJECTPATH=\"/root/AGH/grafika/lab/lab3_my\""
+  "PROJECTPATH=\"/home/skolanko222/AGH/grafika/lab/lab3_my\""
   "WXUSINGDLL"
   "_FILE_OFFSET_BITS=64"
   "__WXGTK__"
@@ -20,8 +20,8 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../include"
-  "/usr/local/lib/wx/include/gtk3-unicode-3.0"
-  "/usr/local/include/wx-3.0"
+  "/usr/lib/x86_64-linux-gnu/wx/include/gtk3-unicode-3.0"
+  "/usr/include/wx-3.0"
   )
 
 # Targets to which this target links.

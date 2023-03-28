@@ -56,6 +56,7 @@ class MyFrame : public wxFrame
 		virtual void button_save_CLICK( wxCommandEvent& event ) { event.Skip(); }
 		virtual void checkbox_banana_CLICK( wxCommandEvent& event ) { event.Skip(); }
 		virtual void slider_banana_SCROLL( wxScrollEvent& event ) { event.Skip(); }
+		//star color picker
 		virtual void button_star_CLICK( wxCommandEvent& event ) { event.Skip(); }
 		virtual void combo_box_CLICK( wxCommandEvent& event ) { event.Skip(); }
 		virtual void file_picker_CLICK( wxFileDirPickerEvent& event ) { event.Skip(); }

@@ -80,7 +80,7 @@ class gui : public MyFrame
 			buffer->SetFont(wxFont(40, wxFONTFAMILY_DECORATIVE, wxFONTSTYLE_ITALIC, wxFONTWEIGHT_BOLD, false, "Kalam"));
 			buffer->DrawRotatedText(text_box->GetValue(), 50, 100, 90);
 
-			switch (0)//combo_box->GetSelection())
+			switch (combo_box->GetSelection())//combo_box->GetSelection())
 			{
 			case 0:
 			buffer->SetBrush(wxBrush(StarColor));
@@ -110,18 +110,49 @@ class gui : public MyFrame
 			default:
 			break;
 			}
-			//delete clientDC;
-			//delete buffer;
 		}
 
 		virtual void MainFrameBase_OnPaint(wxPaintEvent& event) override { Draw();}
 		virtual void MainFrameBase_OnUpdateUI(wxUpdateUIEvent& event) override { Draw();}
-	
+		virtual void button_save_CLICK( wxCommandEvent& event ) override 
+		{ 
+			wxFileDialog saveDialog(this,_("Wybierz plik"), "", "","Image Files (*.png;*.bmp;*.jpg)", wxFD_SAVE | wxFD_OVERWRITE_PROMPT);
+			wxImage _imageSave = DrawBitmap.ConvertToImage();
+			if (saveDialog.ShowModal() == wxID_CANCEL)
+				return;
+			else
+			{
+				_imageSave.AddHandler(new wxBMPHandler);
+				_imageSave.AddHandler(new wxPNGHandler);
+				_imageSave.SaveFile(saveDialog.GetPath());
+			}
+			Draw();
+		}
+		virtual void checkBox_banana_Check(wxCommandEvent& event)
+		{
+			slider_banana->Enable(checkbox_banana->IsChecked());
+			Draw();
+		}
+		virtual void slider_banana_pos_OnScroll(wxScrollEvent& event)
+		{
+			m_gauge2->SetValue(event.GetPosition());
+			Draw();
+		}
+		virtual void button_star_CLICK(wxCommandEvent& event)
+		{
+			wxColourDialog chooseColourDialog(this, nullptr);
+			if (chooseColourDialog.ShowModal() == wxID_CANCEL)
+				return;
+
+			StarColor = chooseColourDialog.GetColourData().GetColour();
+			Draw();
+		}
+		
 	public:
 		gui() : MyFrame(NULL)
 		{
 			BananImage.AddHandler(new wxJPEGHandler);
-			BananImage.LoadFile("banana.jpg", wxBITMAP_TYPE_JPEG);
+			BananImage.LoadFile("banan.jpeg", wxBITMAP_TYPE_JPEG);
 			BananBitmap =  wxBitmap(BananImage);
 		}
 
