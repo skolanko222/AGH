@@ -10,7 +10,7 @@ class OneArg
 {
 	public:
 		//metoda czysto virtualna
-		bool virtual result(bool a) const = 0;
+		virtual bool result(bool a) const = 0;
 	
 };
 class OR : public TwoArg
@@ -29,7 +29,7 @@ class NOT : public OneArg
 {
 	public:
 		//metoda zwracajaca negacje argumentu
-		bool virtual result(bool a) const {return !a;}
+		virtual bool result(bool a) const {return !a;}
 };
 namespace Logical
 {
