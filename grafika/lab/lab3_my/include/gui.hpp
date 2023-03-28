@@ -22,6 +22,8 @@ class gui : public MyFrame
 
 		wxBitmap BananBitmap;
  		wxImage  BananImage;
+		int resize = 0;
+		int draw_i = 0;
 
 		
 
@@ -34,11 +36,11 @@ class gui : public MyFrame
 			wxPoint(-30, -60),
 			wxPoint(-80, -35)
 		};
-
-		void Draw()
+	protected:
+		void Draw(wxPaintDC &a)
 		{
 			
-			std::unique_ptr<wxClientDC> clientDC(new wxClientDC(this));
+			std::unique_ptr<wxPaintDC> clientDC(new wxWindowDC(this));
 			DrawBitmap = wxBitmap(this->GetSize());
 			std::unique_ptr<wxBufferedDC> buffer(new wxBufferedDC(clientDC.get(), DrawBitmap));
 
@@ -80,7 +82,7 @@ class gui : public MyFrame
 			buffer->SetFont(wxFont(40, wxFONTFAMILY_DECORATIVE, wxFONTSTYLE_ITALIC, wxFONTWEIGHT_BOLD, false, "Kalam"));
 			buffer->DrawRotatedText(text_box->GetValue(), 50, 100, 90);
 
-			switch (combo_box->GetSelection())//combo_box->GetSelection())
+			switch (combo_box->GetSelection())
 			{
 			case 0:
 			buffer->SetBrush(wxBrush(StarColor));
@@ -112,8 +114,15 @@ class gui : public MyFrame
 			}
 		}
 
-		virtual void MainFrameBase_OnPaint(wxPaintEvent& event) override { Draw();}
-		virtual void MainFrameBase_OnUpdateUI(wxUpdateUIEvent& event) override { Draw();}
+		virtual void MainFrameBase_OnPaint(wxPaintEvent& event) override 
+		{ 
+			wxPaintDC dc(this);
+			Draw(dc); 
+			std::cout << "rysuj " << resize++ <<  '\n'; 
+		}
+
+		virtual void MainFrameBase_OnUpdateUI(wxUpdateUIEvent& event) override { std::cout << "resize"<< draw_i++<<"\n";}
+		
 		virtual void button_save_CLICK( wxCommandEvent& event ) override 
 		{ 
 			wxFileDialog saveDialog(this,_("Wybierz plik"), "", "","Image Files (*.png;*.bmp;*.jpg)", wxFD_SAVE | wxFD_OVERWRITE_PROMPT);
@@ -126,17 +135,19 @@ class gui : public MyFrame
 				_imageSave.AddHandler(new wxPNGHandler);
 				_imageSave.SaveFile(saveDialog.GetPath());
 			}
-			Draw();
+			//Draw();
 		}
+		virtual void checkbox_banana_CLICK( wxCommandEvent& event ) override { }
 		virtual void checkBox_banana_Check(wxCommandEvent& event)
 		{
+			std::cout << "banan klikniety\n";
 			slider_banana->Enable(checkbox_banana->IsChecked());
-			Draw();
+			//Draw();
 		}
 		virtual void slider_banana_pos_OnScroll(wxScrollEvent& event)
 		{
 			m_gauge2->SetValue(event.GetPosition());
-			Draw();
+			//Draw();
 		}
 		virtual void button_star_CLICK(wxCommandEvent& event)
 		{
@@ -145,7 +156,7 @@ class gui : public MyFrame
 				return;
 
 			StarColor = chooseColourDialog.GetColourData().GetColour();
-			Draw();
+			//Draw();
 		}
 		
 	public:

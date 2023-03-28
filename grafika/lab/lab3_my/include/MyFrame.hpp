@@ -53,7 +53,10 @@ class MyFrame : public wxFrame
 		wxFilePickerCtrl* file_picker;
 
 		// Virtual event handlers, override them in your derived class
+
+		//gdy kliknięty zapisz
 		virtual void button_save_CLICK( wxCommandEvent& event ) { event.Skip(); }
+		//banan of/onn
 		virtual void checkbox_banana_CLICK( wxCommandEvent& event ) { event.Skip(); }
 		virtual void slider_banana_SCROLL( wxScrollEvent& event ) { event.Skip(); }
 		//star color picker

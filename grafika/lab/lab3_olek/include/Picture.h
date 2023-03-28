@@ -122,13 +122,13 @@ class Picture : public Frame1
             }
             rys();
         }
-        virtual void comboBox_star_OnCombobox( wxCommandEvent& event ) override{event.Skip();}
-        virtual void OnFilePicker( wxFileDirPickerEvent& event ) override{event.Skip();}
+        virtual void comboBox_star_OnCombobox( wxCommandEvent& event ) override {event.Skip();}
+        virtual void OnFilePicker( wxFileDirPickerEvent& event ) override {event.Skip();}
     public:
         Picture() : Frame1(NULL) {
             wxImage image;
             wxInitAllImageHandlers();
-            image.LoadFile("banant.jpeg");
+            image.LoadFile("banan.jpeg");
             image.Rescale(50,50);
             bananbitmap = wxBitmap(image);
             if (bananbitmap.IsOk()) {

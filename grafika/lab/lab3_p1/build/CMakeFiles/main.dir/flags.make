@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_FLAGS =  -pthread -g   -std=gnu++17
 
-CXX_DEFINES = -DPROJECTPATH=\"/root/AGH/grafika/lab/lab3_p1\" -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__
+CXX_DEFINES = -DPROJECTPATH=\"/home/skolanko222/AGH/grafika/lab/lab3_p1\" -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__
 
-CXX_INCLUDES = -I/root/AGH/grafika/lab/lab3_p1/include -isystem /usr/local/lib/wx/include/gtk3-unicode-3.0 -isystem /usr/local/include/wx-3.0 
+CXX_INCLUDES = -I/home/skolanko222/AGH/grafika/lab/lab3_p1/include -isystem /usr/lib/x86_64-linux-gnu/wx/include/gtk3-unicode-3.0 -isystem /usr/include/wx-3.0 
 
