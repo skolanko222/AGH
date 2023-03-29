@@ -39,11 +39,9 @@ class MyFrame : public wxFrame
 	private:
 
 	protected:
-		// panel do rysowania
 		wxPanel* m_panel13;
-		// przycisk do zapisu
+		wxPanel* m_panel2;
 		wxButton* button_save;
-		// czy banan ma byc rysowany
 		wxCheckBox* checkbox_banana;
 		wxSlider* slider_banana;
 		wxGauge* m_gauge2;
@@ -53,21 +51,14 @@ class MyFrame : public wxFrame
 		wxFilePickerCtrl* file_picker;
 
 		// Virtual event handlers, override them in your derived class
-
-		//gdy kliknięty zapisz
 		virtual void button_save_CLICK( wxCommandEvent& event ) { event.Skip(); }
-		//banan of/onn
 		virtual void checkbox_banana_CLICK( wxCommandEvent& event ) { event.Skip(); }
 		virtual void slider_banana_SCROLL( wxScrollEvent& event ) { event.Skip(); }
-		//star color picker
 		virtual void button_star_CLICK( wxCommandEvent& event ) { event.Skip(); }
 		virtual void combo_box_CLICK( wxCommandEvent& event ) { event.Skip(); }
 		virtual void file_picker_CLICK( wxFileDirPickerEvent& event ) { event.Skip(); }
-
-
-		
-		virtual void MainFrameBase_OnPaint(wxPaintEvent& event) { event.Skip(); }
-		virtual void MainFrameBase_OnUpdateUI( wxUpdateUIEvent& event ) { event.Skip(); }
+		virtual void MainFrameBase_OnUpdateUI(wxUpdateUIEvent& event)  {event.Skip(); } 
+		virtual void MainFrameBase_OnPaint(wxPaintEvent& event) {event.Skip(); }
 
 
 	public:
