@@ -86,6 +86,10 @@ wx/wxprec.h
 gui.hpp
 /home/skolanko222/AGH/grafika/lab/lab3_my/gui.hpp
 
+/home/skolanko222/AGH/grafika/lab/lab3_my/src/MyFrame.cpp
+gui.hpp
+/home/skolanko222/AGH/grafika/lab/lab3_my/src/gui.hpp
+
 /usr/include/wx-3.0/wx/accel.h
 wx/defs.h
 /usr/include/wx-3.0/wx/wx/defs.h

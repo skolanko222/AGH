@@ -22,110 +22,137 @@ class gui : public MyFrame
 
 		wxBitmap BananBitmap;
  		wxImage  BananImage;
-		int resize = 0;
-		int draw_i = 0;
+		bool smiga = false;
+		//int resize = 0;
+		//int draw_i = 0;
 
-		
-
-		wxColor StarColor = wxColor(122,0,0);
+		wxColor StarColor = wxColor(122,90,20);
 	
 		wxPoint star[5] = {
-			wxPoint(-60, -80),
-			wxPoint(-35, -35),
-			wxPoint(-90, -60),
-			wxPoint(-30, -60),
-			wxPoint(-80, -35)
+			wxPoint(-90, -110),
+			wxPoint(-65, -65),
+			wxPoint(-120, -90),
+			wxPoint(-60, -90),
+			wxPoint(-110, -65)
 		};
-	protected:
-		void Draw(wxPaintDC &a)
-		{
-			
-			std::unique_ptr<wxPaintDC> clientDC(new wxWindowDC(this));
+	public:
+		virtual void MainFrameBase_OnPaint(wxPaintEvent& event) override 
+		{ 
+			wxPaintDC clientDC(this);
 			DrawBitmap = wxBitmap(this->GetSize());
-			std::unique_ptr<wxBufferedDC> buffer(new wxBufferedDC(clientDC.get(), DrawBitmap));
+			wxBufferedDC buffer(&clientDC, DrawBitmap);
 
-			//ustawiamy uklad wspolrzednych na srodku
-			buffer->SetDeviceOrigin(this->GetSize().x / 2, this->GetSize().y / 2);
-			buffer->SetBackground(*wxLIGHT_GREY);
-			buffer->Clear();
+			//setting cords in the middle
+			buffer.SetDeviceOrigin(this->GetSize().x / 2 -100, this->GetSize().y / 2-50);
+			buffer.SetBackground(*wxWHITE);
+			buffer.Clear();
 
-
-			// TODO
-			double bananaFactor = 0.1 * slider_banana->GetValue() * sin(M_PI * slider_banana->GetValue() / 100);
+			double bananaFactor = 0.2 * slider_banana->GetValue();
 
 			if (checkbox_banana->IsChecked())
-				buffer->DrawBitmap(BananBitmap, -40 - bananaFactor - BananBitmap.GetWidth() / 2, 30 - 0.4 * slider_banana->GetValue() - BananBitmap.GetWidth() / 2, true);
-
-			buffer->DrawLine(0, 0, 0, 70); // body
-			buffer->DrawLine(0, 10, -40 - bananaFactor, 30 - 0.4 * slider_banana->GetValue()); //right arm
-			buffer->DrawLine(0, 10, 40, 30); // left arm
-			buffer->DrawLine(0, 70, -30, 100); // right leg
-			buffer->DrawLine(0, 70, 30, 100); // left leg
-
-			buffer->DrawCircle(0, -20, 20);
-
-			buffer->DrawEllipse(-12, -29, 9, 6);
+				buffer.DrawBitmap(BananBitmap, -40 - bananaFactor - BananBitmap.GetWidth() / 2, 30 - 0.4 * slider_banana->GetValue() - BananBitmap.GetWidth() / 2, true);
+			//head
+			buffer.DrawCircle(0, -20, 20);
+			//body
+			buffer.DrawLine(0, 0, 0, 90); 
+		
+			//right eye
+			buffer.DrawEllipse(4, -31, 6, 9);
+			//left eye
+			buffer.DrawEllipse(-10, -31, 6, 9);
+			buffer.DrawLine(0, 10, 40, 30); 
+			buffer.DrawLine(0, 90, -50, 150); 
+			buffer.DrawLine(0, 90, 50, 150); 
+		
+			
 			if (checkbox_banana->IsChecked())
 			{
-				buffer->DrawEllipticArc(-14, -16, 28, 5, 180, 360);
-				buffer->DrawEllipse(3, -29, 9, 6);
+				//happy face
+				buffer.SetPen(*wxWHITE_PEN);
+				buffer.DrawCircle(4, -31, 3);
+				buffer.DrawCircle(-10, -31, 3);
+				buffer.SetBrush(*wxBLACK_BRUSH);
+				buffer.SetPen(*wxBLACK_PEN);
+				buffer.DrawCircle(4, -31, 1);
+				buffer.DrawCircle(-10, -31, 1);
+				
+				buffer.DrawEllipticArc(-14, -16, 28, 10, 180, 360);
+				//normalna reka
+				buffer.DrawLine(0, 10, -40 - bananaFactor, 30 - 0.4 * slider_banana->GetValue()); 
+
 			} 
 			else
 			{
-				buffer->DrawEllipticArc(-14, -16, 28, 5, 0, 180);
-				buffer->DrawEllipse(4, -31, 6, 9);
+				buffer.DrawEllipticArc(-14, -16, 28, 5, 0, 180);
+				
+				//normalna reka
+				buffer.DrawLine(0, 10, -40 - bananaFactor, 30 - 0.4 * slider_banana->GetValue()); 
 			}
 
 			wxString text(text_box->GetValue());
-			buffer->DrawText(text, -90, 90);
+			buffer.DrawText(text, -90, 90);
 			wxString textRotated(text_box->GetValue());
-			buffer->SetFont(wxFont(40, wxFONTFAMILY_DECORATIVE, wxFONTSTYLE_ITALIC, wxFONTWEIGHT_BOLD, false, "Kalam"));
-			buffer->DrawRotatedText(text_box->GetValue(), 50, 100, 90);
+			buffer.SetFont(wxFont(40, wxFONTFAMILY_DECORATIVE, wxFONTSTYLE_ITALIC, wxFONTWEIGHT_BOLD, false, "Kalam"));
+			buffer.DrawRotatedText(text_box->GetValue(), 50, 100, 90);
 
 			switch (combo_box->GetSelection())
 			{
 			case 0:
-			buffer->SetBrush(wxBrush(StarColor));
-			buffer->SetPen(wxPen(StarColor));
-			buffer->DrawPolygon(5, star, 0, 0);
+				buffer.SetBrush(wxBrush(StarColor));
+				buffer.SetPen(wxPen(StarColor));
+				buffer.DrawPolygon(5, star, 0, 0);
 			break;
-
 			case 1:
-			buffer->SetBrush(*wxLIGHT_GREY_BRUSH);
-			buffer->SetPen(*wxLIGHT_GREY_PEN);
-			buffer->DrawCircle(-70, -70, 20);
-			buffer->SetBrush(*wxWHITE_BRUSH);
-			buffer->SetPen(*wxWHITE_PEN);
-			buffer->DrawCircle(-80, -80, 20);
-			buffer->SetBrush(*wxBLACK_BRUSH);
-			buffer->SetPen(*wxBLACK_PEN);
-			buffer->DrawCircle(-60, -70, 2);
-			buffer->DrawLine(-70, -63, -64, -59);
+				buffer.SetBrush(*wxYELLOW_BRUSH);
+				buffer.SetPen(*wxYELLOW_PEN);
+				buffer.DrawCircle(-90, -120, 20);
 			break;
-
 			case 2:
-			buffer->SetBrush(*wxYELLOW_BRUSH);
-			buffer->SetPen(*wxYELLOW_PEN);
-			buffer->DrawCircle(-70, -70, 20);
+				
+				buffer.SetBrush(*wxLIGHT_GREY_BRUSH);
+				buffer.SetPen(*wxLIGHT_GREY_PEN);
+				buffer.DrawCircle(-90, -90, 20);
+				buffer.SetBrush(*wxWHITE_BRUSH);
+				buffer.SetPen(*wxWHITE_PEN);
+				buffer.DrawCircle(-102, -101, 20);
+				buffer.SetBrush(*wxBLACK_BRUSH);
+				buffer.SetPen(*wxBLACK_PEN);
+				buffer.DrawCircle(-81, -91, 2);
+				buffer.DrawLine(-90, -83, -84, -79);
 			break;
 
 			default:
 			break;
 			}
+			Refresh(true);
 		}
 
-		virtual void MainFrameBase_OnPaint(wxPaintEvent& event) override 
+		virtual void MainFrameBase_OnUpdateUI(wxUpdateUIEvent& event) override 
 		{ 
-			wxPaintDC dc(this);
-			Draw(dc); 
-			std::cout << "rysuj " << resize++ <<  '\n'; 
-		}
 
-		virtual void MainFrameBase_OnUpdateUI(wxUpdateUIEvent& event) override { std::cout << "resize"<< draw_i++<<"\n";}
+			if(checkbox_banana->IsChecked())
+			{
+				if(slider_banana->GetValue() == 100)
+					smiga = false;
+				else if(slider_banana->GetValue() == 0)
+					smiga = true;
+			}
+			else {}
 		
+			if(smiga)
+			{
+				slider_banana->SetValue(slider_banana->GetValue() + 1);
+				m_gauge2->SetValue(slider_banana->GetValue() + 1);
+			}
+			else
+			{
+				slider_banana->SetValue(slider_banana->GetValue() - 1);
+				m_gauge2->SetValue(slider_banana->GetValue() - 1);
+			}
+		}
 		virtual void button_save_CLICK( wxCommandEvent& event ) override 
 		{ 
-			wxFileDialog saveDialog(this,_("Wybierz plik"), "", "","Image Files (*.png;*.bmp;*.jpg)", wxFD_SAVE | wxFD_OVERWRITE_PROMPT);
+			wxFileDialog saveDialog(this,_("Wybierz plik"), "", "","Image Files (*.png;*.bmp;*.jpg) | ", wxFD_SAVE | wxFD_OVERWRITE_PROMPT);
 			wxImage _imageSave = DrawBitmap.ConvertToImage();
 			if (saveDialog.ShowModal() == wxID_CANCEL)
 				return;
@@ -135,19 +162,20 @@ class gui : public MyFrame
 				_imageSave.AddHandler(new wxPNGHandler);
 				_imageSave.SaveFile(saveDialog.GetPath());
 			}
-			//Draw();
+			return;
 		}
-		virtual void checkbox_banana_CLICK( wxCommandEvent& event ) override { }
-		virtual void checkBox_banana_Check(wxCommandEvent& event)
-		{
-			std::cout << "banan klikniety\n";
-			slider_banana->Enable(checkbox_banana->IsChecked());
-			//Draw();
+		virtual void checkbox_banana_CLICK( wxCommandEvent& event ) override 
+		{ 
+			if (!slider_banana->IsEnabled())
+                slider_banana->Disable();
+            else 
+                slider_banana->Enable();
+			return;
 		}
-		virtual void slider_banana_pos_OnScroll(wxScrollEvent& event)
+		virtual void slider_banana_SCROLL( wxScrollEvent& event ) 
 		{
-			m_gauge2->SetValue(event.GetPosition());
-			//Draw();
+			m_gauge2->SetValue(slider_banana->GetValue());
+			return;
 		}
 		virtual void button_star_CLICK(wxCommandEvent& event)
 		{
@@ -156,17 +184,15 @@ class gui : public MyFrame
 				return;
 
 			StarColor = chooseColourDialog.GetColourData().GetColour();
-			//Draw();
 		}
+		virtual void combo_box_CLICK( wxCommandEvent& event ) override {event.Skip();}
+        virtual void file_picker_CLICK( wxFileDirPickerEvent& event ) override {event.Skip();}
 		
 	public:
-		gui() : MyFrame(NULL)
+		gui() : MyFrame(nullptr)
 		{
 			BananImage.AddHandler(new wxJPEGHandler);
-			BananImage.LoadFile("banan.jpeg", wxBITMAP_TYPE_JPEG);
+			BananImage.LoadFile("banana.jpg", wxBITMAP_TYPE_JPEG);
 			BananBitmap =  wxBitmap(BananImage);
 		}
-
-
-
 };

@@ -4,15 +4,17 @@
 class MyApp : public wxApp
 {
 public:
+
+	gui* mainGui; 
 	virtual bool OnInit();
 };
 
-wxIMPLEMENT_APP(MyApp);
+
 
 bool MyApp::OnInit()
 {
-	
-	gui* fr = new gui();
-	fr->Show(true);
+	mainGui = new gui();
+	mainGui->Show(true);
 	return true;
 }
+wxIMPLEMENT_APP(MyApp);

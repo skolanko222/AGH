@@ -265,9 +265,12 @@ CMakeFiles/main.dir/main.cpp.o: /usr/include/wx-3.0/wx/xtitypes.h
 CMakeFiles/main.dir/main.cpp.o: /usr/lib/x86_64-linux-gnu/wx/include/gtk3-unicode-3.0/wx/setup.h
 
 CMakeFiles/main.dir/src/MyFrame.cpp.o: ../include/MyFrame.hpp
+CMakeFiles/main.dir/src/MyFrame.cpp.o: ../include/gui.hpp
 CMakeFiles/main.dir/src/MyFrame.cpp.o: ../src/MyFrame.cpp
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/accel.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/access.h
+CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/affinematrix2d.h
+CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/affinematrix2dbase.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/afterstd.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/any.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/anybutton.h
@@ -277,6 +280,7 @@ CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/artprov.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/atomic.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/beforestd.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/bitmap.h
+CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/brush.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/buffer.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/button.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/chartype.h
@@ -285,7 +289,9 @@ CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/checkeddelete.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/chkconf.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/choice.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/clntdata.h
+CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/colordlg.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/colour.h
+CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/colourdata.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/combobox.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/compiler.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/containr.h
@@ -296,6 +302,12 @@ CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/crt.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/ctrlsub.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/cursor.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/datetime.h
+CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/dc.h
+CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/dcbuffer.h
+CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/dcclient.h
+CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/dcgraph.h
+CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/dcmemory.h
+CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/dcscreen.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/debug.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/defs.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/dialog.h
@@ -305,6 +317,7 @@ CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/dynarray.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/event.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/except.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/features.h
+CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/ffile.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/file.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/filectrl.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/filedlg.h
@@ -320,6 +333,7 @@ CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/gauge.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/gdicmn.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/gdiobj.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/generic/accel.h
+CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/generic/colrdlgg.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/generic/filectrlg.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/generic/filepickerg.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/generic/icon.h
@@ -330,13 +344,17 @@ CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/generic/paletteg.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/generic/panelg.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/generic/scrolwin.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/generic/statusbr.h
+CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/geometry.h
+CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/graphics.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/gtk/accel.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/gtk/anybutton.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/gtk/bitmap.h
+CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/gtk/brush.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/gtk/button.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/gtk/checkbox.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/gtk/chkconf.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/gtk/choice.h
+CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/gtk/colordlg.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/gtk/colour.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/gtk/combobox.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/gtk/control.h
@@ -437,6 +455,7 @@ CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/vector.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/version.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/versioninfo.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/weakref.h
+CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/wfstream.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/window.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/windowid.h
 CMakeFiles/main.dir/src/MyFrame.cpp.o: /usr/include/wx-3.0/wx/wxcrt.h
