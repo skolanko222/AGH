@@ -22,7 +22,7 @@ class gui : public MyFrame
 
 		wxBitmap BananBitmap;
  		wxImage  BananImage;
-
+		bool smiga = false;
 		//int resize = 0;
 		//int draw_i = 0;
 
@@ -55,16 +55,14 @@ class gui : public MyFrame
 			buffer.DrawCircle(0, -20, 20);
 			//body
 			buffer.DrawLine(0, 0, 0, 90); 
-			//arm
-			buffer.DrawLine(0, 10, -40 - bananaFactor, 30 - 0.4 * slider_banana->GetValue()); 
-			buffer.DrawLine(0, 10, 40, 30); 
-			buffer.DrawLine(0, 90, -50, 150); 
-			buffer.DrawLine(0, 90, 50, 150); 
-
+		
 			//right eye
 			buffer.DrawEllipse(4, -31, 6, 9);
 			//left eye
 			buffer.DrawEllipse(-10, -31, 6, 9);
+			buffer.DrawLine(0, 10, 40, 30); 
+			buffer.DrawLine(0, 90, -50, 150); 
+			buffer.DrawLine(0, 90, 50, 150); 
 		
 			
 			if (checkbox_banana->IsChecked())
@@ -79,10 +77,16 @@ class gui : public MyFrame
 				buffer.DrawCircle(-10, -31, 1);
 				
 				buffer.DrawEllipticArc(-14, -16, 28, 10, 180, 360);
+				//normalna reka
+				buffer.DrawLine(0, 10, -40 - bananaFactor, 30 - 0.4 * slider_banana->GetValue()); 
+
 			} 
 			else
 			{
 				buffer.DrawEllipticArc(-14, -16, 28, 5, 0, 180);
+				
+				//normalna reka
+				buffer.DrawLine(0, 10, -40 - bananaFactor, 30 - 0.4 * slider_banana->GetValue()); 
 			}
 
 			wxString text(text_box->GetValue());
@@ -123,7 +127,29 @@ class gui : public MyFrame
 			Refresh(true);
 		}
 
-		virtual void MainFrameBase_OnUpdateUI(wxUpdateUIEvent& event) override { } //std::cout << "resize"<< draw_i++<<"\n"; }
+		virtual void MainFrameBase_OnUpdateUI(wxUpdateUIEvent& event) override 
+		{ 
+
+			if(checkbox_banana->IsChecked())
+			{
+				if(slider_banana->GetValue() == 100)
+					smiga = false;
+				else if(slider_banana->GetValue() == 0)
+					smiga = true;
+			}
+			else {}
+		
+			if(smiga)
+			{
+				slider_banana->SetValue(slider_banana->GetValue() + 1);
+				m_gauge2->SetValue(slider_banana->GetValue() + 1);
+			}
+			else
+			{
+				slider_banana->SetValue(slider_banana->GetValue() - 1);
+				m_gauge2->SetValue(slider_banana->GetValue() - 1);
+			}
+		}
 		virtual void button_save_CLICK( wxCommandEvent& event ) override 
 		{ 
 			wxFileDialog saveDialog(this,_("Wybierz plik"), "", "","Image Files (*.png;*.bmp;*.jpg) | ", wxFD_SAVE | wxFD_OVERWRITE_PROMPT);

@@ -1,3 +1,0 @@
-/home/skolanko222/AGH/grafika/lab/lab3_my2/build/CMakeFiles/rebuild_cache.dir
-/home/skolanko222/AGH/grafika/lab/lab3_my2/build/CMakeFiles/edit_cache.dir
-/home/skolanko222/AGH/grafika/lab/lab3_my2/build/CMakeFiles/main.dir
