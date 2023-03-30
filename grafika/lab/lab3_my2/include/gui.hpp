@@ -22,11 +22,10 @@ class gui : public MyFrame
 
 		wxBitmap BananBitmap;
  		wxImage  BananImage;
+		int resize = 0;
+		int draw_i = 0;
 
-		//int resize = 0;
-		//int draw_i = 0;
-
-		wxColor StarColor = wxColor(122,90,20);
+		wxColor StarColor = wxColor(122,0,0);
 	
 		wxPoint star[5] = {
 			wxPoint(-90, -110),
@@ -36,6 +35,8 @@ class gui : public MyFrame
 			wxPoint(-110, -65)
 		};
 	public:
+
+
 		virtual void MainFrameBase_OnPaint(wxPaintEvent& event) override 
 		{ 
 			wxPaintDC clientDC(this);
@@ -47,6 +48,8 @@ class gui : public MyFrame
 			buffer.SetBackground(*wxWHITE);
 			buffer.Clear();
 
+
+			// TODO
 			double bananaFactor = 0.2 * slider_banana->GetValue();
 
 			if (checkbox_banana->IsChecked())
@@ -136,6 +139,7 @@ class gui : public MyFrame
 				_imageSave.AddHandler(new wxPNGHandler);
 				_imageSave.SaveFile(saveDialog.GetPath());
 			}
+			//Draw();
 			return;
 		}
 		virtual void checkbox_banana_CLICK( wxCommandEvent& event ) override 

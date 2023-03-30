@@ -4,7 +4,7 @@
 CMakeFiles/main.dir/main.cpp.o
  ../include/MyFrame.hpp
  ../include/gui.hpp
- /home/skolanko222/AGH/grafika/lab/lab3_my/main.cpp
+ /home/skolanko222/AGH/grafika/lab/lab3_my2/main.cpp
  /usr/include/wx-3.0/wx/accel.h
  /usr/include/wx-3.0/wx/access.h
  /usr/include/wx-3.0/wx/affinematrix2d.h
@@ -267,7 +267,7 @@ CMakeFiles/main.dir/main.cpp.o
 CMakeFiles/main.dir/src/MyFrame.cpp.o
  ../include/MyFrame.hpp
  ../include/gui.hpp
- /home/skolanko222/AGH/grafika/lab/lab3_my/src/MyFrame.cpp
+ /home/skolanko222/AGH/grafika/lab/lab3_my2/src/MyFrame.cpp
  /usr/include/wx-3.0/wx/accel.h
  /usr/include/wx-3.0/wx/access.h
  /usr/include/wx-3.0/wx/affinematrix2d.h

@@ -4,14 +4,14 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/skolanko222/AGH/grafika/lab/lab3_my/main.cpp" "/home/skolanko222/AGH/grafika/lab/lab3_my/build/CMakeFiles/main.dir/main.cpp.o"
-  "/home/skolanko222/AGH/grafika/lab/lab3_my/src/MyFrame.cpp" "/home/skolanko222/AGH/grafika/lab/lab3_my/build/CMakeFiles/main.dir/src/MyFrame.cpp.o"
+  "/home/skolanko222/AGH/grafika/lab/lab3_my2/main.cpp" "/home/skolanko222/AGH/grafika/lab/lab3_my2/build/CMakeFiles/main.dir/main.cpp.o"
+  "/home/skolanko222/AGH/grafika/lab/lab3_my2/src/MyFrame.cpp" "/home/skolanko222/AGH/grafika/lab/lab3_my2/build/CMakeFiles/main.dir/src/MyFrame.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_CXX
-  "PROJECTPATH=\"/home/skolanko222/AGH/grafika/lab/lab3_my\""
+  "PROJECTPATH=\"/home/skolanko222/AGH/grafika/lab/lab3_my2\""
   "WXUSINGDLL"
   "_FILE_OFFSET_BITS=64"
   "__WXGTK__"

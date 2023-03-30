@@ -51,12 +51,12 @@ MyFrame::MyFrame( wxWindow* parent, wxWindowID id, const wxString& title, const 
 
 	m_gauge2 = new wxGauge( m_panel2, wxID_ANY, 100, wxDefaultPosition, wxDefaultSize, wxGA_HORIZONTAL );
 	m_gauge2->SetValue( 0 );
-	bSizer5->Add( m_gauge2, 0, wxEXPAND|wxALL, 5 );
+	bSizer5->Add( m_gauge2, 0, wxALIGN_CENTER|wxALL, 5 );
 
 	btn_star_color_CLICK = new wxButton( m_panel2, wxID_ANY, wxT("kolor gwiazdki"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer5->Add( btn_star_color_CLICK, 0, wxALIGN_CENTER|wxALL, 5 );
 
-	text_box = new wxTextCtrl( m_panel2, wxID_ANY, wxT("żółć"), wxDefaultPosition, wxDefaultSize, 0 );
+	text_box = new wxTextCtrl( m_panel2, wxID_ANY, wxT("sdsdsda"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer5->Add( text_box, 0, wxALIGN_CENTER|wxALL, 5 );
 
 	combo_box = new wxComboBox( m_panel2, wxID_ANY, wxT("87"), wxDefaultPosition, wxDefaultSize, 0, NULL, 0 );
