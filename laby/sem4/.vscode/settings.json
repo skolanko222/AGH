@@ -45,6 +45,21 @@
 		"sstream": "cpp",
 		"stdexcept": "cpp",
 		"streambuf": "cpp",
-		"typeinfo": "cpp"
+		"typeinfo": "cpp",
+		"cstring": "cpp",
+		"chrono": "cpp",
+		"compare": "cpp",
+		"complex": "cpp",
+		"concepts": "cpp",
+		"condition_variable": "cpp",
+		"map": "cpp",
+		"set": "cpp",
+		"unordered_set": "cpp",
+		"mutex": "cpp",
+		"numbers": "cpp",
+		"ranges": "cpp",
+		"thread": "cpp",
+		"cinttypes": "cpp",
+		"typeindex": "cpp"
 	}
 }
