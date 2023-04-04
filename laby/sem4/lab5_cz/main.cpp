@@ -46,6 +46,8 @@ int main() {
   d1.accept( accumulate );  // -> accept AccumulatingVisitor
   d2.accept( accumulate );
   std::cout << accumulate.getTotalSum() << std::endl;
+  Visitor *temp = new AccumulatingVisitor();
+  delete temp;
 }
 /* wynik
  6.56 99

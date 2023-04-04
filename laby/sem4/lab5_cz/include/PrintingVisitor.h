@@ -10,6 +10,7 @@ class PrintingVisitor : public Visitor
 	public:
 		virtual void visit(const FloatData * obj) const override {std::cout << obj->getValue() << ' ';}
 		virtual void visit(const IntData * obj) const override {std::cout << obj->get()  << ' ';}
+		~PrintingVisitor() { };
 
 
 };
