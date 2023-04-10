@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/AGH/grafika/lab/lab4
+CMAKE_SOURCE_DIR = /home/skolanko222/AGH/grafika/lab/lab4
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/AGH/grafika/lab/lab4/build
+CMAKE_BINARY_DIR = /home/skolanko222/AGH/grafika/lab/lab4/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/main.dir/depend.make
@@ -59,81 +59,81 @@ include CMakeFiles/main.dir/flags.make
 
 CMakeFiles/main.dir/main.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/AGH/grafika/lab/lab4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/main.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/main.cpp.o -c /root/AGH/grafika/lab/lab4/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/skolanko222/AGH/grafika/lab/lab4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/main.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/main.cpp.o -c /home/skolanko222/AGH/grafika/lab/lab4/main.cpp
 
 CMakeFiles/main.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/AGH/grafika/lab/lab4/main.cpp > CMakeFiles/main.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/skolanko222/AGH/grafika/lab/lab4/main.cpp > CMakeFiles/main.dir/main.cpp.i
 
 CMakeFiles/main.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/AGH/grafika/lab/lab4/main.cpp -o CMakeFiles/main.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/skolanko222/AGH/grafika/lab/lab4/main.cpp -o CMakeFiles/main.dir/main.cpp.s
 
 CMakeFiles/main.dir/src/ChartClass.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/ChartClass.cpp.o: ../src/ChartClass.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/AGH/grafika/lab/lab4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.dir/src/ChartClass.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/ChartClass.cpp.o -c /root/AGH/grafika/lab/lab4/src/ChartClass.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/skolanko222/AGH/grafika/lab/lab4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.dir/src/ChartClass.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/ChartClass.cpp.o -c /home/skolanko222/AGH/grafika/lab/lab4/src/ChartClass.cpp
 
 CMakeFiles/main.dir/src/ChartClass.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/ChartClass.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/AGH/grafika/lab/lab4/src/ChartClass.cpp > CMakeFiles/main.dir/src/ChartClass.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/skolanko222/AGH/grafika/lab/lab4/src/ChartClass.cpp > CMakeFiles/main.dir/src/ChartClass.cpp.i
 
 CMakeFiles/main.dir/src/ChartClass.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/ChartClass.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/AGH/grafika/lab/lab4/src/ChartClass.cpp -o CMakeFiles/main.dir/src/ChartClass.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/skolanko222/AGH/grafika/lab/lab4/src/ChartClass.cpp -o CMakeFiles/main.dir/src/ChartClass.cpp.s
 
 CMakeFiles/main.dir/src/ConfigClass.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/ConfigClass.cpp.o: ../src/ConfigClass.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/AGH/grafika/lab/lab4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/main.dir/src/ConfigClass.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/ConfigClass.cpp.o -c /root/AGH/grafika/lab/lab4/src/ConfigClass.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/skolanko222/AGH/grafika/lab/lab4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/main.dir/src/ConfigClass.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/ConfigClass.cpp.o -c /home/skolanko222/AGH/grafika/lab/lab4/src/ConfigClass.cpp
 
 CMakeFiles/main.dir/src/ConfigClass.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/ConfigClass.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/AGH/grafika/lab/lab4/src/ConfigClass.cpp > CMakeFiles/main.dir/src/ConfigClass.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/skolanko222/AGH/grafika/lab/lab4/src/ConfigClass.cpp > CMakeFiles/main.dir/src/ConfigClass.cpp.i
 
 CMakeFiles/main.dir/src/ConfigClass.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/ConfigClass.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/AGH/grafika/lab/lab4/src/ConfigClass.cpp -o CMakeFiles/main.dir/src/ConfigClass.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/skolanko222/AGH/grafika/lab/lab4/src/ConfigClass.cpp -o CMakeFiles/main.dir/src/ConfigClass.cpp.s
 
 CMakeFiles/main.dir/src/GUI.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/GUI.cpp.o: ../src/GUI.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/AGH/grafika/lab/lab4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/main.dir/src/GUI.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/GUI.cpp.o -c /root/AGH/grafika/lab/lab4/src/GUI.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/skolanko222/AGH/grafika/lab/lab4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/main.dir/src/GUI.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/GUI.cpp.o -c /home/skolanko222/AGH/grafika/lab/lab4/src/GUI.cpp
 
 CMakeFiles/main.dir/src/GUI.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/GUI.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/AGH/grafika/lab/lab4/src/GUI.cpp > CMakeFiles/main.dir/src/GUI.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/skolanko222/AGH/grafika/lab/lab4/src/GUI.cpp > CMakeFiles/main.dir/src/GUI.cpp.i
 
 CMakeFiles/main.dir/src/GUI.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/GUI.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/AGH/grafika/lab/lab4/src/GUI.cpp -o CMakeFiles/main.dir/src/GUI.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/skolanko222/AGH/grafika/lab/lab4/src/GUI.cpp -o CMakeFiles/main.dir/src/GUI.cpp.s
 
 CMakeFiles/main.dir/src/GUIMyFrame1.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/GUIMyFrame1.cpp.o: ../src/GUIMyFrame1.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/AGH/grafika/lab/lab4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/main.dir/src/GUIMyFrame1.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/GUIMyFrame1.cpp.o -c /root/AGH/grafika/lab/lab4/src/GUIMyFrame1.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/skolanko222/AGH/grafika/lab/lab4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/main.dir/src/GUIMyFrame1.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/GUIMyFrame1.cpp.o -c /home/skolanko222/AGH/grafika/lab/lab4/src/GUIMyFrame1.cpp
 
 CMakeFiles/main.dir/src/GUIMyFrame1.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/GUIMyFrame1.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/AGH/grafika/lab/lab4/src/GUIMyFrame1.cpp > CMakeFiles/main.dir/src/GUIMyFrame1.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/skolanko222/AGH/grafika/lab/lab4/src/GUIMyFrame1.cpp > CMakeFiles/main.dir/src/GUIMyFrame1.cpp.i
 
 CMakeFiles/main.dir/src/GUIMyFrame1.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/GUIMyFrame1.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/AGH/grafika/lab/lab4/src/GUIMyFrame1.cpp -o CMakeFiles/main.dir/src/GUIMyFrame1.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/skolanko222/AGH/grafika/lab/lab4/src/GUIMyFrame1.cpp -o CMakeFiles/main.dir/src/GUIMyFrame1.cpp.s
 
 CMakeFiles/main.dir/src/vecmat.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/vecmat.cpp.o: ../src/vecmat.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/AGH/grafika/lab/lab4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/main.dir/src/vecmat.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/vecmat.cpp.o -c /root/AGH/grafika/lab/lab4/src/vecmat.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/skolanko222/AGH/grafika/lab/lab4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/main.dir/src/vecmat.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/vecmat.cpp.o -c /home/skolanko222/AGH/grafika/lab/lab4/src/vecmat.cpp
 
 CMakeFiles/main.dir/src/vecmat.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/vecmat.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/AGH/grafika/lab/lab4/src/vecmat.cpp > CMakeFiles/main.dir/src/vecmat.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/skolanko222/AGH/grafika/lab/lab4/src/vecmat.cpp > CMakeFiles/main.dir/src/vecmat.cpp.i
 
 CMakeFiles/main.dir/src/vecmat.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/vecmat.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/AGH/grafika/lab/lab4/src/vecmat.cpp -o CMakeFiles/main.dir/src/vecmat.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/skolanko222/AGH/grafika/lab/lab4/src/vecmat.cpp -o CMakeFiles/main.dir/src/vecmat.cpp.s
 
 # Object files for target main
 main_OBJECTS = \
@@ -158,7 +158,7 @@ main: /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1
 main: /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.5.1
 main: /usr/lib/x86_64-linux-gnu/libsfml-system.so.2.5.1
 main: CMakeFiles/main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/root/AGH/grafika/lab/lab4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/skolanko222/AGH/grafika/lab/lab4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable main"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -171,6 +171,6 @@ CMakeFiles/main.dir/clean:
 .PHONY : CMakeFiles/main.dir/clean
 
 CMakeFiles/main.dir/depend:
-	cd /root/AGH/grafika/lab/lab4/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /root/AGH/grafika/lab/lab4 /root/AGH/grafika/lab/lab4 /root/AGH/grafika/lab/lab4/build /root/AGH/grafika/lab/lab4/build /root/AGH/grafika/lab/lab4/build/CMakeFiles/main.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/skolanko222/AGH/grafika/lab/lab4/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/skolanko222/AGH/grafika/lab/lab4 /home/skolanko222/AGH/grafika/lab/lab4 /home/skolanko222/AGH/grafika/lab/lab4/build /home/skolanko222/AGH/grafika/lab/lab4/build /home/skolanko222/AGH/grafika/lab/lab4/build/CMakeFiles/main.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/main.dir/depend
 

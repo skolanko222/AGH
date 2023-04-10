@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/skolanko222/AGH/grafika/lab/lab4
+CMAKE_SOURCE_DIR = /home/skolanko222/AGH/laby/sem4/lab6
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/skolanko222/AGH/grafika/lab/lab4/build
+CMAKE_BINARY_DIR = /home/skolanko222/AGH/laby/sem4/lab6/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/skolanko222/AGH/grafika/lab/lab4/build/CMakeFiles /home/skolanko222/AGH/grafika/lab/lab4/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/skolanko222/AGH/laby/sem4/lab6/build/CMakeFiles /home/skolanko222/AGH/laby/sem4/lab6/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/skolanko222/AGH/grafika/lab/lab4/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/skolanko222/AGH/laby/sem4/lab6/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -150,141 +150,6 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-src/ChartClass.o: src/ChartClass.cpp.o
-
-.PHONY : src/ChartClass.o
-
-# target to build an object file
-src/ChartClass.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/ChartClass.cpp.o
-.PHONY : src/ChartClass.cpp.o
-
-src/ChartClass.i: src/ChartClass.cpp.i
-
-.PHONY : src/ChartClass.i
-
-# target to preprocess a source file
-src/ChartClass.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/ChartClass.cpp.i
-.PHONY : src/ChartClass.cpp.i
-
-src/ChartClass.s: src/ChartClass.cpp.s
-
-.PHONY : src/ChartClass.s
-
-# target to generate assembly for a file
-src/ChartClass.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/ChartClass.cpp.s
-.PHONY : src/ChartClass.cpp.s
-
-src/ConfigClass.o: src/ConfigClass.cpp.o
-
-.PHONY : src/ConfigClass.o
-
-# target to build an object file
-src/ConfigClass.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/ConfigClass.cpp.o
-.PHONY : src/ConfigClass.cpp.o
-
-src/ConfigClass.i: src/ConfigClass.cpp.i
-
-.PHONY : src/ConfigClass.i
-
-# target to preprocess a source file
-src/ConfigClass.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/ConfigClass.cpp.i
-.PHONY : src/ConfigClass.cpp.i
-
-src/ConfigClass.s: src/ConfigClass.cpp.s
-
-.PHONY : src/ConfigClass.s
-
-# target to generate assembly for a file
-src/ConfigClass.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/ConfigClass.cpp.s
-.PHONY : src/ConfigClass.cpp.s
-
-src/GUI.o: src/GUI.cpp.o
-
-.PHONY : src/GUI.o
-
-# target to build an object file
-src/GUI.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/GUI.cpp.o
-.PHONY : src/GUI.cpp.o
-
-src/GUI.i: src/GUI.cpp.i
-
-.PHONY : src/GUI.i
-
-# target to preprocess a source file
-src/GUI.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/GUI.cpp.i
-.PHONY : src/GUI.cpp.i
-
-src/GUI.s: src/GUI.cpp.s
-
-.PHONY : src/GUI.s
-
-# target to generate assembly for a file
-src/GUI.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/GUI.cpp.s
-.PHONY : src/GUI.cpp.s
-
-src/GUIMyFrame1.o: src/GUIMyFrame1.cpp.o
-
-.PHONY : src/GUIMyFrame1.o
-
-# target to build an object file
-src/GUIMyFrame1.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/GUIMyFrame1.cpp.o
-.PHONY : src/GUIMyFrame1.cpp.o
-
-src/GUIMyFrame1.i: src/GUIMyFrame1.cpp.i
-
-.PHONY : src/GUIMyFrame1.i
-
-# target to preprocess a source file
-src/GUIMyFrame1.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/GUIMyFrame1.cpp.i
-.PHONY : src/GUIMyFrame1.cpp.i
-
-src/GUIMyFrame1.s: src/GUIMyFrame1.cpp.s
-
-.PHONY : src/GUIMyFrame1.s
-
-# target to generate assembly for a file
-src/GUIMyFrame1.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/GUIMyFrame1.cpp.s
-.PHONY : src/GUIMyFrame1.cpp.s
-
-src/vecmat.o: src/vecmat.cpp.o
-
-.PHONY : src/vecmat.o
-
-# target to build an object file
-src/vecmat.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/vecmat.cpp.o
-.PHONY : src/vecmat.cpp.o
-
-src/vecmat.i: src/vecmat.cpp.i
-
-.PHONY : src/vecmat.i
-
-# target to preprocess a source file
-src/vecmat.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/vecmat.cpp.i
-.PHONY : src/vecmat.cpp.i
-
-src/vecmat.s: src/vecmat.cpp.s
-
-.PHONY : src/vecmat.s
-
-# target to generate assembly for a file
-src/vecmat.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/vecmat.cpp.s
-.PHONY : src/vecmat.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -297,21 +162,6 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... src/ChartClass.o"
-	@echo "... src/ChartClass.i"
-	@echo "... src/ChartClass.s"
-	@echo "... src/ConfigClass.o"
-	@echo "... src/ConfigClass.i"
-	@echo "... src/ConfigClass.s"
-	@echo "... src/GUI.o"
-	@echo "... src/GUI.i"
-	@echo "... src/GUI.s"
-	@echo "... src/GUIMyFrame1.o"
-	@echo "... src/GUIMyFrame1.i"
-	@echo "... src/GUIMyFrame1.s"
-	@echo "... src/vecmat.o"
-	@echo "... src/vecmat.i"
-	@echo "... src/vecmat.s"
 .PHONY : help
 
 

@@ -4,18 +4,18 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/root/AGH/grafika/lab/lab4/main.cpp" "/root/AGH/grafika/lab/lab4/build/CMakeFiles/main.dir/main.cpp.o"
-  "/root/AGH/grafika/lab/lab4/src/ChartClass.cpp" "/root/AGH/grafika/lab/lab4/build/CMakeFiles/main.dir/src/ChartClass.cpp.o"
-  "/root/AGH/grafika/lab/lab4/src/ConfigClass.cpp" "/root/AGH/grafika/lab/lab4/build/CMakeFiles/main.dir/src/ConfigClass.cpp.o"
-  "/root/AGH/grafika/lab/lab4/src/GUI.cpp" "/root/AGH/grafika/lab/lab4/build/CMakeFiles/main.dir/src/GUI.cpp.o"
-  "/root/AGH/grafika/lab/lab4/src/GUIMyFrame1.cpp" "/root/AGH/grafika/lab/lab4/build/CMakeFiles/main.dir/src/GUIMyFrame1.cpp.o"
-  "/root/AGH/grafika/lab/lab4/src/vecmat.cpp" "/root/AGH/grafika/lab/lab4/build/CMakeFiles/main.dir/src/vecmat.cpp.o"
+  "/home/skolanko222/AGH/grafika/lab/lab4/main.cpp" "/home/skolanko222/AGH/grafika/lab/lab4/build/CMakeFiles/main.dir/main.cpp.o"
+  "/home/skolanko222/AGH/grafika/lab/lab4/src/ChartClass.cpp" "/home/skolanko222/AGH/grafika/lab/lab4/build/CMakeFiles/main.dir/src/ChartClass.cpp.o"
+  "/home/skolanko222/AGH/grafika/lab/lab4/src/ConfigClass.cpp" "/home/skolanko222/AGH/grafika/lab/lab4/build/CMakeFiles/main.dir/src/ConfigClass.cpp.o"
+  "/home/skolanko222/AGH/grafika/lab/lab4/src/GUI.cpp" "/home/skolanko222/AGH/grafika/lab/lab4/build/CMakeFiles/main.dir/src/GUI.cpp.o"
+  "/home/skolanko222/AGH/grafika/lab/lab4/src/GUIMyFrame1.cpp" "/home/skolanko222/AGH/grafika/lab/lab4/build/CMakeFiles/main.dir/src/GUIMyFrame1.cpp.o"
+  "/home/skolanko222/AGH/grafika/lab/lab4/src/vecmat.cpp" "/home/skolanko222/AGH/grafika/lab/lab4/build/CMakeFiles/main.dir/src/vecmat.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_CXX
-  "PROJECTPATH=\"/root/AGH/grafika/lab/lab4\""
+  "PROJECTPATH=\"/home/skolanko222/AGH/grafika/lab/lab4\""
   "WXUSINGDLL"
   "_FILE_OFFSET_BITS=64"
   "__WXGTK__"
@@ -24,8 +24,8 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../include"
-  "/usr/local/lib/wx/include/gtk3-unicode-3.0"
-  "/usr/local/include/wx-3.0"
+  "/usr/local/lib/wx/include/gtk3-unicode-3.2"
+  "/usr/local/include/wx-3.2"
   )
 
 # Targets to which this target links.
