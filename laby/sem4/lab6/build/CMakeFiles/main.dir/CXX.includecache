@@ -9,16 +9,28 @@
 ../include/Data.h
 string
 -
+iostream
+-
 
 ../include/List.h
 Data.h
 ../include/Data.h
 
-/home/skolanko222/AGH/laby/sem4/lab6/main.cpp
+/root/AGH/laby/sem4/lab6/main.cpp
 iostream
 -
 List.h
-/home/skolanko222/AGH/laby/sem4/lab6/List.h
+/root/AGH/laby/sem4/lab6/List.h
 Data.h
-/home/skolanko222/AGH/laby/sem4/lab6/Data.h
+/root/AGH/laby/sem4/lab6/Data.h
+
+/root/AGH/laby/sem4/lab6/src/Data.cpp
+Data.h
+/root/AGH/laby/sem4/lab6/src/Data.h
+List.h
+/root/AGH/laby/sem4/lab6/src/List.h
+
+/root/AGH/laby/sem4/lab6/src/List.cpp
+List.h
+/root/AGH/laby/sem4/lab6/src/List.h
 

@@ -17,19 +17,19 @@
 int main() {
   List a;
   a.insert(IntData(10), List::Begin);   // wkladamy na poczatek
-  // a.insert(IntData(11), List::End);     // na koniec
-  // a.insert(StringData("Hello"),  List::Begin); // znow na poczatek
-  // a.insert(StringData("Kasia"), List::End);
-  // a.insert(IntData(7)).insert(StringData("WhereAmI")); // po wyniku mozna poznac gdzie domyślnie dodawane są elementy
+  a.insert(IntData(11), List::End);     // na koniec
+  a.insert(StringData("Hello"),  List::Begin); // znow na poczatek
+  a.insert(StringData("Kasia"), List::End);
+  a.insert(IntData(7)).insert(StringData("WhereAmI")); // po wyniku mozna poznac gdzie domyślnie dodawane są elementy
   
   a.print();
 
-  /*List b = a;
+  List b = a;
   b.insert(IntData(99));
   std::cout << "Lista a" << std::endl;
   a.print();
   std::cout << "Lista b" << std::endl;
-  b.print();*/
+  b.print();
 }
 /* wynik: 
 ~IntData()
