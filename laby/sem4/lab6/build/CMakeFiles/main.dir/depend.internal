@@ -4,4 +4,12 @@
 CMakeFiles/main.dir/main.cpp.o
  ../include/Data.h
  ../include/List.h
- /home/skolanko222/AGH/laby/sem4/lab6/main.cpp
+ /root/AGH/laby/sem4/lab6/main.cpp
+CMakeFiles/main.dir/src/Data.cpp.o
+ ../include/Data.h
+ ../include/List.h
+ /root/AGH/laby/sem4/lab6/src/Data.cpp
+CMakeFiles/main.dir/src/List.cpp.o
+ ../include/Data.h
+ ../include/List.h
+ /root/AGH/laby/sem4/lab6/src/List.cpp

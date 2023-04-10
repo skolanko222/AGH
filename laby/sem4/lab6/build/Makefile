@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/skolanko222/AGH/laby/sem4/lab6
+CMAKE_SOURCE_DIR = /root/AGH/laby/sem4/lab6
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/skolanko222/AGH/laby/sem4/lab6/build
+CMAKE_BINARY_DIR = /root/AGH/laby/sem4/lab6/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -69,8 +69,8 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/cmake-gui -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/skolanko222/AGH/laby/sem4/lab6/build/CMakeFiles /home/skolanko222/AGH/laby/sem4/lab6/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/AGH/laby/sem4/lab6/build/CMakeFiles /root/AGH/laby/sem4/lab6/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/skolanko222/AGH/laby/sem4/lab6/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/AGH/laby/sem4/lab6/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -150,6 +150,60 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+src/Data.o: src/Data.cpp.o
+
+.PHONY : src/Data.o
+
+# target to build an object file
+src/Data.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Data.cpp.o
+.PHONY : src/Data.cpp.o
+
+src/Data.i: src/Data.cpp.i
+
+.PHONY : src/Data.i
+
+# target to preprocess a source file
+src/Data.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Data.cpp.i
+.PHONY : src/Data.cpp.i
+
+src/Data.s: src/Data.cpp.s
+
+.PHONY : src/Data.s
+
+# target to generate assembly for a file
+src/Data.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/Data.cpp.s
+.PHONY : src/Data.cpp.s
+
+src/List.o: src/List.cpp.o
+
+.PHONY : src/List.o
+
+# target to build an object file
+src/List.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/List.cpp.o
+.PHONY : src/List.cpp.o
+
+src/List.i: src/List.cpp.i
+
+.PHONY : src/List.i
+
+# target to preprocess a source file
+src/List.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/List.cpp.i
+.PHONY : src/List.cpp.i
+
+src/List.s: src/List.cpp.s
+
+.PHONY : src/List.s
+
+# target to generate assembly for a file
+src/List.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/List.cpp.s
+.PHONY : src/List.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -162,6 +216,12 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... src/Data.o"
+	@echo "... src/Data.i"
+	@echo "... src/Data.s"
+	@echo "... src/List.o"
+	@echo "... src/List.i"
+	@echo "... src/List.s"
 .PHONY : help
 
 

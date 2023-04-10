@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/Data.h
+iostream
+-
+
+../include/List.h
+iostream
+-
+Data.h
+../include/Data.h
+
+/root/AGH/laby/sem4/projekt_lab6/Main.cpp
+iostream
+-
+List.h
+/root/AGH/laby/sem4/projekt_lab6/List.h
+Data.h
+/root/AGH/laby/sem4/projekt_lab6/Data.h
+

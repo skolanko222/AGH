@@ -4,13 +4,15 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/skolanko222/AGH/laby/sem4/lab6/main.cpp" "/home/skolanko222/AGH/laby/sem4/lab6/build/CMakeFiles/main.dir/main.cpp.o"
+  "/root/AGH/laby/sem4/lab6/main.cpp" "/root/AGH/laby/sem4/lab6/build/CMakeFiles/main.dir/main.cpp.o"
+  "/root/AGH/laby/sem4/lab6/src/Data.cpp" "/root/AGH/laby/sem4/lab6/build/CMakeFiles/main.dir/src/Data.cpp.o"
+  "/root/AGH/laby/sem4/lab6/src/List.cpp" "/root/AGH/laby/sem4/lab6/build/CMakeFiles/main.dir/src/List.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_CXX
-  "PROJECTPATH=\"/home/skolanko222/AGH/laby/sem4/lab6\""
+  "PROJECTPATH=\"/root/AGH/laby/sem4/lab6\""
   )
 
 # The include file search paths:

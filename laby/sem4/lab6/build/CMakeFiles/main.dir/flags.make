@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_FLAGS = -g   -std=gnu++17
 
-CXX_DEFINES = -DPROJECTPATH=\"/home/skolanko222/AGH/laby/sem4/lab6\"
+CXX_DEFINES = -DPROJECTPATH=\"/root/AGH/laby/sem4/lab6\"
 
-CXX_INCLUDES = -I/home/skolanko222/AGH/laby/sem4/lab6/include 
+CXX_INCLUDES = -I/root/AGH/laby/sem4/lab6/include 
 
