@@ -22,7 +22,7 @@ class IntData : public Data
 		IntData(IntData & o) : _x(o._x) {}
 		~IntData();
 		virtual void addToList(List * list) override;
-		int getData() { return _x;}
+		int getData() const { return _x;}
 		void printData() override { std::cout << _x;}
 	
 };
@@ -36,7 +36,7 @@ class StringData : public Data
 		StringData(StringData & o) : _str(o._str) {}
 		~StringData();
 		virtual void addToList(List * list) override;
-		std::string getData() { return _str;}
+		std::string getData() const { return _str;}
 		void printData() override { std::cout << _str;}
 	
 };
