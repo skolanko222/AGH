@@ -8,6 +8,7 @@ List::List(List &obj) : List()
 		old_list = old_list->_next;
 	}
 }
+List::List(List && obj) : _next(obj._next), _data(obj._data) {}
 
 List::~List()
 {
