@@ -18,7 +18,8 @@ List::~List()
 List &List::insert(const StringData &obj, side where)
 {
 	StringData *data = new StringData(obj.getData());
-	if (_data == nullptr)
+
+	if (_data == nullptr) // gdy lista pusta
 	{
 		_data = data;
 		_next = nullptr;
@@ -45,7 +46,7 @@ List &List::insert(const StringData &obj, side where)
 List &List::insert(const IntData &obj, side where)
 {
 	Data *data = new IntData(obj.getData());
-	if (_data == nullptr)
+	if (_data == nullptr) // gdy lista pusta
 	{
 		_data = data;
 		_next = nullptr;
