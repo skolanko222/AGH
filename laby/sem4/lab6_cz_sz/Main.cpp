@@ -27,11 +27,11 @@ int main() {
   std::cout << "Lista b" << std::endl;
   b.print();
   
-  if(const Data* found_IntData = a.clone_if_exists( IntData(7) )){   // Zwracamy wskaźnik na klona, jeśli istnieje na liście,
+  if(const LData* found_IntData = a.clone_if_exists( IntData(7) )){   // Zwracamy wskaźnik na klona, jeśli istnieje na liście,
     std::cout << "found_IntData: " << *found_IntData << std::endl;    // w innym przypadku nullptr
     delete found_IntData;
-   }
-  if(const Data* found_StringData = a.clone_if_exists( StringData("Hello") )){
+  }
+  if(const LData* found_StringData = a.clone_if_exists( StringData("Hello") )){
     std::cout << "found_StringData: " << *found_StringData << std::endl;
     delete found_StringData;
   }
