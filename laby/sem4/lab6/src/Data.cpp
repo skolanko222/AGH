@@ -3,5 +3,7 @@
 
 void IntData::addToList(List * list) {list->insert(*this);}
 void StringData::addToList(List * list) {list->insert(*this);}
-IntData::~IntData() {std::cout << "~IntData\n";}
-StringData::~StringData() {std::cout << "~StringData\n";}
+void FloatData::addToList(List * list) {list->insert(*this);}
+FloatData::~FloatData() {}//std::cout << "~IntData\n";}
+IntData::~IntData() {}//std::cout << "~sIntData\n";}
+StringData::~StringData() {}//std::cout << "~StringData\n";}
