@@ -18,8 +18,7 @@ List::~List()
 List &List::insert(const StringData &obj, side where)
 {
 	StringData *data = new StringData(obj.getData());
-
-	if (_data == nullptr) // gdy lista pusta
+	if (_data == nullptr)
 	{
 		_data = data;
 		_next = nullptr;
@@ -46,7 +45,34 @@ List &List::insert(const StringData &obj, side where)
 List &List::insert(const IntData &obj, side where)
 {
 	Data *data = new IntData(obj.getData());
-	if (_data == nullptr) // gdy lista pusta
+	if (_data == nullptr)
+	{
+		_data = data;
+		_next = nullptr;
+		return *this;
+	}
+	else
+	{
+		if (where == End)
+		{
+			List *temp = this;
+			while (temp->_next != nullptr)
+				temp = temp->_next;
+			temp->_next = new List(data, nullptr);
+		}
+		else if (where == Begin)
+		{
+			List *old_head = new List(_data, _next);
+			_data = data;
+			_next = old_head;
+		}
+	}
+	return *this;
+}
+List &List::insert(const FloatData &obj, side where)
+{
+	Data *data = new FloatData(obj.getData());
+	if (_data == nullptr)
 	{
 		_data = data;
 		_next = nullptr;
@@ -84,3 +110,30 @@ void List::print()
 	}
 	std::cout << "]\n";
 }
+bool List::find(const Data &obj) 
+		{
+			List * temp = this;
+			while(temp != nullptr)
+			{
+				if(typeid(*(temp->_data)) == typeid(IntData))
+				{
+					if(dynamic_cast<const IntData *>(temp->_data)->isSame(obj))
+						return true;
+				}
+				temp = temp->_next;
+			}
+			return false;
+		}
+List & List::operator<<(List & a) 
+		{
+			if(this == &a)
+				return a;
+			List * temp = &a;
+			while(temp != nullptr)
+			{
+				temp->_data->addToList(this);
+				temp = temp->_next;
+				//temp->setPData(nullptr);
+			}
+			return a;
+		}
