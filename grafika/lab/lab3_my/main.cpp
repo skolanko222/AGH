@@ -9,8 +9,6 @@ public:
 	virtual bool OnInit();
 };
 
-
-
 bool MyApp::OnInit()
 {
 	mainGui = new gui();
