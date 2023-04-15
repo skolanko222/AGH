@@ -3,9 +3,9 @@
 #include <fstream>
 #include "vecmat.h"
 #include <iostream>
-#include <glm/glm.hpp> // vec3, vec4, ivec4, mat4
-#include <glm/gtc/matrix_transform.hpp> // translate, rotate, scale, perspective
-#include <glm/gtc/type_ptr.hpp> // value_ptr
+#include "glm/glm.hpp" // vec3, vec4, ivec4, mat4
+#include "glm/gtc/matrix_transform.hpp" // translate, rotate, scale, perspective
+#include "glm/gtc/type_ptr.hpp" // value_ptr
 
 struct Point
 {
@@ -100,7 +100,6 @@ void GUIMyFrame1::Scrolls_Updated(wxScrollEvent& event)
 glm::mat4 getM(glm::vec3 const& Translate, glm::vec3 const& Rotate, glm::vec3 const& Scale)
 {
 	glm::mat4 ViewTranslate = glm::translate(glm::mat4(1.0f), Translate);
-
 
 	glm::mat4 Model = glm::rotate(ViewTranslate, Rotate.x, glm::vec3(1.0f, 0.0f, 0.0f));
 	Model = glm::rotate(Model, Rotate.y, glm::vec3(0.0f, 1.0f, 0.0f));
