@@ -7,53 +7,86 @@ class List;
 class Data
 {
 	public:
-		//metoda virtualna wypisujaca elem. listy
+		Data() {}
+		//metoda printujaca dane elementu
 		virtual void printData() = 0;
-		//metoda polimorficznie dodajaca elementy do listy
+		//metoda dodaje element do listy
 		virtual void addToList(List * list) = 0;
-		//wirtualny destruktor
+		//metoda sprawdza czy dane sa sobie rowne
+		virtual bool isSame( const Data& a) const = 0;
+		//wirtualny desruktor
 		virtual ~Data() {}
 	
 };
 
-//klasa reprezentujacac typ całkowity
 class IntData : public Data
 {
 	public:
 		int _x;
 	public:
-		//konstruktor
 		IntData(int x = 0) : _x(x) {}
-		//konstruktor kopiujący
 		IntData(IntData & o) : _x(o._x) {}
-		//destruktor
 		~IntData();
-		//metoda dodajaca obiekt IntData do listy
 		virtual void addToList(List * list) override;
-		//getter
 		int getData() const { return _x;}
-		//metoda virtualna wypisujaca przechowywana liczbe
 		void printData() override { std::cout << _x;}
+		virtual bool isSame( const Data& a) const override
+		{
+			try {
+				if(_x ==dynamic_cast<const IntData &>(a)._x)
+				return true;
+			} catch(std::bad_cast) {
+			return false; // w kontekście zadania
+			}
+			return false;
+		}
 	
 };
 
-//klasa reprezentujacac napis
 class StringData : public Data
 {
 	private:
 		std::string _str;
 	public:
-		//konstruktor
 		StringData(std::string str = "") : _str(str) {}
-		//konstruktor kopiujący
 		StringData(StringData & o) : _str(o._str) {}
-		//destruktor
 		~StringData();
-		//metoda dodajaca obiekt StringData do listy
 		virtual void addToList(List * list) override;
-		//getter
 		std::string getData() const { return _str;}
-		//metoda virtualna wypisujaca przechowywanego sttringa
 		void printData() override { std::cout << _str;}
+		virtual bool isSame( const Data& a) const override
+		{
+			try {
+				if(_str ==dynamic_cast<const StringData &>(a)._str)
+				return true;
+			} catch(std::bad_cast) {
+			return false; // w kontekście zadania
+			}
+			return false;
+		}
+	
+};
+
+class FloatData : public Data
+{
+	private:
+		float _f;
+	public:
+		FloatData(float f) : _f(f) {}
+		FloatData(FloatData & o) : _f(o._f) {}
+		~FloatData();
+		virtual void addToList(List * list) override;
+		float getData() const { return _f;}
+		void printData() override { std::cout << _f;}
+		virtual bool isSame( const Data& a) const override
+		{
+			try {
+				if(_f ==dynamic_cast<const FloatData &>(a)._f)
+				return true;
+			} catch(std::bad_cast) {
+			return false; // w kontekście zadania
+			}
+			return false;
+		}
 	
 };
