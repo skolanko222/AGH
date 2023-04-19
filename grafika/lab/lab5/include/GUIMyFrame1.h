@@ -25,6 +25,7 @@ class GUIMyFrame1 : public MyFrame1
 		void WxPanel_Repaint( wxUpdateUIEvent& event );
 		void m_button_load_geometry_click( wxCommandEvent& event );
 		void Scrolls_Updated( wxScrollEvent& event );
+		static double deg_to_rad(double deg);
 	public:
 		/** Constructor */
 		GUIMyFrame1( wxWindow* parent );
