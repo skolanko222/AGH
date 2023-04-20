@@ -1,0 +1,3 @@
+C:/Users/User/Desktop/lab_05_graf/build/CMakeFiles/main.dir
+C:/Users/User/Desktop/lab_05_graf/build/CMakeFiles/edit_cache.dir
+C:/Users/User/Desktop/lab_05_graf/build/CMakeFiles/rebuild_cache.dir

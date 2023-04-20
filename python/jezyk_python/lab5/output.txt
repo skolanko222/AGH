@@ -1,0 +1,7 @@
+Porownanie tworzenia list
+forStatement         => 393165582
+listComprehension    => 226562657
+mapFunction          => 272279
+generatorExpression  => 361179
+
+reszte zrobie w domu, milego dnia :)

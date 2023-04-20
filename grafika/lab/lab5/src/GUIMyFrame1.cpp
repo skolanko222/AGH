@@ -3,9 +3,7 @@
 #include <fstream>
 #include "vecmat.h"
 #include <iostream>
-#include "glm/glm.hpp" // vec3, vec4, ivec4, mat4
-#include "glm/gtc/matrix_transform.hpp" // translate, rotate, scale, perspective
-#include "glm/gtc/type_ptr.hpp" // value_ptr
+#include <cmath>
 
 struct Point
 {
@@ -27,6 +25,77 @@ struct Segment
 };
 
 std::vector<Segment> data;
+Matrix4 Translate(Matrix4 m, double tx, double ty, double tz) {
+    m.data[0][0] = 1;
+    m.data[0][3] = tx;
+    m.data[1][1] = 1;
+    m.data[1][3] = ty;
+    m.data[2][2] = 1;
+    m.data[2][3] = tz;
+    m.data[3][3] = 1;
+    return m;
+}
+
+Matrix4 RotateX(double angle) {
+    Matrix4 m;
+    m.data[0][0] = 1;
+    m.data[1][1] = cos(angle);
+    m.data[1][2] = -sin(angle);
+    m.data[2][1] = sin(angle);
+    m.data[2][2] = cos(angle);
+    m.data[3][3] = 1;
+    return m;
+}
+
+Matrix4 RotateY(double angle) {
+    Matrix4 m;
+    m.data[0][0] = cos(angle);
+    m.data[0][2] = sin(angle);
+    m.data[1][1] = 1;
+    m.data[2][0] = -sin(angle);
+    m.data[2][2] = cos(angle);
+    m.data[3][3] = 1;
+    return m;
+}
+
+Matrix4 RotateZ(double angle) {
+    Matrix4 m;
+    m.data[0][0] = cos(angle);
+    m.data[0][1] = -sin(angle);
+    m.data[1][0] = sin(angle);
+    m.data[1][1] = cos(angle);
+    m.data[2][2] = 1;
+    m.data[3][3] = 1;
+    return m;
+}
+
+Matrix4 Scale(Matrix4& m, double sx, double sy, double sz) {
+    m.data[0][0] = sx;
+    m.data[1][1] = sy;
+    m.data[2][2] = sz;
+    m.data[3][3] = 1;
+    return m;
+}
+Matrix4 GetMatrix(Vector4 translation, Vector4 rotation, Vector4 scale) {
+    Matrix4 m;
+    m = Translate(m, translation.GetX(), translation.GetY(), translation.GetZ());
+    m = Scale(m, scale.GetX(), scale.GetY(), scale.GetZ());
+    m = m*RotateX(rotation.GetX());
+    m = m*RotateY(rotation.GetY());
+    m = m*RotateZ(rotation.GetZ());
+    return m;
+}
+
+Matrix4 Projection(double d,double wh,double a,double b) {
+    Matrix4 m;
+    m.data[0][0] = d / wh;
+    m.data[1][1] = d / wh;
+    m.data[2][2] = (a + b) / (a - b);
+    m.data[2][3] = 2 * a * b / (a - b);
+    m.data[3][2] = -1;
+    m.data[3][3] = 0;
+    return m;
+}
 
 GUIMyFrame1::GUIMyFrame1(wxWindow* parent) : MyFrame1(parent)
 {
@@ -97,18 +166,6 @@ void GUIMyFrame1::Scrolls_Updated(wxScrollEvent& event)
 	Repaint();
 }
 
-glm::mat4 getM(glm::vec3 const& Translate, glm::vec3 const& Rotate, glm::vec3 const& Scale)
-{
-	glm::mat4 ViewTranslate = glm::translate(glm::mat4(1.0f), Translate);
-
-	glm::mat4 Model = glm::rotate(ViewTranslate, Rotate.x, glm::vec3(1.0f, 0.0f, 0.0f));
-	Model = glm::rotate(Model, Rotate.y, glm::vec3(0.0f, 1.0f, 0.0f));
-	Model = glm::rotate(Model, Rotate.z, glm::vec3(0.0f, 1.0f, 1.0f));
-
-	Model = glm::scale(Model, Scale);
-
-	return Model;
-}
 
 void GUIMyFrame1::Repaint()
 {
@@ -124,67 +181,50 @@ void GUIMyFrame1::Repaint()
 	float translationY = (WxSB_TranslationY->GetValue() - 100.0) / 50.0;
 	float translationZ = (WxSB_TranslationZ->GetValue() - 100.0) / 50.0;
 
-	float angleX = glm::radians(static_cast<float>(360.f - WxSB_RotateX->GetValue()));
-	float angleY = glm::radians(static_cast<float>(WxSB_RotateY->GetValue()));
-	float angleZ = glm::radians(static_cast<float>(WxSB_RotateZ->GetValue()));
+	//??
+	float angleX = deg_to_rad(static_cast<float>(360.f - WxSB_RotateX->GetValue()));
+	float angleY = deg_to_rad(WxSB_RotateY->GetValue());
+	float angleZ = deg_to_rad(WxSB_RotateZ->GetValue());
 
 	float scaleX = WxSB_ScaleX->GetValue() / 100.f;
 	float scaleY = WxSB_ScaleY->GetValue() / 100.f;
 	float scaleZ = WxSB_ScaleZ->GetValue() / 100.f;
 
-	auto m = getM(
-		glm::vec3(-translationX, translationY, 1.1 + translationZ),
-		glm::vec3(angleX, angleY, angleZ),
-		glm::vec3(scaleX, scaleY, scaleZ)
-	);
+	Vector4 vScale;
+	Vector4 vTrans;
+	Vector4 vRotate;
 
-	for (const auto& segment : data)
+	vScale.Set(scaleX,scaleY,scaleZ);
+	vTrans.Set(translationX,translationY,translationZ+1.1);
+	vRotate.Set(angleX,angleY,angleZ);
+
+	//złożenie rotacji itd
+	Matrix4 m3D = GetMatrix(vTrans, vRotate, vScale);
+
+	for(const auto & segment : data)
 	{
+		Vector4 p1;
+		p1.Set(segment.begin.x, segment.begin.y, segment.begin.z);
+        
+		Vector4 p2;
+		p2.Set(segment.end.x, segment.end.y, segment.end.z);
+		p1 = m3D*p1;
+		p2 = m3D*p2;
+
 		dc.SetPen(wxPen(RGB(segment.color.R, segment.color.G, segment.color.B)));
 
-		auto s = glm::vec4(segment.begin.x, segment.begin.y, segment.begin.z, 1.f);
-		auto e = glm::vec4(segment.end.x, segment.end.y, segment.end.z, 1.f);
+		Matrix4 projMatrix = Projection(90.f,wx/wy,0.1f,100.f);
+		auto m1 = projMatrix*p1;
+		auto m2 = projMatrix*p2;
 
-		auto sv = m * s;
-		auto ev = m * e;
-
-		auto clip_value = 0.1f;
-		if ((sv.z > clip_value && ev.z <= clip_value) || (ev.z > clip_value && sv.z <= clip_value))
-		{
-			glm::vec4 outside = ev.z <= clip_value ? ev : sv;
-			glm::vec4 inside = ev.z <= clip_value ? sv : ev;
-
-			double r = abs((clip_value - outside.z) / (inside.z - outside.z));
-			outside.x = (inside.x - outside.x) * r + outside.x;
-			outside.y = (inside.y - outside.y) * r + outside.y;
-			outside.z = clip_value;
-
-			sv = outside;
-			ev = inside;
-		} else if (sv.z <= clip_value && ev.z <= clip_value)
-		{
-			continue;
-		}
-
-		glm::mat4 Projection = glm::perspective(glm::radians(90.0f), (float)(wx / wy), 0.1f, 100.0f);
-
-		sv = Projection * sv;
-		ev = Projection * ev;
-
-		sv.x /= sv.w;
-		sv.y /= sv.w;
-		sv.z /= sv.w;
-
-		ev.x /= ev.w;
-		ev.y /= ev.w;
-		ev.z /= ev.w;
-
-		auto ViewScaled = glm::scale(glm::mat4(1.0f), glm::vec3(wx / 2.0f, wy / 2.0f, 1));
-		auto LookAt = glm::lookAtLH(glm::vec3(0, 0, 0), glm::vec3(0, 0, 1.1), glm::vec3(0, 1, 0));
-
-		sv = LookAt * ViewScaled * sv;
-		ev = LookAt * ViewScaled * ev;
-
-		dc.DrawLine(sv.x + wx / 2.0f, sv.y + wy / 2.0f, ev.x + wx / 2.0f, ev.y + wy / 2.0f);
+		m1.Set(m1.GetX() / m1.GetZ(), m1.GetY() / m1.GetZ(), m1.GetZ() / m1.GetZ());
+        m2.Set(m2.GetX() / m2.GetZ(), m2.GetY() / m2.GetZ(), m2.GetZ() / m2.GetZ());
+		dc.DrawLine(m1.GetX()+ wx/2, m1.GetY()+ wy/2, m2.GetX()+ wx/2, m2.GetY()+ wy/2);
 	}
+	
+}
+
+double GUIMyFrame1::deg_to_rad(double deg)
+{
+	return deg*((M_PI)/180.);
 }
