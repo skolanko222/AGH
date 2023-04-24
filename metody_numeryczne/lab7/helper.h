@@ -10,6 +10,7 @@
 
 void save_matrix(std::fstream &file, gsl_matrix *A, const char * str);
 double max_arr(const double * arr, const size_t size);
+gsl_vector *gauss(const gsl_matrix * _A,const gsl_vector * _B);
 
 void save_matrix(std::fstream &file, gsl_matrix *A, const char * str)
 {
@@ -63,5 +64,52 @@ gsl_matrix * multiply(const gsl_matrix *A, const gsl_matrix *B)
         }
     }
     return C;
+
+}
+
+gsl_vector *gauss(const gsl_matrix * _A,const gsl_vector * _B)
+{
+	gsl_matrix *A_copy = gsl_matrix_calloc(_A->size1,_A->size2);
+	gsl_vector *B_copy = gsl_vector_calloc(_B->size);
+
+	gsl_matrix_memcpy(A_copy,_A);
+	gsl_vector_memcpy(B_copy,_B);
+
+	for(size_t i = 0; i < SIZE; i++)
+	{
+		double div = gsl_matrix_get(A_copy,i,i);
+		gsl_vector_set(B_copy,i,gsl_vector_get(B_copy,i)/div);
+		for(size_t j = i; j < SIZE; j++) // dzielenie wiersza
+		{
+			double new_val_row = gsl_matrix_get(A_copy,i,j)/div;
+			gsl_matrix_set(A_copy,i,j,new_val_row);
+
+		}
+		for(size_t j = i + 1; j < SIZE; j++) // odejmowanie  wiersza
+		{
+			double row_multip = gsl_matrix_get(A_copy,j,i) / gsl_matrix_get(A_copy,i,i);
+			gsl_vector_set(B_copy,j,gsl_vector_get(B_copy,j)- (gsl_vector_get(B_copy,i) * row_multip));
+			for(size_t k = i; k < SIZE; k++)
+			{
+				double new_val = gsl_matrix_get(A_copy,j,k) - (gsl_matrix_get(A_copy,i,k) * row_multip);
+				gsl_matrix_set(A_copy,j,k,new_val);
+			}
+		}
+
+
+	}
+	for(int i = SIZE - 1; i >= 0 ; i--)
+	{
+		for(int j = i - 1; j >= 0; j--)
+		{
+			double row_multip = gsl_matrix_get(A_copy,j,i) / gsl_matrix_get(A_copy,i,i);
+			gsl_vector_set(B_copy,j,gsl_vector_get(B_copy,j) - (gsl_vector_get(B_copy,i) * row_multip));
+			gsl_matrix_set(A_copy,j,i,gsl_matrix_get(A_copy,j,i) - (gsl_matrix_get(A_copy,i,i)*row_multip));
+		}
+
+	}
+	gsl_matrix_free(A_copy);
+
+	return B_copy;
 
 }

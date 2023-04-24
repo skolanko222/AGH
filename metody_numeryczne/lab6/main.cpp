@@ -31,8 +31,11 @@ gsl_vector * czybyszew(double a, double b,double n);
 int main()
 {
 	plik.open("out.txt");
-	int n = 20;
-	int nr_f = 2;
+	
+	int n = 20; // ilosc wezlow
+	int nr_f = 0; // nr funkcji
+	
+	
 	//int m = 10;
 	gsl_vector *x = gsl_vector_calloc(n);
 	gsl_vector *y = gsl_vector_calloc(n);
