@@ -79,11 +79,7 @@ int main()
 	plik << "zad2\n";
 	gsl_vector_free(x);
 	x = czybyszew(-5.,5.,n);
-	for(int i = 0; i < n; i++)
-	{
-		plik << i << " " <<  gsl_vector_get(x,i) << "\n";
-		gsl_vector_set(y, i, fun(gsl_vector_get(x,i),nr_f));
-	}
+	for(int i = 0; i < n; i++)plik,x_2,"wektor X_2");
 	gsl_vector_free(y_2);
 	y_2 = lagrange(x, y, x_2, n);
 	wyniki.clear();

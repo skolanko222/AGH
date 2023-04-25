@@ -42,7 +42,7 @@ void save_vector(std::fstream &file, gsl_vector *A, const char * str)
     for(int i = 0; i < A->size; i++)
     {
     
-            file.width(10);
+            file.width(15);
             file << gsl_vector_get(A, i);
     }
         file << "\n";
