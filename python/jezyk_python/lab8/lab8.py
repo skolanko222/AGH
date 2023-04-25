@@ -20,3 +20,18 @@ def read_n_znak_z_wiersza(f,n):
 		return [line[n] for line in plik]
 
 print(read_n_znak_z_wiersza("zad1.txt",2))
+
+# zad2
+import glob
+import numpy as np
+
+srednie = {}
+fnames = [open(i) for i in glob.iglob('data*.io')]
+while fnames:
+	wiersz = []
+	for plik in fnames:
+		wiersz.extend([float(j) for line in plik for j in line.split()])
+	
+
+
+print(srednie)
