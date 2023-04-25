@@ -9,6 +9,7 @@
 //g++ lab2.cpp -lgsl -lgslcblas -lm && ./a.out
 
 #define SIZE 4
+std::
 
 int main()
 {   
