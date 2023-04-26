@@ -1,31 +1,19 @@
+
+# Consider dependencies only in project.
+set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
+
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
-  "CXX"
-  )
-# The set of files for implicit dependencies of each language:
-set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/skolanko222/AGH/grafika/lab/lab3_my/main.cpp" "/home/skolanko222/AGH/grafika/lab/lab3_my/build/CMakeFiles/main.dir/main.cpp.o"
-  "/home/skolanko222/AGH/grafika/lab/lab3_my/src/MyFrame.cpp" "/home/skolanko222/AGH/grafika/lab/lab3_my/build/CMakeFiles/main.dir/src/MyFrame.cpp.o"
-  )
-set(CMAKE_CXX_COMPILER_ID "GNU")
-
-# Preprocessor definitions for this target.
-set(CMAKE_TARGET_DEFINITIONS_CXX
-  "PROJECTPATH=\"/home/skolanko222/AGH/grafika/lab/lab3_my\""
-  "WXUSINGDLL"
-  "_FILE_OFFSET_BITS=64"
-  "__WXGTK__"
   )
 
-# The include file search paths:
-set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "../include"
-  "/usr/lib/x86_64-linux-gnu/wx/include/gtk3-unicode-3.0"
-  "/usr/include/wx-3.0"
+# The set of dependency files which are needed:
+set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "C:/Users/User/Documents/AGH/grafika/lab/lab3_my/main.cpp" "CMakeFiles/main.dir/main.cpp.obj" "gcc" "CMakeFiles/main.dir/main.cpp.obj.d"
+  "C:/Users/User/Documents/AGH/grafika/lab/lab3_my/src/MyFrame.cpp" "CMakeFiles/main.dir/src/MyFrame.cpp.obj" "gcc" "CMakeFiles/main.dir/src/MyFrame.cpp.obj.d"
   )
 
-# Targets to which this target links.
-set(CMAKE_TARGET_LINKED_INFO_FILES
+# Targets to which this target links which contain Fortran sources.
+set(CMAKE_Fortran_TARGET_LINKED_INFO_FILES
   )
 
 # Fortran module output directory.
