@@ -1,44 +1,69 @@
 # zad1
-def read_n(f,n):
+print("zad1")
+def zad1(f,n):
 	with open(f) as plik:
-		return [plik.readline().replace("\n","") for _ in range(n)]
+		temp = plik.readlines()
+		print([item.strip() for item in temp[:n] ])
+		print([i.strip() for i in temp[-n::]])
+		print([i.strip() for i in temp[::n]])
+		plik.seek(0)
+		print([line.split()[n] for line in plik if n < len(line.split())])
+		plik.seek(0)
+		print( [line[n] for line in plik if n < len(line)])
 
-def read_n_last(f,n):
-	with open(f) as plik:
-		return [i.replace("\n","") for i in plik.readlines()[-n::]]
-
-def read_co_n(f,n):
-	with open(f) as plik:
-		return [i.replace("\n","") for i in plik.readlines()[::n]]
-
-def read_n_slowo_z_wiersza(f,n):
-	with open(f) as plik:
-		return [line.split()[n] for line in plik]
-
-def read_n_znak_z_wiersza(f,n):
-	with open(f) as plik:
-		return [line[n] for line in plik]
-
-print(read_n_znak_z_wiersza("zad1.txt",2))
+print(zad1("lab5.py",3))
 
 # zad2
+print("zad2")
 import glob
+
+fname = [i for i in glob.glob("data*.in")]
+print(fname)
+
+def read_data(arr):
+	w = {}
+	for i in arr:
+		with open(i) as plik:
+			for k,j in enumerate(plik):
+				w.setdefault(k,[]).append(float(j))
+	return w
+
 import numpy as np
 
-wiersz = []
-fnames = [open(i) for i in glob.iglob('data*.io')]
-for plik in fnames:
-	wiersz.append([[float(i) for i in line.split()] for line in plik])
+nazwa = "zad2.txt"
 
+def write_data(data,filename):
+	with open(filename, "w") as plik:
+		for i, line_data in data.items():
+			plik.write(" ".join([str(i),str(np.average(line_data)),str(np.std(line_data)),"\n"]))
+write_data(read_data(fname),nazwa)
 
-for i in fnames:
-	i.close()
+# zad3
+print("zad3")
 
-out = open("zad2.out", "w")
-for i in range(len(wiersz[0])):
-	out.write(str(i) + " ")
-	out.write(str(np.mean([wiersz[j][i] for j in range(len(wiersz))])) + " ")
-	out.write(str(np.std([wiersz[j][i] for j in range(len(wiersz))])) + "\n")
-out.close()
+nazwa = "data5.in"
+with open("generate.py","w") as plik:
+	plik.write('''import numpy
+import glob
+import matplotlib.pyplot as plt
 
-#print(wiersz)
+lista_plikow = glob.glob('data*.in')
+for i in lista_plikow:
+	y=numpy.loadtxt(i, unpack=True)
+	x=range(len(y))
+	plt.plot(x, y, 'o')
+x,y,z = numpy.loadtxt('zad2.txt', unpack=True)
+plt.errorbar(x, y, marker='*', yerr=z)
+plt.xlabel('x')
+plt.savefig('res.pdf')''')
+
+# zad4
+print("zad4")
+fname = [i for i in glob.glob("2*.txt")]
+print(fname)
+
+# zad5
+print("zad5")
+
+# zad6
+print("zad6")
