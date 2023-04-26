@@ -25,13 +25,20 @@ print(read_n_znak_z_wiersza("zad1.txt",2))
 import glob
 import numpy as np
 
-srednie = []
-fnames = [open(i) for i in glob.iglob('data*.io')]
-#while fnames:
 wiersz = []
+fnames = [open(i) for i in glob.iglob('data*.io')]
 for plik in fnames:
-	wiersz.append([float(j) for line in plik for j in line.split()])
-	
+	wiersz.append([[float(i) for i in line.split()] for line in plik])
 
 
-print(wiersz)
+for i in fnames:
+	i.close()
+
+out = open("zad2.out", "w")
+for i in range(len(wiersz[0])):
+	out.write(str(i) + " ")
+	out.write(str(np.mean([wiersz[j][i] for j in range(len(wiersz))])) + " ")
+	out.write(str(np.std([wiersz[j][i] for j in range(len(wiersz))])) + "\n")
+out.close()
+
+#print(wiersz)

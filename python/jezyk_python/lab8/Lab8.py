@@ -18,12 +18,12 @@ def nwords(filename, n):
 def nchars(filename, n):
     return [line[n] for line in open(filename).readlines()]
 
-FILE = "Lab8.txt"
-print(nfirstlines(FILE, 5))
-print(nlastlines(FILE, 3))
-print(nlines(FILE, 3))
-print(nwords(FILE, 1))
-print(nchars(FILE, 2))
+#FILE = "Lab8.txt"
+#print(nfirstlines(FILE, 5))
+#print(nlastlines(FILE, 3))
+##print(nlines(FILE, 3))
+#print(nwords(FILE, 1))
+#print(nchars(FILE, 2))
 
 #2 Odczytujemy wartości ze wszystkich plików, których nazwy rozpoczynają się od data i kończą na in w katalogu bieżącym.
 # Na wyjściu proszę utworzyć jeden plik z trzema kolumnami.
@@ -37,6 +37,7 @@ def readfiles():
     data = []
     for file in files:
         data.append([float(line) for line in open(file).readlines()])
+    print(data)
     return data
 
 def writefile(data):
