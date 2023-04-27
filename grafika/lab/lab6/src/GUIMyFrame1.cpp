@@ -108,20 +108,6 @@ void GUIMyFrame1::m_s_contrast_scroll( wxScrollEvent& event )
 Contrast(m_s_contrast->GetValue() - 100);
 Repaint();
 }
-int yGradient(const wxImage& image, int x, int y)
-{
-	
-	int gradient = image.GetRed(x - 1, y - 1) * -1
-	+image.GetRed(x - 1, y) * -1
-	+image.GetRed(x - 1, y + 1) * -1
-	+image.GetRed(x + 1, y - 1) * 1
-	+image.GetRed(x + 1, y) * 1
-	+image.GetRed(x + 1, y + 1) * 1
-	+image.GetRed(x,y) * 0
-	+image.GetRed(x,y+1) * 0
-	+ image.GetRed(x,y-1) * 0;
-	return gradient;
-}
 void GUIMyFrame1::m_b_prewitt_click( wxCommandEvent& event )
 {
  // TO DO: Pionowa maska Prewitta
