@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 3.4)
 project (main)
 
-find_package(SFML REQUIRED COMPONENTS audio graphics window system)
+#find_package(SFML REQUIRED COMPONENTS audio graphics window system)
 find_package(wxWidgets REQUIRED COMPONENTS net core base)
 
 
@@ -30,5 +30,5 @@ file(GLOB SOURCES "${PROJECT_SOURCE_DIR}/src/*.cpp")
 
 add_executable(${PROJECT_NAME} ${PROJECT_NAME}.cpp ${SOURCES})
 #target_link_options(${PROJECT_NAME} PUBLIC -lsfml-system -lsfml-graphics -lsfml-window)
-target_link_libraries(${PROJECT_NAME} PRIVATE sfml-graphics ${wxWidgets_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} ${wxWidgets_LIBRARIES})
 
