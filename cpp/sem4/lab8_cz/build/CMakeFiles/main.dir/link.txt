@@ -1,0 +1,1 @@
+/usr/bin/c++  -g  -rdynamic CMakeFiles/main.dir/main.cpp.o CMakeFiles/main.dir/src/Dzialania.cpp.o CMakeFiles/main.dir/src/ListaWektorow.cpp.o CMakeFiles/main.dir/src/Wektor2D.cpp.o  -o main   -L/root/AGH/cpp/sem4/lab8_cz/lib 

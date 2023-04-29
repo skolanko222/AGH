@@ -1,0 +1,4 @@
+/root/AGH/cpp/sem4/lab8_cz/build/CMakeFiles/rebuild_cache.dir
+/root/AGH/cpp/sem4/lab8_cz/build/CMakeFiles/edit_cache.dir
+/root/AGH/cpp/sem4/lab8_cz/build/CMakeFiles/test.dir
+/root/AGH/cpp/sem4/lab8_cz/build/CMakeFiles/main.dir
