@@ -23,7 +23,7 @@ file(GLOB SOURCES "${PROJECT_SOURCE_DIR}/src/*.cpp")
 
 add_executable(${PROJECT_NAME} main.cpp ${SOURCES})
 
-target_include_directories(${PROJECT_NAME} PUBLIC ${INCLUDES})
+target_link_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/lib)
 
 enable_testing()
 
