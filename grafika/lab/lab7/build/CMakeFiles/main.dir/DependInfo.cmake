@@ -8,10 +8,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "C:/Users/User/Documents/AGH/grafika/lab/lab6/main.cpp" "CMakeFiles/main.dir/main.cpp.obj" "gcc" "CMakeFiles/main.dir/main.cpp.obj.d"
-  "C:/Users/User/Documents/AGH/grafika/lab/lab6/src/GUI.cpp" "CMakeFiles/main.dir/src/GUI.cpp.obj" "gcc" "CMakeFiles/main.dir/src/GUI.cpp.obj.d"
-  "C:/Users/User/Documents/AGH/grafika/lab/lab6/src/GUIMyFrame1.cpp" "CMakeFiles/main.dir/src/GUIMyFrame1.cpp.obj" "gcc" "CMakeFiles/main.dir/src/GUIMyFrame1.cpp.obj.d"
-  "C:/Users/User/Documents/AGH/grafika/lab/lab6/src/PrepareData.cpp" "CMakeFiles/main.dir/src/PrepareData.cpp.obj" "gcc" "CMakeFiles/main.dir/src/PrepareData.cpp.obj.d"
+  "C:/Users/Dell/AGH/grafika/lab/lab7/main.cpp" "CMakeFiles/main.dir/main.cpp.obj" "gcc" "CMakeFiles/main.dir/main.cpp.obj.d"
+  "C:/Users/Dell/AGH/grafika/lab/lab7/src/GUI.cpp" "CMakeFiles/main.dir/src/GUI.cpp.obj" "gcc" "CMakeFiles/main.dir/src/GUI.cpp.obj.d"
+  "C:/Users/Dell/AGH/grafika/lab/lab7/src/GUIMyFrame1.cpp" "CMakeFiles/main.dir/src/GUIMyFrame1.cpp.obj" "gcc" "CMakeFiles/main.dir/src/GUIMyFrame1.cpp.obj.d"
+  "C:/Users/Dell/AGH/grafika/lab/lab7/src/PrepareData.cpp" "CMakeFiles/main.dir/src/PrepareData.cpp.obj" "gcc" "CMakeFiles/main.dir/src/PrepareData.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
