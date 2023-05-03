@@ -44,10 +44,17 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
+<<<<<<< HEAD
+CMAKE_SOURCE_DIR = C:\Users\Dell\AGH\grafika\lab\lab6
+
+# The top-level build directory on which CMake was run.
+CMAKE_BINARY_DIR = C:\Users\Dell\AGH\grafika\lab\lab6\build
+=======
 CMAKE_SOURCE_DIR = /home/skolanko222/AGH/grafika/lab/lab6
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/skolanko222/AGH/grafika/lab/lab6/build
+>>>>>>> 838e8c3fd5bbae3d7d172c5a59f18aac56df659b
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -72,16 +79,28 @@ clean: CMakeFiles/main.dir/clean
 
 # All Build rule for target.
 CMakeFiles/main.dir/all:
+<<<<<<< HEAD
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Dell\AGH\grafika\lab\lab6\build\CMakeFiles --progress-num=1,2,3,4 "Built target main"
+=======
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/depend
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/skolanko222/AGH/grafika/lab/lab6/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target main"
+>>>>>>> 838e8c3fd5bbae3d7d172c5a59f18aac56df659b
 .PHONY : CMakeFiles/main.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/main.dir/rule: cmake_check_build_system
+<<<<<<< HEAD
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Dell\AGH\grafika\lab\lab6\build\CMakeFiles 4
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/main.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Dell\AGH\grafika\lab\lab6\build\CMakeFiles 0
+=======
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/skolanko222/AGH/grafika/lab/lab6/build/CMakeFiles 5
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/main.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/skolanko222/AGH/grafika/lab/lab6/build/CMakeFiles 0
+>>>>>>> 838e8c3fd5bbae3d7d172c5a59f18aac56df659b
 .PHONY : CMakeFiles/main.dir/rule
 
 # Convenience name for target.

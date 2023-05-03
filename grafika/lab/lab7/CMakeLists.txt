@@ -2,6 +2,10 @@
 cmake_minimum_required(VERSION 3.4)
 project (main)
 
+set(wxWidgets_ROOT_DIR "C:/wxWidgets-3.2.2.1")
+set(wxWidgets_LIB_DIR "C:/wxWidgets-3.2.2.1/lib/gcc_lib")
+
+#find_package(SFML REQUIRED COMPONENTS audio graphics window system)
 find_package(wxWidgets REQUIRED COMPONENTS net core base)
 
 

@@ -110,11 +110,11 @@ set(CMAKE_MAKEFILE_DEPENDS
   "C:/Program Files/CMake/share/cmake-3.26/Modules/Platform/Windows.cmake"
   "C:/Program Files/CMake/share/cmake-3.26/Modules/Platform/WindowsPaths.cmake"
   "C:/Program Files/CMake/share/cmake-3.26/Modules/UsewxWidgets.cmake"
-  "C:/Users/User/Documents/AGH/grafika/lab/lab5/CMakeLists.txt"
-  "CMakeFiles/3.26.0-rc5/CMakeCCompiler.cmake"
-  "CMakeFiles/3.26.0-rc5/CMakeCXXCompiler.cmake"
-  "CMakeFiles/3.26.0-rc5/CMakeRCCompiler.cmake"
-  "CMakeFiles/3.26.0-rc5/CMakeSystem.cmake"
+  "C:/Users/Dell/AGH/grafika/lab/lab5/CMakeLists.txt"
+  "CMakeFiles/3.26.3/CMakeCCompiler.cmake"
+  "CMakeFiles/3.26.3/CMakeCXXCompiler.cmake"
+  "CMakeFiles/3.26.3/CMakeRCCompiler.cmake"
+  "CMakeFiles/3.26.3/CMakeSystem.cmake"
   )
 
 # The corresponding makefile is:
@@ -125,12 +125,12 @@ set(CMAKE_MAKEFILE_OUTPUTS
 
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
-  "CMakeFiles/3.26.0-rc5/CMakeSystem.cmake"
-  "CMakeFiles/3.26.0-rc5/CMakeCCompiler.cmake"
-  "CMakeFiles/3.26.0-rc5/CMakeCXXCompiler.cmake"
-  "CMakeFiles/3.26.0-rc5/CMakeRCCompiler.cmake"
-  "CMakeFiles/3.26.0-rc5/CMakeCCompiler.cmake"
-  "CMakeFiles/3.26.0-rc5/CMakeCXXCompiler.cmake"
+  "CMakeFiles/3.26.3/CMakeSystem.cmake"
+  "CMakeFiles/3.26.3/CMakeCCompiler.cmake"
+  "CMakeFiles/3.26.3/CMakeCXXCompiler.cmake"
+  "CMakeFiles/3.26.3/CMakeRCCompiler.cmake"
+  "CMakeFiles/3.26.3/CMakeCCompiler.cmake"
+  "CMakeFiles/3.26.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 

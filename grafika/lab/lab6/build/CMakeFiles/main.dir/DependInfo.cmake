@@ -19,11 +19,19 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
   "__WXGTK__"
   )
 
+<<<<<<< HEAD
+# The set of dependency files which are needed:
+set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "C:/Users/Dell/AGH/grafika/lab/lab6/main.cpp" "CMakeFiles/main.dir/main.cpp.obj" "gcc" "CMakeFiles/main.dir/main.cpp.obj.d"
+  "C:/Users/Dell/AGH/grafika/lab/lab6/src/GUI.cpp" "CMakeFiles/main.dir/src/GUI.cpp.obj" "gcc" "CMakeFiles/main.dir/src/GUI.cpp.obj.d"
+  "C:/Users/Dell/AGH/grafika/lab/lab6/src/GUIMyFrame1.cpp" "CMakeFiles/main.dir/src/GUIMyFrame1.cpp.obj" "gcc" "CMakeFiles/main.dir/src/GUIMyFrame1.cpp.obj.d"
+=======
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../include"
   "/usr/local/lib/wx/include/gtk3-unicode-3.2"
   "/usr/local/include/wx-3.2"
+>>>>>>> 838e8c3fd5bbae3d7d172c5a59f18aac56df659b
   )
 
 # Targets to which this target links.

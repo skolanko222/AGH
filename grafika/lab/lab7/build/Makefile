@@ -56,10 +56,17 @@ RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
+<<<<<<< HEAD
 CMAKE_SOURCE_DIR = C:\Users\User\Documents\AGH\grafika\lab\lab7
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = C:\Users\User\Documents\AGH\grafika\lab\lab7\build
+=======
+CMAKE_SOURCE_DIR = C:\Users\Dell\AGH\grafika\lab\lab7
+
+# The top-level build directory on which CMake was run.
+CMAKE_BINARY_DIR = C:\Users\Dell\AGH\grafika\lab\lab7\build
+>>>>>>> dc5b326fb8224d090ee60ace4c5f382bad1955f9
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,9 +93,15 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
+<<<<<<< HEAD
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\User\Documents\AGH\grafika\lab\lab7\build\CMakeFiles C:\Users\User\Documents\AGH\grafika\lab\lab7\build\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\User\Documents\AGH\grafika\lab\lab7\build\CMakeFiles 0
+=======
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Dell\AGH\grafika\lab\lab7\build\CMakeFiles C:\Users\Dell\AGH\grafika\lab\lab7\build\\CMakeFiles\progress.marks
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Dell\AGH\grafika\lab\lab7\build\CMakeFiles 0
+>>>>>>> dc5b326fb8224d090ee60ace4c5f382bad1955f9
 .PHONY : all
 
 # The main clean target

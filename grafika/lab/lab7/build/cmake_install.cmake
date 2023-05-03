@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Install script for directory: C:/Users/User/Documents/AGH/grafika/lab/lab7
+=======
+# Install script for directory: C:/Users/Dell/AGH/grafika/lab/lab7
+>>>>>>> dc5b326fb8224d090ee60ace4c5f382bad1955f9
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,7 +38,7 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "C:/msys64/mingw64/bin/objdump.exe")
+  set(CMAKE_OBJDUMP "C:/TDM-GCC-64/bin/objdump.exe")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -45,5 +49,9 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
+<<<<<<< HEAD
 file(WRITE "C:/Users/User/Documents/AGH/grafika/lab/lab7/build/${CMAKE_INSTALL_MANIFEST}"
+=======
+file(WRITE "C:/Users/Dell/AGH/grafika/lab/lab7/build/${CMAKE_INSTALL_MANIFEST}"
+>>>>>>> dc5b326fb8224d090ee60ace4c5f382bad1955f9
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
