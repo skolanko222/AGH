@@ -1,5 +1,5 @@
 CMakeFiles/main.dir/main.cpp.obj: \
- C:\Users\User\Documents\AGH\grafika\lab\lab6\main.cpp \
+ C:\Users\User\Documents\AGH\grafika\lab\lab7\main.cpp \
  C:/wxWidgets-3.2.2.1/include/wx/wx.h \
  C:/wxWidgets-3.2.2.1/include/wx/defs.h \
  C:/wxWidgets-3.2.2.1/include/wx/platform.h \
@@ -659,8 +659,8 @@ CMakeFiles/main.dir/main.cpp.obj: \
  C:/wxWidgets-3.2.2.1/include/wx/msw/filedlg.h \
  C:/wxWidgets-3.2.2.1/include/wx/mdi.h \
  C:/wxWidgets-3.2.2.1/include/wx/msw/mdi.h \
- C:/Users/User/Documents/AGH/grafika/lab/lab6/include/GUIMyFrame1.h \
- C:/Users/User/Documents/AGH/grafika/lab/lab6/include/GUI.h \
+ C:/Users/User/Documents/AGH/grafika/lab/lab7/include/GUIMyFrame1.h \
+ C:/Users/User/Documents/AGH/grafika/lab/lab7/include/GUI.h \
  C:/wxWidgets-3.2.2.1/include/wx/artprov.h \
  C:/wxWidgets-3.2.2.1/include/wx/xrc/xmlres.h \
  C:/wxWidgets-3.2.2.1/include/wx/filesys.h \

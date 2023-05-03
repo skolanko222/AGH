@@ -1,5 +1,5 @@
 CMakeFiles/main.dir/src/PrepareData.cpp.obj: \
- C:\Users\User\Documents\AGH\grafika\lab\lab6\src\PrepareData.cpp \
+ C:\Users\User\Documents\AGH\grafika\lab\lab7\src\PrepareData.cpp \
  C:/msys64/mingw64/include/c++/11.2.0/cmath \
  C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/c++config.h \
  C:/msys64/mingw64/include/c++/11.2.0/x86_64-w64-mingw32/bits/os_defines.h \

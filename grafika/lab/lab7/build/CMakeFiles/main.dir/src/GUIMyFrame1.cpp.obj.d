@@ -1,7 +1,7 @@
 CMakeFiles/main.dir/src/GUIMyFrame1.cpp.obj: \
- C:\Users\User\Documents\AGH\grafika\lab\lab6\src\GUIMyFrame1.cpp \
- C:/Users/User/Documents/AGH/grafika/lab/lab6/include/GUIMyFrame1.h \
- C:/Users/User/Documents/AGH/grafika/lab/lab6/include/GUI.h \
+ C:\Users\User\Documents\AGH\grafika\lab\lab7\src\GUIMyFrame1.cpp \
+ C:/Users/User/Documents/AGH/grafika/lab/lab7/include/GUIMyFrame1.h \
+ C:/Users/User/Documents/AGH/grafika/lab/lab7/include/GUI.h \
  C:/wxWidgets-3.2.2.1/include/wx/artprov.h \
  C:/wxWidgets-3.2.2.1/include/wx/string.h \
  C:/wxWidgets-3.2.2.1/include/wx/defs.h \

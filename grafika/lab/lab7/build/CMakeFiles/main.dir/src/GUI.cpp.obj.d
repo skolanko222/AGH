@@ -1,6 +1,6 @@
 CMakeFiles/main.dir/src/GUI.cpp.obj: \
- C:\Users\User\Documents\AGH\grafika\lab\lab6\src\GUI.cpp \
- C:/Users/User/Documents/AGH/grafika/lab/lab6/include/GUI.h \
+ C:\Users\User\Documents\AGH\grafika\lab\lab7\src\GUI.cpp \
+ C:/Users/User/Documents/AGH/grafika/lab/lab7/include/GUI.h \
  C:/wxWidgets-3.2.2.1/include/wx/artprov.h \
  C:/wxWidgets-3.2.2.1/include/wx/string.h \
  C:/wxWidgets-3.2.2.1/include/wx/defs.h \

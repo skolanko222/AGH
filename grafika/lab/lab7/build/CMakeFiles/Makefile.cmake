@@ -110,7 +110,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "C:/Program Files/CMake/share/cmake-3.26/Modules/Platform/Windows.cmake"
   "C:/Program Files/CMake/share/cmake-3.26/Modules/Platform/WindowsPaths.cmake"
   "C:/Program Files/CMake/share/cmake-3.26/Modules/UsewxWidgets.cmake"
-  "C:/Users/User/Documents/AGH/grafika/lab/lab6/CMakeLists.txt"
+  "C:/Users/User/Documents/AGH/grafika/lab/lab7/CMakeLists.txt"
   "CMakeFiles/3.26.0-rc5/CMakeCCompiler.cmake"
   "CMakeFiles/3.26.0-rc5/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.26.0-rc5/CMakeRCCompiler.cmake"

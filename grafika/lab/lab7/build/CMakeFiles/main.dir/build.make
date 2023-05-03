@@ -52,10 +52,10 @@ RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\User\Documents\AGH\grafika\lab\lab6
+CMAKE_SOURCE_DIR = C:\Users\User\Documents\AGH\grafika\lab\lab7
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\User\Documents\AGH\grafika\lab\lab6\build
+CMAKE_BINARY_DIR = C:\Users\User\Documents\AGH\grafika\lab\lab7\build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/main.dir/depend.make
@@ -70,63 +70,63 @@ include CMakeFiles/main.dir/flags.make
 
 CMakeFiles/main.dir/main.cpp.obj: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/main.cpp.obj: CMakeFiles/main.dir/includes_CXX.rsp
-CMakeFiles/main.dir/main.cpp.obj: C:/Users/User/Documents/AGH/grafika/lab/lab6/main.cpp
+CMakeFiles/main.dir/main.cpp.obj: C:/Users/User/Documents/AGH/grafika/lab/lab7/main.cpp
 CMakeFiles/main.dir/main.cpp.obj: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\User\Documents\AGH\grafika\lab\lab6\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/main.dir/main.cpp.obj"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/main.cpp.obj -MF CMakeFiles\main.dir\main.cpp.obj.d -o CMakeFiles\main.dir\main.cpp.obj -c C:\Users\User\Documents\AGH\grafika\lab\lab6\main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\User\Documents\AGH\grafika\lab\lab7\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/main.dir/main.cpp.obj"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/main.cpp.obj -MF CMakeFiles\main.dir\main.cpp.obj.d -o CMakeFiles\main.dir\main.cpp.obj -c C:\Users\User\Documents\AGH\grafika\lab\lab7\main.cpp
 
 CMakeFiles/main.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/main.cpp.i"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\User\Documents\AGH\grafika\lab\lab6\main.cpp > CMakeFiles\main.dir\main.cpp.i
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\User\Documents\AGH\grafika\lab\lab7\main.cpp > CMakeFiles\main.dir\main.cpp.i
 
 CMakeFiles/main.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/main.cpp.s"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\User\Documents\AGH\grafika\lab\lab6\main.cpp -o CMakeFiles\main.dir\main.cpp.s
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\User\Documents\AGH\grafika\lab\lab7\main.cpp -o CMakeFiles\main.dir\main.cpp.s
 
 CMakeFiles/main.dir/src/GUI.cpp.obj: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/GUI.cpp.obj: CMakeFiles/main.dir/includes_CXX.rsp
-CMakeFiles/main.dir/src/GUI.cpp.obj: C:/Users/User/Documents/AGH/grafika/lab/lab6/src/GUI.cpp
+CMakeFiles/main.dir/src/GUI.cpp.obj: C:/Users/User/Documents/AGH/grafika/lab/lab7/src/GUI.cpp
 CMakeFiles/main.dir/src/GUI.cpp.obj: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\User\Documents\AGH\grafika\lab\lab6\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.dir/src/GUI.cpp.obj"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/GUI.cpp.obj -MF CMakeFiles\main.dir\src\GUI.cpp.obj.d -o CMakeFiles\main.dir\src\GUI.cpp.obj -c C:\Users\User\Documents\AGH\grafika\lab\lab6\src\GUI.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\User\Documents\AGH\grafika\lab\lab7\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.dir/src/GUI.cpp.obj"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/GUI.cpp.obj -MF CMakeFiles\main.dir\src\GUI.cpp.obj.d -o CMakeFiles\main.dir\src\GUI.cpp.obj -c C:\Users\User\Documents\AGH\grafika\lab\lab7\src\GUI.cpp
 
 CMakeFiles/main.dir/src/GUI.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/GUI.cpp.i"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\User\Documents\AGH\grafika\lab\lab6\src\GUI.cpp > CMakeFiles\main.dir\src\GUI.cpp.i
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\User\Documents\AGH\grafika\lab\lab7\src\GUI.cpp > CMakeFiles\main.dir\src\GUI.cpp.i
 
 CMakeFiles/main.dir/src/GUI.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/GUI.cpp.s"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\User\Documents\AGH\grafika\lab\lab6\src\GUI.cpp -o CMakeFiles\main.dir\src\GUI.cpp.s
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\User\Documents\AGH\grafika\lab\lab7\src\GUI.cpp -o CMakeFiles\main.dir\src\GUI.cpp.s
 
 CMakeFiles/main.dir/src/GUIMyFrame1.cpp.obj: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/GUIMyFrame1.cpp.obj: CMakeFiles/main.dir/includes_CXX.rsp
-CMakeFiles/main.dir/src/GUIMyFrame1.cpp.obj: C:/Users/User/Documents/AGH/grafika/lab/lab6/src/GUIMyFrame1.cpp
+CMakeFiles/main.dir/src/GUIMyFrame1.cpp.obj: C:/Users/User/Documents/AGH/grafika/lab/lab7/src/GUIMyFrame1.cpp
 CMakeFiles/main.dir/src/GUIMyFrame1.cpp.obj: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\User\Documents\AGH\grafika\lab\lab6\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/main.dir/src/GUIMyFrame1.cpp.obj"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/GUIMyFrame1.cpp.obj -MF CMakeFiles\main.dir\src\GUIMyFrame1.cpp.obj.d -o CMakeFiles\main.dir\src\GUIMyFrame1.cpp.obj -c C:\Users\User\Documents\AGH\grafika\lab\lab6\src\GUIMyFrame1.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\User\Documents\AGH\grafika\lab\lab7\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/main.dir/src/GUIMyFrame1.cpp.obj"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/GUIMyFrame1.cpp.obj -MF CMakeFiles\main.dir\src\GUIMyFrame1.cpp.obj.d -o CMakeFiles\main.dir\src\GUIMyFrame1.cpp.obj -c C:\Users\User\Documents\AGH\grafika\lab\lab7\src\GUIMyFrame1.cpp
 
 CMakeFiles/main.dir/src/GUIMyFrame1.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/GUIMyFrame1.cpp.i"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\User\Documents\AGH\grafika\lab\lab6\src\GUIMyFrame1.cpp > CMakeFiles\main.dir\src\GUIMyFrame1.cpp.i
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\User\Documents\AGH\grafika\lab\lab7\src\GUIMyFrame1.cpp > CMakeFiles\main.dir\src\GUIMyFrame1.cpp.i
 
 CMakeFiles/main.dir/src/GUIMyFrame1.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/GUIMyFrame1.cpp.s"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\User\Documents\AGH\grafika\lab\lab6\src\GUIMyFrame1.cpp -o CMakeFiles\main.dir\src\GUIMyFrame1.cpp.s
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\User\Documents\AGH\grafika\lab\lab7\src\GUIMyFrame1.cpp -o CMakeFiles\main.dir\src\GUIMyFrame1.cpp.s
 
 CMakeFiles/main.dir/src/PrepareData.cpp.obj: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/PrepareData.cpp.obj: CMakeFiles/main.dir/includes_CXX.rsp
-CMakeFiles/main.dir/src/PrepareData.cpp.obj: C:/Users/User/Documents/AGH/grafika/lab/lab6/src/PrepareData.cpp
+CMakeFiles/main.dir/src/PrepareData.cpp.obj: C:/Users/User/Documents/AGH/grafika/lab/lab7/src/PrepareData.cpp
 CMakeFiles/main.dir/src/PrepareData.cpp.obj: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\User\Documents\AGH\grafika\lab\lab6\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/main.dir/src/PrepareData.cpp.obj"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/PrepareData.cpp.obj -MF CMakeFiles\main.dir\src\PrepareData.cpp.obj.d -o CMakeFiles\main.dir\src\PrepareData.cpp.obj -c C:\Users\User\Documents\AGH\grafika\lab\lab6\src\PrepareData.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\User\Documents\AGH\grafika\lab\lab7\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/main.dir/src/PrepareData.cpp.obj"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/PrepareData.cpp.obj -MF CMakeFiles\main.dir\src\PrepareData.cpp.obj.d -o CMakeFiles\main.dir\src\PrepareData.cpp.obj -c C:\Users\User\Documents\AGH\grafika\lab\lab7\src\PrepareData.cpp
 
 CMakeFiles/main.dir/src/PrepareData.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/PrepareData.cpp.i"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\User\Documents\AGH\grafika\lab\lab6\src\PrepareData.cpp > CMakeFiles\main.dir\src\PrepareData.cpp.i
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\User\Documents\AGH\grafika\lab\lab7\src\PrepareData.cpp > CMakeFiles\main.dir\src\PrepareData.cpp.i
 
 CMakeFiles/main.dir/src/PrepareData.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/PrepareData.cpp.s"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\User\Documents\AGH\grafika\lab\lab6\src\PrepareData.cpp -o CMakeFiles\main.dir\src\PrepareData.cpp.s
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\User\Documents\AGH\grafika\lab\lab7\src\PrepareData.cpp -o CMakeFiles\main.dir\src\PrepareData.cpp.s
 
 # Object files for target main
 main_OBJECTS = \
@@ -155,7 +155,7 @@ main.exe: C:/wxWidgets-3.2.2.1/lib/gcc_dll/libwxexpat.a
 main.exe: CMakeFiles/main.dir/linkLibs.rsp
 main.exe: CMakeFiles/main.dir/objects1.rsp
 main.exe: CMakeFiles/main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\User\Documents\AGH\grafika\lab\lab6\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable main.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\User\Documents\AGH\grafika\lab\lab7\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable main.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\main.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -167,6 +167,6 @@ CMakeFiles/main.dir/clean:
 .PHONY : CMakeFiles/main.dir/clean
 
 CMakeFiles/main.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\User\Documents\AGH\grafika\lab\lab6 C:\Users\User\Documents\AGH\grafika\lab\lab6 C:\Users\User\Documents\AGH\grafika\lab\lab6\build C:\Users\User\Documents\AGH\grafika\lab\lab6\build C:\Users\User\Documents\AGH\grafika\lab\lab6\build\CMakeFiles\main.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\User\Documents\AGH\grafika\lab\lab7 C:\Users\User\Documents\AGH\grafika\lab\lab7 C:\Users\User\Documents\AGH\grafika\lab\lab7\build C:\Users\User\Documents\AGH\grafika\lab\lab7\build C:\Users\User\Documents\AGH\grafika\lab\lab7\build\CMakeFiles\main.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/main.dir/depend
 
