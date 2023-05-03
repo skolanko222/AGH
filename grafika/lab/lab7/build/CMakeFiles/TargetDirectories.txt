@@ -1,9 +1,0 @@
-<<<<<<< HEAD
-C:/Users/User/Documents/AGH/grafika/lab/lab7/build/CMakeFiles/main.dir
-C:/Users/User/Documents/AGH/grafika/lab/lab7/build/CMakeFiles/edit_cache.dir
-C:/Users/User/Documents/AGH/grafika/lab/lab7/build/CMakeFiles/rebuild_cache.dir
-=======
-C:/Users/Dell/AGH/grafika/lab/lab7/build/CMakeFiles/main.dir
-C:/Users/Dell/AGH/grafika/lab/lab7/build/CMakeFiles/edit_cache.dir
-C:/Users/Dell/AGH/grafika/lab/lab7/build/CMakeFiles/rebuild_cache.dir
->>>>>>> dc5b326fb8224d090ee60ace4c5f382bad1955f9
