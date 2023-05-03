@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/Dzialania.h
+list
+-
+iostream
+-
+algorithm
+-
+
+../include/ListaWektorow.h
+list
+-
+iostream
+-
+algorithm
+-
+
+../include/Wektor2D.h
+string
+-
+set
+-
+cmath
+-
+iostream
+-
+
+/root/AGH/cpp/sem4/lab8_cz/main.cpp
+Wektor2D.h
+/root/AGH/cpp/sem4/lab8_cz/Wektor2D.h
+Dzialania.h
+/root/AGH/cpp/sem4/lab8_cz/Dzialania.h
+ListaWektorow.h
+/root/AGH/cpp/sem4/lab8_cz/ListaWektorow.h
+
