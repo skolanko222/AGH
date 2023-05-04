@@ -11,7 +11,7 @@ public:
 	Rec(double x = 0, double y = 0) : Shape(x, y)
 	{std::cout << "Konstruktor Rec\n"; }
 
-	//tak nie mo¿e byæ
+	//tak nie moï¿½e byï¿½
 	// Rec(Rec& K)
 	Rec(const Rec& K)
 	{

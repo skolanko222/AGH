@@ -13,8 +13,8 @@ class Rec : public Shape
 public:
 	Rec(double x = 0, double y = 0, double a = 1, double b = 1) : Shape(x, y), m_a(a), m_b(b)
 	{}
-	double Pole() const;
-	void Rys() const; 
+	double Pole() const override;
+	void Rys() const override;
 
 protected:
 	double m_a, m_b;

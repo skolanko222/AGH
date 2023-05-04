@@ -14,7 +14,7 @@ struct B final : A {
   // void foo() const override; //Error: A:foo is final
 };
 
-struct C // : B  // Error: B is final
+struct C //: B  // Error: B is final
 {
   
 };

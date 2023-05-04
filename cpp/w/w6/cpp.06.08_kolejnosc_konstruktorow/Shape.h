@@ -8,7 +8,7 @@ namespace OOP {
 class Shape {
 public:
 	Shape()
-	{std::cout << "Konstruktor Shape\n"; }
+	{std::cout <<  __PRETTY_FUNCTION__<< "\n"; }
 
 	~Shape()
 	{std::cout << "Destruktor Shape\n"; }

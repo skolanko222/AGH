@@ -9,7 +9,7 @@ struct B : A {
   void foo() const override
   {}
 
-  // void foo() override; // Error: B::foo does not override A::foo const
+  void foo() override; // Error: B::foo does not override A::foo const
   // void bar() override;       // Error: A::bar is not virtual
 };
 

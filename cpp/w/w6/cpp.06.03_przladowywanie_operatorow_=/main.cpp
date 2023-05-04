@@ -10,7 +10,7 @@ public:
   Point(double a = 0, double b = 0);
   ~Point();
 
-  // Point& operator=(const Point& K);
+  Point& operator=(const Point& K);
 };
 /////////////////////////////////////////////////////////
 Point::Point(double aa, double bb)
@@ -48,7 +48,7 @@ int main()
   cout << "cPoint = " << (*cPoint.a) << ", " << (*cPoint.b) << endl;
 }
 
-/*
+
 /////////////////////////////////////////////////////////
 Point& Point::operator=(const Point& K)
 {
@@ -64,4 +64,4 @@ Point& Point::operator=(const Point& K)
         // na rzecz którego operator zosta³ wywo³any
         return *this;
 }
-*/
+

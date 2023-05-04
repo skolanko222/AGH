@@ -37,7 +37,7 @@ struct C : B {
 struct D : B {
   D() {}
   ~D() {} // destructor would prevent implicit move assignment
-  D &operator=(D &&) = default; // force a move assignment anyway
+  D &operator=(D && other) = default; 
 };
 
 int main() {

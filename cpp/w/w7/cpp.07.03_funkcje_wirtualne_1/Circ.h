@@ -11,8 +11,8 @@ class Circ : public Shape
 public:
 	Circ(double x = 0, double y = 0, double rad = 1) : Shape(x, y), m_rad(rad)
 	{}
-	double Pole() const;
-	void Rys() const;
+	double Pole() const override;
+	void Rys() const override;
 
 protected:
 	double m_rad;

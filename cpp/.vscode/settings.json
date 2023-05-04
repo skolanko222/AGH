@@ -32,6 +32,23 @@
 		"unordered_map": "cpp",
 		"utility": "cpp",
 		"vector": "cpp",
-		"optional": "cpp"
+		"optional": "cpp",
+		"atomic": "cpp",
+		"hash_map": "cpp",
+		"bit": "cpp",
+		"cstdarg": "cpp",
+		"cstddef": "cpp",
+		"cstring": "cpp",
+		"deque": "cpp",
+		"list": "cpp",
+		"set": "cpp",
+		"algorithm": "cpp",
+		"iterator": "cpp",
+		"memory": "cpp",
+		"memory_resource": "cpp",
+		"numeric": "cpp",
+		"random": "cpp",
+		"fstream": "cpp",
+		"sstream": "cpp"
 	}
 }

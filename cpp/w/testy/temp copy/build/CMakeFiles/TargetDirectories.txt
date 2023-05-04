@@ -1,0 +1,4 @@
+/root/AGH/cpp/w/testy/temp copy/build/CMakeFiles/rebuild_cache.dir
+/root/AGH/cpp/w/testy/temp copy/build/CMakeFiles/edit_cache.dir
+/root/AGH/cpp/w/testy/temp copy/build/CMakeFiles/test.dir
+/root/AGH/cpp/w/testy/temp copy/build/CMakeFiles/main.dir

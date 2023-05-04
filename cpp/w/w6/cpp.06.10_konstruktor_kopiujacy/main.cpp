@@ -6,17 +6,17 @@ namespace OOP {
 
 class RecLbl: public Rec {
 public:
-	RecLbl(double x = 0, double y = 0, const std::string& Opis = "") : Rec(x, y), _Opis(Opis)
-	{ std::cout << "Konstruktor RecLbl(" << (_Opis.length() > 0 ? _Opis : "NoName") << ")\n"; }
+	RecLbl(double x = 0, double y = 0, const std::string& opis = "") : Rec(x, y), _opis(opis)
+	{ std::cout << "Konstruktor RecLbl(" << (_opis.length() > 0 ? _opis : "NoName") << ")\n"; }
 
-	void SetOpis(std::string Opis)
-	{ _Opis = Opis; }
+	void Setopis(const std::string& opis)
+	{ _opis = opis; }
 
-	std::string GetOpis() const
-	{ return _Opis; }
+	std::string Getopis() const
+	{ return _opis; }
 
 protected:
-	std::string _Opis;
+	std::string _opis;
 };
 }//end of namespace OOP
 
@@ -28,7 +28,7 @@ int main(int argc, char * argv[])
 
 	const RecLbl aRecLbl;
 
-	//zdefiniowany przez nas konstruktor kopiuj¹cy Rec musi byæ wywo³any z const
-	RecLbl bRecLbl = aRecLbl;
+	//zdefiniowany przez nas konstruktor kopiujï¿½cy Rec musi byï¿½ wywoï¿½any z const
+	RecLbl bRecLbl {aRecLbl};
 }
 

@@ -76,6 +76,6 @@ int main(int argc, char * argv[])
 	bRec.SetY(4.0);
 	cout << "Pole Rec = " << bRec.Pole() << endl;
 	
-	//niemo¿liwe bo brak dostepu ze wzgledu na prywatne dziedziczenie
-	//cout << "CRec.X = " << bRec.GetX() << endl;
+	//niemoï¿½liwe bo brak dostepu ze wzgledu na prywatne dziedziczenie
+	// cout << "CRec.X = " << bRec.GetX() << endl;
 }

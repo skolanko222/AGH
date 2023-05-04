@@ -25,6 +25,6 @@ int main(int argc, char * argv[]) {
 	
 	const RecLbl bRecLbl(5, 5, "bRecLbl");
 	
-	cout << "Pole " << bRecLbl.GetOpis() << " = " << bRecLbl.Pole() << endl;
+	cout << "Pole " << bRecLbl.GetOpis() << " = " << (static_cast<Rec>(bRecLbl)).Pole() << endl;
 }
 

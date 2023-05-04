@@ -1,0 +1,1 @@
+/usr/bin/c++  -g  -rdynamic CMakeFiles/main.dir/main.cpp.o  -o main   -L"/root/AGH/cpp/w/testy/temp copy/lib" 
