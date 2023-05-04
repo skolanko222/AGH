@@ -6,10 +6,14 @@
 #include <cmath>
 #include <ctime>
 
-#define SIZE 5
-#define FUN 0
-#define M 101
+#define SIZE 5 // ilość węzłów
+#define FUN 0 // nr funkcji
+#define M 101 // ilość interpolowanych wartości
+
+
 std::fstream plik;
+
+
 //g++ main.cpp -lgsl -lgslcblas -lm && ./a.out
 double fun(double x,int nr);
 
@@ -37,6 +41,8 @@ int main(void)
 	gsl_matrix_set(A,SIZE-1,SIZE-1,1.);
 	gsl_vector_set(d,0,0);
 	gsl_vector_set(d,SIZE-1,0);
+	
+	// uzupelnienie macierzy A
 	for(int i = 1; i < SIZE - 1; i++)
 	{
 		double mi;
@@ -55,11 +61,11 @@ int main(void)
 		gsl_matrix_set(A,i, i+1, lambda);
 		gsl_vector_set(d,i,d_val);	
 	}
-	save_matrix(plik,A,"macierz A:");
+	//save_matrix(plik,A,"macierz A:");
 
-	gsl_linalg_LU_decomp(A, p, &signum);Interpolacja:
+	gsl_linalg_LU_decomp(A, p, &signum);
 	gsl_linalg_LU_solve(A,p,d,m);
-	save_vector(plik,m,"wektor M");
+	//save_vector(plik,m,"wektor M");
 
 	//miedzywezlowy
 	gsl_vector * x_2 = gsl_vector_calloc(M);
@@ -69,10 +75,10 @@ int main(void)
 	for(int i = 0; i < M; i++)
 	{
 		gsl_vector_set(x_2,i,x_val);
-		x_val += 0.1;
+		x_val += 0.1; //TODO: zależne od M
 	}
-	save_vector(plik,x_2,"wektor X_2");
-
+	//save_vector(plik,x_2,"wektor X_2");
+		  
 	//interpolacja
 	int i = 1;
 	int temp = double(M)/double(SIZE - 1);
@@ -87,19 +93,19 @@ int main(void)
 		double b;
 		double m_i1 = gsl_vector_get(m,i - 1);
 		double m_i = gsl_vector_get(m,i);
-		double y_i1 = gsl_vector_get(y,i - 1);
+		double y_i1 = gsl_vector_get(y,i - 1);// wartosc wezla
 		double y_i = gsl_vector_get(y,i);
 		double x_i1 = gsl_vector_get(x,i - 1);		
-		double x_i = gsl_vector_get(x,i);
+		double x_i = gsl_vector_get(x,i); // wezeł
 		double x = gsl_vector_get(x_2,j);
 		double s;
-		a = (y_i - y_i1)/h_i - (h_i/6.)*(m_i - m_i1);
-		b = y_i1 - m_i1*(h_i*h_i/6.);
-		std::cout << a << " " << b << " " << i << std::endl;
-		s = m_i1*std::pow(x_i - x,3)/6*(h_i) + m_i*std::pow(x - x_i1,3)/6*(h_i) + a*(x - x_i1) + b;
+		a = (y_i - y_i1)/h_i - h_i/6.*(m_i - m_i1);
+		b = y_i1 - m_i1*(h_i*h_i)/6.;
+		s = m_i1*std::pow(x_i - x,3)/(6*h_i) + m_i*std::pow(x - x_i1,3)/(6*h_i) + a*(x - x_i1) + b;
 		gsl_vector_set(s_1,j,s);
+		std::cout << j << " " << a << " " << b << " " << s << std::endl;
 		if(j!= 0 && j%temp == 0)
-			i++;
+			i++; // licznik przedziału
 	}
 	save_vector(plik,s_1,"Interpolacja:");
 	save_vector(plik,x_2,"");

@@ -14,7 +14,7 @@ IMPLEMENT_APP(MyApp);
 
 bool MyApp::OnInit() 
 {
- SetProcessDPIAware();
+ //SetProcessDPIAware();
  GUIMyFrame1 *mainFrame = new GUIMyFrame1(NULL);
 
  wxImage::AddHandler(new wxJPEGHandler);           // Dodajemy handlery do formatow
