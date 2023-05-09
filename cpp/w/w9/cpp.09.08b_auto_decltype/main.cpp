@@ -37,6 +37,7 @@ int main(int argc, char **argv)
   using namespace std;
 
   int aa = 2;
+  aa.int::~int();
   OOP::Fraction bb = 3;
 
   cout << "aa = " << aa << ", bb = " << bb << endl;
