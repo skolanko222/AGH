@@ -96,6 +96,33 @@ List &List::insert(const FloatData &obj, side where)
 	}
 	return *this;
 }
+List &List::insert(const Boolean &obj, side where)
+{
+	Data *data = new Boolean(obj.getData());
+	if (_data == nullptr)
+	{
+		_data = data;
+		_next = nullptr;
+		return *this;
+	}
+	else
+	{
+		if (where == End)
+		{
+			List *temp = this;
+			while (temp->_next != nullptr)
+				temp = temp->_next;
+			temp->_next = new List(data, nullptr);
+		}
+		else if (where == Begin)
+		{
+			List *old_head = new List(_data, _next);
+			_data = data;
+			_next = old_head;
+		}
+	}
+	return *this;
+}
 
 void List::print()
 {

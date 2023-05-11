@@ -90,3 +90,34 @@ class FloatData : public Data
 		}
 	
 };
+
+class Boolean : public Data
+{
+	private:
+		bool _b;
+	public:
+		Boolean(bool f) : _b(f) {}
+		Boolean(Boolean & o) : _b(o._b) {}
+		~Boolean();
+		virtual void addToList(List * list) override;
+		float getData() const { return _b;}
+		void printData() override { std::cout << _b;}
+		virtual bool isSame( const Data& a) const override
+		{
+			try {
+				if(_b ==dynamic_cast<const Boolean &>(a)._b)
+				return true;
+			} catch(std::bad_cast) {
+			return false; // w kontekście zadania
+			}
+			return false;
+		}
+	
+};
+
+template<typename T> void swap(T &a, T &b) 
+{
+	T *c = new T(a);
+	a = (b);
+	b = (*c);
+}
