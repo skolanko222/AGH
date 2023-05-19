@@ -85,3 +85,32 @@ if __name__ == '__main__':
     print(strumien_indukcji(ob1,ob2))
     print(sila_lorentza(10,ob3,ob1,ob2))
     print(praca_sily_Lorenza(10,ob3,ob2))
+
+test = Iterator_2(100000)
+ilosc = {}
+i=0
+for n in range(1,11):
+    for elz in test:
+        #print(elz)
+        if elz[0] < n*0.1 and elz[1] < n*0.1:
+            i+=1
+            ilosc[n]=i
+    ilosc[n]=ilosc[n]/1000
+    i=0
+print("Wyliczone:")
+print(ilosc)
+
+ilosc_py={}
+i=0
+temp_list = [(random.random(), random.random()) for _ in range(100000)]
+for n in range(1,11):
+    for j in temp_list:
+    #print(j)
+        if j[0] < n*0.1 and j[1] < n*0.1:
+            i+=1
+            ilosc_py[n]=i
+    ilosc_py[n]=ilosc_py[n]/1000
+    i=0
+
+print("Generator Pythona:")
+print(ilosc_py)

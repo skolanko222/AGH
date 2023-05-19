@@ -16,13 +16,15 @@ class Data
 		virtual bool isSame(const Data& a) const = 0;
 		//wirtualny desruktor
 		virtual ~Data() {}
+		virtual bool isNum() const = 0;
 	
 };
 
 class IntData : public Data
 {
-	public:
+	private:
 		int _x;
+		static bool is_num;
 	public:
 		IntData(int x = 0) : _x(x) {}
 		IntData(IntData & o) : _x(o._x) {}
@@ -40,13 +42,14 @@ class IntData : public Data
 			}
 			return false;
 		}
-	
+		bool isNum() const override {return is_num;}
 };
 
 class StringData : public Data
 {
 	private:
 		std::string _str;
+		static bool is_num;
 	public:
 		StringData(std::string str = "") : _str(str) {}
 		StringData(StringData & o) : _str(o._str) {}
@@ -64,6 +67,7 @@ class StringData : public Data
 			}
 			return false;
 		}
+		bool isNum() const override {return is_num;}
 	
 };
 
@@ -71,6 +75,7 @@ class FloatData : public Data
 {
 	private:
 		float _f;
+		static bool is_num;
 	public:
 		FloatData(float f) : _f(f) {}
 		FloatData(FloatData & o) : _f(o._f) {}
@@ -88,6 +93,7 @@ class FloatData : public Data
 			}
 			return false;
 		}
+		bool isNum() const override {return is_num;}
 	
 };
 
@@ -95,13 +101,14 @@ class Boolean : public Data
 {
 	private:
 		bool _b;
+		static bool is_num;
 	public:
 		Boolean(bool f) : _b(f) {}
 		Boolean(Boolean & o) : _b(o._b) {}
 		~Boolean();
 		virtual void addToList(List * list) override;
 		float getData() const { return _b;}
-		void printData() override { std::cout << _b;}
+		void printData() override { std::cout <<std::boolalpha << _b;}
 		virtual bool isSame( const Data& a) const override
 		{
 			try {
@@ -112,12 +119,6 @@ class Boolean : public Data
 			}
 			return false;
 		}
+		bool isNum() const override {return is_num;}
 	
 };
-
-template<typename T> void swap(T &a, T &b) 
-{
-	T *c = new T(a);
-	a = (b);
-	b = (*c);
-}

@@ -2,18 +2,70 @@
 List::List(List &obj) : List()
 {
 	List *old_list = &obj;
-	while (old_list != nullptr)
+	while (old_list != nullptr && old_list->_data != nullptr)
 	{
 		old_list->_data->addToList(this);
 		old_list = old_list->_next;
 	}
 }
-
+List::List(List && obj)
+{
+	List *old_list = &obj;
+	while (old_list != nullptr && old_list->_data != nullptr)
+	{
+		old_list->_data->addToList(this);
+		old_list = old_list->_next;
+	}
+}
+List & List::operator=(List && obj)
+{
+	if(this == &obj)
+		return *this;
+	if(_next != nullptr)
+	{
+		delete _next;
+		_next = nullptr;
+	}
+	if(_data != nullptr)
+	{
+		delete _data;
+		_data = nullptr;
+	}
+	List *old_list = &obj;
+	while (old_list != nullptr)
+	{
+		old_list->_data->addToList(this);
+		old_list = old_list->_next;
+	}
+	return *this;
+}
 List::~List()
 {
 	if (_next != nullptr)
 		delete _next;
 	delete _data;
+}
+List & List::operator=(List & obj)
+{
+	if(this == &obj)
+		return *this;
+	if(_next != nullptr)
+	{
+		delete _next;
+		_next = nullptr;
+	}
+	if(_data != nullptr)
+	{
+		delete _data;
+		_data = nullptr;
+	}
+	List *old_list = &obj;
+	while (old_list != nullptr)
+	{
+		old_list->_data->addToList(this);
+		old_list = old_list->_next;
+	}
+	return *this;
 }
 List &List::insert(const StringData &obj, side where)
 {
