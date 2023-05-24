@@ -24,7 +24,7 @@ int main(void)
 
 	double x_a = -5.;
 	double r = 10.;
-
+	plik << "n = " << N << std::endl;
 	for(int i = 0; i < N; i++)
 	{
 		gsl_vector_set(x,i,x_a);
@@ -32,7 +32,7 @@ int main(void)
 		//std::cout << x_a << " " << funny(gsl_vector_get(x,i)) << std::endl;
 		x_a += r/(N-1.);
 	}
-	save_vector(plik,x,"real");
+	save_vector(plik,x,"Wartości prawdziwe");
 	save_vector(plik,y,"");
 	gsl_vector *b = gsl_vector_calloc(N);
     b = fit(x,y);
@@ -82,7 +82,7 @@ gsl_vector * fit(gsl_vector * x, gsl_vector * y)
 
 	gsl_vector *y_t;
 	y_t = multiplymw(X,b);
-	std::cout<< y_t->size << " " << x->size << std::endl;
+	//std::cout<< y_t->size << " " << x->size << std::endl;
 	save_vector(plik,x,"Wartości transponowane: ");
 	save_vector(plik,y_t,"");
 
