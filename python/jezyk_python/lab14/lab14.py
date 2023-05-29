@@ -36,3 +36,5 @@ for n in rozmiary:
 	print(f"{n=} czas python: {t2-t1} czas c: {t4-t3}")
 
 
+# zad3 
+mod.nwd({12:123,45:344})

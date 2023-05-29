@@ -49,10 +49,35 @@ static PyObject *mod_sort(PyObject *self, PyObject *args)
 
 }
 
+static PyObject *mod_nwd(PyObject *self, PyObject *args){
+
+	PyDictObject *dict=NULL;
+	if(!PyArg_ParseTuple(args, "O", &dict)){ //jezeli do stringa wstawi sie | to po sa parametry opcjonalne; O od Object
+		return NULL;	//zwracane w przypadku bledu; interpreter zglasza wyjatek wywolania funkcji
+	}
+	int dict_len = PyDict_Size(dict);
+	long int keys_arr[dict_len];
+	long int vals_arr[dict_len];
+	Py_ssize_t pos = 0;
+	PyObject *key, *value;
+	int i = 0;
+	while (PyDict_Next(dict, &pos, &key, &value))
+	{
+		keys_arr[i] = PyLong_FromLong(key);
+		vals_arr[i] = PyLong_FromLong(value);
+		i++;
+
+		printf("%d %d \n",keys_arr[i], vals_arr[i]);
+	}
+	
+	return dict;
+}
+
 //tablica metod
 static PyMethodDef mod_metody[]={
 	{"met", (PyCFunction)mod_met, METH_VARARGS, "Funkcja ..."},
-	{"sortowanie_c", (PyCFunction)mod_sort, METH_VARARGS, "Funkcja sortujaca przez wstawianie"},  
+	{"sortowanie_c", (PyCFunction)mod_sort, METH_VARARGS, "Funkcja sortujaca przez wstawianie"},
+	{"nwd", (PyCFunction)mod_nwd, METH_VARARGS, "Funkcja ..."}, 
 	//nazwa funkcja stosowana w Pythonie, adres funkcji , j.w. lub METH_KEYWORDS lub METH_NOARGS, lancuch dokumentacyjny
 	{NULL, NULL, 0, NULL}	//wartownik
 };

@@ -60,7 +60,9 @@
 		"ranges": "cpp",
 		"thread": "cpp",
 		"cinttypes": "cpp",
-		"typeindex": "cpp"
+		"typeindex": "cpp",
+		"ctime": "cpp",
+		"iomanip": "cpp"
 	},
 	"cmake.sourceDirectory": "/home/stud2021/1kolanko/AGH/cpp/sem4/lab1"
 }
