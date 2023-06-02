@@ -30,10 +30,10 @@ A f(A a) {
 
 int main() {
   A a1 = f(A()); // return by value 
-  std::cout << "Before move, a1.s = " << a1.s << " a1.k = " << a1.k
-            << '\n';
-  A a2 = std::move(a1); // move-constructs from xvalue
-  std::cout << "After move, a1.s = " << a1.s << " a1.k = " << a1.k
-            << '\n';
+  // std::cout << "Before move, a1.s = " << a1.s << " a1.k = " << a1.k
+  //           << '\n';
+  // A a2 = std::move(a1); // move-constructs from xvalue
+  // std::cout << "After move, a1.s = " << a1.s << " a1.k = " << a1.k
+  //           << '\n';
 
 }
