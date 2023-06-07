@@ -30,7 +30,7 @@ double maximum(std::function<double(double, int)> fun,bool flag, double a, doubl
 		else
 			x_b = x_2;
 		if(flag)
-			plik << i << " " << std::log(std::fabs((x_a + x_b)/2-git)) << std::endl;
+			plik << i << "\t" << std::log(std::fabs((x_a + x_b)/2-git)) << std::endl;
 		i++;
 
 	}
@@ -59,7 +59,7 @@ double maximum_przyb(std::function<double(double, int)> fun,bool flag, double a,
 		else
 			x_b = x_2;
 		if(flag)
-			plik << i << " " << std::log(std::fabs((x_a + x_b)/2-git)) << std::endl;
+			plik << i << "\t" << std::log(std::fabs((x_a + x_b)/2-git)) << std::endl;
 		i++;
 	}
 
@@ -91,36 +91,38 @@ double hit_zombie(std::function<double(double, int, double, double)> fun, double
 int main()
 {
 	plik.open("out.txt");
+	plik_tr.open("trajektoria.txt");
 	double kat_max = maximum(wziuuum,true,20.,70.);
 	plik << "kat: " << kat_max << "\n";
 	plik << "zasieg w funkcji kata: \n";
 	for(double i = 22.; i < 70.; i += 2)
 	{
-		double zasieg = wziuuum(i);
+		double zasieg = wziuuum(i,0);
 		if(std::fabs(i-kat_max) < 1.)
 			plik << "MAX ";
-		plik <<"kat: " << i<< " " << zasieg << "\n";
+		plik << i<< "\t" << zasieg << "\n";
 		
 	}
 	wziuuum(kat_max, 1);
 
 	// 3c
 	plik << "logarytm \n";
-	maximum_przyb(wziuuum,true,20.,70.);
-	plik << "logarytm (przyblizony) \n";
 	maximum(wziuuum,true,20.,70.);
+	plik << "logarytm (przyblizony) \n";
+	maximum_przyb(wziuuum,true,20.,70.);
 
 	//4
 	double kat_ostrzalu1 = hit_zombie(wziuuum_range,20.,70.,0.,30000.);
 	std::cout << "kat ostrzalu dla h = 0, l = 30000: " << kat_ostrzalu1 << "\n";
-	//std::cout << "odleglosc " << wziuuum(kat_ostrzalu,0);
+	std::cout << "odleglosc " << wziuuum(kat_ostrzalu1,2)<< "\n";
 	double kat_ostrzalu2 = hit_zombie(wziuuum_range,20.,70.,300.,30000.);
 	std::cout << "kat ostrzalu dla h = 300, l = 30000: " << kat_ostrzalu2 << "\n";
-	std::cout << "odleglosc " << wziuuum(kat_ostrzalu2,0);
+	std::cout << "odleglosc " << wziuuum(kat_ostrzalu2,3)<< "\n";
 
 	plik << "kat ostrzalu dla h = 0, l = 30000: " << kat_ostrzalu1 << "\n";
 	plik << "kat ostrzalu dla h = 300, l = 30000: " << kat_ostrzalu2 << "\n";
 
 	plik.close();
+	plik_tr.close();
 	return 0;
 }

@@ -1,4 +1,0 @@
-/home/skolanko222/AGH/cpp/w/testy/temp copy/build/CMakeFiles/rebuild_cache.dir
-/home/skolanko222/AGH/cpp/w/testy/temp copy/build/CMakeFiles/edit_cache.dir
-/home/skolanko222/AGH/cpp/w/testy/temp copy/build/CMakeFiles/test.dir
-/home/skolanko222/AGH/cpp/w/testy/temp copy/build/CMakeFiles/main.dir

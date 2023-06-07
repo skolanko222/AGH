@@ -9,3 +9,7 @@ FloatData::~FloatData() {}//std::cout << "~IntData\n";}
 IntData::~IntData() {}//std::cout << "~sIntData\n";}
 StringData::~StringData() {}//std::cout << "~StringData\n";}
 Boolean::~Boolean() {}//std::cout << "~Boolean\n";}
+bool FloatData::is_num = true;
+bool IntData::is_num = true;
+bool StringData::is_num = false;
+bool Boolean::is_num = false;

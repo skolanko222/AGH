@@ -15,29 +15,12 @@ class List
 		List(Data * d = nullptr, List * n = nullptr ) : _data(d), _next(n) {}
 		//konstrutor kopiujacy
 		List(List & obj);
+		//konstrutor przenoszacy w teorii :)
+		List(List && obj);
+		//przeładowany operator przypisania w teorii "przenoszacy" :)
+		List & operator=(List && obj);
 		//przeładowany operator przypisania
-		List & operator=(List & obj)
-		{
-			if(this == &obj)
-				return *this;
-			if(_next != nullptr)
-			{
-				delete _next;
-				_next = nullptr;
-			}
-			if(_data != nullptr)
-			{
-				delete _data;
-				_data = nullptr;
-			}
-			List *old_list = &obj;
-			while (old_list != nullptr)
-			{
-				old_list->_data->addToList(this);
-				old_list = old_list->_next;
-			}
-			return *this;
-		}
+		List & operator=(List & obj);
 		//destruktor
 		~List();
 		//metoda dodajaca IntData do listy
@@ -58,7 +41,30 @@ class List
     	//przekonwertowane zostały na typ StringData
 		List & convert_to_stringdata()
 		{
+			// List * temp = this;
+			// while(temp != nullptr)
+			// {
+			// 	// StringData *obj = new StringData();
+			// 	// delete temp->_data;
+			// 	// temp->_data = obj;
+
+			// 	// temp = temp->_next;
+			// }
 			
 			return *this;
+		}
+		List &numeric()
+		{
+			List *ret_list = new List();
+			List * temp = this;
+			while(temp != nullptr)
+			{
+				if(temp->_data != nullptr && temp->_data->isNum()){
+					(temp->_data)->addToList(ret_list);
+				//temp->_data->printData();
+				}
+				temp = temp->_next;
+			}
+			return *ret_list;
 		}
 };

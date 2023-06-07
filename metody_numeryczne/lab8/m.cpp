@@ -1,7 +1,7 @@
 #include <math.h>
 #include <iostream>
 #include <vector>
-
+std::fstream plik_tr;
 // Obliczanie gęstości powietrza na danej wysokości
 double ro(double h, double T, double P0) {
     return 0.0289644 / (8.31446 * (T - 0.0065 * h)) * P0* pow((1 - 0.0065 * h / T), 5.255);
@@ -12,7 +12,7 @@ double F_drag(double v, double Cx, double Sm, double h, double T, double P0) {
     return Cx * ro(h, T, P0) * Sm * pow(v, 2) / 2;
 }
 
-double wziuuum(double alfa, int a = 0) {
+double wziuuum(double alfa, int a) {
     // Zmienne
     double x, y, v, Time;
     double pi, g, Cx, diam, Sm, M, T, P0;
@@ -48,19 +48,19 @@ double wziuuum(double alfa, int a = 0) {
     x = 0.0;     // współrzędna pozioma
     y = 1.0E-5;  //  wsp pionowa
     Time = 0.0;   // Czas lotu pocisku
-    std::fstream plik;
     std::vector<double> xv;
     std::vector<double> yv;
-    plik.open("trajektoria.txt");
     if(a > 0)
-        plik << "trajektoria "<<a<< "\n";
+        plik_tr << "trajektoria "<<a<< "\n";
     // Obliczanie trajektorii pocisku w czasie
+    int counter = 0;
     while (y > 0.0) {
         //dt=1.0/v;    // Dynamiczny krok czasowy, dla zwiększenia precyzji
                       //  Wykorzystujemy metodę Eulera do obliczenia zmiany położenia,
                       //  szybkości i kąta nachylenia stycznej do toru ruchu pocisku
         x += v * cos(alfa) * dt;    // Wsp. pozioma
         y += v * sin(alfa) * dt;    // Wsp. pionowa (wysokość npm.)
+        counter++;
         if(a > 0){
             xv.push_back(x);
             yv.push_back(y);
@@ -72,13 +72,14 @@ double wziuuum(double alfa, int a = 0) {
         Time += dt;
     }    
     // Funkcja zwraca dystans na jaki doleciał pocisk [m]
-    for(const auto & i : xv)
-        plik << i << ", ";
-    plik << std::endl;
-    for(const auto & i : yv)
-        plik << i << ", ";
-    plik << std::endl;
-    plik.close();
+    if(a > 0){
+        for(const auto & i : xv)
+            plik_tr << i << " ";
+        plik_tr << std::endl;
+        for(const auto & i : yv)
+            plik_tr << i << " ";
+        plik_tr << std::endl;
+    }
     return x;
 }
 
@@ -118,13 +119,12 @@ double wziuuum_range(double alfa, int a, double heigth, double range) {
     x = 0.0;     // współrzędna pozioma
     y = 1.0E-5;  //  wsp pionowa
     Time = 0.0;   // Czas lotu pocisku
-    std::fstream plik;
     std::vector<double> xv;
     std::vector<double> yv;
-    plik.open("trajektoria.txt");
+    int counter = 0;
     bool wzrost = true;
     if(a > 0)
-        plik << "trajektoria " << a << "\n";
+        plik_tr << "trajektoria " << a << "\n";
     // Obliczanie trajektorii pocisku w czasie
     while (y > heigth || wzrost) {
         //dt=1.0/v;    // Dynamiczny krok czasowy, dla zwiększenia precyzji
@@ -133,7 +133,8 @@ double wziuuum_range(double alfa, int a, double heigth, double range) {
         if (alfa < 0) wzrost = 0;
         x += v * cos(alfa) * dt;    // Wsp. pozioma
         y += v * sin(alfa) * dt;    // Wsp. pionowa (wysokość npm.)
-        if(a > 0){
+        counter ++;
+        if(a > 0 ){
             xv.push_back(x);
             yv.push_back(y);
         }
@@ -145,13 +146,14 @@ double wziuuum_range(double alfa, int a, double heigth, double range) {
         
     }    
     // Funkcja zwraca dystans na jaki doleciał pocisk [m]
-    for(const auto & i : xv)
-        plik << i << ", ";
-    plik << std::endl;
-    for(const auto & i : yv)
-        plik << i << ", ";
-    plik << std::endl;
-    plik.close();
-    std::cout << std::abs(range - x) << std::endl;
+    if(a > 0){
+        for(const auto & i : xv)
+            plik_tr << i << " ";
+        plik_tr << std::endl;
+        for(const auto & i : yv)
+            plik_tr << i << " ";
+        plik_tr << std::endl;
+    }
+    //std::cout << std::abs(range - x) << std::endl;
     return std::abs(range - x);
 }
