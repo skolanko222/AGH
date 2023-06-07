@@ -8,12 +8,14 @@ int main(int argc, char* argv[])
 	using namespace OOP;
 	Shape* ptrShape;
 
-	for(long i = 0; i < 10000000; i++)
+	for(long i = 0; i < 100000; i++)
 	{
 		if(i % 10000 == 0)
 			cout << "i = " << i << "               \r";
 		ptrShape = new RecLbl;
 		delete ptrShape;
 	}
+	// std::cout << sizeof(int) << " " << sizeof(std::string);
+
 }
 

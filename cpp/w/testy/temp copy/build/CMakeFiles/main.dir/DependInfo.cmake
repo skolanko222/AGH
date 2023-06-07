@@ -4,13 +4,13 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/root/AGH/cpp/w/testy/temp copy/main.cpp" "/root/AGH/cpp/w/testy/temp copy/build/CMakeFiles/main.dir/main.cpp.o"
+  "/home/skolanko222/AGH/cpp/w/testy/temp copy/main.cpp" "/home/skolanko222/AGH/cpp/w/testy/temp copy/build/CMakeFiles/main.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_CXX
-  "PROJECTPATH=\"/root/AGH/cpp/w/testy/temp copy\""
+  "PROJECTPATH=\"/home/skolanko222/AGH/cpp/w/testy/temp copy\""
   )
 
 # The include file search paths:

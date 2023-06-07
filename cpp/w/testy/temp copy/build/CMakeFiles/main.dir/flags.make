@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_FLAGS = -g   -std=gnu++11
 
-CXX_DEFINES = -DPROJECTPATH="\"/root/AGH/cpp/w/testy/temp copy\""
+CXX_DEFINES = -DPROJECTPATH="\"/home/skolanko222/AGH/cpp/w/testy/temp copy\""
 
-CXX_INCLUDES = -I"/root/AGH/cpp/w/testy/temp copy/include" 
+CXX_INCLUDES = -I"/home/skolanko222/AGH/cpp/w/testy/temp copy/include" 
 
