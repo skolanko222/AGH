@@ -9,7 +9,7 @@ class Lodz
 {
 public:
   Lodz(int d = 0) : m_sm(d) 
-	{}
+	{std::cout << __PRETTY_FUNCTION__ << std::endl;}
 	
   virtual ~Lodz()
 	{}

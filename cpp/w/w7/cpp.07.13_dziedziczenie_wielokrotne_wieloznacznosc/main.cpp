@@ -17,6 +17,7 @@ int main(int argc, char * argv[])
 	//musimy uzyc operator zakresu
 	aAmf.Auto::travel(100);
 	aAmf.Lodz::travel(10);
+	int override = 10; 
 
 	aAmf.printTraveled();
 
