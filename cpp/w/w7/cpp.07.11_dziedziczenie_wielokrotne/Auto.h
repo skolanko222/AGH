@@ -8,7 +8,7 @@ class Auto
 {
 public:
   Auto(int d = 0) : m_km(d) 
-	{ }
+	{std::cout << __PRETTY_FUNCTION__ << std::endl; }
 
   virtual ~Auto() 
 	{ }

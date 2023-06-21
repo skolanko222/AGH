@@ -6,7 +6,7 @@
 
 namespace OOP 
 {
-class Amf : public Auto, public Lodz 
+class Amf : public Lodz, public Auto // od tego zalezy kolejnosc wywolywania konstruktorow
 {
 public:
   Amf(int k = 0, int s = 0) : Auto(k), Lodz(s) 

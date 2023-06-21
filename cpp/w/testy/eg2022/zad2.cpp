@@ -2,20 +2,21 @@
 #include <list>
 #include <functional>
 
-template <typename T = int>
-void print_to_if(std::ostream &stream, const T * beg, const T * end,std::function<bool(int)> t )
+template <typename T >
+void print_to_if(std::ostream &stream,  T beg, T end, std::function<bool(int)> t )
 {
-	for(const T * it = beg; it != end; ++it)
+	for(T it = beg; it != end; ++it)
 	{
 		if(t(*it))
 		{
 			stream << *it << " ";
 		}
 	}
+	stream << std::endl;
 }
 
 
-template <typename T = std::list<int>::iterator>
+template <typename T >
 void change( T beg, T end, std::function<int()> t)
 {
 	for(T it = beg; it != end; it++)
@@ -30,6 +31,7 @@ class f3
 {
 	private:
 		int _x;
+		int _y = sizeof(*this); // !!!!!!
 	public:
 		f3(int x) : _x(x) {}
 		int operator()() const
@@ -42,17 +44,21 @@ class f3
 
 int main()
 {
-	const auto c1 = {1, 2, 3, 4, 5};
+	const auto c1 = {1, 2, 3, 4, 5, 6, 7};
 
 	print_to_if(std::cout << "All", begin(c1), end(c1), f1);
 	print_to_if(std::cout << "Even", begin(c1), end(c1), f2);
+	int arr[] = {1, 2, 3, 4, 5, 6, 7};
+	print_to_if(std::cout << "Even", std::begin(arr), std::end(arr), f2);
 
 	int add_value{-1}; //należy wykorzystać add_value do zmiany cl2
 	std::list<int> cl2{7,6,5,4,3,2,1};
 	change(begin(cl2), end(cl2), f3(add_value));
-	
+	// goto end;
 	print_to_if(std::cout << "All", begin(cl2), end(cl2), f1);
 
+	// end:
+	return 0;
 }
 
 /* 
