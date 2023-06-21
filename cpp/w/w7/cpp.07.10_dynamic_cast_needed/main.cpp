@@ -18,6 +18,9 @@ int main(int argc, char* argv[])
 	g.Add(bRec);
 
 	Shape& ref = g;
+	std::cout << typeid(ref).name() << std::endl;
+	ref.Pole();
+	std::cout << typeid(ref).name() << std::endl;
 	dynamic_cast<ShapeGrup&>(ref).Add(aCirc);
 	dynamic_cast<ShapeGrup&>(ref).Add(bCirc);
 	

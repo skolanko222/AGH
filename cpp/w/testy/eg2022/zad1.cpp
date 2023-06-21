@@ -20,7 +20,7 @@ std::ostream & operator<<(std::ostream &o, const B & obj)
 	return o;
 }
 
-class D1 : protected B {
+class D1 : public B {
 protected:
   // U4 - tylko deklaracja albo definicja jednej funkcji
   virtual void printOn(std::ostream &o) const override {o << __PRETTY_FUNCTION__ << "\n";};
@@ -41,6 +41,7 @@ protected:
 	  { B::printOn(o);
 	  	D1::printOn(o);
 	  	D3::printOn(o);
+      
 		o << __PRETTY_FUNCTION__ << "\n";	
 		};
 }; // */
