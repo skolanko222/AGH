@@ -3,7 +3,7 @@
 #include <deque>
 
 namespace tt{
-template <typename T = int, template <typename ElType, typename AllocType> class Cont = std::deque> class stack
+template <typename T = int, template <typename ElType, typename AllocType> class Cont = std::deque> class stack // dlatego eltype i alloctype
 {
 public:
   void pop()
@@ -27,7 +27,7 @@ public:
 
 
 private:
-  Cont<T, std::allocator<T>> c_;
+  Cont<T, std::allocator<T>> c_; // tu są 2 parametry
 };
 
 }

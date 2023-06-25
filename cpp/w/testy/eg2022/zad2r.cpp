@@ -1,43 +1,23 @@
 #include <iostream>
 #include <list>
-#include <functional>
 
-template <typename T >
-void print_to_if(std::ostream &stream,  T beg, T end, std::function<bool(int)> t )
+template </* U1 */>
+void print_to_if(/* U2 */)
 {
-	for(T it = beg; it != end; ++it)
-	{
-		if(t(*it))
-		{
-			stream << *it << " ";
-		}
-	}
-	stream << std::endl;
-}
-class f3;
-template <typename T >
-void change( T beg, T end, f3 t)
-{
-	for(T it = beg; it != end; it++)
-	{
-		*it += t();
-	}
+	/* U3 */
 }
 
-bool f1(int x) {return true; }
-bool f2(int x) {return x%2 ? false : true; }
-class f3
+
+template </* U4 */>
+void change( /* U5 */)
 {
-	private:
-		int _x;
-		// int _y = sizeof(*this); // !!!!!!
-	public:
-		f3(int x) : _x(x) {}
-		int operator()() const
-		{
-			return _x;
-		}
-};
+	/* U6 */
+}
+
+/* U7  - f1, f2, f3*/
+
+
+
 
 int main()
 {
@@ -51,10 +31,8 @@ int main()
 	int add_value{-1}; //należy wykorzystać add_value do zmiany cl2
 	std::list<int> cl2{7,6,5,4,3,2,1};
 	change(begin(cl2), end(cl2), f3(add_value));
-	// goto end;
 	print_to_if(std::cout << "All", begin(cl2), end(cl2), f1);
 
-	// end:
 	return 0;
 }
 

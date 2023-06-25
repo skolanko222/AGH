@@ -7,6 +7,11 @@ namespace OOP
 		std::cout << "Szablon file 2\n";
 		return (a < b) ? b : a;
 	}
+	// static int max(int a, int b)
+	// {
+	// 	std::cout << "Szablon file 1\n";
+	// 	return (a < b) ? b : a;
+	// }
 }
 
 void fun2(int a, int b)

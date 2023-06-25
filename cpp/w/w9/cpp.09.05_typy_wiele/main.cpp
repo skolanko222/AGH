@@ -1,6 +1,8 @@
 #include "Fraction.h"
 #include <iostream>
 
+
+static void huj() { std::cout << "huj"; }
 namespace OOP {
 
 template <typename T> void swap(T &a, T &b, unsigned iter = 1)
@@ -37,7 +39,7 @@ template <typename T1, typename T2> T1 min(const T1 &a, const T2 &b)
 int main(int argc, char **argv)
 {
   using namespace std;
-
+  huj();
   int            a = 10, b = 5;
   double         c = 3.14, d = 13.13;
   OOP::Fraction aFrac(2, 5), bFrac(13, 50);

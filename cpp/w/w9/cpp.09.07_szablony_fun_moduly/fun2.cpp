@@ -5,6 +5,7 @@ namespace OOP
 	template<typename T> T max(T a, T b)
 	{
 		std::cout << "Szablon file 2\n";
+		std::cout << "Szablon fcadadcdcdile 2\n";
 		return (a < b) ? b : a;
 	}
 }

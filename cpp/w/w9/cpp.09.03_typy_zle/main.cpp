@@ -27,12 +27,12 @@ int main(int argc, char** argv)
 	cout << "max(2.3, 3.3) = " << OOP::max(2.3, 3.3) << endl;
 	cout << "min(2.3, 3.3) = " << OOP::min(2.3, 3.3) << endl;
 
-	//porównanie adresów a nie wartoœci
+	//porï¿½wnanie adresï¿½w a nie wartoï¿½ci
 	cout << "max(a, b) = " << OOP::max(&a, &b) << endl;
 	cout << "min(a, b) = " << OOP::min(&a, &b) << endl;
 
 
-	//Ju¿ nie mo¿na u¿yæ funkcji max w stosunku do Fraction
+	//Juï¿½ nie moï¿½na uï¿½yï¿½ funkcji max w stosunku do Fraction
 	// cout << "max(OOP::Fraction(2, 5), OOP::Fraction(13, 50)) = " 
 	// 	<< OOP::max(OOP::Fraction(2, 5), OOP::Fraction(13, 50)) << endl;
 

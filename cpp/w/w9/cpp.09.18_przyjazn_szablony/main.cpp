@@ -2,13 +2,17 @@
 #include "OOPFunTemplates.h"
 #include <exception>
 #include <iostream>
-
+int huj()
+{
+  return 0;
+}
 namespace OOP {
 
 template <typename T, unsigned rozmiar> class Box
 {
 public:
   /////////////////////////////////////////////////////////////////////////
+  friend void huj();
   class BoxError : public std::exception
   {
   public:

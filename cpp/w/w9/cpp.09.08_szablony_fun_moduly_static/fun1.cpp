@@ -12,7 +12,7 @@ namespace OOP
 void fun1(int a, int b)
 {
 	int (*ptr)(int, int);
-	ptr = OOP::max<int>;
+	ptr = OOP::max;
 
 	std::cout << "fun1: " << reinterpret_cast<size_t>(ptr) << " " << ptr(a, b) << std::endl;
 }

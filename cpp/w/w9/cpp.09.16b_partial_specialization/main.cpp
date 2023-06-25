@@ -59,7 +59,8 @@ template <size_t N> struct array<void *, N> {
   }
 
 protected:
-  void *_t[N];
+  void * _t[N];
+
 };
 
 
@@ -81,7 +82,7 @@ struct array<T *, N> : private array<void *, N>{
 
   T **begin()
   {
-    return reinterpret_cast<T **>(&array<void *, N>::_t[0]);
+    return reinterpret_cast<T **>(&Base::_t[0]);
   }
 
   T **end()
@@ -95,7 +96,7 @@ int main(int argc, char **argv)
   array<int *, 100> a;
 
   int val = 10;
-  for (auto &i : a)
+  for (auto & i : a)
     i = new int(++val);
 
   for (const auto &i : a)

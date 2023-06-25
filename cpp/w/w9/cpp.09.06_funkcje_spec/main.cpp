@@ -26,7 +26,7 @@ void swap(char a[], char b[])
 }
 
 /////////////////////////////////////////////////////////////////////////
-template <typename T1, typename T2> T1 
+template <typename T1, typename T2> T1
 max(const T1 &a, const T2 &b)
 {
   return (a < b) ? b : a;

@@ -1,8 +1,6 @@
-#ifndef _Fraction_H_
-#define _Fraction_H_
-
 #include <iostream>
 #include <exception>
+#include "main.cpp"
 
 namespace OOP 
 {
@@ -11,7 +9,7 @@ namespace OOP
 	public:
 
 		class MianZero : public std::exception
-		{ public: const char* what() const noexcept {return "mianownik = 0"; }	};
+		{ public: const char* what() const noexcept {return "mianownik = 0"; } 	};
 
 		class ReadError : public std::exception
 		{ public: const char* what() const noexcept {return "blad odczytu lub konwersji"; }	};
@@ -81,7 +79,7 @@ namespace OOP
 
 			try
 			{
-				std::cout << "Podaj u³amek = ";
+				std::cout << "Podaj uï¿½amek = ";
 				std::cin >> x;
 			}
 			catch(const std::exception& e)
@@ -94,6 +92,4 @@ namespace OOP
 		
 		return x;
 	}
-}//End of namespace OOP
-
-#endif //_Fraction_H_
+};//End of namespace OOP

@@ -26,6 +26,7 @@ public:
 template <typename T1, typename T2> class BetterBox : public Box<T2>
 {
 public:
+  
   BetterBox(T1 obj, unsigned size = 1) : Box<T2>(size), Extra(obj)
   {
   }

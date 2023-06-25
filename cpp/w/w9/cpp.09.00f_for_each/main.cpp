@@ -34,7 +34,7 @@ int main()
 
     std::vector<std::string> strs{"Raz", "dwa", "trzy", "Ala ma kota"};
 
-    std::for_each(std::begin(strs), std::end(strs), print());
+    std::for_each(strs.begin(), std::end(strs), print());
     std::cout << "\n";
 
     std::for_each(std::begin(strs), std::end(strs), to_upper());
