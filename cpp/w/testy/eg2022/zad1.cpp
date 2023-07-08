@@ -7,9 +7,13 @@
 
 struct B {
 protected:
-  // U1 - tylko deklaracje funkcji maks. 2
-  virtual void printOn(std::ostream &o) const;
+  B() {};
   friend std::ostream &operator<<(std::ostream &o, const B & obj);
+  virtual void printOn(std::ostream &o) const = 0;
+
+  // U1 - tylko deklaracje funkcji maks. 2
+  
+  
 };
 //  U2 - tylko definicje funkcji z U1
 inline void B::printOn(std::ostream &o) const {o << __PRETTY_FUNCTION__ << "\n";};
@@ -24,7 +28,6 @@ protected:
   // U4 - tylko deklaracja albo definicja jednej funkcjiB() {};
   virtual void printOn(std::ostream &o) const override {o << __PRETTY_FUNCTION__ << "\n";};
 };
-
 struct D2 : public D1 {};
 
 class D3 : public D1 {
@@ -49,7 +52,7 @@ protected:
 }; // */
 
 int main(int argc, char *argv[]) {
-//   B b; //odkomentowanie powoduje błąd kompilacji
+  // B b; //odkomentowanie powoduje błąd kompilacji
   D1 d1; D2 d2; D3 d3; const D4 d4;
   std::cout << "d1: " << d1 << "d2: " << d2 << "d3: " << d3 << "d4: " << d4;
 }
