@@ -43,7 +43,7 @@ int main(void)
 
 	Point d = c + a;
 	
-	Point tab[3] = {a, b, c};
+	// Point tab[3] = {a, b, c};
 	// Point d = a + b + c; //  a -> b - > c
 	// std::cout << "d = a + b + c" << std::endl;
 	// a.print();
@@ -57,7 +57,7 @@ int main(void)
 	// c.print();
 	// d.print();
 	
-	Point && csda = std::move(a);
+	// Point && csda = std::move(a);
 
 	return 0;
 }

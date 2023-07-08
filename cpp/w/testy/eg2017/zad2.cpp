@@ -3,11 +3,11 @@ class is_printable
 {
 	public:
 		virtual void printFun(std::ostream & o) const = 0;
-		friend std::ostream& operator << (std::ostream& s, const is_printable& o)
-		{
-			o.printFun(s);
-			return s;
-		}
+		// friend std::ostream& operator << (std::ostream& s, const is_printable& o)
+		// {
+		// 	o.printFun(s);
+		// 	return s;
+		// }
 };
 class A : public is_printable
 {
@@ -34,6 +34,10 @@ class B : public is_printable
 
 };
 std::ostream& operator << (std::ostream& s, const is_printable& o);
+{
+	o.printFun(s);
+	return s;
+}
 
 int main() {
 	A a{"Tekst"};
