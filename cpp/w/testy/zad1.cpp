@@ -15,9 +15,15 @@ struct IsPod<false> {
 
 template <typename T>
 void memcopy(T* src, T* dst, unsigned size) {
-	IsPod<std::is_pod<T>::value>::Print();
+	//IsPod<std::is_pod<T>::value>::Print();
+	if(std::is_pod<T>::value){
+		std::cout<<"Copying POD data\n";
+	}
+	else{
+		std::cout<<"Copying Non-POD data\n";
+	}
 }
-
+//S,S,B,A,C,S,A,C,D
 template <typename T>
 void test() {
 	T src[10] = {}, dst[10];

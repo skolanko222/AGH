@@ -1,9 +1,10 @@
 #include <iostream>
 #include <list>
 #include <functional>
+#include <typeinfo>
 
-template <typename T >
-void print_to_if(std::ostream &stream,  T beg, T end, std::function<bool(int)> t )
+template <typename T, typename U>
+void print_to_if(std::ostream &stream,  T beg, T end, U t )
 {
 	for(T it = beg; it != end; ++it)
 	{
@@ -14,30 +15,34 @@ void print_to_if(std::ostream &stream,  T beg, T end, std::function<bool(int)> t
 	}
 	stream << std::endl;
 }
-class f3;
-template <typename T >
-void change( T beg, T end, f3 t)
+// class f3
+// {
+// 	private:
+// 		int _x;
+		
+// 	public:
+// 		f3(int x) : _x(x) {}
+// 		int operator()() const
+// 		{
+// 			return _x;
+// 		}
+// };
+template <typename T>
+T & f3(T & x)
+{
+	return x;
+}
+template <typename T, typename U >
+void change( T beg, T end, U t)
 {
 	for(T it = beg; it != end; it++)
 	{
-		*it += t();
+		*it += t;
 	}
 }
 
 bool f1(int x) {return true; }
 bool f2(int x) {return x%2 ? false : true; }
-class f3
-{
-	private:
-		int _x;
-		// int _y = sizeof(*this); // !!!!!!
-	public:
-		f3(int x) : _x(x) {}
-		int operator()() const
-		{
-			return _x;
-		}
-};
 
 int main()
 {

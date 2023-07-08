@@ -1,5 +1,6 @@
 #include <iostream>
-class A1
+class P {};
+class A1 : public P
 {
 	public:
 		A1() { std::cout << __PRETTY_FUNCTION__  << '\n'; }
