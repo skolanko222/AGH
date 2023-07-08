@@ -1,9 +1,10 @@
 #include <iostream>
 #include <list>
 #include <functional>
+#include <typeinfo>
 
-template <typename T>
-void print_to_if(std::ostream &stream,  T beg, T end, std::function<bool(int)> t )
+template <typename T, typename U>
+void print_to_if(std::ostream &stream,  T beg, T end, U t )
 {
 	for(T it = beg; it != end; ++it)
 	{

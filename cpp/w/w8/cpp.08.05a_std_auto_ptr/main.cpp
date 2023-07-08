@@ -25,7 +25,7 @@ protected:
 class Test2 : public Test1
 {
 public:
-	Test2(string nazwa = "") : Test1(nazwa)
+	Test2(string nazwa = "")
 	{  cout << "Konstruktor Test2(" << m_nazwa << ")\n"; }
 
 	virtual ~Test2()

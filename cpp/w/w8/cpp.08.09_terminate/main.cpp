@@ -28,7 +28,7 @@ protected:
 	string m_nazwa;
 };
 
-void MyTerm()
+void MyTerm() // własny abort
 {
 	cout << "Wlasna funkcja terminate\n";
 	std::exit(-1);

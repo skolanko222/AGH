@@ -50,6 +50,7 @@
 		"random": "cpp",
 		"fstream": "cpp",
 		"sstream": "cpp",
+<<<<<<< HEAD
 		"ios": "cpp",
 		"any": "cpp",
 		"bitset": "cpp",
@@ -58,6 +59,20 @@
 		"codecvt": "cpp",
 		"complex": "cpp",
 		"condition_variable": "cpp",
+=======
+		"any": "cpp",
+		"bitset": "cpp",
+		"cfenv": "cpp",
+		"charconv": "cpp",
+		"chrono": "cpp",
+		"cinttypes": "cpp",
+		"codecvt": "cpp",
+		"complex": "cpp",
+		"condition_variable": "cpp",
+		"csetjmp": "cpp",
+		"csignal": "cpp",
+		"ctime": "cpp",
+>>>>>>> 124c15da75ed2bc0533e5f8cb5156c9abb6a8e76
 		"cuchar": "cpp",
 		"forward_list": "cpp",
 		"map": "cpp",
@@ -70,8 +85,11 @@
 		"scoped_allocator": "cpp",
 		"shared_mutex": "cpp",
 		"thread": "cpp",
+<<<<<<< HEAD
 		"cfenv": "cpp",
 		"cinttypes": "cpp",
+=======
+>>>>>>> 124c15da75ed2bc0533e5f8cb5156c9abb6a8e76
 		"typeindex": "cpp",
 		"valarray": "cpp",
 		"variant": "cpp"

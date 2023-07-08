@@ -12,34 +12,34 @@ private:
     std::vector<std::shared_ptr<int>> v;
 public:
     Base(const std::initializer_list<std::shared_ptr<int>> &l): v{l}{};
-    //w tym miejscu dopisz potrzbny kod 
-    // Base(const Base &o){
-    //     std::cout<<"Konstruktor kopiujący"<<std::endl;
-    //     for(auto &i: o.v){
-    //         v.push_back(std::make_unique<int>(*(i.get())));
-    //     }
-    // } 
-    // Base(Base &&o){
-    //     std::cout<<"Konstruktor przenoszący"<<std::endl;
-    //     for(auto &i: o.v){
-    //         v.push_back(std::move(i));
-    //     }
+    // w tym miejscu dopisz potrzbny kod 
+    Base(const Base &o){
+        std::cout<<"Konstruktor kopiujący"<<std::endl;
+        for(auto &i: o.v){
+            v.push_back(std::make_unique<int>(*(i)));
+        }
+    } 
+    Base(Base &&o){
+        std::cout<<"Konstruktor przenoszący"<<std::endl;
+        for(auto &i: o.v){
+            v.push_back(std::move(i));
+        }
        
-    // }
-    // Base& operator=(const Base &o){
-    //     std::cout<<"operator przypisania"<<std::endl;
-    //     if(&o==this){
-    //         return *this;
-    //     }
-    //     v.clear();
-    //     for(auto &i: o.v){
-    //         v.push_back(i);
-    //     }
-    //     return *this;
-    // }
-    // ~Base(){
-    //     std::cout<<"Destruktor"<<std::endl;
-    // }
+    }
+    Base& operator=(const Base &o){
+        std::cout<<"operator przypisania"<<std::endl;
+        if(&o==this){
+            return *this;
+        }
+        v.clear();
+        for(auto &i: o.v){
+            v.push_back(i);
+        }
+        return *this;
+    }
+    ~Base(){
+        std::cout<<"Destruktor"<<std::endl;
+    }
 
     
     void print()const{

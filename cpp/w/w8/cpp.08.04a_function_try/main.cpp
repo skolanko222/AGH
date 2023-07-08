@@ -8,6 +8,7 @@ struct S {
         std::cout << "constructed, mn = " << m << '\n';
     } catch(const std::exception& e) {
         std::cout << "arg=" << arg << " failed: " << e.what() << '\n';
+
     } // implicit throw; here
 };
 
@@ -19,14 +20,14 @@ int f(int n = 2) try {
 catch(...) {
    ++n; // n is in scope and still refers to the function parameter
    std::cout << "Value n still reachable = " << n << '\n';
-    return n;
+    return n; // tu nie ma rethrow
 }
 
 int main()
 {
     f();
     try {
-        S s("Test");
+        f();
     }
     catch(const std::exception& e) {
        std::cout << "Catch rethrown exception from S::S()\n" << e.what() << '\n';

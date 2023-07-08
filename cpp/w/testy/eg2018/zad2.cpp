@@ -3,12 +3,15 @@
 
 // template<typename T = int, typename StorageType = std::deque > źle
 template<typename T = int, 
-                         template <typename T2, typename AllocType> 
+                         template <typename T2, typename AllocType = std::allocator<T>> 
                                                                     typename StorageType = std::deque >
 class fifo {
     public:
     using storage_type = StorageType<T, std::allocator<T> >;
 
+    fifo() {
+        std::cout << __PRETTY_FUNCTION__ << "\n";
+    }
     void push(const T & v) {
         _storage.push_back(v);
     }
@@ -30,12 +33,10 @@ class fifo {
     typename storage_type::const_iterator end() const { // typename gwarantuje ze to jest typ klasy storage_type a nie zmienna
         return _storage.end();                          // https://stackoverflow.com/questions/610245/where-and-why-do-i-have-to-put-the-template-and-typename-keywords
     }
-    
     private:
-        StorageType<T, std::allocator<T> > _storage; // ja pierdole
+        StorageType<T> _storage; // ja pierdole
         // StorageType<T> _storage;
 };
-
 int main()
 {
     fifo<> ft;

@@ -7,13 +7,14 @@ template <typename Derived> struct Shape {
     static_cast<Derived *>(this)->draw_impl();
     return 0;
   }
-
+  // template<typename s>
+  // virtual void a(int sd)
   static void static_func()
   {
     Derived::static_func_impl();
   }
 };
-
+template<typename T = int>
 struct Square : Shape<Square> {
   void        draw_impl()
   {
@@ -65,7 +66,7 @@ void test(Shape<T>* s){
 
 int main()
 {
-  Square s;
+  Square<> s;
   Triangle t;
   Circle c;
 

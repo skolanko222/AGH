@@ -17,7 +17,7 @@ public:
 		cout << "Konstruktor kopiujacy Test1(" << m_nazwa << ")\n"; 
 	}
 
-	virtual ~Test1()
+	~Test1()
 	{  cout << "Destruktor Test1(" << m_nazwa << ")\n"; }
 
 	virtual void print() const

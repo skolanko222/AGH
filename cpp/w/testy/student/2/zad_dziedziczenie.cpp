@@ -29,7 +29,7 @@ public:
   D(): B(), C() { std::cout << "D\n"; }
   virtual ~D() { std::cout << "~D "; }
 protected:
-  // C c;
+  C c;
 };
 
 int main(){
