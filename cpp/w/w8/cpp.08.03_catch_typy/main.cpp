@@ -34,7 +34,7 @@ int main(int argc, char* argv[])
 	catch(const char& a)
 	{
 		cout << "Zlapany wyjatek char\n";
-		cout << "Znak jaki przes³a³a: " << a << endl;
+		cout << "Znak jaki przesï¿½aï¿½a: " << a << endl;
 		return -1;
 	}
 	catch(...)

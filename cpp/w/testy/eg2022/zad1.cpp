@@ -8,7 +8,7 @@
 struct B {
 protected:
   // U1 - tylko deklaracje funkcji maks. 2
-  virtual void printOn(std::ostream &o) const;
+  virtual void printOn(std::ostream &o) const = 0;
   friend std::ostream &operator<<(std::ostream &o, const B & obj);
 };
 //  U2 - tylko definicje funkcji z U1
@@ -49,7 +49,7 @@ protected:
 }; // */
 
 int main(int argc, char *argv[]) {
-//   B b; //odkomentowanie powoduje błąd kompilacji
+  // B b; //odkomentowani  e powoduje błąd kompilacji
   D1 d1; D2 d2; D3 d3; const D4 d4;
   std::cout << "d1: " << d1 << "d2: " << d2 << "d3: " << d3 << "d4: " << d4;
 }

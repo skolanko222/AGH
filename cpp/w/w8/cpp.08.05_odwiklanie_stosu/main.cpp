@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
     Test1 c("cTest1");
     // Test2 d("dTest2");
 
-    ptr = new Test1("ptrTest1");
+    ptr = new Test1("ptrTest1"); // nie wywola sie destruktor ptrTest1
 
     cout << "\nRzucam\n";
     throw a;

@@ -75,5 +75,6 @@
 		"typeinfo": "cpp",
 		"valarray": "cpp",
 		"variant": "cpp"
-	}
+	},
+	"cmake.sourceDirectory": "/root/AGH/cpp/w/testy/zach virtual w wielopokoleniowym dziedziczeniu, final"
 }
