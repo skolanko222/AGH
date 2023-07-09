@@ -17,13 +17,15 @@ struct B : A{
         std::cout<<"-"<<typeid(B<T>).name()<<"()\n";
     }
 };
-
 int main(){
     /*typedef B<A> B_A;
     using Typename = B<B_A>;*/
-  
-    B<B<A>> a = B<B<A>>(B<B<A>>()); //  B<B<A>> a = B<B<A>>(B<B<A>>())
+
+    B<B<A>> a = B<B<A>>(B<B<A>>(B<B<A>>(B<B<A>>()))); 
     B<B<A>> b(a);
+
+    // Typename a = Typename(Typename()); //  B<B<A>> a = B<B<A>>(B<B<A>>())
+    // Typename b(a);
+    // B<A> v = B<A>() 
 }
-// A:A()  A:A(), A:A(), B<T>:B() [T = A], B<T> [T = B<A>], 
-// A:A()  A:A(), A:A(), B<T>:B() [T = A], copy()
+// A A B A A A B
