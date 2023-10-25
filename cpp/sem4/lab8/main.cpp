@@ -42,26 +42,26 @@
 int main()
 {
   Wektor2D dlugi ("dlugi", 11, 14);
-  Wektor2D krotki ("krotki", 2, 22);
-  Wektor2D sredni ("sredni", 5, 6);
+  // Wektor2D krotki ("krotki", 2, 22);
+  // Wektor2D sredni ("sredni", 5, 6);
 
-  ListaWektorow lista;
-  lista.Dodaj(&dlugi);
-  lista.Dodaj(&krotki);
-  lista.Dodaj(&sredni);
+  // ListaWektorow lista;
+  // lista.Dodaj(&dlugi);
+  // lista.Dodaj(&krotki);
+  // lista.Dodaj(&sredni);
 
-  // nieposortowana
-  lista.Wypisz();
+  // // nieposortowana
+  // lista.Wypisz();
 
-  // posortowana wedlug X
-  lista.PosortujWedlugX();
-  lista.Wypisz();
+  // // posortowana wedlug X
+  // lista.PosortujWedlugX();
+  // lista.Wypisz();
   
-  // posortowana wedlug Y
-  lista.PosortujWedlugY();
-  lista.Wypisz();
+  // // posortowana wedlug Y
+  // lista.PosortujWedlugY();
+  // lista.Wypisz();
   
-  Wektor2D elementy [] = { Wektor2D ("zbior_1", 600, 610),
+  Wektor2D elementy [] = {Wektor2D ("zbior_1", 600, 610),
                            Wektor2D ("zbior_2", 700, 710), 
                            Wektor2D ("zbior_3", 300, 310), 
                            Wektor2D ("zbior_4", 400, 410), 
@@ -72,16 +72,16 @@ int main()
                            Wektor2D ("zbior_9",  800, 810) };
   
   // zbior posortowany wedlug wspolrzednych X
-  std::set<Wektor2D> zbiorWektorw (elementy, elementy + sizeof(elementy)/sizeof(Wektor2D));
+  // std::set<Wektor2D> zbiorWektorw (elementy, elementy + sizeof(elementy)/sizeof(Wektor2D));
 
-  DzialaniaNaZbiorach dzialania (zbiorWektorw);
-  std::cout<<"Zawartosc zbioru wektorow ze wspolrzedna X > 500:\n";
-  dzialania.WypiszXWiekszeOd(500);
-  dzialania.ZamienX(900, 750);	// zamien pierwszy wektor o wspolrzednej X rownej 900
-                                // (oldX, newX)
+  // DzialaniaNaZbiorach dzialania (zbiorWektorw);
+  // std::cout<<"Zawartosc zbioru wektorow ze wspolrzedna X > 500:\n";
+  // dzialania.WypiszXWiekszeOd(500);
+  // dzialania.ZamienX(900, 750);	// zamien pierwszy wektor o wspolrzednej X rownej 900
+  //                               // (oldX, newX)
 
-  std::cout<<"Zawartosc zbioru wektorow ze wspolrzedna X > 500 po zmianie:\n";
-  dzialania.WypiszXWiekszeOd(500);
+  // std::cout<<"Zawartosc zbioru wektorow ze wspolrzedna X > 500 po zmianie:\n";
+  // dzialania.WypiszXWiekszeOd(500);
 
   return 0;
 }
