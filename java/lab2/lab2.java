@@ -10,8 +10,8 @@ import java.util.Locale;
 public class lab2{
 	public static void main(String[] args)
 	{
-		int m = 0;
-		int y = 0;
+		int m;
+		int y;
 		LocalDate today = LocalDate.now();
 		if(args.length == 2)
 		{
@@ -43,8 +43,7 @@ public class lab2{
 
 		System.out.println();
 		System.out.println( today.getMonth().getDisplayName(TextStyle.SHORT, new Locale("pl")) +  " " + today.getYear() + "\n    ");
-		System.out.printf(" ");		
-		
+
 		for(DayOfWeek day = DayOfWeek.MONDAY; ; day = day.plus(1))
 		{
 			System.out.print(day.getDisplayName(TextStyle.NARROW, new Locale("pl")) + "  ");
