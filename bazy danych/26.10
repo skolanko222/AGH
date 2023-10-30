@@ -1,0 +1,22 @@
+select * from r1,r2 where r1.id=r2.id and r1.at = wartosc
+
+r1, r2 - tabele
+lewe łączenie ( do każdego z lewej dołącza pasujący z prawej, inaczej null)
+select * from r1 leftjoin r2 on r1.id = r2.id
+
+
+W = {matematyka, fizyka} WP - wykład-rowadzacy
+zwraca tylko te z nullem
+select * from W leftjoin WP on W.id = WP.id where WP.isnull;
+
+
+funkcje agregujace: min(), max(), count()
+select count(*) from R1;
+select count(*) from Student where rok=1;
+
+grupowanie
+select rok, count(*) from Student group by rok;
+
+średnia ocena studentów aktywnych na danym roku
+select rok,avg(ocena) from student where student.aktywny = 1 group by rok having avg(ocena) > 4
+having -> pracuje na group by
