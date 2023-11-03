@@ -8,7 +8,8 @@ struct A{
     A(const A& a): A(a._a) {
         std::cout << "A(const A&);\n";
     }
-
+    A operator=(const A &&a){std::cout << __PRETTY_FUNCTION__;}
+    A operator=(const A &a){std::cout << __PRETTY_FUNCTION__;}
     A(int a) : _a(a) {
         std::cout<< "A(int);\n";
     }
@@ -20,7 +21,7 @@ struct A{
 };
 
 int main() {
-    A a; 
-    a = A{};
+     
+    A a = A{};
 
 }

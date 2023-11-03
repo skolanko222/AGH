@@ -7,7 +7,7 @@ struct Type_t
 {
     Type_t() = default;
     explicit Type_t(T x) : _v(x){}
-    friend std::ostream & operator<<(std::ostream & os,const Type_t& t)
+    friend std::ostream & operator<<(std::ostream & os,const Type_t t)
     {
         return os<<t._v;
     }
@@ -45,7 +45,7 @@ int main()
     Type_t t1{new Type_t::value_type{}};
     // Type_t t2 = t1;
     // Type_t t2; t2 = t1;
-    // Type_t t2 = new Type_t::value_type();
+    // Type_t t22 = new Type_t::value_type();
     // Powyższe się mają nie kompilować
     (*t1).first = Type_t::value_type::first_type{1.}; //ptr<std::pair<Type_t<>,Type_t<>>::T::first_type
     t1->second = Type_t::value_type::second_type{2.5};
@@ -62,6 +62,8 @@ int main()
 
     
     std::cout << (*t3).first._v << ", " << t3->second << std::endl;
+    const Type_t t4{new Type_t::value_type{}};
+
 }
 /* output:
 1, 2.5

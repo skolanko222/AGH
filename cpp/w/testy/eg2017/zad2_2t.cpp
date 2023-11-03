@@ -1,11 +1,11 @@
 namespace oop
 {
+
     template <typename T>
     class Array
     {
-		public:
         T* tab;
-        int size;
+        static int size;
     public:
         typedef char value_type;
         Array (int maxsize):tab(new T[maxsize]){};
@@ -14,6 +14,8 @@ namespace oop
         int operator~(){return size;}
         T operator [](unsigned i){return tab[i];}
     };
+    template <typename T>
+    int Array<T>::size=0;
 }
 
 
@@ -25,15 +27,13 @@ int main()
 {
 
     typedef oop::Array<char> type;
-    type a( 10);
-	type b( 10);
+    type a( rand() % 10 + 6 );
 
     a.insert('#').insert('C') + type::value_type('+') + '+' + '0' + ('0' + 3 );
-	std::cout << b.size;
+
     for(unsigned i = 0; i!= ~a; ++i)
     {
         std::cout<< a[i] << (i+1 != ~a ? "" : "\n"  );
     }
 
 }
-

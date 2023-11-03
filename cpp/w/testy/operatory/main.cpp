@@ -24,6 +24,13 @@ class Point
 			_y = -_y;
 			return *this;
 		}
+		Point & operator,(int a)
+		{
+			std::cout << "Point & operator,() " << _x << " " << _y << std::endl;
+			_x = a;
+			_y = a;
+			return *this;
+		}
 		void print()
 		{
 			std::cout << "Point::print() " << _x << " " << _y << std::endl;
@@ -42,6 +49,7 @@ int main(void)
 	Point c = {5, 6};
 
 	Point d = c + a;
+	a,2;
 	
 	// Point tab[3] = {a, b, c};
 	// Point d = a + b + c; //  a -> b - > c

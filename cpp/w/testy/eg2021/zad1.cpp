@@ -2,7 +2,7 @@
 
 template<typename T>
 struct box{
-    T a_ = {};
+    T a_;
 };
 
 template<typename T>

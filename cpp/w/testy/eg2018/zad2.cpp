@@ -3,11 +3,11 @@
 
 // template<typename T = int, typename StorageType = std::deque > źle
 template<typename T = int, 
-                         template <typename T2, typename AllocType = std::allocator<T>> 
+                         template <typename T2 = T, typename AllocType = std::allocator<T>> 
                                                                     typename StorageType = std::deque >
 class fifo {
     public:
-    using storage_type = StorageType<T, std::allocator<T> >;
+    using storage_type = StorageType<T,std::allocator<T>>;
 
     fifo() {
         std::cout << __PRETTY_FUNCTION__ << "\n";
@@ -26,21 +26,21 @@ class fifo {
         return _storage.size();
     }
 
-    typename storage_type::const_iterator begin() const { // https://stackoverflow.com/questions/1600936/officially-what-is-typename-for
+    auto begin() const { // https://stackoverflow.com/questions/1600936/officially-what-is-typename-for
         return _storage.begin();
     }
 
-    typename storage_type::const_iterator end() const { // typename gwarantuje ze to jest typ klasy storage_type a nie zmienna
+    auto end() const { // typename gwarantuje ze to jest typ klasy storage_type a nie zmienna
         return _storage.end();                          // https://stackoverflow.com/questions/610245/where-and-why-do-i-have-to-put-the-template-and-typename-keywords
     }
     private:
-        StorageType<T> _storage; // ja pierdole
+        storage_type _storage; // ja pierdole
         // StorageType<T> _storage;
 };
 int main()
 {
     fifo<> ft;
-    for(int i: {0,1,2,3,4})
+    for(int i : {0,1,2,3,4})
    	 ft.push(i);
 
     fifo<int, std::deque> f = ft;
