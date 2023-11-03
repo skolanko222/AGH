@@ -11,7 +11,7 @@ int main()
     c.erase(std::remove_if(c.begin(), c.end(), [x](int n) { return n < x; }), c.end());
  
     std::cout << "c: ";
-    std::for_each(c.begin(), c.end(), [](int i){ std::cout << i << ' '; });
+    std::for_each(c.begin(), c.end(), [&](int i){ std::cout << i << ' '; });
     std::cout << '\n';
  
     // the type of a closure cannot be named, but can be inferred with auto

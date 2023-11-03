@@ -1,14 +1,14 @@
-set(CMAKE_HOST_SYSTEM "Linux-/bin/sh: line 1: /usr/bin/uname: No such file or directory")
+set(CMAKE_HOST_SYSTEM "Linux-5.10.0-23-amd64")
 set(CMAKE_HOST_SYSTEM_NAME "Linux")
-set(CMAKE_HOST_SYSTEM_VERSION "/bin/sh: line 1: /usr/bin/uname: No such file or directory")
-set(CMAKE_HOST_SYSTEM_PROCESSOR "unknown")
+set(CMAKE_HOST_SYSTEM_VERSION "5.10.0-23-amd64")
+set(CMAKE_HOST_SYSTEM_PROCESSOR "x86_64")
 
 
 
-set(CMAKE_SYSTEM "Linux-/bin/sh: line 1: /usr/bin/uname: No such file or directory")
+set(CMAKE_SYSTEM "Linux-5.10.0-23-amd64")
 set(CMAKE_SYSTEM_NAME "Linux")
-set(CMAKE_SYSTEM_VERSION "/bin/sh: line 1: /usr/bin/uname: No such file or directory")
-set(CMAKE_SYSTEM_PROCESSOR "unknown")
+set(CMAKE_SYSTEM_VERSION "5.10.0-23-amd64")
+set(CMAKE_SYSTEM_PROCESSOR "x86_64")
 
 set(CMAKE_CROSSCOMPILING "FALSE")
 

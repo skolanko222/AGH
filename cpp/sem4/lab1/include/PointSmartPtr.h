@@ -18,7 +18,7 @@ class Named
 
 };
 
-Named & operator>>(std::string str, Named &o);
+// Named & operator>>(std::string str, Named &o);
 
 class Point : public Named
 {

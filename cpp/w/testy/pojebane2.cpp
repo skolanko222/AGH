@@ -20,7 +20,7 @@ template<typename T>
 class ptr{
     public:
     using value_type = T;
-    explicit ptr(T* t): data(t){}
+    ptr(T* t): data(t){}
     ptr(ptr<T>&& t): data(std::move(t.getdata())){}
     ptr(const ptr<T>&) = delete;
     ptr<T>& operator=(const ptr<T>&) = delete;
@@ -45,7 +45,7 @@ int main()
     Type_t t1{new Type_t::value_type{}};
     // Type_t t2 = t1;
     // Type_t t2; t2 = t1;
-    // Type_t t22 = new Type_t::value_type();
+    Type_t t22 = new Type_t::value_type();
     // Powyższe się mają nie kompilować
     (*t1).first = Type_t::value_type::first_type{1.}; //ptr<std::pair<Type_t<>,Type_t<>>::T::first_type
     t1->second = Type_t::value_type::second_type{2.5};
@@ -55,7 +55,7 @@ int main()
     // t3=std::move(t2); 
     const Type_t t3{new Type_t::value_type{}};                                 // tutaj było chyba const t3, ale nie pamiętam, w jaki sposób było inicjalizowane
                                                        //(*t3).first= 13;
-                                                       // t3->second = 13;
+                                                       t3->second = 13;
                                                        // Powyższe się mają nie kompilować
     (*t3).first = Type_t::value_type::first_type{1};   //?
     t3->second = Type_t::value_type::second_type{2.5}; //?

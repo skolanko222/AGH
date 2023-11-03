@@ -8,7 +8,7 @@ namespace oop
         int size;
     public:
         typedef char value_type;
-        Array (int maxsize):tab(new T[maxsize]){};
+        explicit  Array (int maxsize):tab(new T[maxsize]){};
         Array& insert(T el){tab[size]=el;size++;return *this;};
         Array& operator + (T el){return insert(el);}
         int operator~(){return size;}
@@ -25,7 +25,7 @@ int main()
 {
 
     typedef oop::Array<char> type;
-    type a( 10);
+    type a = type{10};
 	type b( 10);
 
     a.insert('#').insert('C') + type::value_type('+') + '+' + '0' + ('0' + 3 );

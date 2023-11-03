@@ -26,7 +26,7 @@ class DzialaniaNaZbiorach
 			{
 				Wektor2D temp(result->_str,y,result->_y);
 				_set.erase(result);
-				_set.emplace(temp);
+				_set.emplace(std::move(temp));
 			}
 		}
 

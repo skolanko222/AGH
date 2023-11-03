@@ -19,7 +19,7 @@ class DynamicArray
         {
             if(index + 1 > lenght)
             {
-                std::cout << "Ty kurwo!" << std::endl;
+                std::cout << "Ty" << std::endl;
                 return 2137;
             }
             return arrPtr[index];
