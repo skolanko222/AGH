@@ -47,7 +47,7 @@ int main(){
 	USARTdrv->Send("\nPress Enter to receive a message", 34);
 	LED_Initialize();
 	uint32_t returnCode;   
-	returnCode = SysTick_Config(1000000);      // Configure SysTick to generate an interrupt every millisecond   
+	returnCode = SysTick_Config( 1000000);      // Configure SysTick to generate an interrupt every millisecond   
 	if (returnCode != 0)  {                                   //Check return code for errors    
 		// Error Handling   
 		}    
