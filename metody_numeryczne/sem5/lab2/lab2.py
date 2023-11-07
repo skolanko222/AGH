@@ -56,8 +56,6 @@ def mRK2(beta, N, gamma, tMax, dt, u0, TOL):
 		un = u[i-1]
 		un1 = u[i-1]
 		un2 = u[i-1]
-		temp1 = un1
-		temp2 = un2
 				
 		for j in range(20):
 			F1 = un1 - un - dt*(a11*(alpha*un1 - beta*un1**2) + a12*(alpha*un2 - beta*un2**2))
@@ -70,14 +68,14 @@ def mRK2(beta, N, gamma, tMax, dt, u0, TOL):
 			dU1 = (m12*F2 - m22*F1)/det #27
 			dU2 = (m21*F1 - m11*F2)/det
 			
-			temp1 += dU1 #20
-			temp2 += dU2
+			un1 += dU1 #20
+			un2 += dU2
 			if abs(dU1 - un1 ) < TOL or abs(dU2 - un2) < TOL:
 				break
 			try:
-				u[i] = un + dt*(b1*(alpha*temp1 - beta*temp1**2) + b2*(alpha*temp2 - beta*temp2**2))
+				u[i] = un + dt*(b1*(alpha*un1 - beta*un1**2) + b2*(alpha*un2 - beta*un2**2))
 			except IndexError:
-				u.append(un + dt*(b1*(alpha*temp1 - beta*temp1**2) + b2*(alpha*temp2 - beta*temp2**2)))
+				u.append(un + dt*(b1*(alpha*un1 - beta*un1**2) + b2*(alpha*un2 - beta*un2**2)))
 	return t, u	
 
 
