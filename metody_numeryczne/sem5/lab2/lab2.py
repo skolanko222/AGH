@@ -11,10 +11,10 @@ def mTrap_picarda(beta, N, gamma, tMax, dt, u0, TOL):
 		un = u[i-1]
 		un0 = u[i-1]
 		for j in range(20):
-			try:
-				u[i] = (un0 + dt/2*(alpha*un0 - beta*un0**2 + alpha*(un + dt*(alpha*un - beta*un**2)) - beta*(un + dt*(alpha*un - beta*un**2))**2))
+			try:#(alpha*un0 - beta*un0**2 + alpha*(un + dt*(alpha*un - beta*un**2)) - beta*(un + dt*(alpha*un - beta*un**2))**2))
+				u[i] = (un0 + dt/2*(alpha*un0 - beta*un0**2 + (alpha*un - beta*un**2))) 
 			except IndexError:
-				u.append(un0 + dt/2*(alpha*un0 - beta*un0**2 + alpha*(un + dt*(alpha*un - beta*un**2)) - beta*(un + dt*(alpha*un - beta*un**2))**2))
+				u.append(un0 + dt/2*(alpha*un0 - beta*un0**2 + (alpha*un - beta*un**2)))
 			if abs(u[i] - un) < TOL:
 				break
 			un = u[i]
