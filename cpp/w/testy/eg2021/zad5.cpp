@@ -28,7 +28,7 @@ class ptr{
 struct A {};
 
 int main(){
-    // { ptr p{new Int_t{1}}; }
-    //   ptr p{new Int_t{2}};
+    { ptr p{new Int_t{1}}; }
+      ptr p{new Int_t{2}};
       std::cout << sizeof(A) << "\n";
 }

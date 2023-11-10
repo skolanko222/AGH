@@ -20,7 +20,7 @@ struct B : A{
 int main(){
     /*typedef B<A> B_A;
     using Typename = B<B_A>;*/
-
+    A b = A();
     B<B<A>> a = B<B<A>>(B<B<A>>(B<B<A>>(B<B<A>>()))); 
     B<B<A>> b(a);
 

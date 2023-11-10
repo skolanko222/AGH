@@ -15,8 +15,8 @@ template<typename T = int>
 class box{
 	T data;
 	public:
-		box<T> & operator=(const box<T> &o) {std::cout << "b=b "; data = o.data;return *this;}
-		box<T> & operator=(const T &o) {std::cout << "b=d "; data = o;return *this;}
+		//box<T> & operator=(const box<T> &o) {data = o.data;return *this;}
+		box<T> & operator=(const T &o) { data = o;return *this;}
 		operator T() {return data;}
 	friend std::ostream & operator<<(std::ostream& o, const box<T> & b)
 	{
@@ -28,14 +28,13 @@ int main()
 {
     using namespace std;
     CArray< box< >, 2 > a;
-    //double d = 
-	a[0] = a[1] = 1;
+    double d = a[0] = a[1] = 1;
 
-    // const CArray< box< int > > b = a;
-    // b[0] = b[1] = 2;
+    const CArray< box< int > > b = a;
+    b[0] = b[1] = 2;
 
-    // cout << "d = " << d << "\ta[0] = " << a[0] << "\ta[1] = "     << a[1] << endl;
-    // cout << "b[0] = " << b[0] << "\tb[1] = " << b[1];
+    cout << "d = " << d << "\ta[0] = " << a[0] << "\ta[1] = "     << a[1] << endl;
+    cout << "b[0] = " << b[0] << "\tb[1] = " << b[1];
 
     // return 0;
 }

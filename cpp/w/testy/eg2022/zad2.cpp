@@ -15,18 +15,18 @@ void print_to_if(std::ostream &stream,  T beg, T end, U t )
 	}
 	stream << std::endl;
 }
-// class f3
-// {
-// 	private:
-// 		int _x;
+class f3
+{
+	private:
+		int _x;
 		
-// 	public:
-// 		f3(int x) : _x(x) {}
-// 		int operator()() const
-// 		{
-// 			return _x;
-// 		}
-// };
+	public:
+		f3(int x) : _x(x) {}
+		int operator()(int huj = 0) const
+		{
+			return _x;
+		}
+};
 template <typename T>
 T & f3(T & x)
 {

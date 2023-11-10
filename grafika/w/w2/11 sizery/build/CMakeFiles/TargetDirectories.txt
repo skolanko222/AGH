@@ -1,3 +1,0 @@
-/root/AGH/grafika/w/w2/11 sizery/build/CMakeFiles/rebuild_cache.dir
-/root/AGH/grafika/w/w2/11 sizery/build/CMakeFiles/edit_cache.dir
-/root/AGH/grafika/w/w2/11 sizery/build/CMakeFiles/main.dir

@@ -18,6 +18,6 @@ int main() {
         Fraction f(1,0);
     }
     catch (std::runtime_error &e) {
-        std::cout<< e.what() << '\n';
+         std::cout<< e.what() << '\n';
     }
 }

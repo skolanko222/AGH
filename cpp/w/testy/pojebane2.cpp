@@ -7,7 +7,7 @@ struct Type_t
 {
     Type_t() = default;
     explicit Type_t(T x) : _v(x){}
-    friend std::ostream & operator<<(std::ostream & os,const Type_t& t)
+    friend std::ostream & operator<<(std::ostream & os,const Type_t t)
     {
         return os<<t._v;
     }
@@ -62,6 +62,8 @@ int main()
 
     
     std::cout << (*t3).first._v << ", " << t3->second << std::endl;
+    const Type_t t4{new Type_t::value_type{}};
+
 }
 /* output:
 1, 2.5
