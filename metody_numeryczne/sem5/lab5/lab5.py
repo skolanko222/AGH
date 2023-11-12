@@ -14,7 +14,7 @@ nx = 128
 ny = 128
 xmax = delta * nx
 ymax = delta * ny
-TOL = 10**(-4)
+TOL = 10**(-8)
 kArr = [16, 8, 4, 2, 1]
 
 def Vb1(y):
@@ -34,8 +34,8 @@ def fill_boundary_conditions(V):
 		V[j][0] = Vb4(j*delta)
 
 def relaxate(V,k):
-	for i in range(k,nx,k):
-		for j in range(k,ny,k):
+	for i in range(k,nx-k,k):
+		for j in range(k,ny-k,k):
 			V[i][j] = 0.25*(V[i+k][j]+V[i-k][j]+V[i][j+k]+V[i][j-k])
 def S(V,k):
 	sum = 0
@@ -88,7 +88,7 @@ if __name__ == '__main__':
 			print('it =',it,'k =',k,'var =',temp)
 		Vtemp = np.zeros((k, k))
 		# for i in range(k, k):
-		# 	for j in range(k, k):
+		# 	for j in range(0, k):
 		# 		Vtemp[i*]	
 		plt.imshow(np.rot90(V), cmap='hot', interpolation='bilinear')
 		plt.savefig('V'+str(k)+'.png')
