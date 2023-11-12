@@ -8,6 +8,7 @@
 import numpy as np
 import math
 import matplotlib.pyplot as plt
+from matplotlib import colormaps
 
 delta = 0.2
 nx = 128
@@ -15,16 +16,16 @@ ny = 128
 xmax = delta * nx
 ymax = delta * ny
 TOL = 10**(-4)
-kArr = [16, 8, 4, 2, 1]
+kArr = [16, 8, 4, 2,1]
 
 def Vb1(y):
-	return math.sin(math.pi*y/ymax)
+	return math.sin(math.pi*(y/ymax))
 def Vb2(x):
-	return -math.sin(2*math.pi*x/xmax)
+	return -math.sin(2*math.pi*(x/xmax))
 def Vb3(y):
-	return math.sin(math.pi*y/ymax)
+	return math.sin(math.pi*(y/ymax))
 def Vb4(x):
-	return math.sin(2*math.pi*x/xmax)
+	return math.sin(2*math.pi*(x/xmax))
 def fill_boundary_conditions(V):
 	for i in range(0, nx):
 		V[0][i] = Vb1(i*delta)
@@ -34,8 +35,8 @@ def fill_boundary_conditions(V):
 		V[j][0] = Vb4(j*delta)
 
 def relaxate(V,k):
-	for i in range(k,nx,k):
-		for j in range(k,ny,k):
+	for i in range(k,nx-k,k):
+		for j in range(k,ny-k,k):
 			V[i][j] = 0.25*(V[i+k][j]+V[i-k][j]+V[i][j+k]+V[i][j-k])
 def S(V,k):
 	sum = 0
@@ -44,14 +45,12 @@ def S(V,k):
 
 	for i in range(0,nx-k,k):
 		for j in range(0,ny-k,k):
-			# print(i,j)
-
-			firstFrac = (V[i+k][j]-V[i][j])/divider
-			secondFrac = (V[i+k][j+k]-V[i][j+k])/divider
+			firstFrac = (V[i+k][j]-V[i][j])*divider
+			secondFrac = (V[i+k][j+k]-V[i][j+k])*divider
 			firstPow = (firstFrac + secondFrac)**2
 
-			firstFrac = (V[i][j+k]-V[i][j])/divider
-			secondFrac = (V[i+k][j+k]-V[i+k][j])/divider
+			firstFrac = (V[i][j+k]-V[i][j])*divider
+			secondFrac = (V[i+k][j+k]-V[i+k][j])*divider
 			secondPow = (firstFrac + secondFrac)**2
 
 			sum += constFrac*(firstPow + secondPow)
@@ -61,7 +60,6 @@ def dens_mesh(V,k):
 	k2 = k//2
 	for i in range(0,nx-k,k):
 		for j in range(0,ny-k,k):
-			# print(i,j,k)
 			V[i+k2][j+k2] = 0.25*(V[i][j]+V[i+k][j]+V[i][j+k]+V[i+k][j+k])
 			V[i+k][j+k2] = 0.5*(V[i+k][j]+V[i+k][j+k])
 			V[i+k2][j+k] = 0.5*(V[i][j+k]+V[i+k][j+k])
@@ -74,8 +72,10 @@ if __name__ == '__main__':
 	fill_boundary_conditions(V)
 	# np.savetxt('V1.txt', V) # krańcowe warunki brzegowe inaczej
 	it = 0
-	sPrev = 0
+	sPrev = 1
 	for k in kArr:
+		print("calculating... k: ", str(k))
+		sPrev = S(V,k)
 		while True:
 			it += 1
 			relaxate(V,k)
@@ -84,16 +84,19 @@ if __name__ == '__main__':
 			if abs(temp) < TOL:
 				break
 			sPrev = s
+			# print(it, " ",  temp)
 			# np.savetxt('V'+str(k)+'.txt', V)
-			print('it =',it,'k =',k,'var =',temp)
-		Vtemp = np.zeros((k, k))
-		# for i in range(k, k):
-		# 	for j in range(k, k):
-		# 		Vtemp[i*]	
-		plt.imshow(np.rot90(V), cmap='hot', interpolation='bilinear')
+		Vtemp = np.zeros((nx//k, ny//k))
+		for i in range(0,nx,k):
+			for j in range(0,ny,k):
+				Vtemp[i//k][j//k] = V[i][j]
+		# set colors of heatmap from blue to red
+		np.savetxt('V'+str(k)+'.txt', np.rot90(V))
+		plt.imshow(np.rot90(V), cmap='turbo',)
 		plt.savefig('V'+str(k)+'.png')
 		if(k != 1):
 			dens_mesh(V,k)
 		it = 0
-	# plot heatmap of V
+	print("done ;)")
+	
 
