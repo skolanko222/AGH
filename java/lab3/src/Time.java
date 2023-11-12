@@ -1,3 +1,4 @@
+import java.util.Objects;
 public class Time {
     private int dzien=0;
     private int godzina=0;
@@ -62,14 +63,14 @@ public class Time {
     }
     public void setMinutes(int x) {        if(checkBoundaries(0,60, x)) {minuta = x;} else{System.out.println("Liczba minut: " +x+" spoza przedzialu [0, 60)!");}
     }
-    public void setSeconds(int x) {        if(checkBoundaries(0,60, x)) {sekunda = x;} else{System.out.println("Liczba minut: " +x+" spoza przedzialu [0, 60)!");};}
+    public void setSeconds(int x) {        if(checkBoundaries(0,60, x)) {sekunda = x;} else{System.out.println("Liczba sekund: " +x+" spoza przedzialu [0, 60)!");};}
     public int getDays() {return dzien;}
 
     public int getHours() {return godzina;}
 
-    public int getMinutes() {return dzien;}
+    public int getMinutes() {return minuta;}
 
-    public int getSeconds() {return dzien;}
+    public int getSeconds() {return sekunda;}
 
     public void addDays(int d){
         dzien= d+dzien;
@@ -77,24 +78,24 @@ public class Time {
     public void addMinutes(int d){
         int temp = minuta + d;
         setMinutes(temp%MINUTES_PER_HOUR);
-        addHours(temp%MINUTES_PER_HOUR);
+        addHours(temp/MINUTES_PER_HOUR);
     }
     public void addHours(int d){
         int temp = godzina + d;
         setHours(temp%HOURS_PER_DAY);
-        addDays(temp%HOURS_PER_DAY);
+        addDays(temp/HOURS_PER_DAY);
     }
     public void addSeconds(int d){
         int temp = sekunda + d;
         setSeconds(temp%SECONDS_PER_MINUTE);
-        addMinutes(temp%SECONDS_PER_MINUTE);
+        addMinutes(temp/SECONDS_PER_MINUTE);
     }
     public static Time plusTime(Time t1, Time t2){
         Time temp = new Time(t1);
-        t1.addSeconds(t2.getSeconds());
-        t1.addMinutes(t2.getMinutes());
-        t1.addHours(t2.getHours());
-        t1.addDays(t2.getDays());
+        temp.addSeconds(t2.getSeconds());
+        temp.addMinutes(t2.getMinutes());
+        temp.addHours(t2.getHours());
+        temp.addDays(t2.getDays());
         return temp;
 
     }
@@ -108,8 +109,20 @@ public class Time {
         if(getClass() != t.getClass())
             return false;
         Time newT = (Time)t;
-        return sekunda == ((Time) t).getSeconds() && minuta == ((Time) t).getSeconds() && godzina == ((Time) t).getHours() && dzien == ((Time) t).getDays();
+        return sekunda == newT.getSeconds() && minuta == newT.getMinutes() && godzina == newT.getHours() && dzien == newT.getDays();
     }
 
-    public static Time times(Time t, int x){return new Time();}
+    public static Time times(Time t, int x){
+        Time temp = new Time(t);
+        for(int i = 0; i < x-1; i++){
+            temp = Time.plusTime(temp,t);
+        }
+        return temp;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(dzien, godzina, minuta, sekunda);
+    }
+
 }

@@ -17,6 +17,8 @@ xmax = delta * nx
 ymax = delta * ny
 TOL = 10**(-4)
 kArr = [16, 8, 4, 2,1]
+TOL = 10**(-8)
+kArr = [16, 8, 4, 2, 1]
 
 def Vb1(y):
 	return math.sin(math.pi*(y/ymax))

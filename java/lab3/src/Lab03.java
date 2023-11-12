@@ -78,7 +78,7 @@ public class Lab03 {
         System.out.println("t1.equals(null) = " + t1.equals(null)); // t1.equals(null) = false
         System.out.println("t1.equals(\"błędny obiekt\") = " + t1.equals("błędny obiekt")); // t1.equals("błędny obiekt") = false
         System.out.println("t1.equals(t2) = " + t1.equals(t2)); // t1.equals(t2) = false
-        t3 = new Time(2, 01, 51, 34);
+        t3 = new Time(2, 1, 51, 34);
         System.out.println("t1.equals(t3) = " + t1.equals(t3)); // t1.equals(t3) = true
         t3.addDays(1);
         System.out.println("t1.equals(t3) = " + t1.equals(t3)); // t1.equals(t3) = false
