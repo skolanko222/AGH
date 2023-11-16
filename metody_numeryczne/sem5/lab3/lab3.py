@@ -78,29 +78,49 @@ def zad1(x0, v0, dt0, alpha, S, p, tmax, TOL1, TOL2, RK2):
 		axs[1, 0].set_ylim([0, 1])
 		axs[1, 1].set_ylim([-8, 8])
 
+<<<<<<< HEAD
 		axs[0, 0].plot(tArr1, xArr1, 'p-', label='dt=0.01')
 		axs[0, 0].plot(tArr2, xArr2, label='dt=0.00001')
+=======
+		axs[0, 0].plot(tArr1, xArr1, 'p-', label='dt=0.02')
+		axs[0, 0].plot(tArr2, xArr2, label='dt=0.00005')
+>>>>>>> 4dc3f68 (wbudowane lab3)
 		axs[0, 0].title.set_text('x(t)')
 		axs[0, 0].set_xlabel('t')
 		axs[0, 0].set_ylabel('x(t)')
 		axs[0, 0].legend(loc='right')
 
+<<<<<<< HEAD
 		axs[0, 1].plot(tArr1, vArr1, 'p-', label='dt=0.01')
 		axs[0, 1].plot(tArr2, vArr2, label='dt=0.00001')
+=======
+		axs[0, 1].plot(tArr1, vArr1, 'p-', label='dt=0.02')
+		axs[0, 1].plot(tArr2, vArr2, label='dt=0.00005')
+>>>>>>> 4dc3f68 (wbudowane lab3)
 		axs[0, 1].title.set_text('v(t)')
 		axs[0, 1].set_xlabel('t')
 		axs[0, 1].set_ylabel('v(t)')
 		axs[0, 1].legend(loc='right')
 
+<<<<<<< HEAD
 		axs[1, 0].plot(tArr1, dtArr1, 'p-', label='dt=0.01')
 		axs[1, 0].plot(tArr2, dtArr2, label='dt=0.00001')
+=======
+		axs[1, 0].plot(tArr1, dtArr1, 'p-', label='dt=0.02')
+		axs[1, 0].plot(tArr2, dtArr2, label='dt=0.00005')
+>>>>>>> 4dc3f68 (wbudowane lab3)
 		axs[1, 0].title.set_text('dt(t)')
 		axs[1, 0].set_xlabel('t')
 		axs[1, 0].set_ylabel('dt(t)')
 		axs[1, 0].legend(loc='right')
 
+<<<<<<< HEAD
 		axs[1, 1].plot(xArr1, vArr1, 'p-', label='dt=0.01')
 		axs[1, 1].plot(xArr2, vArr2, label='dt=0.00001')
+=======
+		axs[1, 1].plot(xArr1, vArr1, 'p-', label='dt=0.02')
+		axs[1, 1].plot(xArr2, vArr2, label='dt=0.00005')
+>>>>>>> 4dc3f68 (wbudowane lab3)
 		axs[1, 1].title.set_text('v(x)')
 		axs[1, 1].set_xlabel('x')
 		axs[1, 1].set_ylabel('v')
