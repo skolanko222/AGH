@@ -29,8 +29,8 @@ public final class BigNumber {
         frac = Arrays.copyOf(y, y.length);
     }
     private BigNumber(byte[] x) {
-        integer = Arrays.copyOf(x, x.length);
-        frac = new byte[0];
+        integer = x;
+        frac = new byte[]{0};
     }
     @Override
     public String toString() {
@@ -47,9 +47,10 @@ public final class BigNumber {
         return retStr.toString();
     }
     public static BigNumber valueOf(byte[] t1, byte[] t2) {
-        if (Arrays.equals(t1, ZERO.getInteger()) && Arrays.equals(t1, ZERO.getFrac())) return ZERO;
-        if (Arrays.equals(t1, TWO.getInteger()) && Arrays.equals(t1, TWO.getFrac())) return TWO;
-        if (Arrays.equals(t1, TEN.getInteger()) && Arrays.equals(t1, TEN.getFrac())) return TEN;
+        if (Arrays.equals(t1, ONE.getInteger()) && Arrays.equals(t2, ONE.getFrac())) return ONE;
+        if (Arrays.equals(t1, ZERO.getInteger()) && Arrays.equals(t2, ZERO.getFrac())) return ZERO;
+        if (Arrays.equals(t1, TWO.getInteger()) && Arrays.equals(t2, TWO.getFrac())) return TWO;
+        if (Arrays.equals(t1, TEN.getInteger()) && Arrays.equals(t2, TEN.getFrac())) return TEN;
         return new BigNumber(t1, t2);
     }
     public byte[] getInteger() {
@@ -72,8 +73,8 @@ public final class BigNumber {
     public int hashCode() {
         if (!isHash) {
             isHash = true;
-            this.hash = Arrays.hashCode(integer);
-            return 31 * this.hash + Arrays.hashCode(frac);
+            this.hash = 31 * this.hash + Arrays.hashCode(frac);
+            return this.hash;
         }
         return hash;
     }

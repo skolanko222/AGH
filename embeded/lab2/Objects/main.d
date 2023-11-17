@@ -1,6 +1,6 @@
 ./objects/main.o: main.c \
   C:\Users\User\AppData\Local\Arm\Packs\Keil\MDK-Middleware\7.16.0\Board\Board_Buttons.h \
-  D:\Program\ Files\ARM\ARMCLANG\Bin\..\include\stdint.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
   C:\Users\User\AppData\Local\Arm\Packs\Keil\MDK-Middleware\7.16.0\Board\Board_LED.h \
   C:\Users\User\AppData\Local\Arm\Packs\Keil\MDK-Middleware\7.16.0\Board\Board_Joystick.h \
   C:\Users\User\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2.6.1\Device\Include\LPC17xx.h \
@@ -12,5 +12,5 @@
   C:\Users\User\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2.6.1\Device\Include\system_LPC17xx.h \
   C:\Users\User\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Driver\Include\Driver_USART.h \
   C:\Users\User\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Driver\Include\Driver_Common.h \
-  D:\Program\ Files\ARM\ARMCLANG\Bin\..\include\stddef.h \
-  D:\Program\ Files\ARM\ARMCLANG\Bin\..\include\stdbool.h
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stddef.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h
