@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="style_1">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/margin_top</item>
+        <item name="android:ems">10</item>
+        <item name="android:fontFamily">@font/roboto_thin</item>
+        <item name="android:inputType">textPersonName</item>
+        <item name="android:paddingTop">@dimen/padding</item>
+        <item name="android:textSize">@dimen/size</item>
+    </style>
+
+
+</resources>
