@@ -14,7 +14,7 @@ sigma_x = 0.1 * xmax
 sigma_y = 0.1 * ymax
 omega_G = [0.6, 1.0]
 omega_L = [1.0, 1.4, 1.8, 1.9]
-TOL = 1e-8
+TOL = 1e-4
 
 # Define functions - jest tak jak w poleceniu
 def calculate_S(V, rho,S=0):
@@ -30,7 +30,7 @@ def global_relaxation(V, rho, omega):
     for i in range(1, nx-1):
         for j in range(1, ny-1):
             V_new[i, j] = 0.25 * (V[i+1, j] + V[i-1, j] + V[i, j+1] + V[i, j-1] + (delta**2/epsilon) * rho[i, j])
-    for j in range (1, ny-1):
+    for j in range (0, ny-1):
         V[0, j] = V[1, j]
         V[nx, j] = V[nx-1, j]
     V = (1 - omega) * V + omega * V_new
@@ -80,7 +80,7 @@ while True:
     S_list.append(S_new)
     check = abs((S_new - S)/S)
     print(TOL, "\t>\t", check, "\t", S, "\t", it)
-    if check < TOL:
+    if it>100:
         print(f'omega_G={omega}, it={it}')
         break
     S = S_new
@@ -98,7 +98,7 @@ while True:
     S_list.append(S_new)
     check = abs((S_new - S)/S)
     print(TOL, "\t>\t", check, "\t", S, "\t", it)
-    if check < TOL:
+    if it> 100:
         print(f'omega_G={omega}, it={it}')
         break
     S = S_new
@@ -121,7 +121,7 @@ for omega in omega_L:
         S_list.append(S_new)
         check = abs((S_new - S)/S)
         print(TOL, "\t>\t", check, "\t", S, "\t", it)
-        if check < TOL:
+        if it > 100:
             print(f'omega_L={omega}, it={it}')
             break
         S = S_new
@@ -141,40 +141,40 @@ ax2.set_xscale('log')
 ax2.legend()
 plt.show()
 
-def laplacian(V):
-    # Compute Laplacian using finite differences
-    laplacian_V = np.zeros_like(V)
-    laplacian_V[1:-1, 1:-1] = (V[1:-1, :-2] + V[1:-1, 2:] + V[:-2, 1:-1] + V[2:, 1:-1] - 4*V[1:-1, 1:-1])
+# def laplacian(V):
+#     # Compute Laplacian using finite differences
+#     laplacian_V = np.zeros_like(V)
+#     laplacian_V[1:-1, 1:-1] = (V[1:-1, :-2] + V[1:-1, 2:] + V[:-2, 1:-1] + V[2:, 1:-1] - 4*V[1:-1, 1:-1])
     
-    return laplacian_V
+#     return laplacian_V
 
-# Plot solution error
-# plt.imshow(delta, cmap='coolwarm', origin='lower', extent=[0, xmax, 0, ymax])
-# plt.colorbar()
+# # Plot solution error
+# # plt.imshow(delta, cmap='coolwarm', origin='lower', extent=[0, xmax, 0, ymax])
+# # plt.colorbar()
+# # plt.xlabel('x')
+# # plt.ylabel('y')
+# # plt.title('Solution Error')
+# # plt.show()
+
+# delta06 = np.zeros((nx+1, ny+1))
+# delta10 = np.zeros((nx+1, ny+1))
+# for i in range(nx+1):
+#     for j in range(ny+1):
+#         delta06[i, j] = laplacian(V_06)[i, j] - rho_array[i, j]/epsilon
+#         delta10[i, j] = laplacian(V_10)[i, j] - rho_array[i, j]/epsilon
+
+# plt.imshow(delta06, cmap='seismic', origin='lower', extent=[0, xmax, 0, ymax])
+# plt.colorbar(label='Error')
+# plt.clim(vmin=np.min(delta06), vmax=np.max(delta06))
+# plt.title('Solution Error w=0.6')
 # plt.xlabel('x')
 # plt.ylabel('y')
-# plt.title('Solution Error')
 # plt.show()
 
-delta06 = np.zeros((nx+1, ny+1))
-delta10 = np.zeros((nx+1, ny+1))
-for i in range(nx+1):
-    for j in range(ny+1):
-        delta06[i, j] = laplacian(V_06)[i, j] - rho_array[i, j]/epsilon
-        delta10[i, j] = laplacian(V_10)[i, j] - rho_array[i, j]/epsilon
-
-plt.imshow(delta06, cmap='seismic', origin='lower', extent=[0, xmax, 0, ymax])
-plt.colorbar(label='Error')
-plt.clim(vmin=np.min(delta06), vmax=np.max(delta06))
-plt.title('Solution Error w=0.6')
-plt.xlabel('x')
-plt.ylabel('y')
-plt.show()
-
-plt.imshow(delta10, cmap='seismic', origin='lower', extent=[0, xmax, 0, ymax])
-plt.colorbar(label='Error')
-plt.clim(vmin=np.min(delta10), vmax=np.max(delta10))
-plt.xlabel('x')
-plt.ylabel('y')
-plt.title('Solution Error w=1.0')
-plt.show()
+# plt.imshow(delta10, cmap='seismic', origin='lower', extent=[0, xmax, 0, ymax])
+# plt.colorbar(label='Error')
+# plt.clim(vmin=np.min(delta10), vmax=np.max(delta10))
+# plt.xlabel('x')
+# plt.ylabel('y')
+# plt.title('Solution Error w=1.0')
+# plt.show()

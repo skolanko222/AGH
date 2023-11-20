@@ -75,3 +75,4 @@ select "data".id_w, "data".imie_w, "data".nazwisko_w, count("data".id_u) as "lic
 ) as "data"
 group by "data".id_w, "data".imie_w, "data".nazwisko_w
 order by "data".id_w;
+

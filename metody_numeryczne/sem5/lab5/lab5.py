@@ -1,24 +1,16 @@
-# Przyjmujemy wartości parametrów: ∆ = 0.2, nx = 128, ny = 128, xmax = ∆ · nx, ymax = ∆ · ny,
-# T OL = 10−8 oraz warunki brzegowe Dirichleta:
-# 2. Rozwiązać równanie Poissona z zadanymi WB metodą wielosiatkową dla k = 16, 8, 4, 2, 1. Dla
-# każdego k po spełnieniu warunku stopu sporządzić mapę potencjału (5 map). (60 pkt) Dla
-# każdego k zapisać do pliku wartości całki funkcjonalnej w funkcji numeru iteracji. Sporządzić
-# wykres zmian S(k)(it) dla wszystkich k na jednym rysunku. (40 pkt)
-
 import numpy as np
 import math
 import matplotlib.pyplot as plt
 from matplotlib import colormaps
+import time
 
 delta = 0.2
 nx = 128
 ny = 128
 xmax = delta * nx
 ymax = delta * ny
-TOL = 10**(-4)
-kArr = [16, 8, 4, 2,1]
 TOL = 10**(-8)
-kArr = [16, 8, 4, 2, 1]
+kArr = [16,8,4,2,1]
 
 def Vb1(y):
 	return math.sin(math.pi*(y/ymax))
@@ -37,9 +29,19 @@ def fill_boundary_conditions(V):
 		V[j][0] = Vb4(j*delta)
 
 def relaxate(V,k):
-	for i in range(k,nx-k,k):
-		for j in range(k,ny-k,k):
-			V[i][j] = 0.25*(V[i+k][j]+V[i-k][j]+V[i][j+k]+V[i][j-k])
+	if k == 1:
+		for i in range(k,nx-k,k):
+			for j in range(k,ny-k,k):
+				V[i][j] = 0.25*(V[i-k][j]+V[i+k][j]+V[i][j-k]+V[i][j+k])
+	else:
+		for i in range(k,nx,k):
+			for j in range(k,ny,k):
+				try:
+					V[i][j] = 0.25*(V[i-k][j]+V[i+k][j]+V[i][j-k]+V[i][j+k])
+				except IndexError:
+					V[i][j] = 0.25*(V[i-k][j]+V[i+k-1][j]+V[i][j-k]+V[i][j+k-1])
+
+
 def S(V,k):
 	sum = 0
 	divider = 1/(2*k*delta)
@@ -61,7 +63,7 @@ def S(V,k):
 def dens_mesh(V,k):
 	k2 = k//2
 	for i in range(0,nx-k,k):
-		for j in range(0,ny-k,k):
+		for j in range(k,ny-k,k):
 			V[i+k2][j+k2] = 0.25*(V[i][j]+V[i+k][j]+V[i][j+k]+V[i+k][j+k])
 			V[i+k][j+k2] = 0.5*(V[i+k][j]+V[i+k][j+k])
 			V[i+k2][j+k] = 0.5*(V[i][j+k]+V[i+k][j+k])
@@ -70,35 +72,52 @@ def dens_mesh(V,k):
 
 
 if __name__ == '__main__':
+	start_time = time.time()
 	V = np.zeros((nx, ny))
 	fill_boundary_conditions(V)
 	# np.savetxt('V1.txt', V) # krańcowe warunki brzegowe inaczej
 	it = 0
+	itArrs = {}
+	sArrs = {}
 	sPrev = 1
 	for k in kArr:
 		print("calculating... k: ", str(k))
 		sPrev = S(V,k)
+		sArr = []
+		itArr = []
 		while True:
+			itArr.append(it)
 			it += 1
 			relaxate(V,k)
 			s = S(V,k)
+			sArr.append(s)
 			temp = (s-sPrev)/sPrev
 			if abs(temp) < TOL:
 				break
 			sPrev = s
 			# print(it, " ",  temp)
 			# np.savetxt('V'+str(k)+'.txt', V)
+
 		Vtemp = np.zeros((nx//k, ny//k))
+		
 		for i in range(0,nx,k):
 			for j in range(0,ny,k):
 				Vtemp[i//k][j//k] = V[i][j]
-		# set colors of heatmap from blue to red
-		np.savetxt('V'+str(k)+'.txt', np.rot90(V))
-		plt.imshow(np.rot90(V), cmap='turbo',)
+
+		# np.savetxt('V'+str(k)+'.txt', np.rot90(Vtemp))
+		plt.imshow(np.rot90(Vtemp), cmap='jet')
 		plt.savefig('V'+str(k)+'.png')
+		sArrs[k] = sArr
+		itArrs[k] = itArr
 		if(k != 1):
 			dens_mesh(V,k)
-		it = 0
-	print("done ;)")
-	
+		
 
+	plt.clf()
+	end_time = time.time()
+	print("done ;) time: ", end_time-start_time, "s")
+	# plot all s(k) in one plot
+	for k in kArr:
+		plt.plot(itArrs[k],sArrs[k], label='k='+str(k))	
+	plt.legend()
+	plt.savefig('s(k).png')
