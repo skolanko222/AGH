@@ -55,8 +55,6 @@ class Relaxation{
 		void writeSMatrix(std::fstream &file){
 			for(int j = 0; j < Dane::ny; j++){
 				for(int i = 0; i < Dane::nx; i++){
-					// sMatrix[i][j] = Dane::dt*Dane::dt*V2[i][j]+ rho[i][j]/Dane::epsilon;
-					// file << sMatrix[i][j] << " ";
 					sMatrix[i][j] = (V2[i + 1][j] - 2.0 * V2[i][j] + V2[i - 1][j]) / (Dane::dt * Dane::dt)
                     + (V2[i][j + 1] - 2.0 * V2[i][j] + V2[i][j - 1]) / (Dane::dt * Dane::dt)
                     + rho[i][j] / Dane::epsilon;
@@ -90,7 +88,6 @@ class Relaxation{
 			for(int j = 0; j < Dane::ny-2; j++){
 				for(int i=0; i < Dane::nx-2; i++){
 					S += d*d*(std::pow((V1[i+1][j] - V1[i][j])/d, 2)/2. + std::pow((V1[i][j+1] - V1[i][j])/d, 2)/2. - rho[i][j]*V1[i][j]);
-
 				}
 			}
 			return S;
@@ -115,8 +112,6 @@ class GlobalRelaxation : public Relaxation{
 				}
 				for(int i = 0; i <= Dane::nx ; i++){
 					for(int j = 1; j < Dane::ny; j++){
-						// std::cout << i << " " << j << std::endl;
-
 						V1[i][j] = (1.0-omega)*V1[i][j] + omega*V2[i][j];
 					}
 				}
@@ -126,12 +121,10 @@ class GlobalRelaxation : public Relaxation{
 				iterVec.push_back(i);
 				sVec.push_back(sNew);
 				if(std::abs((sNew - sOld)/sOld) < Dane::TOL) break;
-				// std::cout << i << " " << sNew << std::endl;
 				i++;
 			
 
 			}
-			std::cout << " i: " << i << std::endl;
 
 		}
 };
@@ -157,10 +150,8 @@ class LocalRelaxation : public Relaxation{
 				iterVec.push_back(i);
 				sVec.push_back(sNew);
 				if(i!=0 && std::abs(sNew - sOld)/sOld < Dane::TOL) break;
-				// std::cout << i << " " << sNew << std::endl;
 				i++;
 			}
-			std::cout << " i: " << i << std::endl;
 		}
 };
 
@@ -169,18 +160,23 @@ int main(){
 	std::fstream fglobal = std::fstream("plots/globalErrorPlot.txt", std::ios::out);
 	std::fstream flocal = std::fstream("plots/localErrorPlot.txt", std::ios::out);
 
-	std::fstream fmatrix1 = std::fstream("plots/globalErrorMatrix.txt", std::ios::out);
-	std::fstream fmatrix2 = std::fstream("plots/localErrorMatrix.txt", std::ios::out);
+	std::fstream fmatrix1 = std::fstream("plots/globalErrorMatrix1.txt", std::ios::out);
+	std::fstream fmatrix2 = std::fstream("plots/globalErrorMatrix6.txt", std::ios::out);
+
+	std::fstream fglobalV1 = std::fstream("plots/globalV1.txt", std::ios::out);
+	std::fstream fglobalV6 = std::fstream("plots/globalV6.txt", std::ios::out);
 
 	GlobalRelaxation globalRelaxation1;
 	globalRelaxation1.relax(1);
 	globalRelaxation1.writeS(fglobal);
 	globalRelaxation1.writeSMatrix(fmatrix1);
+	globalRelaxation1.writeV2(fglobalV1);
 
 	GlobalRelaxation globalRelaxation2;
 	globalRelaxation2.relax(0.6);
 	globalRelaxation2.writeS(fglobal);
 	globalRelaxation1.writeSMatrix(fmatrix2);
+	globalRelaxation1.writeV2(fglobalV6);
 
 	LocalRelaxation localRelaxation1;
 	localRelaxation1.relax(1);

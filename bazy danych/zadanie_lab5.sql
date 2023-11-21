@@ -1,33 +1,26 @@
---zad1
-SELECT ko.opis, ROUND(
-( SELECT COUNT(*) FROM uczest_kurs uk WHERE uk.id_kurs=k.id_kurs)
-/ cast(( SELECT COUNT(*) FROM uczest_kurs)   as decimal(3)) *100,	1) as "stat_osob",
-				ROUND(
-( SELECT COUNT(uk.ocena) FROM uczest_kurs uk WHERE uk.id_kurs=k.id_kurs and uk.ocena >= 4)
-/ cast(( SELECT COUNT(uk.ocena) FROM uczest_kurs uk WHERE uk.id_kurs=k.id_kurs)   as decimal(3)) *100,	1) as "stat_ocena"
-	FROM kurs k 
-	JOIN kurs_opis ko ON k.id_nazwa = ko.id_nazwa;
+set search_path to kurs;
 
---zad2
-SELECT u.imie, u.nazwisko, 
-	(SELECT 'x' FROM uczest_kurs uk WHERE uk.id_uczest = u.id_uczestnik and uk.id_kurs = 1) as "k1",
-	(SELECT 'x' FROM uczest_kurs uk WHERE uk.id_uczest = u.id_uczestnik and uk.id_kurs = 2) as "k2",
-	(SELECT 'x' FROM uczest_kurs uk WHERE uk.id_uczest = u.id_uczestnik and uk.id_kurs = 3) as "k3",
-	(SELECT 'x' FROM uczest_kurs uk WHERE uk.id_uczest = u.id_uczestnik and uk.id_kurs = 4) as "k4",
-	(SELECT 'x' FROM uczest_kurs uk WHERE uk.id_uczest = u.id_uczestnik and uk.id_kurs = 5) as "k5",
-	(SELECT 'x' FROM uczest_kurs uk WHERE uk.id_uczest = u.id_uczestnik and uk.id_kurs = 6) as "k6",
-	(SELECT 'x' FROM uczest_kurs uk WHERE uk.id_uczest = u.id_uczestnik and uk.id_kurs = 7) as "k7",
-	(SELECT 'x' FROM uczest_kurs uk WHERE uk.id_uczest = u.id_uczestnik and uk.id_kurs = 8) as "k8",
-	(SELECT 'x' FROM uczest_kurs uk WHERE uk.id_uczest = u.id_uczestnik and uk.id_kurs = 9) as "k9",
-	(SELECT 'x' FROM uczest_kurs uk WHERE uk.id_uczest = u.id_uczestnik and uk.id_kurs = 10) as "k10",
-	(SELECT 'x' FROM uczest_kurs uk WHERE uk.id_uczest = u.id_uczestnik and uk.id_kurs = 11) as "k11"
-FROM uczestnik u
+--tworzymy tabele zajecia
+CREATE TABLE zajecia ( id_kurs int, id_zaj int );
+ALTER TABLE zajecia ADD PRIMARY KEY ( id_kurs, id_zaj ); 
+ALTER TABLE zajecia ADD FOREIGN KEY ( id_kurs ) REFERENCES kurs ( id_kurs ) ;
 
---zad3
-SELECT ko.opis, 
-( SELECT COUNT(uk.ocena) FROM uczest_kurs uk WHERE uk.id_kurs=k.id_kurs and uk.ocena = 3) as "ocena_3",
-( SELECT COUNT(uk.ocena) FROM uczest_kurs uk WHERE uk.id_kurs=k.id_kurs and uk.ocena = 4) as "ocena_4",
-( SELECT COUNT(uk.ocena) FROM uczest_kurs uk WHERE uk.id_kurs=k.id_kurs and uk.ocena = 5) as "ocena_5",
-( SELECT COUNT(uk.ocena) FROM uczest_kurs uk WHERE uk.id_kurs=k.id_kurs and uk.ocena = NULL) as "ocena_NULL"
-	FROM kurs k 
-	JOIN kurs_opis ko ON k.id_nazwa = ko.id_nazwa;
+--tworzymy tabele uczest_zaj
+CREATE TABLE uczest_zaj ( id_kurs int, id_zaj int, id_uczest int, obec int);
+ALTER TABLE uczest_zaj ADD PRIMARY KEY ( id_kurs, id_zaj, id_uczest );
+ALTER TABLE uczest_zaj ADD FOREIGN KEY ( id_kurs, id_zaj) REFERENCES zajecia ( id_kurs, id_zaj ) ;
+ALTER TABLE uczest_zaj ADD FOREIGN KEY ( id_uczest) REFERENCES uczestnik ( id_uczestnik ) ;
+
+--dodajemy dane
+WITH RECURSIVE add_records (id_kurs, n) AS (
+     SELECT id_kurs, 1 FROM kurs
+     UNION ALL
+     SELECT id_kurs, n+1 FROM add_records WHERE n<10 )
+INSERT INTO zajecia SELECT * FROM add_records;
+
+INSERT INTO uczest_zaj 
+SELECT id_kurs, id_zaj, u.id_uczest, CASE WHEN RANDOM() < .7 THEN 1 ELSE 0 END AS obec
+FROM zajecia z JOIN uczest_kurs u USING(id_kurs)
+ORDER BY id_kurs, id_zaj, 3 ;
+
+select * from wykl_kurs wk ;
