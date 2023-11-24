@@ -12,7 +12,7 @@ int j(int l, int nx){return l / (nx + 1);}
 int i(int l, int nx){return l - j(l, nx) * (nx + 1);}
 
 
-void metodaPoissona(double delta, double nx, double ny, double ep1, double ep2, double V1, double V2, double V3,double V4, char useRho, FILE *fp, char writeMatrix){
+void metodaPoissona(double delta, double nx, double ny, double ep1, double ep2, double V1, double V2, double V3,double V4, char useRho, FILE *fp, char writeFile){
 	int N =(nx + 1) * (ny + 1);
 	double xmax = delta * nx;
 	double ymax = delta * ny;
@@ -116,7 +116,7 @@ void metodaPoissona(double delta, double nx, double ny, double ep1, double ep2, 
 	ia[N] = nz_num;
 
 	pmgmres_ilu_cr(N, nz_num, ia, ja, a, V, b, 500, 500, 1e-8, 1e-8);
-	if(writeMatrix == 'y'){
+	if(writeFile == 'm'){
 		fprintf(fp, "# l \t i_l \t j_l \t b[l]\n");
 		for(int l = 0; l < N; l++){
 			fprintf(fp, "%d \t\t%d \t\t%d \t\t%lf\n", l, i(l, nx), j(l, nx),b[l]);
@@ -127,15 +127,28 @@ void metodaPoissona(double delta, double nx, double ny, double ep1, double ep2, 
 		}
 		
 	}
+	if(writeFile == 'V'){
+		fprintf(fp, "# l \t i_l \t j_l \t V[l]\n");
+		for(int i = 0; i < N; i++){
+			fprintf(fp, "%d ",V[i]);
+			if(i % (nx + 1) == nx)
+				fprintf(fp, "\n");
+		}
+	}
 
 }
 
 int main()
 {
+	// pkt3
 	FILE *fp;
 	fp = fopen("matrixA_vectorB.dat", "w");
-	metodaPoissona(0.1, 4, 4, 1, 1, 10, -10, 10, -10, 'n', fp, 'y');
+	metodaPoissona(0.1, 4, 4, 1, 1, 10, -10, 10, -10, 'n', fp, 'm');
 	fclose(fp);
+
+	// pkt5a
+	fp = fopen("5a", "w");
+	metodaPoissona(0.1, 50, 50, 1, 1, 10, -10, 10, -10, 'n', fp, 'V');
 
 	return 0;
 }

@@ -182,10 +182,18 @@ void poisson(int nx, int ny, double Delta, double epsilon1, double epsilon2,
 
 int main()
 {
-	poisson(4, 4, 0.1, 1, 1, 10, -10, 10, -10, false, true, "");
-	// poisson(50, 50, 0.1, 1, 1, 10, -10, 10, -10, false, false, "5a.txt");
+	// poisson(4, 4, 0.1, 1, 1, 10, -10, 10, -10, false, true, "");
+	
+	//pkt 5a
+	poisson(50, 50, 0.1, 1, 1, 10, -10, 10, -10, false, false, "5a.txt");
+	
+	//pkt 5b
 	// poisson(100, 100, 0.1, 1, 1, 10, -10, 10, -10, false, false, "5b.txt");
+	
+	//pkt 5c
 	// poisson(200, 200, 0.1, 1, 1, 10, -10, 10, -10, false, false, "5c.txt");
+	
+	//pkt 6
 	// poisson(100, 100, 0.1, 1, 1, 0, 0, 0, 0, true, false, "6a.txt");
 	// poisson(100, 100, 0.1, 1, 2, 0, 0, 0, 0, true, false, "6b.txt");
 	// poisson(100, 100, 0.1, 1, 10, 0, 0, 0, 0, true, false, "6c.txt");
