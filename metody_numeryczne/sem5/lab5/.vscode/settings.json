@@ -1,5 +1,6 @@
 {
 	"files.associations": {
+		"cmath": "cpp",
 		"array": "cpp",
 		"atomic": "cpp",
 		"hash_map": "cpp",
@@ -7,12 +8,12 @@
 		"*.tcc": "cpp",
 		"cctype": "cpp",
 		"clocale": "cpp",
-		"cmath": "cpp",
 		"cstdarg": "cpp",
 		"cstddef": "cpp",
 		"cstdint": "cpp",
 		"cstdio": "cpp",
 		"cstdlib": "cpp",
+		"ctime": "cpp",
 		"cwchar": "cpp",
 		"cwctype": "cpp",
 		"deque": "cpp",
@@ -36,6 +37,7 @@
 		"utility": "cpp",
 		"fstream": "cpp",
 		"initializer_list": "cpp",
+		"iomanip": "cpp",
 		"iosfwd": "cpp",
 		"iostream": "cpp",
 		"istream": "cpp",
@@ -45,11 +47,6 @@
 		"sstream": "cpp",
 		"stdexcept": "cpp",
 		"streambuf": "cpp",
-		"typeinfo": "cpp",
-		"ctime": "cpp",
-		"iomanip": "cpp",
-		"math.h": "c",
-		"mgmres.h": "c",
-		"stdio.h": "c"
+		"typeinfo": "cpp"
 	}
 }

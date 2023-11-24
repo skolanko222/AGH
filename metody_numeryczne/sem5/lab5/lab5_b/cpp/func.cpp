@@ -83,7 +83,6 @@ void zad(std::fstream &file){
             file << std::endl;
         }
 
-
         if(k!=1){
             for(int j=0; j<ny; j+=k) {
                 for(int i=0; i<nx; i+=k){
