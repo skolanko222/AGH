@@ -167,7 +167,7 @@ int main(){
 	std::fstream fglobalV6 = std::fstream("plots/globalV6.txt", std::ios::out);
 
 	GlobalRelaxation globalRelaxation1;
-	globalRelaxation1.relax(1);
+	globalRelaxation1.relax(1.);
 	globalRelaxation1.writeS(fglobal);
 	globalRelaxation1.writeSMatrix(fmatrix1);
 	globalRelaxation1.writeV2(fglobalV1);
@@ -179,7 +179,7 @@ int main(){
 	globalRelaxation1.writeV2(fglobalV6);
 
 	LocalRelaxation localRelaxation1;
-	localRelaxation1.relax(1);
+	localRelaxation1.relax(1.);
 	localRelaxation1.writeS(flocal);
 
 	LocalRelaxation localRelaxation2;
