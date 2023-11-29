@@ -1,6 +1,9 @@
 --cpu Cortex-M3
 ".\objects\main.o"
+".\objects\open1768_lcd.o"
+".\objects\lcd_ili9325.o"
 ".\objects\led_open1768.o"
+".\objects\buttons_open1768.o"
 ".\objects\uart_lpc17xx.o"
 ".\objects\gpdma_lpc17xx.o"
 ".\objects\gpio_lpc17xx.o"
