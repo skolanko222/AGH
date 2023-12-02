@@ -152,6 +152,11 @@ Language plpgsql ;
 
 select * from equ_solve(10,5,1);
 
+-- zapytanie zwracające listę wykładowców z którymi uczestnik ma zajęcia
+select w.imie, w.nazwisko from wykladowca w 
+	where w.id_wykladowca in (select k.id_wykladowca from kurs k 
+		where k.id_kurs in (select uk.id_kurs from uczest_kurs uk 
+			where uk.id_uczest = 1));
 
 
 

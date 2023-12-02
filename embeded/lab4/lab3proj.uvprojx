@@ -387,6 +387,26 @@
               <FileType>1</FileType>
               <FilePath>.\main.c</FilePath>
             </File>
+            <File>
+              <FileName>Open1768_LCD.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Open1768_LCD.h</FilePath>
+            </File>
+            <File>
+              <FileName>Open1768_LCD.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Open1768_LCD.c</FilePath>
+            </File>
+            <File>
+              <FileName>LCD_ILI9325.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\LCD_ILI9325.c</FilePath>
+            </File>
+            <File>
+              <FileName>LCD_ILI9325.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\LCD_ILI9325.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -407,6 +427,12 @@
 
   <RTE>
     <apis>
+      <api Capiversion="1.0.0" Cclass="Board Support" Cgroup="Buttons" exclusive="0">
+        <package name="MDK-Middleware" schemaVersion="1.4" url="http://www.keil.com/pack/" vendor="Keil" version="7.8.0"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </api>
       <api Capiversion="1.0.0" Cclass="Board Support" Cgroup="LED" exclusive="0">
         <package name="MDK-Middleware" schemaVersion="1.4" url="http://www.keil.com/pack/" vendor="Keil" version="7.8.0"/>
         <targetInfos>
@@ -423,6 +449,12 @@
     <components>
       <component Cclass="CMSIS" Cgroup="CORE" Cvendor="ARM" Cversion="5.2.0" condition="ARMv6_7_8-M Device">
         <package name="CMSIS" schemaVersion="1.3" url="http://www.keil.com/pack/" vendor="ARM" version="5.5.1"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </component>
+      <component Capiversion="1.0.0" Cbundle="Open1768" Cclass="Board Support" Cgroup="Buttons" Cvendor="Keil" Cversion="1.0.0" condition="LPC1700 CMSIS PIN GPIO">
+        <package name="LPC1700_DFP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="Keil" version="2.6.1"/>
         <targetInfos>
           <targetInfo name="Target 1"/>
         </targetInfos>
