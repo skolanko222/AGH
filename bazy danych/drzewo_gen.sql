@@ -27,7 +27,6 @@ CREATE TABLE drzewo_gen.dziecko (
                 CONSTRAINT id_dziecka PRIMARY KEY (osoba_id)
 );
 
-
 ALTER TABLE drzewo_gen.osoba ADD CONSTRAINT osoba_osoba_fk
 FOREIGN KEY (id_matki)
 REFERENCES drzewo_gen.osoba (osoba_id)
@@ -97,3 +96,14 @@ select o.imie, o.nazwisko, o.data_urodzenia, o.miejsce_urodzenia, o.data_smierci
 	join (select o2.imie, o2.osoba_id from osoba o2) t on o.id_ojca = t.osoba_id
 	where o.osoba_id = 1;
 
+-- liczba dzieci danej osoby
+select count(*) from dziecko d
+    join (select m.malzenstwo_id, m.id_malzonek1, m.id_malzonek2 from malzenstwo m) m on d.malzenstwo_id = m.malzenstwo_id
+    where m.id_malzonek1 = 7 or m.id_malzonek2 = 7;
+
+-- lista dzieci danej osoby
+select od.imie, od.nazwisko from osoba o
+    join malzenstwo m on m.id_malzonek1 = o.osoba_id  or m.id_malzonek2 = o.osoba_id
+    join dziecko d on m.malzenstwo_id = d.malzenstwo_id 
+    join osoba od on od.osoba_id  = d.osoba_id 
+    where o.osoba_id = 3;
