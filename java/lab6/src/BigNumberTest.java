@@ -43,9 +43,21 @@ public class BigNumberTest {
             // paramExcept = assertThrows(
             //    InvalidParameterException.class, ()->new BigNumber(invalidIntArr4, invalidIntArr4) );
 
-             paramExcept = assertThrows(
+            paramExcept = assertThrows(
                 InvalidParameterException.class, ()->new BigNumber(invalidIntArr5, invalidIntArr5) );
-
+            
+            // szewczyk
+            // It should be possible to create BigNumber with
+            // integer and frac of len 1.
+            // assertThrows(InvalidParameterException.class, () -> {
+            //       new BigNumber(new byte[]{1}, new byte[]{0});
+            //  });
+            // It should be possible to create BigNumber with
+            // integer starting with non-zero byte and frac
+            // starting with zero byte.
+            //        assertThrows(InvalidParameterException.class, () -> {
+            //            new BigNumber(new byte[]{1, 2, 3}, new byte[]{0, 0});
+            //        });
         }
         @Test
         public void testImmutability(){
