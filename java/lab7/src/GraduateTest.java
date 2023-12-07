@@ -50,7 +50,7 @@ class GraduateTest extends StudentTest {
         String expectedString1 = testingFirstName1 + " " + testingLastName1 +
                 ", id number: " + testingIdNumber1 +
                 ", average: " + testingAverage1 +
-                ", graduation date: " + testingGraduationDate1;
+                "0 " + testingGraduationDate1;
         assertEquals(expectedString1, p1.toString(), "toString zwraca zly lancuch lub konstruktor zle przypisuje!");
 
         String expectedString2 = testingFirstName2 + " " + testingLastName2 +

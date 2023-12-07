@@ -37,27 +37,18 @@ public class BigNumberTest {
                 InvalidParameterException.class, ()->new BigNumber(invalidIntArr2, invalidIntArr2) );
             paramExcept = assertThrows(
                     InvalidParameterException.class, ()->new BigNumber(invalidIntArr3, invalidIntArr3) );
+            paramExcept = assertThrows(
+                    InvalidParameterException.class, ()->new BigNumber(new byte[]{'a','b'}, new byte[]{'a','b'}) );
 
             // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             // brak wyrzucenia wyjątku dla przypadku gdy element tablicy jest liczbą binarną
-            // paramExcept = assertThrows(
-            //    InvalidParameterException.class, ()->new BigNumber(invalidIntArr4, invalidIntArr4) );
+//             paramExcept = assertThrows(
+//                InvalidParameterException.class, ()->new BigNumber(invalidIntArr4, invalidIntArr4) );
 
             paramExcept = assertThrows(
                 InvalidParameterException.class, ()->new BigNumber(invalidIntArr5, invalidIntArr5) );
             
-            // szewczyk
-            // It should be possible to create BigNumber with
-            // integer and frac of len 1.
-            // assertThrows(InvalidParameterException.class, () -> {
-            //       new BigNumber(new byte[]{1}, new byte[]{0});
-            //  });
-            // It should be possible to create BigNumber with
-            // integer starting with non-zero byte and frac
-            // starting with zero byte.
-            //        assertThrows(InvalidParameterException.class, () -> {
-            //            new BigNumber(new byte[]{1, 2, 3}, new byte[]{0, 0});
-            //        });
+
         }
         @Test
         public void testImmutability(){
@@ -81,7 +72,7 @@ public class BigNumberTest {
             //niezmiennosc
             Arrays.fill(returnIntArr, (byte)100);
             //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            //assertArrayEquals(bigNumber.getInteger(), shortArr);
+//            assertArrayEquals(bigNumber.getInteger(), shortArr);
         }
         @Test
         public void testGetFractal(){
@@ -100,6 +91,7 @@ public class BigNumberTest {
         public void testToString(){
             BigNumber bigNumber = new BigNumber(new byte[]{1,2,3}, new byte[]{1,2,3});
             assertEquals(bigNumber.toString(),"123.123");
+
         }
 
         @Test
