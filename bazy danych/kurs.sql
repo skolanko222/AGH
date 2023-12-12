@@ -362,3 +362,38 @@ $$
 	end;
 $$
 Language plpgsql ;
+
+
+
+	
+-- W ramach pracy należy opracować funkcję w języku PL/pgSQL realizującą następującą funkcjonalność.
+
+-- Dodawanie uczestnika do wybranego kursu.
+-- Należy opracować funkcję, która doda uczestnika do wybranego kursu. Fukcja posiada dwa argumenty: id_uczestnik i id_kurs. Funkcja zwraca wartość typu "integer". Zwracane wartości: 0 - uczestnik dodany, 1 - uczestnik jest już przypisany do kursu, 2 - brak miejsc na podanym kursie. W przypadku zwracanych wartości większych od 0 funkcja nie modyfikuje tabel w bazie KURS. Dla wartości 0 funkcja dodaje odpowieni rekord do tabeli uczest_kurs i rekordy do tabeli uczest_zaj. Do realizacji zadania należy dodać w tabeli kurs atrybut zawierający maksymalną liczbę uczestników na kursie. Przykład poniżej.
+-- ALTER TABLE kurs ADD max_uczest INT ;
+-- UPDATE kurs SET max_uczest=10;
+
+CREATE OR REPLACE FUNCTION add_user ( id_uczestnik int, id_kurs int )
+RETURNS integer AS $$
+	DECLARE
+		max_uczest int;
+		uczestnik_count int;
+		kurs_count int;
+		uczestnik_kurs_count int;
+	BEGIN
+		SELECT max_uczest INTO max_uczest FROM kurs WHERE id_kurs = add_user.id_kurs;
+		SELECT count(*) INTO uczestnik_count FROM uczestnik WHERE id_uczestnik = add_user.id_uczestnik;
+		SELECT count(*) INTO kurs_count FROM kurs WHERE id_kurs = add_user.id_kurs;
+		SELECT count(*) INTO uczestnik_kurs_count FROM uczest_kurs WHERE id_kurs = add_user.id_kurs;
+		IF uczestnik_count = 0 THEN
+			RETURN 3;
+		ELSIF kurs_count = 0 THEN
+			RETURN 4;
+		ELSIF uczestnik_kurs_count >= max_uczest THEN
+			RETURN 2;
+		ELSE
+			INSERT INTO uczest_kurs ( id_kurs, id_uczest ) VALUES ( add_user.id_kurs, add_user.id_uczestnik );
+			RETURN 0;
+		END IF;
+	END;
+$$ LANGUAGE plpgsql ;

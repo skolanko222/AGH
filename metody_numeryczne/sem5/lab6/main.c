@@ -12,7 +12,7 @@ int j(int l, int nx){return l / (nx + 1);}
 int i(int l, int nx){return l - j(l, nx) * (nx + 1);}
 
 
-void metodaPoissona(double delta, double nx, double ny, double ep1, double ep2, double V1, double V2, double V3,double V4, char useRho, FILE *fp, char writeFile){
+void metodaPoissona(double delta, int nx, int ny, double ep1, double ep2, double V1, double V2, double V3,double V4, char useRho, FILE *fp, char writeFile){
 	int N =(nx + 1) * (ny + 1);
 	double xmax = delta * nx;
 	double ymax = delta * ny;
@@ -30,7 +30,6 @@ void metodaPoissona(double delta, double nx, double ny, double ep1, double ep2, 
 		}
 	}
 	int k = -1;
-
 	for(int l = 0; l < N; l++)
 	{
 		int brzeg = 0;
@@ -128,9 +127,8 @@ void metodaPoissona(double delta, double nx, double ny, double ep1, double ep2, 
 		
 	}
 	if(writeFile == 'V'){
-		fprintf(fp, "# l \t i_l \t j_l \t V[l]\n");
-		for(int i = 0; i < N; i++){
-			fprintf(fp, "%d ",V[i]);
+		for(int i = 0; i < N-ny-1; i++){
+			fprintf(fp, "%f ",V[i]);
 			if(i % (nx + 1) == nx)
 				fprintf(fp, "\n");
 		}
@@ -142,13 +140,35 @@ int main()
 {
 	// pkt3
 	FILE *fp;
-	fp = fopen("matrixA_vectorB.dat", "w");
+	fp = fopen("plots/matrixA_vectorB.txt", "w");
 	metodaPoissona(0.1, 4, 4, 1, 1, 10, -10, 10, -10, 'n', fp, 'm');
 	fclose(fp);
 
 	// pkt5a
-	fp = fopen("5a", "w");
+	fp = fopen("plots/matrix5a.txt", "w");
 	metodaPoissona(0.1, 50, 50, 1, 1, 10, -10, 10, -10, 'n', fp, 'V');
+	fclose(fp);
+
+	fp = fopen("plots/matrix5b.txt", "w");
+	metodaPoissona(0.1, 100, 100, 1, 1, 10, -10, 10, -10, 'n', fp, 'V');
+	fclose(fp);
+
+	fp = fopen("plots/matrix5c.txt", "w");
+	metodaPoissona(0.1, 200, 200, 1, 1, 10, -10, 10, -10, 'n', fp, 'V');
+	fclose(fp);
+
+	//6a
+	fp = fopen("plots/matrix6a.txt", "w");
+	metodaPoissona(0.1, 100, 100, 1, 1, 0, 0, 0, 0, 'y', fp, 'V');
+	fclose(fp);
+	//6b
+	fp = fopen("plots/matrix6b.txt", "w");
+	metodaPoissona(0.1, 100, 100, 1, 2, 0, 0, 0, 0, 'y', fp, 'V');
+	fclose(fp);
+	//6c
+	fp = fopen("plots/matrix6c.txt", "w");
+	metodaPoissona(0.1, 100, 100, 1, 10, 0, 0, 0, 0, 'y', fp, 'V');
+	fclose(fp);
 
 	return 0;
 }
