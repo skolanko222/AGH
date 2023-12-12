@@ -42,12 +42,12 @@ class Relaxation{
 			border();
 		}
 		void relax(){
-			std::cout << "k = " << k << std::endl;
+			std::cout << "  k = " << k << std::endl;
 			int it = 0;
 			double sPrev = Dane::TOL;
         	double sNew;
 			while(true){
-				for(int j = k; j < Dane::ny; j += k){ //dodac -k
+				for(int j = k; j < Dane::ny; j += k){
 					for(int i = k; i < Dane::nx; i += k) {
 						V[i][j] = 0.25*(V[i+k][j] + V[i-k][j] + V[i][j+k] + V[i][j-k]);
 					}
@@ -72,6 +72,7 @@ class Relaxation{
 			}
 		}
 		void dense(){
+			std::cout << " densing k = " << k << std::endl;
 			if(k!=1){
             for(int j = 0; j < Dane::ny; j += k) {
                 for(int i = 0; i < Dane::nx; i += k){
