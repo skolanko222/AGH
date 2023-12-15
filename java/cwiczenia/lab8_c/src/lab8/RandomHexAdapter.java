@@ -1,3 +1,5 @@
+package lab8;
+
 import java.io.IOException;
 import java.nio.CharBuffer;
 import java.nio.ReadOnlyBufferException;

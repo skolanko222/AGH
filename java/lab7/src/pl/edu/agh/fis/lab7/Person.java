@@ -1,3 +1,5 @@
+package pl.edu.agh.fis.lab7;
+
 abstract public class Person {
     private String firstName;
     private String lastName;

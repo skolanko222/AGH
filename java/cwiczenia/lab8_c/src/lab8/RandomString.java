@@ -1,3 +1,5 @@
+package lab8;
+
 import java.util.Random;
 
 public sealed abstract class RandomString permits RandomOct, RandomHex{

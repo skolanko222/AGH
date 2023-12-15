@@ -1,3 +1,5 @@
+package pl.edu.agh.fis.lab7;
+
 import java.time.LocalDate;
 
 public class Graduate extends Student{
@@ -19,9 +21,6 @@ public class Graduate extends Student{
     }
     @Override
     public String toString(){
-        if(graduationDate.equals( LocalDate.now()))
-            return super.toString() + "0 " + graduationDate;
-        else
         return super.toString() + ", graduation date: " + graduationDate;
     }
 
