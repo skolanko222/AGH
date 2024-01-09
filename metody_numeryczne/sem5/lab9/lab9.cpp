@@ -41,8 +41,6 @@ class Solver{
 				}
 			}
 		}
-			
-
 	public:
 
 		Solver(){
@@ -51,7 +49,6 @@ class Solver{
 			c = gsl_vector_calloc(N);
 			t = gsl_vector_calloc(N);
 			perm = gsl_permutation_calloc(N);
-
 
 			for (int i = 0; i <= nx; ++i) {
 				for (int j = 0; j <= ny; ++j) {
@@ -91,7 +88,6 @@ class Solver{
 					}
 				}
 			}
-
 			for(int i = 0; i <= nx; i++){
 				for(int j = 0; j <= ny; j++){
 					int l = l_fun(i,j);
@@ -106,27 +102,42 @@ class Solver{
 					}
 				}
 			}
-		}			
-				
-			
+		}					
 		void solve(){
 			//CN algorithm
 			gsl_linalg_LU_decomp(A, perm, (&signum));
 			gsl_vector *d = gsl_vector_calloc(N);
+			gsl_vector *t_old = gsl_vector_calloc(N);
+			gsl_vector *temp = gsl_vector_calloc(N);
 
 			//d = B*t + c
 			for(int it = 0; it <= ITER_MAX; it++){
+				gsl_vector_memcpy(t_old, t);
 				gsl_blas_dgemv(CblasNoTrans, 1.0, B, t, 0.0, d); //d = B*t
 				gsl_vector_add(d, c);
 				gsl_linalg_LU_solve(A, perm, d, t);
 				if(it == 100 || it == 200 || it == 500 || it == 1000 || it == 2000){
 					std::string filename = "data/data_" + std::to_string(it) + ".dat";
 					save_vector(t, filename);
+					std::string filename2 = "data/data_lap_" + std::to_string(it) + ".dat";
+					
+					//(t - t_old)/dt
+					gsl_vector_memcpy(temp, t);
+					gsl_vector_sub(temp, t_old);
+					gsl_vector_scale(temp, 1.0/dt);
+					save_vector(temp, filename2);
 				}
-
 			}
-
-			
+			gsl_vector_free(d);
+			gsl_vector_free(t_old);
+			gsl_vector_free(temp);
+		}
+		~Solver(){
+			gsl_matrix_free(A);
+			gsl_matrix_free(B);
+			gsl_vector_free(c);
+			gsl_vector_free(t);
+			gsl_permutation_free(perm);
 		}
 };
 
