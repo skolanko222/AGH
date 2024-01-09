@@ -1,2 +1,10 @@
 **/build
 *.exe
+
+# ignore every .vscode folder
+
+**/.vscode
+
+# ignore every .idea folder
+
+**/.idea
