@@ -9,10 +9,10 @@ private:
     constexpr static const int nx = 150;
 	const int nt = 1000;
 	const double delta = 0.1;
-	const double delta_t = 0.05;
+	const double dt = 0.05;
 	const double xA = 7.5;
 	const double sigma = 0.5;
-	const double tMax = nt * delta_t;
+	const double tMax = nt * dt;
 	double b = 0.0; 
 	double alpha = 0.0; 
 
@@ -32,14 +32,14 @@ public:
     void initialize() {
         for(int i = 0; i < nx; i++) {
             double x = i * delta;
-			double temp = alpha == 1.0 ? 0.0 : exp(-(x - xA)*(x - xA) / (2 * sigma * sigma));
+			double temp = alpha == 1. ? 0. : exp(-(x - xA)*(x - xA) / (2 * sigma * sigma));
             u[i] = temp;
 			u0[i] = temp;
             v[i] = 0.0;
         }
         for(int i = 1; i < nx - 1; i++) {
             a[i] = (u[i+1] - 2*u[i] + u[i-1]) / 
-					(delta * delta) - b * (u[i] - u0[i]) / delta_t + alpha*aF(i*delta, 0);
+					(delta * delta) - b * (u[i] - u0[i]) / dt + alpha*aF(i*delta, 0);
         }
     }
 
@@ -67,7 +67,6 @@ public:
             stream << std::fixed << std::setprecision(1) << alpha;
             std::string a_str = stream.str();
             stream.str("");
-            printf("b = %f, alpha = %f\n", b, alpha);
             std::ofstream file1("data/E(t)_alpha_" + a_str + "_beta_" + b_str + ".txt");
             std::ofstream file2("data/map_alpha_" + a_str + "_beta_" + b_str + ".txt");
             initialize();
@@ -75,20 +74,20 @@ public:
 				std::cout << "Error opening file" << std::endl;
 				return;
 			}
-            for(double t = 0; t < tMax; t += delta_t) {
+            for(double t = 0; t < tMax; t += dt) {
                  for(int i = 0; i < nx; i++) {
-					vp[i] = v[i] + delta_t * a[i] / 2;
+					vp[i] = v[i] + dt * a[i] / 2;
 					}
 					for(int i = 1; i < nx - 1; i++) {
 						u0[i] = u[i];
 					}
 					for(int i = 0; i < nx ; i++) {
-						u[i] = u[i] + delta_t * vp[i];
+						u[i] = u[i] + dt * vp[i];
 					}
 					for(int i = 0; i < nx -1; i++) {
 						a[i] = (u[i+1] - 2*u[i] + u[i-1]) / (delta * delta) 
-								- b * (u[i] - u0[i]) / delta_t + alpha*aF(i*delta, t);
-						v[i] = vp[i] + delta_t * a[i] / 2;
+								- b * (u[i] - u0[i]) / dt + alpha*aF(i*delta, t);
+						v[i] = vp[i] + dt * a[i] / 2;
 					}
 					u[0] = 0;
 					u[nx-1] = 0;

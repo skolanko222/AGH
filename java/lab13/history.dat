@@ -1,0 +1,3 @@
+peopleTranslation(grammaticalNumber=2, word1=osoby, word2=ludzie, word3=lud)
+test null
+windowTranslation(grammaticalNumber=1, word1=okno, word2=witraż, word3=null)
