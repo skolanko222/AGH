@@ -1,0 +1,24 @@
+   #include <stdio.h>
+#include "test.h"
+ 
+EXEC SQL BEGIN DECLARE SECTION;
+    char dbname[1024];
+    char db[15];
+    char usr[15];
+    char pas[15];
+EXEC SQL END DECLARE SECTION;
+ 
+int
+main()
+{
+    strncpy(db,dbase,15);
+    strncpy(usr,user,15);
+    strncpy(pas,pass,15);
+    EXEC SQL CONNECT TO :db AS con1  USER :usr USING :pas;
+ 
+    EXEC SQL SELECT current_database() INTO :dbname;
+    printf("current database=%s \n", dbname);
+ 
+    EXEC SQL DISCONNECT ALL;
+    return 0;
+}
